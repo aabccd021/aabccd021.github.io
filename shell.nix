@@ -4,6 +4,7 @@ mkShell {
   buildInputs = [
     nodejs-18_x
     nodePackages.pnpm
+    nodePackages.eslint_d
   ];
 }
 
