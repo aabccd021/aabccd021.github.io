@@ -1,17 +1,13 @@
 {
   description = "my project description";
 
-  inputs.flake-utils.url = "github:numtide/flake-utils";
-
-  outputs = { self, nixpkgs, flake-utils }: flake-utils.lib.eachDefaultSystem (
-    system: with nixpkgs.legacyPackages.${system};{
-      devShells.default = mkShell {
-        buildInputs = [
-          nodejs-18_x
-          nodePackages.pnpm
-          nodePackages.eslint_d
-        ];
-      };
-    }
-  );
+  outputs = { self, nixpkgs }: with nixpkgs.legacyPackages.x86_64-linux; {
+    devShell.x86_64-linux = mkShell {
+      buildInputs = [
+        nodejs-18_x
+        nodePackages.pnpm
+        nodePackages.eslint_d
+      ];
+    };
+  };
 }
