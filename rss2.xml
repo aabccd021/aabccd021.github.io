@@ -9,7 +9,7 @@
     <atom:link href="https://aabccd021.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 30 Jan 2023 07:17:02 GMT</pubDate>
+    <pubDate>Mon, 30 Jan 2023 07:42:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -21,12 +21,12 @@
         
         
       <description>&lt;p&gt;Initial commit&lt;/p&gt;
-</description>
+&lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/s</description>
         
       
       
       
-      <content:encoded><![CDATA[<p>Initial commit</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>Initial commit</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> diff <span class="keyword">from</span> <span class="string">&#x27;diff&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; readonlyArray, <span class="built_in">string</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;fp-ts&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; pipe &#125; <span class="keyword">from</span> <span class="string">&#x27;fp-ts/function&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; match &#125; <span class="keyword">from</span> <span class="string">&#x27;ts-pattern&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">Change</span>, <span class="title class_">DiffLines</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../../type&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">removeLastChar</span> = (<span class="params">str: <span class="built_in">string</span></span>) =&gt;</span><br><span class="line">  <span class="title function_">pipe</span>(</span><br><span class="line">    str,</span><br><span class="line">    <span class="built_in">string</span>.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>),</span><br><span class="line">    readonlyArray.<span class="title function_">dropRight</span>(<span class="number">1</span>),</span><br><span class="line">    readonlyArray.<span class="title function_">intercalate</span>(<span class="built_in">string</span>.<span class="property">Monoid</span>)(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
       
