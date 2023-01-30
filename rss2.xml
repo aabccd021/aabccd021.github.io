@@ -9,7 +9,7 @@
     <atom:link href="https://aabccd021.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 30 Jan 2023 07:15:15 GMT</pubDate>
+    <pubDate>Mon, 30 Jan 2023 07:17:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -20,13 +20,13 @@
       
         
         
-          
-          
-      <description>&lt;p&gt;Initial</description>
-          
+      <description>&lt;p&gt;Initial commit&lt;/p&gt;
+</description>
         
       
       
+      
+      <content:encoded><![CDATA[<p>Initial commit</p>]]></content:encoded>
       
       
       
