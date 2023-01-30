@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"INFO","permalink":"/info"},{"title":"MDX Blog Post","permalink":"/mdx-blog-post"}]}')}}]);
