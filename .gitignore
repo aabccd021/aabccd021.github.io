@@ -1,5 +1,2 @@
 .direnv
-*.log
 node_modules
-.docusaurus
-build
