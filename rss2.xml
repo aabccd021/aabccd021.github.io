@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>aabccd021&#39;s blog</title>
+    <link>https://aabccd021.github.io/</link>
+    
+    <atom:link href="https://aabccd021.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Mon, 30 Jan 2023 07:15:15 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>initial-commit</title>
+      <link>https://aabccd021.github.io/2023/01/30/initial-commit/</link>
+      <guid>https://aabccd021.github.io/2023/01/30/initial-commit/</guid>
+      <pubDate>Mon, 30 Jan 2023 07:05:08 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;Initial</description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://aabccd021.github.io/2023/01/30/initial-commit/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
