@@ -7,19 +7,20 @@ tags:
 Initial commit
 
 
-``` ts
-import * as diff from 'diff';
-import { readonlyArray, string } from 'fp-ts';
-import { pipe } from 'fp-ts/function';
-import { match } from 'ts-pattern';
+```ts twoslash
+interface IdLabel {id: number, /* some fields */ }
+interface NameLabel {name: string, /* other fields */ }
+type NameOrId<T extends number | string> = T extends number ? IdLabel : NameLabel;
+// This comment should not be included
 
-import type { Change, DiffLines } from '../../type';
+// ---cut---
+function createLabel<T extends number | string>(idOrName: T): NameOrId<T> {
+  throw "unimplemented"
+}
 
-const removeLastChar = (str: string) =>
-  pipe(
-    str,
-    string.split(''),
-    readonlyArray.dropRight(1),
-    readonlyArray.intercalate(string.Monoid)('')
-  );
+let a = createLabel("typescript");
+//  ^
 ```
+
+github-dark
+
