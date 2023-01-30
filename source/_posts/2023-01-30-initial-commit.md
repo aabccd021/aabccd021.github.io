@@ -22,5 +22,5 @@ let a = createLabel("typescript");
 //  ^
 ```
 
-github-dark
+githu-dark
 

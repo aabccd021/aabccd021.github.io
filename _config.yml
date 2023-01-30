@@ -118,4 +118,4 @@ feed:
   template:
 
 shiki_twoslash:
-  theme: "github-dark-dimmed"
+  theme: "github-dark"
