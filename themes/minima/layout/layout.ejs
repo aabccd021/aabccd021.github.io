@@ -98,18 +98,10 @@
   <%- css('css/skeleton.css') %>
   <%- css('css/custom.css') %>
   <%- css('css/twoslash.css') %>
-  <!-- User css -->
-  <% if (theme.usercss) { %>
-  <%- css(theme.usercss) %>
-  <% } %>
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="<%- theme.favicon %>">
-
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <%- partial('partial/tcolor') %>
 
   <!-- Google Analytics (With Privacy Settings On)
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -130,7 +122,6 @@
         <div class="trans">
           <%- body %>
         </div>
-        <%- partial('partial/footer') %>
       </div>
 
     </div>

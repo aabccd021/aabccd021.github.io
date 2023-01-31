@@ -5,15 +5,6 @@ info: "A student and web developer from Indonesia 🇮🇩"
 #description
 desc: "This is Minima, an undoubtedly simple and lightweight dark/light mode theme for Hexo. I created this from scratch using Skeleton CSS boilerplate. It only uses CSS and Vanilla JS, without using unnecessary third-party 'render-blocking' libraries! 😁"
 
-# Colors use hex color without #
-# Theme color
-tcolor: 0FA0CE
-
-# Define path to user css
-#(could be also located outside of theme)
-# Relative to source/ directory
-usercss: css/user.css
-
 # social profile at the footer/bottom
 footer: true
 
