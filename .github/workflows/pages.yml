@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: chimeraant/dev@v1.3.3
-      - run: pnpm inistall
+      - run: pnpm install
       - run: pnpm build
       - uses: peaceiris/actions-gh-pages@v3
         with:
