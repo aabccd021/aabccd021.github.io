@@ -2,25 +2,26 @@ html {
   margin: 0 auto;
   max-width: 60em;
   font-family: Verdana, sans-serif;
-  padding: 0 16px ;
+  padding: 0 1rem;
   background: #f9f5d7;
   color: #4f3829;
 }
 
-li {
-  line-height: 1.75;
+li a {
+  display: inline-block;
+  padding: 1rem 0rem;
 }
 
 a {
-  color: #45707a
+  color: #45707a;
 }
 
 a:visited {
-  color: #945e80
+  color: #945e80;
 }
 
 a:active {
-  color: #c14a4a
+  color: #c14a4a;
 }
 
 
