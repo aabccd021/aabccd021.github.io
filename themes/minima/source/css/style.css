@@ -7,6 +7,10 @@ html {
   color: #4f3829;
 }
 
+th, td {
+  padding-right: 8px;
+}
+
 a {
   color: #45707a
 }

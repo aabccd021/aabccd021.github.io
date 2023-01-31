@@ -1,12 +1,27 @@
+<h2>Contacts</h2>
+<a href="https://github.com/aabccd021" target="_blank">GitHub</a>
+<a href="mailto:aabccd021@gmail.com" target="_blank">Email</a>
+
+<h2>Posts</h2>
+<table>
+<tr>
+  <th>
+    Date
+  </th>
+  <th>
+    Title
+  </th>
+</tr>
 <% site.posts.sort('date', 'desc').forEach(function(post){ %>
-<div>
-  <div>
-    <p><%- full_date(post.date, 'll') %></p>
-  </div>
-  <div>
+<tr>
+  <td>
+      <%- full_date(post.date, 'll') %>
+  </td>
+  <td>
     <a href="<%- url_for(post.path) %>" >
       <%- post.title %>
     </a>
-  </div>
-</div>
+  </td>
+</tr>
 <% }) %>
+</table>
