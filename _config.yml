@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus
+theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -118,4 +118,4 @@ feed:
   template:
 
 shiki_twoslash:
-  theme: "github-dark"
+  theme: "github-dark-dimmed"
