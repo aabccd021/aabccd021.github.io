@@ -1,21 +1,9 @@
-#title in header
-title: "Hi Folks."
+title: "aabccd021's blog"
 
-#main info
-#owner
-owner: "I am Adi Sakti Jrs"
-email: test@test.test
+email: aabccd021@gmail.com
 info: "A student and web developer from Indonesia 🇮🇩"
 #description
 desc: "This is Minima, an undoubtedly simple and lightweight dark/light mode theme for Hexo. I created this from scratch using Skeleton CSS boilerplate. It only uses CSS and Vanilla JS, without using unnecessary third-party 'render-blocking' libraries! 😁"
-
-#menu
-menu:
-  Works: /Works
-  About: /About
-
-#index/main page max show posts (in number)
-max_post: 4
 
 # Colors use hex color without #
 # Theme color
