@@ -45,4 +45,5 @@ feed:
   template:
 
 shiki_twoslash:
-  theme: github-dark-dimmed
+  themes: 
+    - ../../../../../../aab
