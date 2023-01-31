@@ -14,7 +14,6 @@ specifiers:
   hexo-renderer-stylus: ^2.1.0
   hexo-server: ^3.0.0
   hexo-shiki-twoslash: ^1.0.36
-  hexo-theme-landscape: ^0.0.3
 
 devDependencies:
   deasync: 0.1.28
@@ -30,7 +29,6 @@ devDependencies:
   hexo-renderer-stylus: 2.1.0
   hexo-server: 3.0.0
   hexo-shiki-twoslash: 1.0.36
-  hexo-theme-landscape: 0.0.3
 
 packages:
 
@@ -793,10 +791,6 @@ packages:
       typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /hexo-theme-landscape/0.0.3:
-    resolution: {integrity: sha512-b0Di+TUVs4ESrNX4ULEh9uQmADpO6kr10rIJ2OGZM8suNQNFKdxn+vJUjnLfKkCPJAfVmS7/S83KCNYe4tpoNw==}
     dev: true
 
   /hexo-util/2.7.0:
