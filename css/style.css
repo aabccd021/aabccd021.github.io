@@ -1,3 +1,9 @@
+html {
+    margin:    0 auto;
+    max-width: 70em;
+    font-family: Verdana, sans-serif;
+}
+
 /*  Start of Shiki Twoslash CSS:
 
 Code blocks structurally look like: 
