@@ -1,14 +1,14 @@
 html {
-  margin:    0 auto;
-  max-width: 850px;
+  margin: 0 auto;
+  max-width: 60em;
   font-family: Verdana, sans-serif;
   padding: 0 16px ;
   background: #f9f5d7;
   color: #4f3829;
 }
 
-th, td {
-  padding-right: 8px;
+li {
+  line-height: 1.75;
 }
 
 a {
