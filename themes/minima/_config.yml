@@ -8,11 +8,6 @@ desc: "This is Minima, an undoubtedly simple and lightweight dark/light mode the
 # social profile at the footer/bottom
 footer: true
 
-# Misc
-nanobar: /js/nanobar.min.js
-switch_light: ☀️
-switch_dark: 🌑
-
 # Picture enlargement
 picjs: /js/pic.min.js
 
