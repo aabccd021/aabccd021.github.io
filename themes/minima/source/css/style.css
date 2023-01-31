@@ -1,18 +1,44 @@
 html {
-    margin:    0 auto;
-    max-width: 70em;
-    font-family: Verdana, sans-serif;
-    /* font-size: 16px; */
+  margin:    0 auto;
+  max-width: 850px;
+  font-family: Verdana, sans-serif;
+  padding: 0 16px ;
+  background: #f9f5d7;
+  color: #4f3829;
 }
 
+a {
+  color: #45707a
+}
+
+a:visited {
+  color: #945e80
+}
+
+a:active {
+  color: #c14a4a
+}
+
+
 @media (prefers-color-scheme: dark){
-  a[href] {
-    color: #1e8ad6;
+  html {
+    background: #1d2021;
+    color: #ddc7a1;
   }
 
-  a[href]:hover {
-    color: #3ba0e6;
+  a {
+    color: #7daea3;
   }
+
+  a:visited {
+    color: #d3869b
+  }
+
+  a:active {
+    color: #ea6962
+  }
+
+
 }
 
 /*  Start of Shiki Twoslash CSS:
@@ -29,22 +55,12 @@ Code blocks structurally look like:
 */
 
 pre {
-	/* In theory shiki will overwrite these, but this is to make sure there are defaults regardless */
-	 background-color: white;
-	 color: black;
-
 	/* Give it some space to breathe */
-	 padding: 12px;
+  padding: 12px;
 
-	/* All code samples get a grey border, twoslash ones get a different color */
-	 border-left: 1px solid #999;
-	 border-bottom: 1px solid #999;
-
-	 margin-bottom: 3rem;
-
-    /* Important to allow the code to move horizontally; */
-    overflow-x: auto;
-    position: relative;
+  /* Important to allow the code to move horizontally; */
+  overflow-x: auto;
+  position: relative;
 }
  pre.shiki {
     overflow-x: auto;

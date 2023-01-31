@@ -36,7 +36,7 @@ todo.title = "Hello";
 
 #### `CommonJS`
 
-```ts twoslash {2}
+```ts twoslash
 // @filename: constants.ts
 export const valueOfPi = 3.1425;
 // ---cut---
