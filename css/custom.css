@@ -201,23 +201,6 @@ blockquote footer cite:before {
   padding: 0 0.5em;
 }
 
-/* Scroll bar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(128 128 128 / 70%);
-}
-::-webkit-scrollbar-thumb:window-inactive {
-  background: rgb(128 128 128 / 20%);
-}
-
-::-webkit-scrollbar-thumb:active {
-  background-color: rgb(128 128 128 / 100%);
-}
-
 /* Footer */
 a.footer-link:hover,
 a.footer-link:focus {
@@ -254,9 +237,6 @@ a.footer-link:focus {
 .stackoverflow {
   fill: #ca7516;
 }
-.nanobar {
-  left: 0;
-}
 
 body {
   position: absolute;
@@ -265,7 +245,6 @@ body {
   bottom: 10px;
   right: 10px;
   padding: 5px;
-  overflow-y: scroll;
   overflow-x: hidden;
   transition: all 0.3s ease-in-out;
 }

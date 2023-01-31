@@ -256,10 +256,6 @@ progress {
   vertical-align: baseline;
 }
 
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
 textarea {
   overflow: auto;
 }
