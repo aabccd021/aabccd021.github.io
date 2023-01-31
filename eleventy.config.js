@@ -5,6 +5,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+const shiki = require("eleventy-plugin-shiki-twoslash");
 
 module.exports = function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
@@ -31,6 +32,10 @@ module.exports = function(eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+  eleventyConfig.addPlugin(shiki, { 
+    themes: [`gruvbox-material-dark`], 
+    paths: { themes: `${__dirname}/` }
+  });
 
 	// Filters
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
