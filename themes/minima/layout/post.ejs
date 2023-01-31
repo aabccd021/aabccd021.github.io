@@ -1,5 +1,7 @@
+<article id="<%= page.layout %>-<%= page.slug %>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <h2><%- page.title %></h2>
   <p>
      <%- full_date(page.date, 'll') %>
   </p>
   <%- page.content%>
+</article>

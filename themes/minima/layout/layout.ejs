@@ -1,33 +1,20 @@
 <!DOCTYPE html>
-<html lang="<%= config.language %>">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
 
   <%
-  if (!config.author) {
-    config.author = ""
-  }
-
-  var title = title = config.title;
-  if (is_archive()){
-    title = 'All Posts - ' + config.author;
-  } else if (is_post()){
-    title = page.title;
-  } else if (is_page()){
-    title = page.title + ' - ' + config.author;
-  } else if (is_tag()){
-    title = 'Posts Related to ' + page.tag;
-  }
+  var title = "aabccd021's blog"
+  if (is_post()){
+    title = page.title + "aabccd021's blog";
+  } 
   %>
   <title><%= title %></title>
-
   <% if (config.sitemap) { %>
   <link rel="sitemap" href="<%-config.url + config.sitemap.path %>" />
   <% } %>
-
   <link rel="canonical" href="<%= url.replace(/index\.html$/, '').replace(/index\.html$/, '') %>">
-
   <% if (is_page()){ %>
   <meta name="description" content="<%= page.description %>">
   <% } else if (page.content){ %>
@@ -35,19 +22,13 @@
   <% } else { %>
   <meta name="description" content="<%= config.description %>">
   <% } %>
-
   <% if (config.keywords) { %>
   <meta name="keywords" content="<%= config.keywords %>">
   <% } %>
-
-  <meta name="author" content="<%- config.author %>">
-
+  <meta name="author" content="Muhamad Abdurahman">
   <meta property="og:site_name" content="<%= config.title %>" />
-
   <meta property="og:type" content="article" />
-
   <meta property="og:title" content="<%= title %>" />
-
   <% if (is_page()){ %>
   <meta property="og:description" content="<%= page.description %>">
   <% } else if (page.content){ %>
@@ -56,11 +37,8 @@
   <meta property="og:description" content="<%= config.description %>">
   <% } %>
   <meta property="og:url" content="<%= url.replace(/index\.html$/, '').replace(/index\.html$/, '') %>" />
-
   <meta name="twitter:card" content="summary_large_image">
-
   <meta name="twitter:title" content="<%= title %>">
-
   <% if (is_page()){ %>
   <meta name="twitter:description" content="<%= page.description %>">
   <% } else if (page.content){ %>
@@ -68,7 +46,6 @@
   <% } else { %>
   <meta name="twitter:description" content="<%= config.description %>">
   <% } %>
-
   <meta name="twitter:url" content="<%= url.replace(/index\.html$/, '').replace(/index\.html$/, '') %>" />
 
   <!-- Mobile Specific Metas
