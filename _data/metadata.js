@@ -6,6 +6,6 @@ module.exports = {
 	"author": {
 		"name": "Muhamad Abdurahman",
 		"email": "aabccd021@gmail.com",
-		"url": "https://aabccd021.github.io/about-me/"
+		"url": "https://aabccd021.github.io/about/"
 	}
 }
