@@ -5,6 +5,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const shiki = require("eleventy-plugin-shiki-twoslash");
+const tinyCSS = require('@sardine/eleventy-plugin-tinycss');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -13,6 +14,7 @@ module.exports = function(eleventyConfig) {
 	});
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
+  eleventyConfig.addPlugin(tinyCSS);
 	eleventyConfig.addPlugin(require("./eleventy.config.drafts.js"));
 	eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
 	eleventyConfig.addPlugin(pluginRss);

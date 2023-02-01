@@ -1,0 +1,18 @@
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--text-color);
+	padding: 1em 0;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
