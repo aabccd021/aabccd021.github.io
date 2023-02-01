@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
 	});
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+	eleventyConfig.addWatchTarget("public/css/*.css");
 
   eleventyConfig.addPlugin(tinyCSS);
   eleventyConfig.addPlugin(tinySVG, {

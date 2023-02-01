@@ -14,7 +14,8 @@ Code blocks structurally look like:
 pre {
 	/* Give it some space to breathe */
 	padding: 12px;
-	margin-bottom: 3rem;
+	margin-bottom: 1rem;
+  border: 1px solid;
 
   /* Important to allow the code to move horizontally; */
   overflow-x: auto;
@@ -48,7 +49,7 @@ pre.shiki .language-id{
 
 /* Visually differentiates twoslash code samples  */
  pre.twoslash {
-	 border-color: #719af4;
+	 border-color: #3c3836;
 }
 
 /** When you mouse over the pre, show the underlines */
