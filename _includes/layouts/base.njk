@@ -17,17 +17,12 @@
 		Choices for CSS:
 
 		1. External files (best with local dev server live reload)
-
 		<link rel="stylesheet" href="/css/index.css">
-		<link rel="stylesheet" href="/css/message-box.css">
-		<link rel="stylesheet" href="/css/prism-diff.css">
 
 		2. Inlined (fastest site performance in production)
 #}
 		<style>
 		{% include "public/css/index.css" %}
-		{% include "public/css/message-box.css" %}
-		{% include "public/css/prism-diff.css" %}
 		</style>
 {#
 		3. You could even swap between the two methods above using {% if eleventy.env.runMode === "serve" %}
