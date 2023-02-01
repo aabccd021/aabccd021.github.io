@@ -1,5 +1,4 @@
 ---
-type: page
 meta:
   language: en-US
 eleventyComputed:
@@ -10,6 +9,9 @@ eleventyComputed:
       url: "{{ metadata.url }}"
     title: "{{ title or metadata.title }}"
     description: "{{ description or metadata.description }}"
+    url: "{{metadata.url}}{{ page.url }}"
+    author:
+      name: "{{ author or metadata.author.name }}"
     image:
       src: https://example.com/images/page.png
 ---
@@ -19,10 +21,10 @@ eleventyComputed:
     {% jsonLdScript meta, type, tags %}
     {% metagen
       title=meta.title,
-      desc=meta.desc,
-      name=author or metadata.author.name,
+      desc=meta.description,
+      name=meta.author.name,
       generator="eleventy",
-      url=meta.site.url,
+      url=meta.url,
       type=type,
       img=image,
       img_alt=alt,
