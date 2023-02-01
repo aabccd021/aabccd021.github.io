@@ -9,6 +9,7 @@ const tinyCSS = require('@sardine/eleventy-plugin-tinycss');
 const tinySVG = require('@sardine/eleventy-plugin-tinysvg');
 const tinyHTML = require('@sardine/eleventy-plugin-tinyhtml');
 const metagen = require('eleventy-plugin-metagen');
+const toc = require('eleventy-plugin-toc');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -33,6 +34,7 @@ module.exports = function(eleventyConfig) {
     paths: { themes: `${__dirname}/` }
   });
   eleventyConfig.addPlugin(metagen);
+  eleventyConfig.addPlugin(toc);
 
 
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {

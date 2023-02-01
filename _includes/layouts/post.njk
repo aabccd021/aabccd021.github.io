@@ -12,6 +12,13 @@ type: article
 	{%- endfor %}
 </ul>
 
+{% if showToc and content | toc %}
+  <aside>
+    {{ content | toc | safe }}
+  </aside>
+{% endif %}
+
+
 {{ content | safe }}
 
 {%- if collections.posts %}
