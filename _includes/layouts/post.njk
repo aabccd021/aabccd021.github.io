@@ -1,6 +1,10 @@
 ---
 layout: layouts/base.njk
-type: article
+type: post
+eleventyComputed:
+  meta:
+    published: "{{ date | iso8601 }}"
+    modified: "{% if updateDate %}{{ updateDate | iso8601 }}{% endif %}"
 ---
 <h1>{{ title }}</h1>
 

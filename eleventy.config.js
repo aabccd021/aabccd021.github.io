@@ -10,7 +10,6 @@ const tinySVG = require('@sardine/eleventy-plugin-tinysvg');
 const tinyHTML = require('@sardine/eleventy-plugin-tinyhtml');
 const metagen = require('eleventy-plugin-metagen');
 const toc = require('eleventy-plugin-toc');
-const schema = require('@quasibit/eleventy-plugin-schema');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -36,8 +35,10 @@ module.exports = function(eleventyConfig) {
   });
   eleventyConfig.addPlugin(metagen);
   eleventyConfig.addPlugin(toc);
-  eleventyConfig.addPlugin(schema);
 
+  eleventyConfig.addFilter('iso8601', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toISO()
+  })
 
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
 		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens

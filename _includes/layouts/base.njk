@@ -11,14 +11,14 @@ eleventyComputed:
     description: "{{ description or metadata.description }}"
     url: "{{metadata.url}}{{ page.url }}"
     author:
-      name: "{{ author or metadata.author.name }}"
+      name: "{{ author.name or metadata.author.name }}"
+      url: "{{ author.url or metadata.author.url }}"
     image:
       src: https://example.com/images/page.png
 ---
 <!doctype html>
 <html lang="{{ metadata.language }}">
 	<head>
-    {% jsonLdScript meta, type, tags %}
     {% metagen
       title=meta.title,
       desc=meta.description,
@@ -31,6 +31,44 @@ eleventyComputed:
       twitter_card_type=type,
       twitter_handle=twitter
     %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "{{ meta.site.url }}#website",
+          "url": "{{ meta.site.url }}",
+          "name": "{{ meta.site.title }}",
+          "description": "{{ meta.site.description }}",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ meta.url }}"
+          },
+          "url": "{{ meta.url }}",
+          "isPartOf": {
+            "@id": "{{ meta.site.url }}#website"
+          },
+          "headline": "{{ meta.title }}",
+          "description": "{{ meta.description }}",
+          "inLanguage": "{{ meta.language }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ meta.author.name }}",
+            "url": "{{ meta.author.url }}"
+          },
+          "keywords": "{{ tags }}",{% if meta.modified %}
+          "dateModified": "{{ meta.modified }}",
+          {% endif %}
+          "datePublished": "{{ meta.published }}"
+        }
+      ]
+    }
+    </script>
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
 		<link rel="stylesheet" href="/css/index.css">
