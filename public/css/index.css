@@ -8,7 +8,7 @@
 :root {
 	--color-gray-20: #e0e0e0;
 	--color-gray-50: #C0C0C0;
-	--color-gray-90: #333;
+	--color-gray-90: #a89984;
 
 	--background-color: #fff;
 
@@ -16,29 +16,21 @@
 	--text-color-link: #082840;
 	--text-color-link-active: #5f2b48;
 	--text-color-link-visited: #17050F;
-
-	--syntax-tab-size: 2;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
-		--color-gray-90: #dad8d8;
+		--color-gray-20: #7c6f64;
+		--color-gray-50: #928374;
+		--color-gray-90: #a89984;
 
 		/* --text-color is assigned to --color-gray-_ above */
-		--text-color-link: #1493fb;
-		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;
+		--text-color-link: #7daea3;
+		--text-color-link-active: #ea6962;
+		--text-color-link-visited: #d3869b;
 
-		--background-color: #15202b;
+		--background-color: #202020;
 	}
-}
-
-
-/* Global stylesheet */
-* {
-	box-sizing: border-box;
 }
 
 html,
@@ -119,7 +111,6 @@ table th {
 	padding-right: 1em;
 }
 
-pre,
 code {
 	font-family: var(--font-family-monospace);
 }
@@ -283,22 +274,13 @@ Code blocks structurally look like:
 */
 
 pre {
-	/* In theory shiki will overwrite these, but this is to make sure there are defaults regardless */
-	 background-color: white;
-	 color: black;
-
 	/* Give it some space to breathe */
-	 padding: 12px;
+	padding: 12px;
+	margin-bottom: 3rem;
 
-	/* All code samples get a grey border, twoslash ones get a different color */
-	 border-left: 1px solid #999;
-	 border-bottom: 1px solid #999;
-
-	 margin-bottom: 3rem;
-
-    /* Important to allow the code to move horizontally; */
-    overflow-x: auto;
-    position: relative;
+  /* Important to allow the code to move horizontally; */
+  overflow-x: auto;
+  position: relative;
 }
  pre.shiki {
     overflow-x: auto;
