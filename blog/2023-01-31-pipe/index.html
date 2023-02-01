@@ -16,9 +16,6 @@
 
 /* Theme colors */
 :root {
-	--color-gray-20: #a89984;
-	--color-gray-90: #7c6f64;
-
 	--text-color: #4f3829;
 	--text-color-link: #45707a;
 	--text-color-link-active: #c14a4a;
@@ -29,9 +26,6 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-gray-20: #7c6f64;
-		--color-gray-90: #a89984;
-
     --text-color: #ddc7a1;
 		--text-color-link: #7daea3;
 		--text-color-link-active: #ea6962;
@@ -91,7 +85,7 @@ main :first-child {
 }
 
 header {
-	border-bottom: 1px dashed var(--color-gray-20);
+	border-bottom: 1px dashed var(--text-color);
 }
 header:after {
 	content: "";
@@ -101,7 +95,7 @@ header:after {
 
 .links-nextprev {
 	list-style: none;
-	border-top: 1px dashed var(--color-gray-20);
+	border-top: 1px dashed var(--text-color);
 	padding: 1em 0;
 }
 
@@ -179,7 +173,7 @@ header {
 .postlist-date,
 .postlist-item:before {
 	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
+	color: var(--text-color);
 }
 .postlist-date {
 	word-spacing: -0.5px;
