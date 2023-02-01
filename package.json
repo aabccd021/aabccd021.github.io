@@ -15,6 +15,7 @@
 		"@sardine/eleventy-plugin-tinycss": "^2.0.0",
 		"@sardine/eleventy-plugin-tinyhtml": "^0.2.0",
 		"@sardine/eleventy-plugin-tinysvg": "^1.2.0",
+		"eleventy-plugin-metagen": "^1.7.11",
 		"eleventy-plugin-shiki-twoslash": "^1.1.0",
 		"luxon": "^3.2.1",
 		"markdown-it-anchor": "^8.6.6"

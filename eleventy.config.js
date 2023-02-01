@@ -8,6 +8,7 @@ const shiki = require("eleventy-plugin-shiki-twoslash");
 const tinyCSS = require('@sardine/eleventy-plugin-tinycss');
 const tinySVG = require('@sardine/eleventy-plugin-tinysvg');
 const tinyHTML = require('@sardine/eleventy-plugin-tinyhtml');
+const metagen = require('eleventy-plugin-metagen');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -31,6 +32,8 @@ module.exports = function(eleventyConfig) {
     themes: [`gruvbox-material-dark`], 
     paths: { themes: `${__dirname}/` }
   });
+  eleventyConfig.addPlugin(metagen);
+
 
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
 		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
