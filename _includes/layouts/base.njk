@@ -1,12 +1,28 @@
+---
+type: page
+meta:
+  language: en-US
+eleventyComputed:
+  meta:
+    site:
+      name: "{{ metadata.title }}"
+      description: "{{ metadata.description }}"
+      url: "{{ metadata.url }}"
+    title: "{{ title or metadata.title }}"
+    description: "{{ description or metadata.description }}"
+    image:
+      src: https://example.com/images/page.png
+---
 <!doctype html>
 <html lang="{{ metadata.language }}">
 	<head>
+    {% jsonLdScript meta, type, tags %}
     {% metagen
-      title=title or metadata.title,
-      desc=description or metadata.description,
+      title=meta.title,
+      desc=meta.desc,
       name=author or metadata.author.name,
       generator="eleventy",
-      url=metadata.url + page.url,
+      url=meta.site.url,
       type=type,
       img=image,
       img_alt=alt,

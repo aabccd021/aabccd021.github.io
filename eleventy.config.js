@@ -10,6 +10,7 @@ const tinySVG = require('@sardine/eleventy-plugin-tinysvg');
 const tinyHTML = require('@sardine/eleventy-plugin-tinyhtml');
 const metagen = require('eleventy-plugin-metagen');
 const toc = require('eleventy-plugin-toc');
+const schema = require('@quasibit/eleventy-plugin-schema');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -23,7 +24,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(tinySVG, {
     baseUrl: '_site/svg/'
   });
-  eleventyConfig.addPlugin(tinyHTML);
+  // eleventyConfig.addPlugin(tinyHTML);
 	eleventyConfig.addPlugin(require("./eleventy.config.drafts.js"));
 	eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
 	eleventyConfig.addPlugin(pluginRss);
@@ -35,6 +36,7 @@ module.exports = function(eleventyConfig) {
   });
   eleventyConfig.addPlugin(metagen);
   eleventyConfig.addPlugin(toc);
+  eleventyConfig.addPlugin(schema);
 
 
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
