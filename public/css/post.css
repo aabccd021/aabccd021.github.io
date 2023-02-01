@@ -1,6 +1,6 @@
 .links-nextprev {
 	list-style: none;
-	border-top: 1px dashed var(--text-color);
+	border-top: 1px dashed;
 	padding: 1em 0;
 }
 
