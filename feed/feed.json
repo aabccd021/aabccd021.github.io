@@ -11,6 +11,14 @@
 	},
 	"items": [
 		{
+			"id": "https://aabccd021.github.io/blog/googleb83cddfa578bfcdd/",
+			"url": "https://aabccd021.github.io/blog/googleb83cddfa578bfcdd/",
+			"title": "",
+			"content_html": "google-site-verification: googleb83cddfa578bfcdd.html",
+			"date_published": "2023-02-01T13:51:18Z"
+		}
+		,
+		{
 			"id": "https://aabccd021.github.io/blog/2023-01-31-pipe/",
 			"url": "https://aabccd021.github.io/blog/2023-01-31-pipe/",
 			"title": "Composing functions using fp-ts pipe",
