@@ -7,6 +7,8 @@
 		<meta name="description" content="Blog of aabccd021 (Muhamad Abdurahman)">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="aabccd021 blog">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="aabccd021 blog">
+		<meta name="generator" content="Eleventy v2.0.0">
+		<link rel="stylesheet" href="/css/index.css">
 		<style>
 		/* Defaults */
 :root {
@@ -42,17 +44,6 @@ html {
 	font-family: var(--font-family);
 	background-color: var(--background-color);
 	color: var(--text-color);
-}
-
-/* https://www.a11yproject.com/posts/how-to-hide-content/ */
-.visually-hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
 }
 
 p:last-child {
@@ -542,15 +533,11 @@ pre .logger.log-log svg {
 }
 
 		</style>
-
 	</head>
 	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
-
 		<header>
 			<a href="/" class="home-link">aabccd021 blog</a>
 			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
 				<ul class="nav">
 					<li class="nav-item"><a href="/">Home</a></li>
 					<li class="nav-item"><a href="/blog/">Archive</a></li>
@@ -558,8 +545,7 @@ pre .logger.log-log svg {
 				</ul>
 			</nav>
 		</header>
-
-		<main id="skip">
+		<main>
 			<!-- Delete this message -->
 <div class="message-box">
 	<ol>
@@ -588,9 +574,5 @@ pre .logger.log-log svg {
 
 
 		</main>
-
-		<footer></footer>
-
-		<!-- Current page: /tags/second-tag/ -->
 	</body>
 </html>
