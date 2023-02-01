@@ -5,7 +5,6 @@ specifiers:
   '@11ty/eleventy-img': ^3.0.0
   '@11ty/eleventy-navigation': ^0.3.5
   '@11ty/eleventy-plugin-rss': ^1.2.0
-  '@sardine/eleventy-plugin-external-links': ^1.4.0
   eleventy-plugin-shiki-twoslash: ^1.1.0
   luxon: ^3.2.1
   markdown-it-anchor: ^8.6.6
@@ -15,7 +14,6 @@ devDependencies:
   '@11ty/eleventy-img': 3.0.0
   '@11ty/eleventy-navigation': 0.3.5
   '@11ty/eleventy-plugin-rss': 1.2.0
-  '@sardine/eleventy-plugin-external-links': 1.4.0
   eleventy-plugin-shiki-twoslash: 1.1.0
   luxon: 3.2.1
   markdown-it-anchor: 8.6.6
@@ -200,13 +198,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
-    dev: true
-
-  /@sardine/eleventy-plugin-external-links/1.4.0:
-    resolution: {integrity: sha512-K9WDFQwLMSBo6bjqNmH3kZSdXKTAb0MYHK3Tmm8IChsprF1XHl574U4pxgouTwJNjzlxqPKI/JYbY2okg0tiaQ==}
-    engines: {node: '>= 12'}
-    dependencies:
-      linkedom: 0.13.7
     dev: true
 
   /@sindresorhus/slugify/1.1.2:
@@ -400,10 +391,6 @@ packages:
       readable-stream: 3.6.0
     dev: true
 
-  /boolbase/1.0.0:
-    resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
-    dev: true
-
   /brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
     dependencies:
@@ -520,25 +507,6 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
-    dev: true
-
-  /css-select/4.3.0:
-    resolution: {integrity: sha512-wPpOYtnsVontu2mODhA19JrqWxNsfdatRKd64kmpRbQgh1KtItko5sTnEpPdpSaJszTOhEMlF/RPz28qj4HqhQ==}
-    dependencies:
-      boolbase: 1.0.0
-      css-what: 6.1.0
-      domhandler: 4.3.1
-      domutils: 2.8.0
-      nth-check: 2.1.1
-    dev: true
-
-  /css-what/6.1.0:
-    resolution: {integrity: sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==}
-    engines: {node: '>= 6'}
-    dev: true
-
-  /cssom/0.5.0:
-    resolution: {integrity: sha512-iKuQcq+NdHqlAcwUY0o/HL69XQrUaQdMjmStJ8JFmUaiiQErlhrmuigkg/CU4E2J0IyUKUrMAgl36TvN67MqTw==}
     dev: true
 
   /deasync/0.1.28:
@@ -893,10 +861,6 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /html-escaper/3.0.3:
-    resolution: {integrity: sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ==}
-    dev: true
-
   /htmlparser2/7.2.0:
     resolution: {integrity: sha512-H7MImA4MS6cw7nbyURtLPO1Tms7C5H602LRETv95z1MxO/7CP7rDVROehUYeYBUYEON94NXXDEPmZuq+hX4sog==}
     dependencies:
@@ -1071,16 +1035,6 @@ packages:
   /kleur/4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
-    dev: true
-
-  /linkedom/0.13.7:
-    resolution: {integrity: sha512-We9cyPHV/exsrC43KXtItjqSTxwrK9pLpOnG6TLzqXrmqwe/wqd3Gi6eAAU4YCqfTgy79R8g75hY2fS7723XUg==}
-    dependencies:
-      css-select: 4.3.0
-      cssom: 0.5.0
-      html-escaper: 3.0.3
-      htmlparser2: 7.2.0
-      uhyphen: 0.1.0
     dev: true
 
   /linkify-it/4.0.1:
@@ -1293,12 +1247,6 @@ packages:
   /normalize-path/3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
-    dev: true
-
-  /nth-check/2.1.1:
-    resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
-    dependencies:
-      boolbase: 1.0.0
     dev: true
 
   /nunjucks/3.2.3_chokidar@3.5.3:
@@ -1881,10 +1829,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /uhyphen/0.1.0:
-    resolution: {integrity: sha512-o0QVGuFg24FK765Qdd5kk0zU/U4dEsCtN/GSiwNI9i8xsSVtjIAOdTaVhLwZ1nrbWxFVMxNDDl+9fednsOMsBw==}
-    dev: true
 
   /unist-util-is/4.1.0:
     resolution: {integrity: sha512-ZOQSsnce92GrxSqlnEEseX0gi7GH9zTJZ0p9dtu87WRb/37mMPO2Ilx1s/t9vBHrFhbgweUwb+t7cIn5dxPhZg==}
