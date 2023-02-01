@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
+			<p class="home-link">{{ metadata.title }}</p>
 			<nav>
 				{%- for entry in collections.all | eleventyNavigation %}
         <a class="nav-item" href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
