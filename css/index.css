@@ -64,7 +64,7 @@ main :first-child {
 }
 
 header {
-	border-bottom: 1px dashed var(--text-color);
+	border-bottom: 1px dashed;
 }
 header:after {
 	content: "";
