@@ -298,3 +298,7 @@ pre .logger.log-log svg {
 	margin-left: 6px;
 	margin-right: 9px;
 }
+
+pre .popover {
+ color: black;
+}
