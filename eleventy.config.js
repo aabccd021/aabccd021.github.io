@@ -6,6 +6,8 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const shiki = require("eleventy-plugin-shiki-twoslash");
 const tinyCSS = require('@sardine/eleventy-plugin-tinycss');
+const tinySVG = require('@sardine/eleventy-plugin-tinysvg');
+const tinyHTML = require('@sardine/eleventy-plugin-tinyhtml');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -15,6 +17,10 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
   eleventyConfig.addPlugin(tinyCSS);
+  eleventyConfig.addPlugin(tinySVG, {
+    baseUrl: '_site/svg/'
+  });
+  eleventyConfig.addPlugin(tinyHTML);
 	eleventyConfig.addPlugin(require("./eleventy.config.drafts.js"));
 	eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
 	eleventyConfig.addPlugin(pluginRss);
