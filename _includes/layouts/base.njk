@@ -42,7 +42,7 @@ eleventyComputed:
           "name": "{{ meta.site.title }}",
           "description": "{{ meta.site.description }}",
           "inLanguage": "en-US"
-        },
+        }{% if type == 'post' %},
         {
           "@type": "BlogPosting",
           "mainEntityOfPage": {
@@ -65,7 +65,7 @@ eleventyComputed:
           "dateModified": "{{ meta.modified }}",
           {% endif %}
           "datePublished": "{{ meta.published }}"
-        }
+        }{% endif %}
       ]
     }
     </script>
