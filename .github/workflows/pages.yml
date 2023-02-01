@@ -13,6 +13,7 @@ jobs:
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm install
       - run: pnpm build
+      - run: pnpm start-and-lh
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
