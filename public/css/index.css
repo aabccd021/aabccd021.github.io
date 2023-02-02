@@ -133,12 +133,17 @@ nav {
 	align-self: center;
 }
 
-/* aside { */
-/*     width: 40%; */
-/*     padding-left: 0.5rem; */
-/*     margin-left: 0.5rem; */
-/*     float: right; */
-/*     box-shadow: inset 5px 0 5px -5px #29627e; */
-/*     font-style: italic; */
-/*     color: #29627e; */
-/* } */
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}

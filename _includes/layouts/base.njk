@@ -91,6 +91,7 @@ eleventyComputed:
 		<link rel="stylesheet" href="/css/postlist.css">
 	</head>
 	<body>
+    <a href="#main" class="skip">Skip to main content</a>
 		<header>
       <div class="title">
       <svg width="3rem" height="3rem" width="20em" height="20em" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 33 33" shape-rendering="crispEdges">
@@ -119,7 +120,7 @@ eleventyComputed:
         <a class="nav-item" rel="alternate" href="/feed/feed.xml" type="application/atom+xml">RSS</a>
 			</nav>
 		</header>
-		<main>
+		<main id="main">
 			{{ content | safe }}
 		</main>
 	</body>
