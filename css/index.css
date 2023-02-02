@@ -26,7 +26,7 @@
 }
 
 html {
-  padding: 0 1rem;
+  padding: 0;
 	margin: 0 auto;
 	max-width: 40em;
 	font-family: var(--font-family);
@@ -34,9 +34,6 @@ html {
 	color: var(--text-color);
 }
 
-p:last-child {
-	margin-bottom: 0;
-}
 p {
 	line-height: 1.5;
 }
@@ -66,11 +63,6 @@ main :first-child {
 header {
 	border-bottom: 1px dashed;
 }
-header:after {
-	content: "";
-	display: table;
-	clear: both;
-}
 
 table {
 	margin: 1em 0;
@@ -90,29 +82,36 @@ code {
 /* Header */
 header {
 	display: flex;
-	gap: 1em .5em;
+	gap: 0 5em;
 	flex-wrap: wrap;
 	align-items: center;
-	padding: 1em 0;
+  margin: 0;
+	padding: 0.5em 0.5em;
+  justify-content: center;
 }
-.home-link {
+
+.title {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
 	line-height: 1.0;
 	font-size: 1.2em;
 	font-weight: 700;
   margin: 0;
-	margin-right: 2em;
+  padding: 0;
+	align-items: center;
 }
 
 /* Nav */
-.nav {
+nav {
+	gap: 1em 1em;
 	display: flex;
-	padding: 0;
 	margin: 0;
-	list-style: none;
+	padding: 1em 0;
 }
+
 .nav-item {
 	display: inline-block;
-	margin-right: 1em;
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration: none;
