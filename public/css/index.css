@@ -45,6 +45,9 @@ li {
 
 a[href] {
 	color: var(--text-color-link);
+  text-underline-offset: 0.3em;
+  margin-bottom: 0.3em;
+  text-decoration-color: #7c6f64;
 }
 a[href]:visited {
 	color: var(--text-color-link-visited);
