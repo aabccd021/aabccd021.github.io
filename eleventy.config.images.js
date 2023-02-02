@@ -31,4 +31,25 @@ module.exports = eleventyConfig => {
 		};
 		return eleventyImage.generateHTML(metadata, imageAttributes);
 	});
+
+	// Eleventy Image shortcode
+	// https://www.11ty.dev/docs/plugins/image/
+	eleventyConfig.addAsyncShortcode("imageStat", async function imageShortcode(src, alt, widths, sizes) {
+    if (src === '') {
+      return '';
+    }
+		// Full list of formats here: https://www.11ty.dev/docs/plugins/image/#output-formats
+		// Warning: Avif can be resource-intensive so take care!
+		let formats = ["avif", "webp", "auto"];
+    console.log('kobeni');
+    console.log(src);
+    console.log(this);
+		let file = relativeToInputPath(this.page.inputPath, src);
+		const metadata = await eleventyImage(file, {
+			widths: widths || ["auto"],
+			formats,
+			outputDir: path.join(eleventyConfig.dir.output, "img"), // Advanced usage note: `eleventyConfig.dir` works here because we’re using addPlugin.
+		});
+    return metadata.webp[0].url
+	});
 };
