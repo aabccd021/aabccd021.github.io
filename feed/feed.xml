@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
 	<title>aabccd021 blog</title>
-	<subtitle>Blog of aabccd021 (Muhamad Abdurahman)</subtitle>
+	<subtitle>Blog of aabccd021 (Muhamad Abdurahman). Mostly about software engineering</subtitle>
 	<link href="https://aabccd021.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://aabccd021.github.io/"/>
 	<updated>2023-01-31T19:19:02Z</updated>
