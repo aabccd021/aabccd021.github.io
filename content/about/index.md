@@ -46,5 +46,3 @@ jsonLd:
 - [Email](mailto:aabccd021@gmail.com)
 - [GitHub](https://github.com/aabccd021)
 - [LinkedIn](https://linked.in/in/aabccd021)
-
-
