@@ -44,8 +44,7 @@ li {
 }
 
 li a {
-	line-height: 3;
-	padding: 1em 0;
+	line-height: 2;
 }
 
 a[href] {

@@ -36,6 +36,8 @@
 	text-underline-position: from-font;
 	text-underline-offset: 0;
 	text-decoration-thickness: 1px;
+	line-height: 1.5;
+	padding: 0;
 }
 .postlist-item-active .postlist-link {
 	font-weight: bold;
