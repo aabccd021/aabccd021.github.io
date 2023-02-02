@@ -17,7 +17,7 @@ eleventyComputed:
       name: "{{ author.name or metadata.author.name }}"
       url: "{{ author.url or metadata.author.url }}"
     image:
-      src: "{{ metadata.url }}{{ image.src or  '/svg/logo.svg' }}"
+      src: "{{ metadata.url }}{{ image.src or  '/img/logo.png' }}"
       alt: "{{ image.alt or metadata.image.alt }}"
 ---
 <!doctype html>
