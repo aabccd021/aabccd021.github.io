@@ -10,6 +10,7 @@ const tinySVG = require('@sardine/eleventy-plugin-tinysvg');
 const tinyHTML = require('@sardine/eleventy-plugin-tinyhtml');
 const metagen = require('eleventy-plugin-metagen');
 const toc = require('eleventy-plugin-toc');
+const favicon = require('eleventy-favicon');
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -19,11 +20,12 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 	eleventyConfig.addWatchTarget("public/css/*.css");
 
+  eleventyConfig.addPlugin(favicon);
   eleventyConfig.addPlugin(tinyCSS);
   eleventyConfig.addPlugin(tinySVG, {
     baseUrl: '_site/svg/'
   });
-  // eleventyConfig.addPlugin(tinyHTML);
+  eleventyConfig.addPlugin(tinyHTML);
 	eleventyConfig.addPlugin(require("./eleventy.config.drafts.js"));
 	eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
 	eleventyConfig.addPlugin(pluginRss);
