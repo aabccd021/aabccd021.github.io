@@ -38,7 +38,7 @@ eleventyComputed:
       twitter_handle=twitter
     %}
     <script type="application/ld+json">
-    {
+    {% if jsonLd %}{{ jsonLd | stringify | safe }}{% else %}{
       "@context": "https://schema.org",
       "@graph": [
         {
@@ -78,7 +78,7 @@ eleventyComputed:
             "{{ meta.image.src }}"
           ],
           {% endif %}
-        }{% endif %}
+        }{% endif %}{% endif %}
       ]
     }
     </script>

@@ -38,6 +38,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(metagen);
   eleventyConfig.addPlugin(toc);
 
+  eleventyConfig.addFilter('stringify', (obj) => {
+    return JSON.stringify(obj, undefined, 2);
+  })
+
   eleventyConfig.addFilter('iso8601', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toISO()
   })

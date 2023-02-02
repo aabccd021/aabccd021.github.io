@@ -3,6 +3,21 @@ layout: layouts/base.njk
 eleventyNavigation:
   key: About Me
   order: 3
+jsonLd: 
+  "@context": "http://www.schema.org"
+  "@type": "person"
+  "name": "Muhamad Abdurahman"
+  "jobTitle": "Software Engineer"
+  "gender": "male"
+  "url": "https://aabccd021.github.io/about/"
+  "sameAs": 
+    - "https://github.com/aabccd021"
+    - "https://linked.in/in/aabccd021"
+  "address": 
+    "@type": "PostalAddress"
+    "addressCountry": "Indonesia"
+  "email": "aabccd021@gmail.com"
+  "nationality": "Indonesian"
 ---
 # About Me
 
