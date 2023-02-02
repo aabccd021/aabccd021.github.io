@@ -38,4 +38,13 @@ jsonLd:
 <path stroke="#333e34" d="M11 21h2M20 21h2" />
 </svg>
 
-I am a person that writes stuff.
+- Name: Muhamad Abdurahman
+- Job: Software Engineer
+
+# Contacts
+
+- [Email](mailto:aabccd021@gmail.com)
+- [GitHub](https://github.com/aabccd021)
+- [LinkedIn](https://linked.in/in/aabccd021)
+
+
