@@ -8,7 +8,7 @@ eleventyComputed:
       description: "{{ metadata.description }}"
       url: "{{ metadata.url }}"
       image:
-        src: "{{ metadata.url }}/img/logo.png"
+        src: "{{ metadata.url }}/img/banner.webp"
         alt: "aabccd021 blog logo"
     title: "{{ title or metadata.title }}"
     description: "{{ description or metadata.description }}"
@@ -17,7 +17,7 @@ eleventyComputed:
       name: "{{ author.name or metadata.author.name }}"
       url: "{{ author.url or metadata.author.url }}"
     image:
-      src: "{{ metadata.url }}{{ image.src or  '/img/logo.png' }}"
+      src: "{{ metadata.url }}{{ image.src or  '/img/banner.webp' }}"
       alt: "{{ image.alt or metadata.image.alt }}"
 ---
 <!doctype html>
