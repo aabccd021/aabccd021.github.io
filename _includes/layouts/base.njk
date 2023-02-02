@@ -79,12 +79,15 @@ eleventyComputed:
 	</head>
 	<body>
 		<header>
-			<p class="home-link">{{ metadata.title }}</p>
+      <div class="title">
+        <img src="/img/meruem.png" alt="blog logo" height=50px>
+        <p>{{ metadata.title }}</p>
+      </div>
 			<nav>
 				{%- for entry in collections.all | eleventyNavigation %}
         <a class="nav-item" href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
 				{%- endfor %}
-        <a rel="alternate" href="/feed/feed.xml" type="application/atom+xml">RSS</a>
+        <a class="nav-item" rel="alternate" href="/feed/feed.xml" type="application/atom+xml">RSS</a>
 			</nav>
 		</header>
 		<main>
