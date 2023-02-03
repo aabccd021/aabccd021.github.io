@@ -7,6 +7,15 @@ on:
 
 jobs:
 
+  pa11y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: chimeraant/dev@v1.3.3
+      - run: pnpm install
+      - run: pnpm build
+      - run: pa11y ./_site/index.html
+
   markuplint:
     runs-on: ubuntu-latest
     steps:
@@ -29,6 +38,7 @@ jobs:
           runs: 3
   deploy:
     needs: [
+      pa11y,
       lighthouse,
       markuplint
     ]
