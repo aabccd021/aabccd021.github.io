@@ -38,6 +38,16 @@ eleventyComputed:
       twitter_card_type=type,
       twitter_handle=twitter
     %}
+    {% if type == 'post' %}
+      <meta property="article:published_time" content="{{ meta.published }}" />
+      {% if meta.modified %}
+        <meta property="article:modified_time" content="{{ meta.modified }}" />
+      {% endif %}
+      <meta property="article:author:profile" content="aabccd021"/>
+      {%- for tag in tags | filterTagList %}
+      <meta property="article:tag" content="{{ tag }}"/>
+      {%- endfor %}
+    {% endif %}
     <script type="application/ld+json">
     {% if jsonLd %}{{ jsonLd | stringify | safe }}{% else %}{
       "@context": "https://schema.org",
