@@ -7,14 +7,14 @@ on:
 
 jobs:
 
-  pa11y:
+  markuplint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm install
       - run: pnpm build
-      - run: find _site -type f -name "*.html" -exec pa11y {} \;
+      - run: find _site -type f -name "*.html" -exec pamaruplint {} \;
 
   lighthouse:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
   deploy:
     needs: [
       lighthouse,
-      pa11y
+      markuplint
     ]
     runs-on: ubuntu-latest
     steps:
