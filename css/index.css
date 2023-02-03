@@ -136,8 +136,9 @@ nav {
 	text-transform: capitalize;
 	font-style: italic;
 }
-.postlist-item > .post-tag {
-	align-self: center;
+
+ul.post-metadata > li > a.post-tag {
+	line-height: 1.5;
 }
 
 /* https://www.w3schools.com/accessibility/accessibility_skip_links.php */
