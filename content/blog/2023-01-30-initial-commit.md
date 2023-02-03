@@ -14,7 +14,7 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 Sets the module system for the program. See the <a href='/docs/handbook/modules.html'>Modules</a> reference page for more information. You very likely want `"CommonJS"` for node projects.
 
-Changing `module` affects [`moduleResolution`](#moduleResolution) which [also has a reference page](/docs/handbook/module-resolution.html).
+Changing `module` affects `moduleResolution` which [also has a reference page](/docs/handbook/module-resolution.html).
 
 Here's some example output for this file:
 
