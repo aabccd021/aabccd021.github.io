@@ -14,7 +14,7 @@ jobs:
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm install
       - run: pnpm build
-      - run: pa11y-ci ./_site/index.html
+      - run: pa11y-ci './_site/**/*.html'
 
   markuplint:
     runs-on: ubuntu-latest
