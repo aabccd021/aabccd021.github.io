@@ -2,6 +2,7 @@
 meta:
   language: en-US
 eleventyComputed:
+  ogType: "{% if type == 'post' %}article{% else %}website{% endif %}"
   meta:
     site:
       name: "{{ metadata.title }}"
@@ -30,7 +31,7 @@ eleventyComputed:
       name=meta.author.name,
       generator="eleventy",
       url=meta.url,
-      type=type,
+      type=ogType,
       img=meta.image.src,
       img_alt=meta.image.alt,
       img_alt=alt,
@@ -125,3 +126,4 @@ eleventyComputed:
 		</main>
 	</body>
 </html>
+
