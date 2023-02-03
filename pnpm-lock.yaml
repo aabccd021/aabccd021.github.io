@@ -15,7 +15,6 @@ specifiers:
   luxon: ^3.2.1
   markdown-it-anchor: ^8.6.6
   markuplint: ^3.2.0
-  pa11y: ^6.2.3
   pa11y-ci: ^3.0.1
 
 devDependencies:
@@ -33,7 +32,6 @@ devDependencies:
   luxon: 3.2.1
   markdown-it-anchor: 8.6.6
   markuplint: 3.2.0
-  pa11y: 6.2.3
   pa11y-ci: 3.0.1
 
 packages:
@@ -3642,29 +3640,6 @@ packages:
       hogan.js: 3.0.2
       html_codesniffer: 2.5.1
       kleur: 4.1.5
-      node.extend: 2.0.2
-      p-timeout: 4.1.0
-      puppeteer: 9.1.1
-      semver: 7.3.8
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: true
-
-  /pa11y/6.2.3:
-    resolution: {integrity: sha512-69JoUlfW2QVmrgQAm+17XBxIvmd1u0ImFBYIHPyjC61CzAkmxO3kkbqDVxIcl0OKLvAMYSMbvfCH8kMFE9xsbg==}
-    engines: {node: '>=12'}
-    hasBin: true
-    dependencies:
-      axe-core: 4.2.4
-      bfj: 7.0.2
-      commander: 8.0.0
-      envinfo: 7.8.1
-      html_codesniffer: 2.5.1
-      kleur: 4.1.5
-      mustache: 4.2.0
       node.extend: 2.0.2
       p-timeout: 4.1.0
       puppeteer: 9.1.1
