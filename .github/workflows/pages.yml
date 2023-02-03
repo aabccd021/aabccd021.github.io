@@ -14,7 +14,7 @@ jobs:
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm install
       - run: pnpm build
-      - run: pa11y --timeout 300000 ./_site/index.html
+      - run: pa11y --wait 10000 ./_site/index.html
 
   markuplint:
     runs-on: ubuntu-latest
