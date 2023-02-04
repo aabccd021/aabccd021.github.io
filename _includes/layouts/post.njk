@@ -5,8 +5,6 @@ eleventyComputed:
   meta:
     published: "{{ date | iso8601 }}"
     modified: "{% if updateDate %}{{ updateDate | iso8601 }}{% endif %}"
-  image:
-    src: "{% imageStat image.src, image.alt%}"
 ---
 <h1>{{ title }}</h1>
 <ul class="post-metadata">

@@ -18,7 +18,7 @@ eleventyComputed:
       name: "{{ author.name or metadata.author.name }}"
       url: "{{ author.url or metadata.author.url }}"
     image:
-      src: "{{ metadata.url }}{{ image.src or  '/img/banner.webp' }}"
+      src: "{{ metadata.url }}{% if type == 'post' and image.src %}{% imageStat image.src, image.alt %}{% else %} '/img/banner.webp'{% endif %}"
       alt: "{{ image.alt or metadata.image.alt }}"
 ---
 <!doctype html>

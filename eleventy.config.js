@@ -42,6 +42,10 @@ module.exports = function(eleventyConfig) {
     return JSON.stringify(obj, undefined, 2);
   })
 
+  eleventyConfig.addFilter('keys', (obj) => {
+    return Object.keys(obj);
+  })
+
   eleventyConfig.addFilter('iso8601', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toISO()
   })
