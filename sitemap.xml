@@ -2,16 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://aabccd021.github.io/blog/fourth/</loc>
-		<lastmod>2018-09-30</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://aabccd021.github.io/blog/2023-01-30-initial-commit/</loc>
-		<lastmod>2023-01-30</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://aabccd021.github.io/about/</loc>
 		<lastmod>2023-02-04</lastmod>
 	</url>
@@ -27,17 +17,32 @@
 	</url>
 	
 	<url>
-		<loc>https://aabccd021.github.io/tags/yoo/</loc>
+		<loc>https://aabccd021.github.io/tags/quick-tips/</loc>
 		<lastmod>2023-02-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://aabccd021.github.io/tags/man/</loc>
+		<loc>https://aabccd021.github.io/tags/cli/</loc>
 		<lastmod>2023-02-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://aabccd021.github.io/tags/second-tag/</loc>
+		<loc>https://aabccd021.github.io/tags/gh/</loc>
 		<lastmod>2023-02-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://aabccd021.github.io/tags/github/</loc>
+		<lastmod>2023-02-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://aabccd021.github.io/tags/git/</loc>
+		<lastmod>2023-02-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://aabccd021.github.io/blog/create-new-github-repository-from-cli-with-gh-command/</loc>
+		<lastmod>2023-02-05</lastmod>
 	</url>
 </urlset>

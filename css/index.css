@@ -129,7 +129,6 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	text-transform: capitalize;
 	font-style: italic;
 }
 
@@ -151,4 +150,11 @@ ul.post-metadata > li > a.post-tag {
   position: static;
   width: auto;
   height: auto;
+}
+
+img {
+	border-color: #3c3836;
+  border: 1px solid;
+  object-fit: contain;
+  width: 100%;
 }
