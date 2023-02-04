@@ -23,7 +23,10 @@
 }
 
 .postlist-item > picture > img {
-  object-fit: cover;
-  width: 191px;
-  height: 100px;
+  margin-top: 0.5em;
+  object-fit: contain;
+  width: 19.1em;
+  height: 10em;
+  border: 1px solid;
+	border-color: #3c3836;
 }
