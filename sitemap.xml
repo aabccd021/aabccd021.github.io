@@ -12,11 +12,6 @@
 	</url>
 	
 	<url>
-		<loc>https://aabccd021.github.io/blog/2023-01-31-pipe/</loc>
-		<lastmod>2023-01-31</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://aabccd021.github.io/about/</loc>
 		<lastmod>2023-02-04</lastmod>
 	</url>
@@ -28,21 +23,6 @@
 	
 	<url>
 		<loc>https://aabccd021.github.io/tags/</loc>
-		<lastmod>2023-02-04</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://aabccd021.github.io/tags/fp-ts/</loc>
-		<lastmod>2023-02-04</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://aabccd021.github.io/tags/typescript/</loc>
-		<lastmod>2023-02-04</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://aabccd021.github.io/tags/functional-programming/</loc>
 		<lastmod>2023-02-04</lastmod>
 	</url>
 	
