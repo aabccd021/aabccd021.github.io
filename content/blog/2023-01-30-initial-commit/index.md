@@ -4,6 +4,9 @@ date: 2023-01-30 14:05:08
 tags: 
   - yoo
   - man
+image:
+  src: ./thumbnail.png
+  alt: function composition using fp-ts
 ---
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
@@ -19,16 +22,18 @@ Changing `module` affects `moduleResolution` which [also has a reference page](/
 Here's some example output for this file:
 
 ```ts twoslash
-// @errors: 2540
-interface Todo {
-  title: string;
-}
- 
-const todo: Readonly<Todo> = {
-  title: "Delete inactive users",
-};
- 
-todo.title = "Hello";
+import { pipe } from 'fp-ts/lib/function';
+
+const b = (x: number) => x;
+const c = (x: number) => x;
+const d = (x: number) => x;
+
+const a = (v: number) => pipe(
+  v,
+  b,
+  c,
+  d
+) 
 ```
 
 #### `CommonJS`
