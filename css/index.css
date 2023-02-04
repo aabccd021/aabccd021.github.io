@@ -100,11 +100,11 @@ header {
 
 .title {
 	display: flex;
-	gap: 1em .5em;
+	gap: 1em 0.8em;
 	flex-wrap: wrap;
 	line-height: 1.0;
-	font-size: 1.2em;
-	font-weight: 700;
+	font-size: 1.3em;
+	font-weight: 900;
   margin: 0;
   padding: 0;
 	align-items: center;
