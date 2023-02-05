@@ -22,9 +22,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm install
-      - run: textlint --debug .
+      - run: textlint .
+      - run: markdown-link-check ./content/about/index.md
       - run: markdown-link-check --verbose ./content/**/*.md
       - run: pnpm build
+      - run: markuplint --verbose ./_site/404.html
       - run: markuplint --verbose ./_site/**/*.html
 
   lighthouse:
