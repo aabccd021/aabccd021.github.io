@@ -5,7 +5,8 @@
     "write-good": {
       "passive": false,
       "adverb": false
-    }
+    },
+    "@textlint-rule/no-unmatched-pair": true
   }
 }
 
