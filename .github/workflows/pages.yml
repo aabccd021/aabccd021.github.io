@@ -20,8 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: chimeraant/dev@v1.3.3
-      - run: pnpm lint:markdown-link
       - run: pnpm build
+      - uses: filiph/linkcheck@v2.0.23
+        with:
+          arguments: _site/about/index.html
       - run: pnpm lint:markup
       - run: pnpm lint:text
 
