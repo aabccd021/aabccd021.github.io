@@ -9,6 +9,7 @@
     "en-capitalization": true,
     "no-zero-width-spaces": true,
     "footnote-order": true,
+    "@textlint-rule/no-invalid-control-character": true,
     "@textlint-rule/no-unmatched-pair": true
   }
 }
