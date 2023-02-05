@@ -19,6 +19,7 @@ specifiers:
   markuplint: ^3.2.0
   pa11y-ci: ^3.0.1
   textlint: ^13.1.3
+  textlint-rule-en-capitalization: ^2.0.3
   textlint-rule-write-good: ^2.0.0
 
 devDependencies:
@@ -40,6 +41,7 @@ devDependencies:
   markuplint: 3.2.0
   pa11y-ci: 3.0.1
   textlint: 13.1.3
+  textlint-rule-en-capitalization: 2.0.3
   textlint-rule-write-good: 2.0.0
 
 packages:
@@ -1351,6 +1353,10 @@ packages:
       dayjs: 1.11.7
     dev: true
 
+  /cities-list/1.0.3:
+    resolution: {integrity: sha512-UadgzcZiV38TvJXlGymITRvvxaR5PtlrS2M+RJICyvRNp3TnOCPA/5ZZuRn8yG6SexKy1x9I+IwFctZ39XbI/Q==}
+    dev: true
+
   /clean-css/4.2.4:
     resolution: {integrity: sha512-EJUDT7nDVFDvaQgAo2G/PJvxmp1o/c6iXLbswsBbUFXi1Nr+AjA2cKmfbKDMjMvzEe75g3P6JkaDDAKk96A85A==}
     engines: {node: '>= 4.0'}
@@ -1920,6 +1926,31 @@ packages:
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
+    dev: true
+
+  /en-inflectors/1.0.12:
+    resolution: {integrity: sha512-G9wwJMx9DQQzwom8J8e8ErVpI6h/Z5BpYusJCE2Q/2NfgBNYCesyNaCOOskZAhOrw2nmR4D8nYAv4Xv/INIbzw==}
+    dependencies:
+      en-stemmer: 1.0.3
+    dev: true
+
+  /en-lexicon/1.0.11:
+    resolution: {integrity: sha512-eanOw9551H6jMRpRK023+Nlss5qnuAi99drXcSUzQySsMrB43teDNbin/AbpOfnemQiTtuZChXYm2kEIR1Mhmg==}
+    dependencies:
+      en-inflectors: 1.0.12
+    dev: true
+
+  /en-pos/1.0.16:
+    resolution: {integrity: sha512-b/tYA8NNl2fuXn55deB81RwW6S9bJqgYjNMVmltUZxT1JZEzNsWvkZpKiXfOe4RlsB2t5O3s1B/BgnXDOAO1Zw==}
+    dependencies:
+      cities-list: 1.0.3
+      en-inflectors: 1.0.12
+      en-lexicon: 1.0.11
+      humannames: 1.0.5
+    dev: true
+
+  /en-stemmer/1.0.3:
+    resolution: {integrity: sha512-sBeYsHLqZWACn/mTRLAMdYb/A53s55r4/nCB2UjKK96EBuRQ4t4GKl4V1pW/0hvzdncfYlZRT+JSIRxCtoYqbA==}
     dev: true
 
   /encodeurl/1.0.2:
@@ -2753,6 +2784,10 @@ packages:
   /human-signals/1.1.1:
     resolution: {integrity: sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==}
     engines: {node: '>=8.12.0'}
+    dev: true
+
+  /humannames/1.0.5:
+    resolution: {integrity: sha512-FArOOhsfu1Rzc6wj8TZWTEpO/+TQOqhU0YNx+IyRaScE7HVanOwn8knN1OjjUngJOLaRqFSLjX0EzvMiNnT7zw==}
     dev: true
 
   /iconv-lite/0.4.24:
@@ -5669,6 +5704,14 @@ packages:
 
   /text-table/0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
+    dev: true
+
+  /textlint-rule-en-capitalization/2.0.3:
+    resolution: {integrity: sha512-tIx2gzm3okWfK5+0NNV1ap21LHk9PTc2/IXNqFhd7RDVSqv7YFaZnhwL+UrBZXTEfOh6VgnTQd81Os2Akzas5g==}
+    dependencies:
+      en-pos: 1.0.16
+      sentence-splitter: 3.2.2
+      textlint-rule-helper: 2.3.0
     dev: true
 
   /textlint-rule-helper/2.0.1:

@@ -6,6 +6,7 @@
       "passive": false,
       "adverb": false
     },
+    "en-capitalization": true,
     "@textlint-rule/no-unmatched-pair": true
   }
 }
