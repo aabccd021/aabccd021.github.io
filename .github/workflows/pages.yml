@@ -25,6 +25,7 @@ jobs:
       - run: pnpm build
       - run: markuplint _site/**/*.html
       - run: textlint .
+      - run: markdown-link-check content/**/*.md
 
   lighthouse:
     runs-on: ubuntu-latest
