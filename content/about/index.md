@@ -12,7 +12,6 @@ jsonLd:
   "url": "https://aabccd021.github.io/about/"
   "sameAs": 
     - "https://github.com/aabccd021"
-    - "https://linked.in/in/aabccd021"
   "address": 
     "@type": "PostalAddress"
     "addressCountry": "Indonesia"
@@ -45,4 +44,3 @@ jsonLd:
 
 - [Email](mailto:aabccd021@gmail.com)
 - [GitHub](https://github.com/aabccd021)
-- [LinkedIn](https://linked.in/in/aabccd021)
