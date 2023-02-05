@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm build
-      - uses: filiph/linkcheck@v2.0.23
+      - uses: filiph/linkcheck@2.0.23
         with:
           arguments: _site/about/index.html
       - run: pnpm lint:markup
