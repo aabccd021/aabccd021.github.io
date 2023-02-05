@@ -7,7 +7,10 @@
     "debug": "DEBUG=Eleventy* eleventy",
     "debugstart": "DEBUG=Eleventy* eleventy --serve --quiet",
     "benchmark": "DEBUG=Eleventy:Benchmark* eleventy",
-    "lh": "lighthouse http://localhost:8080",
+    "lint:text": "textlint .",
+    "lint:markdown": "markdownlint",
+    "lint:markdown-link":  "markdown-link-check ./content/**/*.md",
+    "lint:markup": "markuplint './_site/**/*.html'",
     "start-and-lh": "start-test 8080 lh"
   },
   "devDependencies": {
