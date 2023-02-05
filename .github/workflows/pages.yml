@@ -22,10 +22,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm install
-      - run: pnpm build
-      - run: markuplint _site/**/*.html
       - run: textlint .
       - run: markdown-link-check content/**/*.md
+      - run: pnpm build
+      - run: markuplint _site/**/*.html
 
   lighthouse:
     runs-on: ubuntu-latest
