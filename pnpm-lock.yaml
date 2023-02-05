@@ -21,6 +21,7 @@ specifiers:
   markuplint: ^3.2.0
   pa11y-ci: ^3.0.1
   textlint: ^13.1.3
+  textlint-rule-date-weekday-mismatch: ^1.0.6
   textlint-rule-en-capitalization: ^2.0.3
   textlint-rule-footnote-order: ^1.0.3
   textlint-rule-no-zero-width-spaces: ^1.0.1
@@ -47,6 +48,7 @@ devDependencies:
   markuplint: 3.2.0
   pa11y-ci: 3.0.1
   textlint: 13.1.3
+  textlint-rule-date-weekday-mismatch: 1.0.6
   textlint-rule-en-capitalization: 2.0.3
   textlint-rule-footnote-order: 1.0.3
   textlint-rule-no-zero-width-spaces: 1.0.1
@@ -665,12 +667,25 @@ packages:
       '@textlint-rule/textlint-rule-google-word-list': 0.1.2
     dev: true
 
+  /@textlint/ast-node-types/12.6.1:
+    resolution: {integrity: sha512-uzlJ+ZsCAyJm+lBi7j0UeBbj+Oy6w/VWoGJ3iHRHE5eZ8Z4iK66mq+PG/spupmbllLtz77OJbY89BYqgFyjXmA==}
+    dev: true
+
   /@textlint/ast-node-types/13.1.3:
     resolution: {integrity: sha512-mJXzxhD5tj7eSQb4KQcLRNHRelvNXNb72ZZdC+sBKcZe/EqZTW0+rs2dFroDNsD0Felo9+jEbZPlz9syOkkmIQ==}
     dev: true
 
   /@textlint/ast-node-types/4.4.3:
     resolution: {integrity: sha512-qi2jjgO6Tn3KNPGnm6B7p6QTEPvY95NFsIAaJuwbulur8iJUEenp1OnoUfiDaC/g2WPPEFkcfXpmnu8XEMFo2A==}
+    dev: true
+
+  /@textlint/ast-tester/12.6.1:
+    resolution: {integrity: sha512-Gxiq6xmDR3PnX0RqRGth/Lu5fyFWoXNPfGxXTLORPFpfs8JKPh/eXGhlwc1f0v4VQzPay2KwVl6SGXvJD5qLXw==}
+    dependencies:
+      '@textlint/ast-node-types': 12.6.1
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@textlint/ast-tester/13.1.3:
@@ -680,6 +695,12 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@textlint/ast-traverse/12.6.1:
+    resolution: {integrity: sha512-Y/j7ip7yDuTjuIV4kTRPVnkJKfpI71U+eqXFnrM9sE2xBA9IsqzqiLQeDY+S5hhfQzmcEnZFtAP0hqrYaT6gNA==}
+    dependencies:
+      '@textlint/ast-node-types': 12.6.1
     dev: true
 
   /@textlint/ast-traverse/13.1.3:
@@ -702,6 +723,10 @@ packages:
       - supports-color
     dev: true
 
+  /@textlint/feature-flag/12.6.1:
+    resolution: {integrity: sha512-cY/AraTLdzbwDyAhdpaXB7n1Lw6zA+k+7UaT8mmxMmjs0uYGzdMQa499I0rQatctJ6izrdZXYW0NdUQfG2ugiA==}
+    dev: true
+
   /@textlint/feature-flag/13.1.3:
     resolution: {integrity: sha512-IDQjm6aFPjdSsfIk/6S0x+i2dO/0NCD3dFKp2z7MZiloE+UJV7CZC4iyNCgjaWQiEhu4fDJ3odOvhJpTLmuQXw==}
     dev: true
@@ -719,6 +744,23 @@ packages:
       strip-ansi: 6.0.1
       text-table: 0.2.0
       try-resolve: 1.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@textlint/kernel/12.6.1:
+    resolution: {integrity: sha512-GjNaI36pYx/boy1Xf7NPJFbS0uWHhY9y9DMMl/8ZJZoldN7XrCvJFivNdeYQxu+LTmfGGaUJoTjDpnllOs6XSQ==}
+    dependencies:
+      '@textlint/ast-node-types': 12.6.1
+      '@textlint/ast-tester': 12.6.1
+      '@textlint/ast-traverse': 12.6.1
+      '@textlint/feature-flag': 12.6.1
+      '@textlint/source-code-fixer': 12.6.1
+      '@textlint/types': 12.6.1
+      '@textlint/utils': 12.6.1
+      debug: 4.3.4
+      deep-equal: 1.1.1
+      structured-source: 4.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -763,6 +805,22 @@ packages:
       - supports-color
     dev: true
 
+  /@textlint/markdown-to-ast/12.6.1:
+    resolution: {integrity: sha512-T0HO+VrU9VbLRiEx/kH4+gwGMHNMIGkp0Pok+p0I33saOOLyhfGvwOKQgvt2qkxzQEV2L5MtGB8EnW4r5d3CqQ==}
+    dependencies:
+      '@textlint/ast-node-types': 12.6.1
+      debug: 4.3.4
+      mdast-util-gfm-autolink-literal: 0.1.3
+      remark-footnotes: 3.0.0
+      remark-frontmatter: 3.0.0
+      remark-gfm: 1.0.0
+      remark-parse: 9.0.0
+      traverse: 0.6.7
+      unified: 9.2.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@textlint/markdown-to-ast/13.1.3:
     resolution: {integrity: sha512-G4fuxiKbcHIZVtqXZGleh6QrlU7DfDpswY2h91GicWw+L0bzo6Q0weKwzpOYGR52nFlLdZSlNoTeK2UMFs277g==}
     dependencies:
@@ -794,6 +852,15 @@ packages:
       to-regex: 3.0.2
     dev: true
 
+  /@textlint/source-code-fixer/12.6.1:
+    resolution: {integrity: sha512-J9UZ3uitT+T50ug5X6AoIOwn6kTl54ZmPYBPB9bmH4lwBamN7e4gT65lSweHY1D21elOkq+3bO/OAJMfQfAVHg==}
+    dependencies:
+      '@textlint/types': 12.6.1
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@textlint/source-code-fixer/13.1.3:
     resolution: {integrity: sha512-r1cqpmQrrtEja1IcEe0a2z/UVDRGfAU672d6w2yJsO8Nfwhn/K7mg99z61ueDvUmvsrTXDvXhkTaGgtUMixY5Q==}
     dependencies:
@@ -803,10 +870,24 @@ packages:
       - supports-color
     dev: true
 
+  /@textlint/text-to-ast/12.6.1:
+    resolution: {integrity: sha512-22tgSBaNerpwb66eCivjXmdZ3CDX2Il38vpuAGchiI+cl+sENU9dpuntxwEJdZQePX5qrkmw8XGj5kgyMF015A==}
+    dependencies:
+      '@textlint/ast-node-types': 12.6.1
+    dev: true
+
   /@textlint/text-to-ast/13.1.3:
     resolution: {integrity: sha512-4CE9YYXDRgHpy7wlbAHczMnXY07rSPVz/764PCQB9chEjAeJgzW3zzEI3m0hUsK3hTcE5UIV0+VgXfgjUr4feg==}
     dependencies:
       '@textlint/ast-node-types': 13.1.3
+    dev: true
+
+  /@textlint/textlint-plugin-markdown/12.6.1:
+    resolution: {integrity: sha512-fRKsFCL2fGeu0Bt+08FuEc2WHiI8IMDRvy6KT1pmNWO5irS4yL2/OXNknLH3erXvwcJw/hQnd5WEl4hQzS0Erw==}
+    dependencies:
+      '@textlint/markdown-to-ast': 12.6.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@textlint/textlint-plugin-markdown/13.1.3:
@@ -817,16 +898,32 @@ packages:
       - supports-color
     dev: true
 
+  /@textlint/textlint-plugin-text/12.6.1:
+    resolution: {integrity: sha512-ZUfG0Xb8qGymIPNp2eFTq9bHvkJo3N3Ia1Aff5W9fsgZib1/Eb55U16Sp60TjhBFns0/p7L7usBC3nd3+tB5mQ==}
+    dependencies:
+      '@textlint/text-to-ast': 12.6.1
+    dev: true
+
   /@textlint/textlint-plugin-text/13.1.3:
     resolution: {integrity: sha512-Cwng2aYgb3NIH3OvZ3Xx2JrqyjQ/iWk4zEuwvaJFwYWitAS2dXTNKjyC6EX2jCyFXHtsyet0uNglgwQHxJhMcg==}
     dependencies:
       '@textlint/text-to-ast': 13.1.3
     dev: true
 
+  /@textlint/types/12.6.1:
+    resolution: {integrity: sha512-t1SZYahu2olnF8MUhlP6qDIEDyl7WmyIaBYxQdE2qU6xUkZWXS2zIxoAT/pVgvFCzDw3KO5HhIYGVeWRp90dTg==}
+    dependencies:
+      '@textlint/ast-node-types': 12.6.1
+    dev: true
+
   /@textlint/types/13.1.3:
     resolution: {integrity: sha512-+qXQ0/0PBUllfkglSaXU6N6pBLfIPpmlPrbPuGt0e1nyOe/6nroTalv1ULpuc69XDKa8s1KObO6ocUEXpw12DA==}
     dependencies:
       '@textlint/ast-node-types': 13.1.3
+    dev: true
+
+  /@textlint/utils/12.6.1:
+    resolution: {integrity: sha512-HJkqYXT2FAAHDM5XLFpQLF/CEdm8c2ltMeKmPBSSty1VfPXQMi8tGPT1b58b8KWh6dVmi7w0YYB7NrquuzXOKA==}
     dev: true
 
   /@textlint/utils/13.1.3:
@@ -1531,6 +1628,12 @@ packages:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
     dev: true
 
+  /chrono-node/1.4.8:
+    resolution: {integrity: sha512-WwfW4/+i1e6tHx5opw/VCfxXnai12/tT5GK+wSHwKtdb0ZkAoxRGIfL8IzuFr/JEQTw4DxevysyX6+YbZSRKLQ==}
+    dependencies:
+      dayjs: 1.11.7
+    dev: true
+
   /chrono-node/2.5.0:
     resolution: {integrity: sha512-GasdFCw4tsb8UKlwyJW1S+3bdN06vsyGR2cEDMlhEGI7ic4SQRnLyl/hbItwSum6pPkkUTrzFcaR3C2tZnnO5Q==}
     dependencies:
@@ -1905,6 +2008,17 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       mimic-response: 3.1.0
+    dev: true
+
+  /deep-equal/1.1.1:
+    resolution: {integrity: sha512-yd9c5AdiqVcR+JjcwUQb9DkhJc8ngNr0MahEBGvDiJw8puWab2yZlh+nkasOnZP+EGTAP6rRp2JzJhJZzvNF8g==}
+    dependencies:
+      is-arguments: 1.1.1
+      is-date-object: 1.0.5
+      is-regex: 1.1.4
+      object-is: 1.1.5
+      object-keys: 1.1.1
+      regexp.prototype.flags: 1.4.3
     dev: true
 
   /deep-extend/0.6.0:
@@ -3141,6 +3255,14 @@ packages:
       is-decimal: 1.0.4
     dev: true
 
+  /is-arguments/1.1.1:
+    resolution: {integrity: sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      has-tostringtag: 1.0.0
+    dev: true
+
   /is-arrayish/0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
     dev: true
@@ -3176,6 +3298,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       kind-of: 6.0.3
+    dev: true
+
+  /is-date-object/1.0.5:
+    resolution: {integrity: sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      has-tostringtag: 1.0.0
     dev: true
 
   /is-decimal/1.0.4:
@@ -4285,6 +4414,10 @@ packages:
       minimist: 1.2.7
     dev: true
 
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: true
+
   /moo/0.5.2:
     resolution: {integrity: sha512-iSAJLHYKnX41mKcJKjqvnAN9sf0LMDTXDEvFv+ffuRR9a1MIuXLjMNL6EsnDHSkKLTWNqQQ5uo61P4EbU4NU+Q==}
     dev: true
@@ -4495,6 +4628,14 @@ packages:
 
   /object-inspect/1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
+    dev: true
+
+  /object-is/1.1.5:
+    resolution: {integrity: sha512-3cyDsyHgtmi7I7DfSSI2LDp6SK2lwvtbg0p0R1e0RvTqF5ceGx+K2dfSjm1bKDMVCFEDAQvy+o8c6a7VujOddw==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      define-properties: 1.1.4
     dev: true
 
   /object-keys/1.1.1:
@@ -6159,6 +6300,16 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
+  /textlint-rule-date-weekday-mismatch/1.0.6:
+    resolution: {integrity: sha512-ROZnjGr6z9+kg5+psF34aD71Im2DtlGAsgpgQhY9zeeK9WGXVwpCioFu2k3ys/A06pEAHQpc2MOkXJGVbRpgRA==}
+    dependencies:
+      chrono-node: 1.4.8
+      moment: 2.29.4
+      textlint-tester: 12.6.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /textlint-rule-en-capitalization/2.0.3:
     resolution: {integrity: sha512-tIx2gzm3okWfK5+0NNV1ap21LHk9PTc2/IXNqFhd7RDVSqv7YFaZnhwL+UrBZXTEfOh6VgnTQd81Os2Akzas5g==}
     dependencies:
@@ -6208,6 +6359,17 @@ packages:
       - eslint-plugin-jsx-a11y
       - eslint-plugin-react
       - eslint-plugin-react-hooks
+    dev: true
+
+  /textlint-tester/12.6.1:
+    resolution: {integrity: sha512-4O8hrXNb0BUePg+yvueWdR+ViXC8R7RgUcmo+56iU28pgqcrAjSEpz2YGpbsSF54wlyxJuP4v98whgjlEJtCmw==}
+    dependencies:
+      '@textlint/feature-flag': 12.6.1
+      '@textlint/kernel': 12.6.1
+      '@textlint/textlint-plugin-markdown': 12.6.1
+      '@textlint/textlint-plugin-text': 12.6.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /textlint-util-to-string/2.1.1:

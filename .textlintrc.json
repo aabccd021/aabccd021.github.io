@@ -9,6 +9,7 @@
     "en-capitalization": true,
     "no-zero-width-spaces": true,
     "footnote-order": true,
+    "date-weekday-mismatch": true,
     "@textlint-rule/no-invalid-control-character": true,
     "@textlint-rule/preset-google": {
       "colons": false
