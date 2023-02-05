@@ -10,6 +10,9 @@
     "no-zero-width-spaces": true,
     "footnote-order": true,
     "date-weekday-mismatch": true,
+    "alex": {
+      "allow": []
+    },
     "@textlint-rule/no-invalid-control-character": true,
     "@textlint-rule/preset-google": {
       "colons": false
