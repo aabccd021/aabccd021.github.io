@@ -20,6 +20,7 @@ specifiers:
   pa11y-ci: ^3.0.1
   textlint: ^13.1.3
   textlint-rule-en-capitalization: ^2.0.3
+  textlint-rule-no-zero-width-spaces: ^1.0.1
   textlint-rule-write-good: ^2.0.0
 
 devDependencies:
@@ -42,6 +43,7 @@ devDependencies:
   pa11y-ci: 3.0.1
   textlint: 13.1.3
   textlint-rule-en-capitalization: 2.0.3
+  textlint-rule-no-zero-width-spaces: 1.0.1
   textlint-rule-write-good: 2.0.0
 
 packages:
@@ -5726,6 +5728,10 @@ packages:
       '@textlint/ast-node-types': 13.1.3
       structured-source: 4.0.0
       unist-util-visit: 2.0.3
+    dev: true
+
+  /textlint-rule-no-zero-width-spaces/1.0.1:
+    resolution: {integrity: sha512-AkxpzBILGB4YsXddzHx2xqpXmqMv5Yd+PQm4anUV+ADSJuwLP1Jd6yHf/LOtu9j3ps8K3XM9vQrXRK73z0bU3A==}
     dev: true
 
   /textlint-rule-write-good/2.0.0:
