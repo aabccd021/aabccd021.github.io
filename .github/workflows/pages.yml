@@ -23,11 +23,9 @@ jobs:
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm install
       - run: textlint .
-      - run: markdown-link-check ./content/404.md
-      - run: markdown-link-check --verbose ./content/**/*.md
+      - run: markdown-link-check './content/**/*.md'
       - run: pnpm build
-      - run: markuplint --verbose ./_site/404.html
-      - run: markuplint --verbose ./_site/**/*.html
+      - run: markuplint './_site/**/*.html'
 
   lighthouse:
     runs-on: ubuntu-latest
