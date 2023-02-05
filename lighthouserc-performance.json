@@ -1,0 +1,22 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./_site",
+      "settings": {
+        "onlyCategories": [
+          "performance"
+        ]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": [
+          "error",
+          {
+            "minScore": 1
+          }
+        ]
+      }
+    }
+  }
+}

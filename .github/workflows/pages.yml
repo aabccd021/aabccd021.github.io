@@ -25,7 +25,7 @@ jobs:
       - run: pnpm build
       - run: pnpm lint:markup
 
-  lighthouse:
+  lighthouse-performance:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,12 +33,24 @@ jobs:
       - run: pnpm build
       - uses: treosh/lighthouse-ci-action@v9
         with:
-          configPath: './lighthouserc.json'
+          configPath: './lighthouserc-performance.json'
           runs: 3
+
+  lighthouse-no-performance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: chimeraant/dev@v1.3.3
+      - run: pnpm build
+      - uses: treosh/lighthouse-ci-action@v9
+        with:
+          configPath: './lighthouserc-no-performance.json'
+
   deploy:
     needs: [
       pa11y,
-      lighthouse,
+      lighthouse-performance,
+      lighthouse-no-performance,
       lint
     ]
     runs-on: ubuntu-latest
