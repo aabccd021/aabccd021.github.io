@@ -6,17 +6,7 @@ on:
       - main  # default branch
 
 jobs:
-
-  pa11y:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - uses: chimeraant/dev@v1.3.3
-      - run: pnpm install
-      - run: pnpm build
-      - run: pa11y-ci './_site/**/*.html'
-
-  lint:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +16,7 @@ jobs:
       - run: markdown-link-check content/**/*.md
       - run: pnpm build
       - run: markuplint _site/**/*.html
+      - run: pa11y-ci './_site/**/*.html'
 
   lighthouse:
     runs-on: ubuntu-latest
@@ -40,9 +31,8 @@ jobs:
           runs: 3
   deploy:
     needs: [
-      pa11y,
+      check,
       lighthouse,
-      lint
     ]
     runs-on: ubuntu-latest
     steps:
