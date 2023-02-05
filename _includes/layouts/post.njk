@@ -6,6 +6,7 @@ eleventyComputed:
     published: "{{ date | iso8601 }}"
     modified: "{% if updateDate %}{{ updateDate | iso8601 }}{% endif %}"
 ---
+
 <h1>{{ title }}</h1>
 <ul class="post-metadata">
 	<li>Posted on <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
@@ -14,6 +15,8 @@ eleventyComputed:
 	<li><a href="{{ tagUrl }}" class="post-tag">#{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
 	{%- endfor %}
 </ul>
+
+{% image image.src, image.alt %}
 
 {% if showToc and content | toc %}
   <aside>

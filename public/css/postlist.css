@@ -23,7 +23,7 @@
 }
 
 .postlist-item > picture > img {
-  margin-top: 0.5em;
+  margin: 0;
   object-fit: contain;
   width: 382px;
   height: 200px;
