@@ -23,7 +23,7 @@ jobs:
       - run: pnpm lint:text
       - run: pnpm lint:markdown-link
       - run: pnpm build
-      - run: pnpm lint:makrup
+      - run: pnpm lint:markup
 
   lighthouse:
     runs-on: ubuntu-latest
