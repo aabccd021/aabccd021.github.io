@@ -15,6 +15,9 @@ jobs:
       - run: pnpm check:markup
       - run: pnpm check:text
       - run: pa11y-ci --config pa11yci.json './_site/**/*.html'
+      - uses: treosh/lighthouse-ci-action@v9
+        with:
+          configPath: './lighthouserc-no-performance.json'
 
   lighthouse-performance:
     runs-on: ubuntu-latest
@@ -27,20 +30,9 @@ jobs:
           configPath: './lighthouserc-performance.json'
           runs: 3
 
-  lighthouse-no-performance:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: chimeraant/dev@v1.3.3
-      - run: pnpm build
-      - uses: treosh/lighthouse-ci-action@v9
-        with:
-          configPath: './lighthouserc-no-performance.json'
-
   deploy:
     needs: [
       lighthouse-performance,
-      lighthouse-no-performance,
       check
     ]
     runs-on: ubuntu-latest
