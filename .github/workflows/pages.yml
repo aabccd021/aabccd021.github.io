@@ -19,6 +19,7 @@ jobs:
       - run: pnpm build
       - run: pnpm check:markup
       - run: pnpm check:text
+      - run: cat .lycheecache
       - run: pnpm check:link
       - run: pa11y-ci --config pa11yci.json './_site/**/*.html'
       - uses: treosh/lighthouse-ci-action@v9
