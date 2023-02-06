@@ -11,6 +11,7 @@
       }
     },
     "assert": {
+      "preset": "lighthouse:no-pwa",
       "assertions": {
         "categories:accessibility": [
           "error",
