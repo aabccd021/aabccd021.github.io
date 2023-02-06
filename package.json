@@ -7,6 +7,7 @@
     "debugstart": "DEBUG=Eleventy* eleventy --serve --quiet",
     "benchmark": "DEBUG=Eleventy:Benchmark* eleventy",
     "lint:markdown": "markdownlint",
+    "check": "pnpm check:text && pnpm check:markup && pnpm check:link",
     "check:text": "textlint --debug './_site/**/*.html'",
     "check:markup": "markuplint './_site/**/*.html'",
     "check:link": "lychee ./_site/**/*.html --verbose --cache",
