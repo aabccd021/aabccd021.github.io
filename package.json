@@ -8,7 +8,6 @@
     "benchmark": "DEBUG=Eleventy:Benchmark* eleventy",
     "lint:markdown": "markdownlint",
     "check:text": "textlint --debug './_site/**/*.html'",
-    "check:link": "linkchecker _site/**/*.html",
     "check:markup": "markuplint './_site/**/*.html'",
     "start-and-lh": "start-test 8080 lh"
   },

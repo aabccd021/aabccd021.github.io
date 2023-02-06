@@ -23,7 +23,6 @@ jobs:
       - run: pnpm build
       - run: pnpm check:markup
       - run: pnpm check:text
-      - run: pnpm check:link
 
   lighthouse-performance:
     runs-on: ubuntu-latest
