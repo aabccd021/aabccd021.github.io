@@ -28,7 +28,7 @@ jobs:
       - uses: treosh/lighthouse-ci-action@v9
         with:
           configPath: './lighthouserc-performance.json'
-          runs: 3
+          runs: 2
 
   deploy:
     needs: [
