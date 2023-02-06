@@ -15,17 +15,15 @@ jobs:
       - run: pnpm build
       - run: pa11y-ci './_site/**/*.html'
 
-  lint:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: chimeraant/dev@v1.3.3
       - run: pnpm build
-      - uses: filiph/linkcheck@2.0.23
-        with:
-          arguments: _site/about/index.html
-      - run: pnpm lint:markup
-      - run: pnpm lint:text
+      - run: pnpm check:markup
+      - run: pnpm check:text
+      - run: pnpm check:link
 
   lighthouse-performance:
     runs-on: ubuntu-latest
@@ -53,7 +51,7 @@ jobs:
       pa11y,
       lighthouse-performance,
       lighthouse-no-performance,
-      lint
+      check
     ]
     runs-on: ubuntu-latest
     steps:

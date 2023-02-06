@@ -2,15 +2,14 @@
   "scripts": {
     "build": "eleventy",
     "build-ghpages": "eleventy --pathprefix=/eleventy-base-blog/",
-    "lint": "textlint . && markdownlint . --ignore node_modules && markdown-link-check content/**/*.md",
     "start": "eleventy --serve --quiet",
     "debug": "DEBUG=Eleventy* eleventy",
     "debugstart": "DEBUG=Eleventy* eleventy --serve --quiet",
     "benchmark": "DEBUG=Eleventy:Benchmark* eleventy",
-    "lint:text": "textlint './_site/**/*.html'",
     "lint:markdown": "markdownlint",
-    "lint:link": "blc ./_site/**/*.html -ro",
-    "lint:markup": "markuplint './_site/**/*.html'",
+    "check:text": "textlint --debug './_site/**/*.html'",
+    "check:link": "linkchecker _site/**/*.html",
+    "check:markup": "markuplint './_site/**/*.html'",
     "start-and-lh": "start-test 8080 lh"
   },
   "devDependencies": {
