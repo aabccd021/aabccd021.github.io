@@ -9,6 +9,7 @@
     "lint:markdown": "markdownlint",
     "check:text": "textlint --debug './_site/**/*.html'",
     "check:markup": "markuplint './_site/**/*.html'",
+    "check:link": "lychee ./_site/**/*.html --verbose --cache",
     "start-and-lh": "start-test 8080 lh"
   },
   "devDependencies": {
@@ -22,6 +23,7 @@
     "@textlint-rule/textlint-rule-no-invalid-control-character": "^2.0.0",
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.9",
     "@textlint-rule/textlint-rule-preset-google": "^0.1.2",
+    "broken-link-checker": "^0.7.8",
     "eleventy-favicon": "^1.1.3",
     "eleventy-plugin-metagen": "^1.7.11",
     "eleventy-plugin-shiki-twoslash": "^1.1.0",
