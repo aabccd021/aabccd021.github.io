@@ -3,11 +3,12 @@ name: Pages
 on:
   push:
     branches:
-      - main  # default branch
+      - main
 
 jobs:
 
   pa11y:
+    # https://github.com/pa11y/pa11y-ci/issues/198
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
