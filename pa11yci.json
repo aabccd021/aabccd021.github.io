@@ -3,6 +3,9 @@
     "runners": [
       "axe",
       "htmlcs"
-    ]
+    ],
+    "chromeLaunchConfig": {
+      "executablePath": "/usr/bin/google-chrome"
+    }
   }
 }
