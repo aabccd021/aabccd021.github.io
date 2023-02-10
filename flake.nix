@@ -7,7 +7,7 @@
         lychee
       ];
       shellHook = ''
-        pnpm install --recursive
+        pnpm install --recursive || exit 1
       '';
     };
   };
