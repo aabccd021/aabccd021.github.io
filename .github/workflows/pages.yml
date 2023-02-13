@@ -16,6 +16,7 @@ jobs:
           key: cache-lychee-${{ github.sha }}
           restore-keys: cache-lychee-
       - uses: chimeraant/dev@v1.3.3
+      - run: pnpm lint:eslint
       - run: pnpm build
       - run: pnpm check:markup
       - run: pnpm check:text
