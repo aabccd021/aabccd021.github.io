@@ -2,6 +2,7 @@
 import * as fs from 'node:fs/promises';
 
 import satori from 'satori';
+import { optimize } from 'svgo';
 
 export const generate = async ({
   element,
@@ -32,5 +33,6 @@ export const generate = async ({
       },
     ],
   });
-  return fs.writeFile(output, result, { encoding: 'utf8' });
+  const optimizedResult = optimize(result);
+  return fs.writeFile(output, optimizedResult.data, { encoding: 'utf8' });
 };
