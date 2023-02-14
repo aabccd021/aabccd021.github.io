@@ -6,7 +6,7 @@
     "lib": [
       "esnext"
     ],
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "commonjs",
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
