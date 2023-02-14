@@ -4,13 +4,7 @@ const element: React.ReactNode = {
   key: '',
   type: 'div',
   props: {
-    style: {
-      color: '#d4be98',
-      backgroundColor: '#282828',
-      height: '100%',
-      width: '100%',
-      display: 'flex',
-    },
+    tw: 'h-full w-full flex bg-[#282828]',
     children: {
       type: 'pre',
       props: {
