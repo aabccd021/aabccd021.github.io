@@ -8,7 +8,7 @@ tags:
   - github
   - git
 image:
-  src: ./thumbnail.png
+  src: ./thumbnail.svg
   alt: command to create new GitHub repository
 ---
 
