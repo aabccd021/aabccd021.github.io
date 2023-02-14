@@ -24,6 +24,12 @@ export const generate = async ({
         weight: 400,
         style: 'normal',
       },
+      {
+        name: 'JetBrainsMono',
+        data: await fs.readFile(`${__dirname}/JetBrainsMono-Regular.ttf`),
+        weight: 400,
+        style: 'normal',
+      },
     ],
   });
   return fs.writeFile(output, result, { encoding: 'utf8' });
