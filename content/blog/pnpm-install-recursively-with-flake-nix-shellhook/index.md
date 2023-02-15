@@ -9,7 +9,7 @@ tags:
   - github
   - github-actions
 image:
-  src: ./thumbnail.png
+  src: ./thumbnail.svg
   alt: typing pnpm install on CLI
 ---
 
