@@ -15,4 +15,4 @@ const element: React.ReactNode = {
   },
 };
 
-export const main = () => generate({ element, output: `${__dirname}/thumbnail.svg` });
+export const main = () => generate({ element, filename: `${__dirname}/thumbnail` });

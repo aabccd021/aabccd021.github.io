@@ -2,16 +2,16 @@
 import * as fs from 'node:fs/promises';
 
 import satori from 'satori';
-import { optimize } from 'svgo';
+import sharp from 'sharp';
 
 export const generate = async ({
   element,
-  output,
+  filename,
   width,
   height,
 }: {
   readonly element: React.ReactNode;
-  readonly output: string;
+  readonly filename: string;
   readonly width?: number;
   readonly height?: number;
 }) => {
@@ -33,6 +33,22 @@ export const generate = async ({
       },
     ],
   });
-  const optimizedResult = optimize(result);
-  return fs.writeFile(output, optimizedResult.data, { encoding: 'utf8' });
+  // const optimizedResult = optimize(result);
+  const optimizedResult = { data: result };
+
+  const optimizedResultAdjusted = optimizedResult.data
+    .replace('href', 'xlink:href')
+    .replace(
+      'xmlns="http://www.w3.org/2000/svg"',
+      'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'
+    );
+
+  const [sharpOutput] = await Promise.all([
+    sharp(Buffer.from(optimizedResultAdjusted)).toBuffer({
+      resolveWithObject: true,
+    }),
+    fs.writeFile(`${filename}.svg`, optimizedResultAdjusted, { encoding: 'utf8' }),
+  ]);
+
+  return fs.writeFile(`${filename}.${sharpOutput.info.format}`, sharpOutput.data);
 };
