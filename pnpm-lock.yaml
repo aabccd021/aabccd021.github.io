@@ -40,6 +40,7 @@ specifiers:
   textlint-rule-no-zero-width-spaces: ^1.0.1
   textlint-rule-write-good: ^2.0.0
   ts-node: ^10.9.1
+  ts-pattern: ^4.2.0
   typescript: ^4.9.5
 
 devDependencies:
@@ -82,6 +83,7 @@ devDependencies:
   textlint-rule-no-zero-width-spaces: 1.0.1
   textlint-rule-write-good: 2.0.0_mbtr3ald3hcqvtwfvnckguo3q4
   ts-node: 10.9.1_4bewfcp2iebiwuold25d6rgcsy
+  ts-pattern: 4.2.0
   typescript: 4.9.5
 
 packages:
@@ -9415,6 +9417,10 @@ packages:
       typescript: 4.9.5
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
+    dev: true
+
+  /ts-pattern/4.2.0:
+    resolution: {integrity: sha512-Bmi5G8KQyTnkcpRYzAwgPj8nvIodm2S7aneJtILrW0/2ZzqXQbl5nC5YjCiZUj5Iqihl8MLH+TK7pmCAZ61xJg==}
     dev: true
 
   /tsconfig-paths/3.14.1:

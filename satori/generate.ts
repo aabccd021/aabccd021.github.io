@@ -1,8 +1,49 @@
 // eslint-disable-next-line import/no-nodejs-modules
 import * as fs from 'node:fs/promises';
 
+import { pipe } from 'fp-ts/function';
 import satori from 'satori';
 import sharp from 'sharp';
+import { match as convert } from 'ts-pattern';
+
+const el =
+  (type: string) =>
+  (props: object, ...children: readonly unknown[]) => ({
+    key: '',
+    type,
+    props: {
+      ...props,
+      children,
+    },
+  });
+
+export const div = el('div');
+
+export const pre = el('pre');
+
+export const img = el('img');
+
+export const png = async (path: string) => {
+  const data = await fs.readFile(`${path}.png`, { encoding: 'base64' });
+  return `data:image/png;base64,${data}`;
+};
+
+export const svg = async (path: string) => {
+  const data = await fs.readFile(`${path}.svg`, { encoding: 'base64' });
+  return `data:image/svg+xml;base64,${data}`;
+};
+
+const conv = (ext: 'avif' | 'png' | 'webp', s: sharp.Sharp) =>
+  convert(ext)
+    .with('avif', () => s.avif())
+    .with('png', () => s.png())
+    .with('webp', () => s.webp())
+    .exhaustive();
+
+const write = (filename: string) => (s: sharp.Sharp) => (ext: 'avif' | 'png' | 'webp') =>
+  conv(ext, s)
+    .toBuffer()
+    .then((res) => fs.writeFile(`${filename}.${ext}`, res));
 
 export const generate = async ({
   element,
@@ -15,7 +56,7 @@ export const generate = async ({
   readonly width?: number;
   readonly height?: number;
 }) => {
-  const result = await satori(element, {
+  const svgStr = await satori(element, {
     width: width ?? 1200,
     height: height ?? 630,
     fonts: [
@@ -33,22 +74,7 @@ export const generate = async ({
       },
     ],
   });
-  // const optimizedResult = optimize(result);
-  const optimizedResult = { data: result };
-
-  const optimizedResultAdjusted = optimizedResult.data
-    .replace('href', 'xlink:href')
-    .replace(
-      'xmlns="http://www.w3.org/2000/svg"',
-      'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'
-    );
-
-  const [sharpOutput] = await Promise.all([
-    sharp(Buffer.from(optimizedResultAdjusted)).toBuffer({
-      resolveWithObject: true,
-    }),
-    fs.writeFile(`${filename}.svg`, optimizedResultAdjusted, { encoding: 'utf8' }),
-  ]);
-
-  return fs.writeFile(`${filename}.${sharpOutput.info.format}`, sharpOutput.data);
+  return pipe(svgStr, Buffer.from, sharp, write(filename), (writeToExt) =>
+    Promise.all([writeToExt('webp'), writeToExt('avif'), writeToExt('png')])
+  );
 };
