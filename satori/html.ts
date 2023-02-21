@@ -146,15 +146,15 @@ export type br = {
 export type button = {
   readonly type: 'button';
   readonly attributes: globalAttributes & {
-    readonly 'autofocus'?: boolean;
+    readonly 'autofocus'?: true;
     readonly 'datafld'?: string;
     readonly 'dataformatas'?: string;
     readonly 'datasrc'?: string;
-    readonly 'disabled'?: boolean;
+    readonly 'disabled'?: true;
     readonly 'formaction'?: string;
     readonly 'formenctype'?: string;
     readonly 'formmethod'?: 'get'|'post'|'dialog';
-    readonly 'formnovalidate'?: boolean;
+    readonly 'formnovalidate'?: true;
     readonly 'formtarget'?: '_blank'|'_self'|'_parent'|'_top';
     readonly 'type': 'submit'|'reset'|'button';
   };
@@ -231,7 +231,7 @@ export type del = {
 export type details = {
   readonly type: 'details';
   readonly attributes: globalAttributes & {
-    readonly 'open'?: boolean;
+    readonly 'open'?: true;
   };
 };
 
@@ -244,7 +244,7 @@ export type dfn = {
 export type dialog = {
   readonly type: 'dialog';
   readonly attributes: globalAttributes & {
-    readonly 'open'?: boolean;
+    readonly 'open'?: true;
   };
 };
 
@@ -289,7 +289,7 @@ export type fieldset = {
   readonly type: 'fieldset';
   readonly attributes: globalAttributes & {
     readonly 'datafld'?: string;
-    readonly 'disabled'?: boolean;
+    readonly 'disabled'?: true;
   };
 };
 
@@ -318,7 +318,7 @@ export type form = {
     readonly 'action'?: string;
     readonly 'autocomplete'?: 'on'|'off';
     readonly 'method'?: 'get'|'post'|'dialog';
-    readonly 'novalidate'?: boolean;
+    readonly 'novalidate'?: true;
     readonly 'target'?: '_blank'|'_self'|'_parent'|'_top';
   };
 };
@@ -437,7 +437,7 @@ export type img = {
     readonly 'datasrc'?: string;
     readonly 'decoding'?: 'sync'|'async'|'auto';
     readonly 'hspace'?: string;
-    readonly 'ismap'?: boolean;
+    readonly 'ismap'?: true;
     readonly 'lowsrc'?: string;
     readonly 'name'?: string;
     readonly 'src': string;
@@ -450,24 +450,24 @@ export type input = {
   readonly type: 'input';
   readonly attributes: globalAttributes & {
     readonly 'align'?: string;
-    readonly 'autofocus'?: boolean;
+    readonly 'autofocus'?: true;
     readonly 'capture'?: 'environment'|'user';
-    readonly 'checked'?: boolean;
+    readonly 'checked'?: true;
     readonly 'datafld'?: string;
     readonly 'dataformatas'?: string;
     readonly 'datasrc'?: string;
-    readonly 'disabled'?: boolean;
+    readonly 'disabled'?: true;
     readonly 'formaction'?: string;
     readonly 'formenctype'?: string;
     readonly 'formmethod'?: 'get'|'post'|'dialog';
-    readonly 'formnovalidate'?: boolean;
+    readonly 'formnovalidate'?: true;
     readonly 'formtarget'?: '_blank'|'_self'|'_parent'|'_top';
     readonly 'hspace'?: string;
     readonly 'inputmode'?: 'none'|'text'|'decimal'|'numeric'|'tel'|'search'|'email'|'url';
     readonly 'ismap'?: string;
-    readonly 'multiple'?: boolean;
-    readonly 'readonly'?: boolean;
-    readonly 'required'?: boolean;
+    readonly 'multiple'?: true;
+    readonly 'readonly'?: true;
+    readonly 'required'?: true;
     readonly 'spellcheck'?: 'default'|'false'|'true';
     readonly 'type': 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
     readonly 'usemap'?: string;
@@ -520,7 +520,7 @@ export type link = {
     readonly 'blocking'?: 'render';
     readonly 'charset'?: string;
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'disabled'?: boolean;
+    readonly 'disabled'?: true;
     readonly 'href': string;
     readonly 'integrity'?: string;
     readonly 'methods'?: string;
@@ -624,7 +624,7 @@ export type ol = {
   readonly type: 'ol';
   readonly attributes: globalAttributes & {
     readonly 'compact'?: string;
-    readonly 'reversed'?: boolean;
+    readonly 'reversed'?: true;
     readonly 'type'?: 'a'|'A'|'i'|'I'|'1';
   };
 };
@@ -632,7 +632,7 @@ export type ol = {
 export type optgroup = {
   readonly type: 'optgroup';
   readonly attributes: globalAttributes & {
-    readonly 'disabled'?: boolean;
+    readonly 'disabled'?: true;
   };
 };
 
@@ -641,9 +641,9 @@ export type option = {
   readonly attributes: globalAttributes & {
     readonly 'dataformatas'?: string;
     readonly 'datasrc'?: string;
-    readonly 'disabled'?: boolean;
+    readonly 'disabled'?: true;
     readonly 'name'?: string;
-    readonly 'selected'?: boolean;
+    readonly 'selected'?: true;
   };
 };
 
@@ -739,14 +739,14 @@ export type samp = {
 export type script = {
   readonly type: 'script';
   readonly attributes: globalAttributes & {
-    readonly 'async'?: boolean;
+    readonly 'async'?: true;
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'defer'?: boolean;
+    readonly 'defer'?: true;
     readonly 'event'?: string;
     readonly 'for'?: string;
     readonly 'integrity'?: string;
     readonly 'language'?: string;
-    readonly 'nomodule'?: boolean;
+    readonly 'nomodule'?: true;
     readonly 'src'?: string;
   };
 };
@@ -760,10 +760,10 @@ export type section = {
 export type select = {
   readonly type: 'select';
   readonly attributes: globalAttributes & {
-    readonly 'autofocus'?: boolean;
-    readonly 'disabled'?: boolean;
-    readonly 'multiple'?: boolean;
-    readonly 'required'?: boolean;
+    readonly 'autofocus'?: true;
+    readonly 'disabled'?: true;
+    readonly 'multiple'?: true;
+    readonly 'required'?: true;
     readonly 'size'?: string;
   };
 };
@@ -890,15 +890,15 @@ export type textarea = {
   readonly type: 'textarea';
   readonly attributes: globalAttributes & {
     readonly 'autocomplete'?: 'on'|'off';
-    readonly 'autofocus'?: boolean;
+    readonly 'autofocus'?: true;
     readonly 'cols'?: string;
     readonly 'datafld'?: string;
     readonly 'datasrc'?: string;
-    readonly 'disabled'?: boolean;
+    readonly 'disabled'?: true;
     readonly 'maxlength'?: string;
     readonly 'minlength'?: string;
-    readonly 'readonly'?: boolean;
-    readonly 'required'?: boolean;
+    readonly 'readonly'?: true;
+    readonly 'required'?: true;
     readonly 'rows'?: string;
     readonly 'spellcheck'?: 'true'|'default'|'false';
     readonly 'wrap'?: 'hard'|'soft';

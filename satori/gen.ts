@@ -38,7 +38,7 @@ type globalAttributes = {
 
 const attrValueStr = ({ boolean, enum: enum_ }: MetaAttribute): string =>
   boolean === true
-    ? 'boolean'
+    ? 'true'
     : enum_ !== undefined
     ? pipe(
         enum_,
