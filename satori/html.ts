@@ -160,14 +160,14 @@ export type code = {
 export type col = {
   readonly type: 'col';
   readonly attributes: globalAttributes & {
-    readonly 'span' ?: string;
+    readonly 'span' ?: number;
   };
 };
 
 export type colgroup = {
   readonly type: 'colgroup';
   readonly attributes: globalAttributes & {
-    readonly 'span' ?: string;
+    readonly 'span' ?: number;
   };
 };
 
@@ -642,7 +642,7 @@ export type select = {
     readonly 'disabled' ?: true;
     readonly 'multiple' ?: true;
     readonly 'required' ?: true;
-    readonly 'size' ?: string;
+    readonly 'size' ?: number;
   };
 };
 
@@ -721,8 +721,8 @@ export type tbody = {
 export type td = {
   readonly type: 'td';
   readonly attributes: globalAttributes & {
-    readonly 'colspan' ?: string;
-    readonly 'rowspan' ?: string;
+    readonly 'colspan' ?: number;
+    readonly 'rowspan' ?: number;
   };
 };
 
@@ -737,13 +737,13 @@ export type textarea = {
   readonly attributes: globalAttributes & {
     readonly 'autocomplete' ?: 'on'|'off';
     readonly 'autofocus' ?: true;
-    readonly 'cols' ?: string;
+    readonly 'cols' ?: number;
     readonly 'disabled' ?: true;
-    readonly 'maxlength' ?: string;
-    readonly 'minlength' ?: string;
+    readonly 'maxlength' ?: number;
+    readonly 'minlength' ?: number;
     readonly 'readonly' ?: true;
     readonly 'required' ?: true;
-    readonly 'rows' ?: string;
+    readonly 'rows' ?: number;
     readonly 'spellcheck' ?: 'true'|'default'|'false';
     readonly 'wrap' ?: 'hard'|'soft';
   };
@@ -758,8 +758,8 @@ export type tfoot = {
 export type th = {
   readonly type: 'th';
   readonly attributes: globalAttributes & {
-    readonly 'colspan' ?: string;
-    readonly 'rowspan' ?: string;
+    readonly 'colspan' ?: number;
+    readonly 'rowspan' ?: number;
     readonly 'scope' ?: 'row'|'col'|'rowgroup'|'colgroup';
   };
 };

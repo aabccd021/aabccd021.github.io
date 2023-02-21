@@ -419,7 +419,7 @@ export const html: MetaDataTable = {
   col: {
     attributes: {
       span: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
     },
     void: true,
@@ -429,7 +429,7 @@ export const html: MetaDataTable = {
     implicitClosed: ['colgroup'],
     attributes: {
       span: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
     },
     permittedContent: ['col', 'template'],
@@ -1216,7 +1216,7 @@ export const html: MetaDataTable = {
         type: { type: 'boolean' },
       },
       size: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
     },
     permittedContent: ['@script', 'datasrc', 'datafld', 'dataformatas', 'option', 'optgroup'],
@@ -1299,10 +1299,10 @@ export const html: MetaDataTable = {
     implicitClosed: ['td', 'th'],
     attributes: {
       colspan: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
       rowspan: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
     },
     permittedContent: ['@flow'],
@@ -1331,16 +1331,16 @@ export const html: MetaDataTable = {
         type: { type: 'boolean' },
       },
       cols: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
       disabled: {
         type: { type: 'boolean' },
       },
       maxlength: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
       minlength: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
       readonly: {
         type: { type: 'boolean' },
@@ -1349,7 +1349,7 @@ export const html: MetaDataTable = {
         type: { type: 'boolean' },
       },
       rows: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
       spellcheck: {
         type: { type: 'enum', value: ['true', 'default', 'false'] },
@@ -1371,10 +1371,10 @@ export const html: MetaDataTable = {
     implicitClosed: ['td', 'th'],
     attributes: {
       colspan: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
       rowspan: {
-        type: { type: 'enum', value: ['/\\d+/'] },
+        type: { type: 'number' },
       },
       scope: {
         type: { type: 'enum', value: ['row', 'col', 'rowgroup', 'colgroup'] },
