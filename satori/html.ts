@@ -1,593 +1,694 @@
-export type GeneralAttributes = {
-  readonly accesskey: string;
-  readonly autocapitalize: string;
-  readonly autofocus: string;
-  readonly class: string;
-  readonly contenteditable: string;
-  readonly dir: string;
-  readonly draggable: string;
-  readonly enterkeyhint: string;
-  readonly hidden: string;
-  readonly id: string;
-  readonly inputmode: string;
-  readonly is: string;
-  readonly itemid: string;
-  readonly itemprop: string;
-  readonly itemref: string;
-  readonly itemscope: string;
-  readonly itemtype: string;
-  readonly lang: string;
-  readonly nonce: string;
-  readonly slot: string;
-  readonly spellcheck: string;
-  readonly style: string;
-  readonly tabindex: string;
-  readonly title: string;
-  readonly translate: string;
+const GeneralAttributes = {
+  accesskey: 'string',
+  autocapitalize: 'string',
+  autofocus: 'string',
+  class: 'string',
+  contenteditable: 'string',
+  dir: 'string',
+  draggable: 'string',
+  enterkeyhint: 'string',
+  hidden: 'string',
+  id: 'string',
+  inputmode: 'string',
+  is: 'string',
+  itemid: 'string',
+  itemprop: 'string',
+  itemref: 'string',
+  itemscope: 'string',
+  itemtype: 'string',
+  lang: 'string',
+  nonce: 'string',
+  slot: 'string',
+  spellcheck: 'string',
+  style: 'string',
+  tabindex: 'string',
+  title: 'string',
+  translate: 'string',
 };
 
-export type a = GeneralAttributes & {
-  readonly accesskey: string;
-  readonly charset: string;
-  readonly coords: string;
-  readonly download: string;
-  readonly href: string;
-  readonly hreflang: string;
-  readonly name: string;
-  readonly ping: string;
-  readonly referrerpolicy: string;
-  readonly rel: string;
-  readonly rev: string;
-  readonly shape: string;
-  readonly tabindex: string;
-  readonly target: string;
-  readonly type: string;
+export const a = {
+  attributes: {
+    ...GeneralAttributes,
+    charset: 'string',
+    coords: 'string',
+    download: 'string',
+    href: 'string',
+    hreflang: 'string',
+    name: 'string',
+    ping: 'string',
+    referrerpolicy: 'string',
+    rel: 'string',
+    rev: 'string',
+    shape: 'string',
+    target: 'string',
+    type: 'string',
+  },
 };
 
-export type abbr = GeneralAttributes & { readonly title: string };
+export const abbr = { attributes: { ...GeneralAttributes, title: 'string' } };
 
-export type applet = GeneralAttributes & {
-  readonly align: string;
-  readonly alt: string;
-  readonly archive: string;
-  readonly code: string;
-  readonly codebase: string;
-  readonly height: string;
-  readonly hspace: string;
-  readonly name: string;
-  readonly object: string;
-  readonly vspace: string;
-  readonly width: string;
+export const applet = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    alt: 'string',
+    archive: 'string',
+    code: 'string',
+    codebase: 'string',
+    height: 'string',
+    hspace: 'string',
+    name: 'string',
+    object: 'string',
+    vspace: 'string',
+    width: 'string',
+  },
 };
 
-export type area = GeneralAttributes & {
-  readonly accesskey: string;
-  readonly alt: string;
-  readonly coords: string;
-  readonly download: string;
-  readonly href: string;
-  readonly hreflang: string;
-  readonly nohref: string;
-  readonly ping: string;
-  readonly referrerpolicy: string;
-  readonly rel: string;
-  readonly shape: string;
-  readonly tabindex: string;
-  readonly target: string;
-  readonly type: string;
+export const area = {
+  attributes: {
+    ...GeneralAttributes,
+
+    alt: 'string',
+    coords: 'string',
+    download: 'string',
+    href: 'string',
+    hreflang: 'string',
+    nohref: 'string',
+    ping: 'string',
+    referrerpolicy: 'string',
+    rel: 'string',
+    shape: 'string',
+
+    target: 'string',
+    type: 'string',
+  },
 };
 
-export type audio = GeneralAttributes & {
-  readonly autoplay: string;
-  readonly controls: string;
-  readonly crossorigin: string;
-  readonly loop: string;
-  readonly muted: string;
-  readonly preload: string;
-  readonly src: string;
+export const audio = {
+  attributes: {
+    ...GeneralAttributes,
+    autoplay: 'string',
+    controls: 'string',
+    crossorigin: 'string',
+    loop: 'string',
+    muted: 'string',
+    preload: 'string',
+    src: 'string',
+  },
 };
 
-export type base = GeneralAttributes & { readonly href: string; readonly target: string };
+export const base = { attributes: { ...GeneralAttributes, href: 'string', target: 'string' } };
 
-export type basefont = GeneralAttributes & {
-  readonly color: string;
-  readonly face: string;
-  readonly size: string;
+export const basefont = {
+  attributes: { ...GeneralAttributes, color: 'string', face: 'string', size: 'string' },
 };
 
-export type bdo = GeneralAttributes & { readonly dir: string };
+export const bdo = { attributes: { ...GeneralAttributes, dir: 'string' } };
 
-export type blockquote = GeneralAttributes & { readonly cite: string };
+export const blockquote = { attributes: { ...GeneralAttributes, cite: 'string' } };
 
-export type body = GeneralAttributes & {
-  readonly alink: string;
-  readonly background: string;
-  readonly bgcolor: string;
-  readonly link: string;
-  readonly text: string;
-  readonly vlink: string;
+export const body = {
+  attributes: {
+    ...GeneralAttributes,
+    alink: 'string',
+    background: 'string',
+    bgcolor: 'string',
+    link: 'string',
+    text: 'string',
+    vlink: 'string',
+  },
 };
 
-export type br = GeneralAttributes & { readonly clear: string };
+export const br = { attributes: { ...GeneralAttributes, clear: 'string' } };
 
-export type button = GeneralAttributes & {
-  readonly accesskey: string;
-  readonly autofocus: string;
-  readonly disabled: string;
-  readonly form: string;
-  readonly formaction: string;
-  readonly formenctype: string;
-  readonly formmethod: string;
-  readonly formnovalidate: string;
-  readonly formtarget: string;
-  readonly name: string;
-  readonly tabindex: string;
-  readonly type: string;
-  readonly value: string;
+export const button = {
+  attributes: {
+    ...GeneralAttributes,
+
+    disabled: 'string',
+    form: 'string',
+    formaction: 'string',
+    formenctype: 'string',
+    formmethod: 'string',
+    formnovalidate: 'string',
+    formtarget: 'string',
+    name: 'string',
+
+    type: 'string',
+    value: 'string',
+  },
 };
 
-export type canvas = GeneralAttributes & { readonly height: string; readonly width: string };
+export const canvas = { attributes: { ...GeneralAttributes, height: 'string', width: 'string' } };
 
-export type caption = GeneralAttributes & { readonly align: string };
+export const caption = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type col = GeneralAttributes & {
-  readonly align: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly span: string;
-  readonly valign: string;
-  readonly width: string;
+export const col = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    char: 'string',
+    charoff: 'string',
+    span: 'string',
+    valign: 'string',
+    width: 'string',
+  },
 };
 
-export type colgroup = GeneralAttributes & {
-  readonly align: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly span: string;
-  readonly valign: string;
-  readonly width: string;
+export const colgroup = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    char: 'string',
+    charoff: 'string',
+    span: 'string',
+    valign: 'string',
+    width: 'string',
+  },
 };
 
-export type data = GeneralAttributes & { readonly value: string };
+export const data = { attributes: { ...GeneralAttributes, value: 'string' } };
 
-export type del = GeneralAttributes & { readonly cite: string; readonly datetime: string };
+export const del = { attributes: { ...GeneralAttributes, cite: 'string', datetime: 'string' } };
 
-export type details = GeneralAttributes & { readonly open: string };
+export const details = { attributes: { ...GeneralAttributes, open: 'string' } };
 
-export type dfn = GeneralAttributes & { readonly title: string };
+export const dfn = { attributes: { ...GeneralAttributes, title: 'string' } };
 
-export type dialog = GeneralAttributes & { readonly open: string };
+export const dialog = { attributes: { ...GeneralAttributes, open: 'string' } };
 
-export type dir = GeneralAttributes & { readonly compact: string };
+export const dir = { attributes: { ...GeneralAttributes, compact: 'string' } };
 
-export type div = GeneralAttributes & { readonly align: string };
+export const div = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type dl = GeneralAttributes & { readonly compact: string };
+export const dl = { attributes: { ...GeneralAttributes, compact: 'string' } };
 
-export type embed = GeneralAttributes & {
-  readonly height: string;
-  readonly src: string;
-  readonly type: string;
-  readonly width: string;
+export const embed = {
+  attributes: {
+    ...GeneralAttributes,
+    height: 'string',
+    src: 'string',
+    type: 'string',
+    width: 'string',
+  },
 };
 
-export type fieldset = GeneralAttributes & {
-  readonly disabled: string;
-  readonly form: string;
-  readonly name: string;
+export const fieldset = {
+  attributes: {
+    ...GeneralAttributes,
+    disabled: 'string',
+    form: 'string',
+    name: 'string',
+  },
 };
 
-export type font = GeneralAttributes & {
-  readonly color: string;
-  readonly face: string;
-  readonly size: string;
+export const font = {
+  attributes: { ...GeneralAttributes, color: 'string', face: 'string', size: 'string' },
 };
 
-export type form = GeneralAttributes & {
-  readonly accept: string;
-  readonly string: string;
-  readonly action: string;
-  readonly autocomplete: string;
-  readonly enctype: string;
-  readonly method: string;
-  readonly name: string;
-  readonly novalidate: string;
-  readonly target: string;
+export const form = {
+  attributes: {
+    ...GeneralAttributes,
+    accept: 'string',
+    string: 'string',
+    action: 'string',
+    autocomplete: 'string',
+    enctype: 'string',
+    method: 'string',
+    name: 'string',
+    novalidate: 'string',
+    target: 'string',
+  },
 };
 
-export type frame = GeneralAttributes & {
-  readonly frameborder: string;
-  readonly longdesc: string;
-  readonly marginheight: string;
-  readonly marginwidth: string;
-  readonly name: string;
-  readonly noresize: string;
-  readonly scrolling: string;
-  readonly src: string;
+export const frame = {
+  attributes: {
+    ...GeneralAttributes,
+    frameborder: 'string',
+    longdesc: 'string',
+    marginheight: 'string',
+    marginwidth: 'string',
+    name: 'string',
+    noresize: 'string',
+    scrolling: 'string',
+    src: 'string',
+  },
 };
 
-export type frameset = GeneralAttributes & { readonly cols: string; readonly rows: string };
+export const frameset = { attributes: { ...GeneralAttributes, cols: 'string', rows: 'string' } };
 
-export type h1 = GeneralAttributes & { readonly align: string };
+export const h1 = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type h2 = GeneralAttributes & { readonly align: string };
+export const h2 = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type h3 = GeneralAttributes & { readonly align: string };
+export const h3 = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type h4 = GeneralAttributes & { readonly align: string };
+export const h4 = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type h5 = GeneralAttributes & { readonly align: string };
+export const h5 = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type h6 = GeneralAttributes & { readonly align: string };
+export const h6 = { attributes: { ...GeneralAttributes, align: 'string' } };
 
-export type head = GeneralAttributes & { readonly profile: string };
+export const head = { attributes: { ...GeneralAttributes, profile: 'string' } };
 
-export type hr = GeneralAttributes & {
-  readonly align: string;
-  readonly noshade: string;
-  readonly size: string;
-  readonly width: string;
+export const hr = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    noshade: 'string',
+    size: 'string',
+    width: 'string',
+  },
 };
 
-export type html = GeneralAttributes & { readonly manifest: string; readonly version: string };
+export const html = { attributes: { ...GeneralAttributes, manifest: 'string', version: 'string' } };
 
-export type iframe = GeneralAttributes & {
-  readonly align: string;
-  readonly allow: string;
-  readonly allowfullscreen: string;
-  readonly allowpaymentrequest: string;
-  readonly allowusermedia: string;
-  readonly frameborder: string;
-  readonly height: string;
-  readonly loading: string;
-  readonly longdesc: string;
-  readonly marginheight: string;
-  readonly marginwidth: string;
-  readonly name: string;
-  readonly referrerpolicy: string;
-  readonly sandbox: string;
-  readonly scrolling: string;
-  readonly src: string;
-  readonly srcdoc: string;
-  readonly width: string;
+export const iframe = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    allow: 'string',
+    allowfullscreen: 'string',
+    allowpaymentrequest: 'string',
+    allowusermedia: 'string',
+    frameborder: 'string',
+    height: 'string',
+    loading: 'string',
+    longdesc: 'string',
+    marginheight: 'string',
+    marginwidth: 'string',
+    name: 'string',
+    referrerpolicy: 'string',
+    sandbox: 'string',
+    scrolling: 'string',
+    src: 'string',
+    srcdoc: 'string',
+    width: 'string',
+  },
 };
 
-export type img = GeneralAttributes & {
-  readonly align: string;
-  readonly alt: string;
-  readonly border: string;
-  readonly crossorigin: string;
-  readonly decoding: string;
-  readonly height: string;
-  readonly hspace: string;
-  readonly ismap: string;
-  readonly loading: string;
-  readonly longdesc: string;
-  readonly name: string;
-  readonly referrerpolicy: string;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcset: string;
-  readonly usemap: string;
-  readonly vspace: string;
-  readonly width: string;
+export const img = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    alt: 'string',
+    border: 'string',
+    crossorigin: 'string',
+    decoding: 'string',
+    height: 'string',
+    hspace: 'string',
+    ismap: 'string',
+    loading: 'string',
+    longdesc: 'string',
+    name: 'string',
+    referrerpolicy: 'string',
+    sizes: 'string',
+    src: 'string',
+    srcset: 'string',
+    usemap: 'string',
+    vspace: 'string',
+    width: 'string',
+  },
 };
 
-export type input = GeneralAttributes & {
-  readonly accept: string;
-  readonly accesskey: string;
-  readonly align: string;
-  readonly alt: string;
-  readonly autocomplete: string;
-  readonly autofocus: string;
-  readonly checked: string;
-  readonly dirname: string;
-  readonly disabled: string;
-  readonly form: string;
-  readonly formaction: string;
-  readonly formenctype: string;
-  readonly formmethod: string;
-  readonly formnovalidate: string;
-  readonly formtarget: string;
-  readonly height: string;
-  readonly ismap: string;
-  readonly list: string;
-  readonly max: string;
-  readonly maxlength: string;
-  readonly min: string;
-  readonly minlength: string;
-  readonly multiple: string;
-  readonly name: string;
-  readonly pattern: string;
-  readonly placeholder: string;
-  readonly readonly: string;
-  readonly required: string;
-  readonly size: string;
-  readonly src: string;
-  readonly step: string;
-  readonly tabindex: string;
-  readonly title: string;
-  readonly type: string;
-  readonly usemap: string;
-  readonly value: string;
-  readonly width: string;
+export const input = {
+  attributes: {
+    ...GeneralAttributes,
+    accept: 'string',
+
+    align: 'string',
+    alt: 'string',
+    autocomplete: 'string',
+
+    checked: 'string',
+    dirname: 'string',
+    disabled: 'string',
+    form: 'string',
+    formaction: 'string',
+    formenctype: 'string',
+    formmethod: 'string',
+    formnovalidate: 'string',
+    formtarget: 'string',
+    height: 'string',
+    ismap: 'string',
+    list: 'string',
+    max: 'string',
+    maxlength: 'string',
+    min: 'string',
+    minlength: 'string',
+    multiple: 'string',
+    name: 'string',
+    pattern: 'string',
+    placeholder: 'string',
+    readonly: 'string',
+    required: 'string',
+    size: 'string',
+    src: 'string',
+    step: 'string',
+
+    type: 'string',
+    usemap: 'string',
+    value: 'string',
+    width: 'string',
+  },
 };
 
-export type ins = GeneralAttributes & { readonly cite: string; readonly datetime: string };
+export const ins = { attributes: { ...GeneralAttributes, cite: 'string', datetime: 'string' } };
 
-export type isindex = GeneralAttributes & { readonly prompt: string };
+export const isindex = { attributes: { ...GeneralAttributes, prompt: 'string' } };
 
-export type label = GeneralAttributes & {
-  readonly accesskey: string;
-  readonly for: string;
-  readonly form: string;
+export const label = {
+  attributes: { ...GeneralAttributes, accesskey: 'string', for: 'string', form: 'string' },
 };
 
-export type legend = GeneralAttributes & { readonly accesskey: string; readonly align: string };
-
-export type li = GeneralAttributes & { readonly type: string; readonly value: string };
-
-export type link = GeneralAttributes & {
-  readonly as: string;
-  readonly charset: string;
-  readonly color: string;
-  readonly crossorigin: string;
-  readonly disabled: string;
-  readonly href: string;
-  readonly hreflang: string;
-  readonly imagesizes: string;
-  readonly imagesrcset: string;
-  readonly integrity: string;
-  readonly media: string;
-  readonly nonce: string;
-  readonly referrerpolicy: string;
-  readonly rel: string;
-  readonly rev: string;
-  readonly sizes: string;
-  readonly target: string;
-  readonly title: string;
-  readonly type: string;
+export const legend = {
+  attributes: { ...GeneralAttributes, accesskey: 'string', align: 'string' },
 };
 
-export type map = GeneralAttributes & { readonly name: string };
+export const li = { attributes: { ...GeneralAttributes, type: 'string', value: 'string' } };
 
-export type menu = GeneralAttributes & { readonly compact: string };
+export const link = {
+  attributes: {
+    ...GeneralAttributes,
+    as: 'string',
+    charset: 'string',
+    color: 'string',
+    crossorigin: 'string',
+    disabled: 'string',
+    href: 'string',
+    hreflang: 'string',
+    imagesizes: 'string',
+    imagesrcset: 'string',
+    integrity: 'string',
+    media: 'string',
 
-export type meta = GeneralAttributes & {
-  readonly charset: string;
-  readonly content: string;
-  readonly string: string;
-  readonly name: string;
-  readonly scheme: string;
+    referrerpolicy: 'string',
+    rel: 'string',
+    rev: 'string',
+    sizes: 'string',
+    target: 'string',
+
+    type: 'string',
+  },
 };
 
-export type meter = GeneralAttributes & {
-  readonly high: string;
-  readonly low: string;
-  readonly max: string;
-  readonly min: string;
-  readonly optimum: string;
-  readonly value: string;
+export const map = { attributes: { ...GeneralAttributes, name: 'string' } };
+
+export const menu = { attributes: { ...GeneralAttributes, compact: 'string' } };
+
+export const meta = {
+  attributes: {
+    ...GeneralAttributes,
+    charset: 'string',
+    content: 'string',
+    string: 'string',
+    name: 'string',
+    scheme: 'string',
+  },
 };
 
-export type object_ = GeneralAttributes & {
-  readonly align: string;
-  readonly archive: string;
-  readonly border: string;
-  readonly classid: string;
-  readonly codebase: string;
-  readonly codetype: string;
-  readonly data: string;
-  readonly declare: string;
-  readonly form: string;
-  readonly height: string;
-  readonly hspace: string;
-  readonly name: string;
-  readonly standby: string;
-  readonly tabindex: string;
-  readonly type: string;
-  readonly typemustmatch: string;
-  readonly usemap: string;
-  readonly vspace: string;
-  readonly width: string;
+export const meter = {
+  attributes: {
+    ...GeneralAttributes,
+    high: 'string',
+    low: 'string',
+    max: 'string',
+    min: 'string',
+    optimum: 'string',
+    value: 'string',
+  },
 };
 
-export type ol = GeneralAttributes & {
-  readonly compact: string;
-  readonly reversed: string;
-  readonly start: string;
-  readonly type: string;
+export const object_ = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    archive: 'string',
+    border: 'string',
+    classid: 'string',
+    codebase: 'string',
+    codetype: 'string',
+    data: 'string',
+    declare: 'string',
+    form: 'string',
+    height: 'string',
+    hspace: 'string',
+    name: 'string',
+    standby: 'string',
+
+    type: 'string',
+    typemustmatch: 'string',
+    usemap: 'string',
+    vspace: 'string',
+    width: 'string',
+  },
 };
 
-export type optgroup = GeneralAttributes & { readonly disabled: string; readonly label: string };
-
-export type option = GeneralAttributes & {
-  readonly disabled: string;
-  readonly label: string;
-  readonly selected: string;
-  readonly value: string;
+export const ol = {
+  attributes: {
+    ...GeneralAttributes,
+    compact: 'string',
+    reversed: 'string',
+    start: 'string',
+    type: 'string',
+  },
 };
 
-export type output = GeneralAttributes & {
-  readonly for: string;
-  readonly form: string;
-  readonly name: string;
+export const optgroup = {
+  attributes: { ...GeneralAttributes, disabled: 'string', label: 'string' },
 };
 
-export type p = GeneralAttributes & { readonly align: string };
-
-export type param = GeneralAttributes & {
-  readonly name: string;
-  readonly type: string;
-  readonly value: string;
-  readonly valuetype: string;
+export const option = {
+  attributes: {
+    ...GeneralAttributes,
+    disabled: 'string',
+    label: 'string',
+    selected: 'string',
+    value: 'string',
+  },
 };
 
-export type pre = GeneralAttributes & { readonly width: string };
-
-export type progress = GeneralAttributes & { readonly max: string; readonly value: string };
-
-export type q = GeneralAttributes & { readonly cite: string };
-
-export type script = GeneralAttributes & {
-  readonly async: string;
-  readonly charset: string;
-  readonly crossorigin: string;
-  readonly defer: string;
-  readonly integrity: string;
-  readonly language: string;
-  readonly nomodule: string;
-  readonly nonce: string;
-  readonly referrerpolicy: string;
-  readonly src: string;
-  readonly type: string;
+export const output = {
+  attributes: { ...GeneralAttributes, for: 'string', form: 'string', name: 'string' },
 };
 
-export type select = GeneralAttributes & {
-  readonly autocomplete: string;
-  readonly autofocus: string;
-  readonly disabled: string;
-  readonly form: string;
-  readonly multiple: string;
-  readonly name: string;
-  readonly required: string;
-  readonly size: string;
-  readonly tabindex: string;
+export const p = { attributes: { ...GeneralAttributes, align: 'string' } };
+
+export const param = {
+  attributes: {
+    ...GeneralAttributes,
+    name: 'string',
+    type: 'string',
+    value: 'string',
+    valuetype: 'string',
+  },
 };
 
-export type slot = GeneralAttributes & { readonly name: string };
+export const pre = { attributes: { ...GeneralAttributes, width: 'string' } };
 
-export type source = GeneralAttributes & {
-  readonly media: string;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcset: string;
-  readonly type: string;
+export const progress = { attributes: { ...GeneralAttributes, max: 'string', value: 'string' } };
+
+export const q = { attributes: { ...GeneralAttributes, cite: 'string' } };
+
+export const script = {
+  attributes: {
+    ...GeneralAttributes,
+    async: 'string',
+    charset: 'string',
+    crossorigin: 'string',
+    defer: 'string',
+    integrity: 'string',
+    language: 'string',
+    nomodule: 'string',
+
+    referrerpolicy: 'string',
+    src: 'string',
+    type: 'string',
+  },
 };
 
-export type style = GeneralAttributes & {
-  readonly media: string;
-  readonly nonce: string;
-  readonly title: string;
-  readonly type: string;
+export const select = {
+  attributes: {
+    ...GeneralAttributes,
+    autocomplete: 'string',
+
+    disabled: 'string',
+    form: 'string',
+    multiple: 'string',
+    name: 'string',
+    required: 'string',
+    size: 'string',
+  },
 };
 
-export type table = GeneralAttributes & {
-  readonly align: string;
-  readonly bgcolor: string;
-  readonly border: string;
-  readonly cellpadding: string;
-  readonly cellspacing: string;
-  readonly frame: string;
-  readonly rules: string;
-  readonly summary: string;
-  readonly width: string;
+export const slot = { attributes: { ...GeneralAttributes, name: 'string' } };
+
+export const source = {
+  attributes: {
+    ...GeneralAttributes,
+    media: 'string',
+    sizes: 'string',
+    src: 'string',
+    srcset: 'string',
+    type: 'string',
+  },
 };
 
-export type tbody = GeneralAttributes & {
-  readonly align: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly valign: string;
+export const style = {
+  attributes: {
+    ...GeneralAttributes,
+    media: 'string',
+
+    type: 'string',
+  },
 };
 
-export type td = GeneralAttributes & {
-  readonly abbr: string;
-  readonly align: string;
-  readonly axis: string;
-  readonly bgcolor: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly colspan: string;
-  readonly headers: string;
-  readonly height: string;
-  readonly nowrap: string;
-  readonly rowspan: string;
-  readonly scope: string;
-  readonly valign: string;
-  readonly width: string;
+export const table = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    bgcolor: 'string',
+    border: 'string',
+    cellpadding: 'string',
+    cellspacing: 'string',
+    frame: 'string',
+    rules: 'string',
+    summary: 'string',
+    width: 'string',
+  },
 };
 
-export type textarea = GeneralAttributes & {
-  readonly accesskey: string;
-  readonly autocomplete: string;
-  readonly autofocus: string;
-  readonly cols: string;
-  readonly dirname: string;
-  readonly disabled: string;
-  readonly form: string;
-  readonly maxlength: string;
-  readonly minlength: string;
-  readonly name: string;
-  readonly placeholder: string;
-  readonly readonly: string;
-  readonly required: string;
-  readonly rows: string;
-  readonly tabindex: string;
-  readonly wrap: string;
+export const tbody = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    char: 'string',
+    charoff: 'string',
+    valign: 'string',
+  },
 };
 
-export type tfoot = GeneralAttributes & {
-  readonly align: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly valign: string;
+export const td = {
+  attributes: {
+    ...GeneralAttributes,
+    abbr: 'string',
+    align: 'string',
+    axis: 'string',
+    bgcolor: 'string',
+    char: 'string',
+    charoff: 'string',
+    colspan: 'string',
+    headers: 'string',
+    height: 'string',
+    nowrap: 'string',
+    rowspan: 'string',
+    scope: 'string',
+    valign: 'string',
+    width: 'string',
+  },
 };
 
-export type th = GeneralAttributes & {
-  readonly abbr: string;
-  readonly align: string;
-  readonly axis: string;
-  readonly bgcolor: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly colspan: string;
-  readonly headers: string;
-  readonly height: string;
-  readonly nowrap: string;
-  readonly rowspan: string;
-  readonly scope: string;
-  readonly valign: string;
-  readonly width: string;
+export const textarea = {
+  attributes: {
+    ...GeneralAttributes,
+
+    autocomplete: 'string',
+
+    cols: 'string',
+    dirname: 'string',
+    disabled: 'string',
+    form: 'string',
+    maxlength: 'string',
+    minlength: 'string',
+    name: 'string',
+    placeholder: 'string',
+    readonly: 'string',
+    required: 'string',
+    rows: 'string',
+
+    wrap: 'string',
+  },
 };
 
-export type thead = GeneralAttributes & {
-  readonly align: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly valign: string;
+export const tfoot = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    char: 'string',
+    charoff: 'string',
+    valign: 'string',
+  },
 };
 
-export type time = GeneralAttributes & { readonly datetime: string };
-
-export type tr = GeneralAttributes & {
-  readonly align: string;
-  readonly bgcolor: string;
-  readonly char: string;
-  readonly charoff: string;
-  readonly valign: string;
+export const th = {
+  attributes: {
+    ...GeneralAttributes,
+    abbr: 'string',
+    align: 'string',
+    axis: 'string',
+    bgcolor: 'string',
+    char: 'string',
+    charoff: 'string',
+    colspan: 'string',
+    headers: 'string',
+    height: 'string',
+    nowrap: 'string',
+    rowspan: 'string',
+    scope: 'string',
+    valign: 'string',
+    width: 'string',
+  },
 };
 
-export type track = GeneralAttributes & {
-  readonly default: string;
-  readonly kind: string;
-  readonly label: string;
-  readonly src: string;
-  readonly srclang: string;
+export const thead = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    char: 'string',
+    charoff: 'string',
+    valign: 'string',
+  },
 };
 
-export type ul = GeneralAttributes & { readonly compact: string; readonly type: string };
+export const time = { attributes: { ...GeneralAttributes, datetime: 'string' } };
 
-export type video = GeneralAttributes & {
-  readonly autoplay: string;
-  readonly controls: string;
-  readonly crossorigin: string;
-  readonly height: string;
-  readonly loop: string;
-  readonly muted: string;
-  readonly playsinline: string;
-  readonly poster: string;
-  readonly preload: string;
-  readonly src: string;
-  readonly width: string;
+export const tr = {
+  attributes: {
+    ...GeneralAttributes,
+    align: 'string',
+    bgcolor: 'string',
+    char: 'string',
+    charoff: 'string',
+    valign: 'string',
+  },
+};
+
+export const track = {
+  attributes: {
+    ...GeneralAttributes,
+    default: 'string',
+    kind: 'string',
+    label: 'string',
+    src: 'string',
+    srclang: 'string',
+  },
+};
+
+export const ul = { attributes: { ...GeneralAttributes, compact: 'string', type: 'string' } };
+
+export const video = {
+  attributes: {
+    ...GeneralAttributes,
+    autoplay: 'string',
+    controls: 'string',
+    crossorigin: 'string',
+    height: 'string',
+    loop: 'string',
+    muted: 'string',
+    playsinline: 'string',
+    poster: 'string',
+    preload: 'string',
+    src: 'string',
+    width: 'string',
+  },
 };
