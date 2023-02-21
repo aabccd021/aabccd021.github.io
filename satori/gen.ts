@@ -99,9 +99,7 @@ const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `
 
 const res: string = pipe(
   html,
-  readonlyRecord.filterWithIndex(
-    (name, data) => name !== '*' && !name.includes(':') && data.deprecated === undefined
-  ),
+  readonlyRecord.filterWithIndex((name) => name !== '*' && !name.includes(':')),
   readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
   readonlyRecord.foldMapWithIndex(string.Ord)(string.Monoid)((_, val) => val),
   (x) => `/* eslint-disable */\n${globalAttributes}\n${x}`

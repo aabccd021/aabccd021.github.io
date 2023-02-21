@@ -19,23 +19,15 @@ type globalAttributes = {
 export type a = {
   readonly type: 'a';
   readonly attributes: globalAttributes & {
-    readonly 'charset'?: string;
-    readonly 'coords'?: string;
-    readonly 'datafld'?: string;
-    readonly 'datasrc'?: string;
     readonly 'download'?: string;
     readonly 'href'?: string;
     readonly 'hreflang'?: string;
     readonly 'itemprop'?: string;
-    readonly 'methods'?: string;
-    readonly 'name'?: string;
     readonly 'ping'?: string;
     readonly 'referrerpolicy'?: string;
     readonly 'rel'?: string;
-    readonly 'shape'?: string;
     readonly 'target'?: '_blank'|'_self'|'_parent'|'_top';
     readonly 'type'?: string;
-    readonly 'urn'?: string;
   };
 };
 
@@ -58,7 +50,6 @@ export type area = {
     readonly 'coords'?: string;
     readonly 'download'?: string;
     readonly 'itemprop'?: string;
-    readonly 'nohref'?: string;
     readonly 'ping'?: string;
     readonly 'referrerpolicy'?: string;
     readonly 'rel'?: string;
@@ -121,25 +112,12 @@ export type blockquote = {
 export type body = {
   readonly type: 'body';
   readonly attributes: globalAttributes & {
-    readonly 'alink'?: string;
-    readonly 'background'?: string;
-    readonly 'bgcolor'?: string;
-    readonly 'link'?: string;
-    readonly 'marginbottom'?: string;
-    readonly 'marginheight'?: string;
-    readonly 'marginleft'?: string;
-    readonly 'marginright'?: string;
-    readonly 'margintop'?: string;
-    readonly 'marginwidth'?: string;
-    readonly 'text'?: string;
-    readonly 'vlink'?: string;
   };
 };
 
 export type br = {
   readonly type: 'br';
   readonly attributes: globalAttributes & {
-    readonly 'clear'?: string;
   };
 };
 
@@ -147,9 +125,6 @@ export type button = {
   readonly type: 'button';
   readonly attributes: globalAttributes & {
     readonly 'autofocus'?: true;
-    readonly 'datafld'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
     readonly 'disabled'?: true;
     readonly 'formaction'?: string;
     readonly 'formenctype'?: string;
@@ -169,7 +144,6 @@ export type canvas = {
 export type caption = {
   readonly type: 'caption';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
@@ -188,12 +162,7 @@ export type code = {
 export type col = {
   readonly type: 'col';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'char'?: string;
-    readonly 'charoff'?: string;
     readonly 'span'?: string;
-    readonly 'valign'?: string;
-    readonly 'width'?: string;
   };
 };
 
@@ -251,17 +220,12 @@ export type dialog = {
 export type div = {
   readonly type: 'div';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'datafld'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
   };
 };
 
 export type dl = {
   readonly type: 'dl';
   readonly attributes: globalAttributes & {
-    readonly 'compact'?: string;
   };
 };
 
@@ -288,7 +252,6 @@ export type embed = {
 export type fieldset = {
   readonly type: 'fieldset';
   readonly attributes: globalAttributes & {
-    readonly 'datafld'?: string;
     readonly 'disabled'?: true;
   };
 };
@@ -314,7 +277,6 @@ export type footer = {
 export type form = {
   readonly type: 'form';
   readonly attributes: globalAttributes & {
-    readonly 'accept'?: string;
     readonly 'action'?: string;
     readonly 'autocomplete'?: 'on'|'off';
     readonly 'method'?: 'get'|'post'|'dialog';
@@ -326,49 +288,42 @@ export type form = {
 export type h1 = {
   readonly type: 'h1';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
 export type h2 = {
   readonly type: 'h2';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
 export type h3 = {
   readonly type: 'h3';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
 export type h4 = {
   readonly type: 'h4';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
 export type h5 = {
   readonly type: 'h5';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
 export type h6 = {
   readonly type: 'h6';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
 export type head = {
   readonly type: 'head';
   readonly attributes: globalAttributes & {
-    readonly 'profile'?: string;
   };
 };
 
@@ -387,11 +342,6 @@ export type hgroup = {
 export type hr = {
   readonly type: 'hr';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'color'?: string;
-    readonly 'noshade'?: string;
-    readonly 'size'?: string;
-    readonly 'width'?: string;
   };
 };
 
@@ -399,7 +349,6 @@ export type html = {
   readonly type: 'html';
   readonly attributes: globalAttributes & {
     readonly 'lang': string;
-    readonly 'version'?: string;
   };
 };
 
@@ -412,66 +361,40 @@ export type i = {
 export type iframe = {
   readonly type: 'iframe';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'allowtransparency'?: string;
-    readonly 'datafld'?: string;
-    readonly 'datasrc'?: string;
-    readonly 'frameborder'?: string;
-    readonly 'hspace'?: string;
-    readonly 'marginheight'?: string;
-    readonly 'marginwidth'?: string;
-    readonly 'scrolling'?: string;
     readonly 'src'?: string;
     readonly 'title': string;
-    readonly 'vspace'?: string;
   };
 };
 
 export type img = {
   readonly type: 'img';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'border'?: string;
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'datafld'?: string;
-    readonly 'datasrc'?: string;
     readonly 'decoding'?: 'sync'|'async'|'auto';
-    readonly 'hspace'?: string;
     readonly 'ismap'?: true;
-    readonly 'lowsrc'?: string;
-    readonly 'name'?: string;
     readonly 'src': string;
     readonly 'srcset'?: string;
-    readonly 'vspace'?: string;
   };
 };
 
 export type input = {
   readonly type: 'input';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
     readonly 'autofocus'?: true;
     readonly 'capture'?: 'environment'|'user';
     readonly 'checked'?: true;
-    readonly 'datafld'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
     readonly 'disabled'?: true;
     readonly 'formaction'?: string;
     readonly 'formenctype'?: string;
     readonly 'formmethod'?: 'get'|'post'|'dialog';
     readonly 'formnovalidate'?: true;
     readonly 'formtarget'?: '_blank'|'_self'|'_parent'|'_top';
-    readonly 'hspace'?: string;
     readonly 'inputmode'?: 'none'|'text'|'decimal'|'numeric'|'tel'|'search'|'email'|'url';
-    readonly 'ismap'?: string;
     readonly 'multiple'?: true;
     readonly 'readonly'?: true;
     readonly 'required'?: true;
     readonly 'spellcheck'?: 'default'|'false'|'true';
     readonly 'type': 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
-    readonly 'usemap'?: string;
-    readonly 'vspace'?: string;
   };
 };
 
@@ -490,26 +413,18 @@ export type kbd = {
 export type label = {
   readonly type: 'label';
   readonly attributes: globalAttributes & {
-    readonly 'datafld'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
   };
 };
 
 export type legend = {
   readonly type: 'legend';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'datafld'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
   };
 };
 
 export type li = {
   readonly type: 'li';
   readonly attributes: globalAttributes & {
-    readonly 'type'?: string;
   };
 };
 
@@ -518,14 +433,10 @@ export type link = {
   readonly attributes: globalAttributes & {
     readonly 'as'?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
     readonly 'blocking'?: 'render';
-    readonly 'charset'?: string;
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
     readonly 'disabled'?: true;
     readonly 'href': string;
     readonly 'integrity'?: string;
-    readonly 'methods'?: string;
-    readonly 'target'?: string;
-    readonly 'urn'?: string;
   };
 };
 
@@ -551,13 +462,9 @@ export type mark = {
 export type math = {
   readonly type: 'math';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
     readonly 'dir'?: 'ltr'|'rtl';
     readonly 'display'?: 'block'|'inline';
-    readonly 'hspace'?: string;
-    readonly 'name'?: string;
     readonly 'overflow'?: 'linebreak'|'scroll'|'elide'|'truncate'|'scale';
-    readonly 'vspace'?: string;
   };
 };
 
@@ -575,7 +482,6 @@ export type meta = {
     readonly 'http-equiv'?: string;
     readonly 'itemprop'?: string;
     readonly 'name'?: string;
-    readonly 'scheme'?: string;
   };
 };
 
@@ -600,30 +506,15 @@ export type noscript = {
 export type object_ = {
   readonly type: 'object_';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'archive'?: string;
     readonly 'blocking'?: 'render';
-    readonly 'border'?: string;
-    readonly 'classid'?: string;
-    readonly 'code'?: string;
-    readonly 'codebase'?: string;
-    readonly 'codetype'?: string;
     readonly 'data': string;
-    readonly 'datafld'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
-    readonly 'declare'?: string;
-    readonly 'hspace'?: string;
     readonly 'name'?: string;
-    readonly 'standby'?: string;
-    readonly 'vspace'?: string;
   };
 };
 
 export type ol = {
   readonly type: 'ol';
   readonly attributes: globalAttributes & {
-    readonly 'compact'?: string;
     readonly 'reversed'?: true;
     readonly 'type'?: 'a'|'A'|'i'|'I'|'1';
   };
@@ -639,10 +530,7 @@ export type optgroup = {
 export type option = {
   readonly type: 'option';
   readonly attributes: globalAttributes & {
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
     readonly 'disabled'?: true;
-    readonly 'name'?: string;
     readonly 'selected'?: true;
   };
 };
@@ -656,16 +544,12 @@ export type output = {
 export type p = {
   readonly type: 'p';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
   };
 };
 
 export type param = {
   readonly type: 'param';
   readonly attributes: globalAttributes & {
-    readonly 'datafld'?: string;
-    readonly 'type'?: string;
-    readonly 'valuetype'?: string;
   };
 };
 
@@ -678,7 +562,6 @@ export type picture = {
 export type pre = {
   readonly type: 'pre';
   readonly attributes: globalAttributes & {
-    readonly 'width'?: string;
   };
 };
 
@@ -742,10 +625,7 @@ export type script = {
     readonly 'async'?: true;
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
     readonly 'defer'?: true;
-    readonly 'event'?: string;
-    readonly 'for'?: string;
     readonly 'integrity'?: string;
-    readonly 'language'?: string;
     readonly 'nomodule'?: true;
     readonly 'src'?: string;
   };
@@ -789,9 +669,6 @@ export type source = {
 export type span = {
   readonly type: 'span';
   readonly attributes: globalAttributes & {
-    readonly 'datafld'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datasrc'?: string;
   };
 };
 
@@ -834,49 +711,20 @@ export type svg = {
 export type table = {
   readonly type: 'table';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'background'?: string;
-    readonly 'bgcolor'?: string;
-    readonly 'bordercolor'?: string;
-    readonly 'cellpadding'?: string;
-    readonly 'cellspacing'?: string;
-    readonly 'dataformatas'?: string;
-    readonly 'datapagesize'?: string;
-    readonly 'datasrc'?: string;
-    readonly 'frame'?: string;
-    readonly 'rules'?: string;
-    readonly 'summary'?: string;
-    readonly 'width'?: string;
   };
 };
 
 export type tbody = {
   readonly type: 'tbody';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'background'?: string;
-    readonly 'char'?: string;
-    readonly 'charoff'?: string;
-    readonly 'valign'?: string;
   };
 };
 
 export type td = {
   readonly type: 'td';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'axis'?: string;
-    readonly 'background'?: string;
-    readonly 'bgcolor'?: string;
-    readonly 'char'?: string;
-    readonly 'charoff'?: string;
     readonly 'colspan'?: string;
-    readonly 'height'?: string;
-    readonly 'nowrap'?: string;
     readonly 'rowspan'?: string;
-    readonly 'scope'?: string;
-    readonly 'valign'?: string;
-    readonly 'width'?: string;
   };
 };
 
@@ -892,8 +740,6 @@ export type textarea = {
     readonly 'autocomplete'?: 'on'|'off';
     readonly 'autofocus'?: true;
     readonly 'cols'?: string;
-    readonly 'datafld'?: string;
-    readonly 'datasrc'?: string;
     readonly 'disabled'?: true;
     readonly 'maxlength'?: string;
     readonly 'minlength'?: string;
@@ -908,41 +754,21 @@ export type textarea = {
 export type tfoot = {
   readonly type: 'tfoot';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'background'?: string;
-    readonly 'char'?: string;
-    readonly 'charoff'?: string;
-    readonly 'valign'?: string;
   };
 };
 
 export type th = {
   readonly type: 'th';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'axis'?: string;
-    readonly 'background'?: string;
-    readonly 'bgcolor'?: string;
-    readonly 'char'?: string;
-    readonly 'charoff'?: string;
     readonly 'colspan'?: string;
-    readonly 'height'?: string;
-    readonly 'nowrap'?: string;
     readonly 'rowspan'?: string;
     readonly 'scope'?: 'row'|'col'|'rowgroup'|'colgroup';
-    readonly 'valign'?: string;
-    readonly 'width'?: string;
   };
 };
 
 export type thead = {
   readonly type: 'thead';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'background'?: string;
-    readonly 'char'?: string;
-    readonly 'charoff'?: string;
-    readonly 'valign'?: string;
   };
 };
 
@@ -961,12 +787,6 @@ export type title = {
 export type tr = {
   readonly type: 'tr';
   readonly attributes: globalAttributes & {
-    readonly 'align'?: string;
-    readonly 'background'?: string;
-    readonly 'bgcolor'?: string;
-    readonly 'char'?: string;
-    readonly 'charoff'?: string;
-    readonly 'valign'?: string;
   };
 };
 
@@ -985,8 +805,6 @@ export type u = {
 export type ul = {
   readonly type: 'ul';
   readonly attributes: globalAttributes & {
-    readonly 'compact'?: string;
-    readonly 'type'?: string;
   };
 };
 

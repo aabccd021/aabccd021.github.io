@@ -1,8 +1,9 @@
+import type { ReadonlyNonEmptyArray } from 'fp-ts/ReadonlyNonEmptyArray';
 /* eslint-disable max-len */
 // Copied from https://gitlab.com/html-validate/html-validate/-/blob/d19def8fc92bdd5e586f231eb16cef7dcfd0a02b/src/elements/html5.ts
 
 export type PermittedGroup = {
-  readonly exclude?: string | readonly string[];
+  readonly exclude?: ReadonlyNonEmptyArray<string>;
 };
 
 export type CategoryOrTag = string;
@@ -66,9 +67,6 @@ export type MetaAttribute = {
   /* if true this attribute can only take boolean values: my-attr, my-attr="" or my-attr="my-attr" */
   readonly boolean?: boolean;
 
-  /* if set this attribute is considered deprecated, set to true or a message */
-  readonly deprecated?: boolean | string;
-
   /* if set it is an exhaustive list of all possible values (as string or regex)
    * this attribute can have (each token if list is set) */
   readonly enum?: readonly string[];
@@ -88,12 +86,6 @@ export type MetaAttribute = {
 export type Attribute = (RegExp | string)[] | MetaAttribute | null;
 
 export type PermittedAttribute = Record<string, Attribute>;
-
-export type DeprecatedElement = {
-  readonly message?: string;
-  readonly documentation?: string;
-  readonly source?: string;
-};
 
 export type FormAssociated = {
   /** Listed elements have a name attribute and is listed in the form and fieldset elements property. */
@@ -117,7 +109,6 @@ export type MetaData = {
   readonly interactive?: PropertyExpression | boolean;
 
   /* element properties */
-  readonly deprecated?: DeprecatedElement | boolean | string;
   readonly foreign?: boolean;
   readonly void?: boolean;
   readonly transparent?: boolean | readonly string[];
@@ -133,7 +124,7 @@ export type MetaData = {
 
   /* permitted data */
   readonly permittedContent?: Permitted;
-  readonly permittedDescendants?: Permitted;
+  readonly permittedDescendants?: PermittedGroup;
   readonly permittedOrder?: PermittedOrder;
   readonly permittedParent?: Permitted;
   readonly requiredAncestors?: RequiredAncestors;
@@ -149,9 +140,6 @@ export const html: MetaDataTable = {
       contenteditable: {
         omit: true,
         enum: ['true', 'false'],
-      },
-      contextmenu: {
-        deprecated: true,
       },
       dir: {
         enum: ['ltr', 'rtl', 'auto'],
@@ -177,18 +165,6 @@ export const html: MetaDataTable = {
     interactive: true,
     transparent: true,
     attributes: {
-      charset: {
-        deprecated: true,
-      },
-      coords: {
-        deprecated: true,
-      },
-      datafld: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
       download: {
         allowed: allowedIfAttributeIsPresent('href'),
         omit: true,
@@ -203,12 +179,6 @@ export const html: MetaDataTable = {
       itemprop: {
         allowed: allowedIfAttributeIsPresent('href'),
       },
-      methods: {
-        deprecated: true,
-      },
-      name: {
-        deprecated: true,
-      },
       ping: {
         allowed: allowedIfAttributeIsPresent('href'),
       },
@@ -218,9 +188,6 @@ export const html: MetaDataTable = {
       rel: {
         allowed: allowedIfAttributeIsPresent('href'),
       },
-      shape: {
-        deprecated: true,
-      },
       target: {
         allowed: allowedIfAttributeIsPresent('href'),
         enum: ['/[^_].*/', '_blank', '_self', '_parent', '_top'],
@@ -228,11 +195,8 @@ export const html: MetaDataTable = {
       type: {
         allowed: allowedIfAttributeIsPresent('href'),
       },
-      urn: {
-        deprecated: true,
-      },
     },
-    permittedDescendants: [{ exclude: '@interactive' }],
+    permittedDescendants: { exclude: ['@interactive'] },
   },
 
   abbr: {
@@ -241,32 +205,10 @@ export const html: MetaDataTable = {
     permittedContent: ['@phrasing'],
   },
 
-  acronym: {
-    deprecated: {
-      message: 'use <abbr> instead',
-      documentation: '`<abbr>` can be used as a replacement.',
-      source: 'html5',
-    },
-  },
-
   address: {
     flow: true,
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['address', 'header', 'footer', '@heading', '@sectioning'] }],
-  },
-
-  applet: {
-    deprecated: {
-      source: 'html5',
-    },
-    attributes: {
-      datafld: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-    },
+    permittedDescendants: { exclude: ['address', 'header', 'footer', '@heading', '@sectioning'] },
   },
 
   area: {
@@ -287,9 +229,6 @@ export const html: MetaDataTable = {
       },
       download: {
         allowed: allowedIfAttributeIsPresent('href'),
-      },
-      nohref: {
-        deprecated: true,
       },
       itemprop: {
         allowed: allowedIfAttributeIsPresent('href'),
@@ -332,14 +271,14 @@ export const html: MetaDataTable = {
     flow: true,
     sectioning: true,
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['main'] }],
+    permittedDescendants: { exclude: ['main'] },
   },
 
   aside: {
     flow: true,
     sectioning: true,
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['main'] }],
+    permittedDescendants: { exclude: ['main'] },
   },
 
   audio: {
@@ -362,7 +301,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@flow', 'track', 'source'],
-    permittedDescendants: [{ exclude: ['audio', 'video'] }],
+    permittedDescendants: { exclude: ['audio', 'video'] },
     permittedOrder: ['source', 'track', '@flow'],
   },
 
@@ -378,14 +317,6 @@ export const html: MetaDataTable = {
     permittedParent: ['head'],
   },
 
-  basefont: {
-    deprecated: {
-      message: 'use CSS instead',
-      documentation: 'Use CSS `font-size` property instead.',
-      source: 'html4',
-    },
-  },
-
   bdi: {
     flow: true,
     phrasing: true,
@@ -398,31 +329,6 @@ export const html: MetaDataTable = {
     permittedContent: ['@phrasing'],
   },
 
-  bgsound: {
-    deprecated: {
-      message: 'use <audio> instead',
-      documentation:
-        'Use the `<audio>` element instead but consider accessibility concerns with autoplaying sounds.',
-      source: 'non-standard',
-    },
-  },
-
-  big: {
-    deprecated: {
-      message: 'use CSS instead',
-      documentation: 'Use CSS `font-size` property instead.',
-      source: 'html5',
-    },
-  },
-
-  blink: {
-    deprecated: {
-      documentation:
-        '`<blink>` has no direct replacement and blinking text is frowned upon by accessibility standards.',
-      source: 'non-standard',
-    },
-  },
-
   blockquote: {
     flow: true,
     sectioning: true,
@@ -432,55 +338,14 @@ export const html: MetaDataTable = {
   body: {
     permittedContent: ['@flow'],
     permittedParent: ['html'],
-    attributes: {
-      alink: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      bgcolor: {
-        deprecated: true,
-      },
-      link: {
-        deprecated: true,
-      },
-      marginbottom: {
-        deprecated: true,
-      },
-      marginheight: {
-        deprecated: true,
-      },
-      marginleft: {
-        deprecated: true,
-      },
-      marginright: {
-        deprecated: true,
-      },
-      margintop: {
-        deprecated: true,
-      },
-      marginwidth: {
-        deprecated: true,
-      },
-      text: {
-        deprecated: true,
-      },
-      vlink: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   br: {
     flow: true,
     phrasing: true,
     void: true,
-    attributes: {
-      clear: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   button: {
@@ -494,15 +359,6 @@ export const html: MetaDataTable = {
     attributes: {
       autofocus: {
         boolean: true,
-      },
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
       },
       disabled: {
         boolean: true,
@@ -531,7 +387,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@phrasing'],
-    permittedDescendants: [{ exclude: ['@interactive'] }],
+    permittedDescendants: { exclude: ['@interactive'] },
     textContent: 'accessible',
   },
 
@@ -544,20 +400,8 @@ export const html: MetaDataTable = {
 
   caption: {
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['table'] }],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
-  },
-
-  center: {
-    deprecated: {
-      message: 'use CSS instead',
-      documentation: 'Use the CSS `text-align` or `margin: auto` properties instead.',
-      source: 'html4',
-    },
+    permittedDescendants: { exclude: ['table'] },
+    attributes: {},
   },
 
   cite: {
@@ -574,23 +418,8 @@ export const html: MetaDataTable = {
 
   col: {
     attributes: {
-      align: {
-        deprecated: true,
-      },
-      char: {
-        deprecated: true,
-      },
-      charoff: {
-        deprecated: true,
-      },
       span: {
         enum: ['/\\d+/'],
-      },
-      valign: {
-        deprecated: true,
-      },
-      width: {
-        deprecated: true,
       },
     },
     void: true,
@@ -648,7 +477,7 @@ export const html: MetaDataTable = {
     flow: true,
     phrasing: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: [{ exclude: ['dfn'] }],
+    permittedDescendants: { exclude: ['dfn'] },
   },
 
   dialog: {
@@ -661,47 +490,22 @@ export const html: MetaDataTable = {
     },
   },
 
-  dir: {
-    deprecated: {
-      documentation:
-        'The non-standard `<dir>` element has no direct replacement but MDN recommends replacing with `<ul>` and CSS.',
-      source: 'html4',
-    },
-  },
-
   div: {
     flow: true,
     permittedContent: ['@flow', 'dt', 'dd'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   dl: {
     flow: true,
     permittedContent: ['@script', 'dt', 'dd', 'div'],
-    attributes: {
-      compact: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   dt: {
     implicitClosed: ['dd', 'dt'],
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['header', 'footer', '@sectioning', '@heading'] }],
+    permittedDescendants: { exclude: ['header', 'footer', '@sectioning', '@heading'] },
     requiredAncestors: ['dl > dt', 'dl > div > dt'],
   },
 
@@ -734,9 +538,6 @@ export const html: MetaDataTable = {
       listed: true,
     },
     attributes: {
-      datafld: {
-        deprecated: true,
-      },
       disabled: {
         boolean: true,
       },
@@ -755,18 +556,10 @@ export const html: MetaDataTable = {
     permittedOrder: ['figcaption', '@flow', 'figcaption'],
   },
 
-  font: {
-    deprecated: {
-      message: 'use CSS instead',
-      documentation: 'Use CSS font properties instead.',
-      source: 'html4',
-    },
-  },
-
   footer: {
     flow: true,
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['header', 'footer', 'main'] }],
+    permittedDescendants: { exclude: ['header', 'footer', 'main'] },
   },
 
   form: {
@@ -775,9 +568,6 @@ export const html: MetaDataTable = {
     attributes: {
       action: {
         // enum: [/^\s*\S+\s*$/],
-      },
-      accept: {
-        deprecated: true,
       },
       autocomplete: {
         enum: ['on', 'off'],
@@ -793,147 +583,76 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['@form'] }],
-  },
-
-  frame: {
-    deprecated: {
-      documentation:
-        'The `<frame>` element can be replaced with the `<iframe>` element but a better solution is to remove usage of frames entirely.',
-      source: 'html5',
-    },
-    attributes: {
-      datafld: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-      title: {
-        required: true,
-      },
-    },
-  },
-
-  frameset: {
-    deprecated: {
-      documentation:
-        'The `<frameset>` element can be replaced with the `<iframe>` element but a better solution is to remove usage of frames entirely.',
-      source: 'html5',
-    },
+    permittedDescendants: { exclude: ['@form'] },
   },
 
   h1: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   h2: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   h3: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   h4: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   h5: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   h6: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   head: {
     permittedContent: ['base?', 'title?', '@meta'],
     permittedParent: ['html'],
     requiredContent: ['title'],
-    attributes: {
-      profile: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   header: {
     flow: true,
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['header', 'footer', 'main'] }],
+    permittedDescendants: { exclude: ['header', 'footer', 'main'] },
   },
 
   hgroup: {
     flow: true,
     heading: true,
     permittedContent: ['p', '@heading?'],
-    permittedDescendants: [{ exclude: ['hgroup'] }],
+    permittedDescendants: { exclude: ['hgroup'] },
     requiredContent: ['@heading'],
   },
 
   hr: {
     flow: true,
     void: true,
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      color: {
-        deprecated: true,
-      },
-      noshade: {
-        deprecated: true,
-      },
-      size: {
-        deprecated: true,
-      },
-      width: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   html: {
@@ -943,9 +662,6 @@ export const html: MetaDataTable = {
     attributes: {
       lang: {
         required: true,
-      },
-      version: {
-        deprecated: true,
       },
     },
   },
@@ -962,41 +678,11 @@ export const html: MetaDataTable = {
     embedded: true,
     interactive: true,
     attributes: {
-      align: {
-        deprecated: true,
-      },
-      allowtransparency: {
-        deprecated: true,
-      },
-      datafld: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-      frameborder: {
-        deprecated: true,
-      },
-      hspace: {
-        deprecated: true,
-      },
-      marginheight: {
-        deprecated: true,
-      },
-      marginwidth: {
-        deprecated: true,
-      },
-      scrolling: {
-        deprecated: true,
-      },
       src: {
         enum: ['/.+/'],
       },
       title: {
         required: true,
-      },
-      vspace: {
-        deprecated: true,
       },
     },
     permittedContent: [],
@@ -1009,36 +695,15 @@ export const html: MetaDataTable = {
     interactive: ['hasAttribute', 'usemap'],
     void: true,
     attributes: {
-      align: {
-        deprecated: true,
-      },
-      border: {
-        deprecated: true,
-      },
       crossorigin: {
         omit: true,
         enum: ['anonymous', 'use-credentials'],
       },
-      datafld: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
       decoding: {
         enum: ['sync', 'async', 'auto'],
       },
-      hspace: {
-        deprecated: true,
-      },
       ismap: {
         boolean: true,
-      },
-      lowsrc: {
-        deprecated: true,
-      },
-      name: {
-        deprecated: true,
       },
       src: {
         required: true,
@@ -1046,9 +711,6 @@ export const html: MetaDataTable = {
       },
       srcset: {
         enum: ['/[^]+/'],
-      },
-      vspace: {
-        deprecated: true,
       },
     },
   },
@@ -1063,9 +725,6 @@ export const html: MetaDataTable = {
     },
     labelable: ['matchAttribute', ['type', '!=', 'hidden']],
     attributes: {
-      align: {
-        deprecated: true,
-      },
       autofocus: {
         boolean: true,
       },
@@ -1075,15 +734,6 @@ export const html: MetaDataTable = {
       },
       checked: {
         boolean: true,
-      },
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
       },
       disabled: {
         boolean: true,
@@ -1116,14 +766,8 @@ export const html: MetaDataTable = {
         }),
         enum: ['/[^_].*/', '_blank', '_self', '_parent', '_top'],
       },
-      hspace: {
-        deprecated: true,
-      },
       inputmode: {
         enum: ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'],
-      },
-      ismap: {
-        deprecated: true,
       },
       multiple: {
         boolean: true,
@@ -1164,12 +808,6 @@ export const html: MetaDataTable = {
           'week',
         ],
       },
-      usemap: {
-        deprecated: true,
-      },
-      vspace: {
-        deprecated: true,
-      },
     },
   },
 
@@ -1179,25 +817,10 @@ export const html: MetaDataTable = {
     transparent: true,
   },
 
-  isindex: {
-    deprecated: {
-      source: 'html4',
-    },
-  },
-
   kbd: {
     flow: true,
     phrasing: true,
     permittedContent: ['@phrasing'],
-  },
-
-  keygen: {
-    flow: true,
-    phrasing: true,
-    interactive: true,
-    void: true,
-    labelable: true,
-    deprecated: true,
   },
 
   label: {
@@ -1205,47 +828,20 @@ export const html: MetaDataTable = {
     phrasing: true,
     interactive: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: [{ exclude: ['label'] }],
-    attributes: {
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-    },
+    permittedDescendants: { exclude: ['label'] },
+    attributes: {},
   },
 
   legend: {
     permittedContent: ['@phrasing', '@heading'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   li: {
     implicitClosed: ['li'],
     permittedContent: ['@flow'],
     permittedParent: ['ul', 'ol', 'menu', 'template'],
-    attributes: {
-      type: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   link: {
@@ -1284,9 +880,6 @@ export const html: MetaDataTable = {
         list: true,
         enum: ['render'],
       },
-      charset: {
-        deprecated: true,
-      },
       crossorigin: {
         omit: true,
         enum: ['anonymous', 'use-credentials'],
@@ -1303,21 +896,6 @@ export const html: MetaDataTable = {
         allowed: allowedIfAttributeHasValue('rel', ['stylesheet', 'preload', 'modulepreload']),
         enum: ['/.+/'],
       },
-      methods: {
-        deprecated: true,
-      },
-      target: {
-        deprecated: true,
-      },
-      urn: {
-        deprecated: true,
-      },
-    },
-  },
-
-  listing: {
-    deprecated: {
-      source: 'html32',
     },
   },
 
@@ -1343,51 +921,20 @@ export const html: MetaDataTable = {
     permittedContent: ['@phrasing'],
   },
 
-  marquee: {
-    deprecated: {
-      documentation:
-        'Marked as obsolete by both W3C and WHATWG standards but still implemented in most browsers. Animated text should be avoided for accessibility reasons as well.',
-      source: 'html5',
-    },
-    attributes: {
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-    },
-  },
-
   math: {
     flow: true,
     foreign: true,
     phrasing: true,
     embedded: true,
     attributes: {
-      align: {
-        deprecated: true,
-      },
       dir: {
         enum: ['ltr', 'rtl'],
       },
       display: {
         enum: ['block', 'inline'],
       },
-      hspace: {
-        deprecated: true,
-      },
-      name: {
-        deprecated: true,
-      },
       overflow: {
         enum: ['linebreak', 'scroll', 'elide', 'truncate', 'scale'],
-      },
-      vspace: {
-        deprecated: true,
       },
     },
   },
@@ -1418,9 +965,6 @@ export const html: MetaDataTable = {
       'http-equiv': {
         allowed: allowedIfAttributeIsAbsent('name', 'itemprop'),
       },
-      scheme: {
-        deprecated: true,
-      },
     },
   },
 
@@ -1429,48 +973,14 @@ export const html: MetaDataTable = {
     phrasing: true,
     labelable: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: [{ exclude: 'meter' }],
-  },
-
-  multicol: {
-    deprecated: {
-      message: 'use CSS instead',
-      documentation: 'Use CSS columns instead.',
-      source: 'html5',
-    },
+    permittedDescendants: { exclude: ['meter'] },
   },
 
   nav: {
     flow: true,
     sectioning: true,
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: 'main' }],
-  },
-
-  nextid: {
-    deprecated: {
-      source: 'html32',
-    },
-  },
-
-  nobr: {
-    deprecated: {
-      message: 'use CSS instead',
-      documentation: 'Use CSS `white-space` property instead.',
-      source: 'non-standard',
-    },
-  },
-
-  noembed: {
-    deprecated: {
-      source: 'non-standard',
-    },
-  },
-
-  noframes: {
-    deprecated: {
-      source: 'html5',
-    },
+    permittedDescendants: { exclude: ['main'] },
   },
 
   noscript: {
@@ -1478,7 +988,7 @@ export const html: MetaDataTable = {
     flow: true,
     phrasing: true,
     transparent: true,
-    permittedDescendants: [{ exclude: 'noscript' }],
+    permittedDescendants: { exclude: ['noscript'] },
   },
 
   object: {
@@ -1491,58 +1001,16 @@ export const html: MetaDataTable = {
       listed: true,
     },
     attributes: {
-      align: {
-        deprecated: true,
-      },
-      archive: {
-        deprecated: true,
-      },
       blocking: {
         list: true,
         enum: ['render'],
-      },
-      border: {
-        deprecated: true,
-      },
-      classid: {
-        deprecated: true,
-      },
-      code: {
-        deprecated: true,
-      },
-      codebase: {
-        deprecated: true,
-      },
-      codetype: {
-        deprecated: true,
       },
       data: {
         enum: ['/.+/'],
         required: true,
       },
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-      declare: {
-        deprecated: true,
-      },
-      hspace: {
-        deprecated: true,
-      },
       name: {
         enum: ['/[^_].*/'],
-      },
-      standby: {
-        deprecated: true,
-      },
-      vspace: {
-        deprecated: true,
       },
     },
     permittedContent: ['param', '@flow'],
@@ -1552,9 +1020,6 @@ export const html: MetaDataTable = {
   ol: {
     flow: true,
     attributes: {
-      compact: {
-        deprecated: true,
-      },
       reversed: {
         boolean: true,
       },
@@ -1578,17 +1043,8 @@ export const html: MetaDataTable = {
   option: {
     implicitClosed: ['option'],
     attributes: {
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
       disabled: {
         boolean: true,
-      },
-      name: {
-        deprecated: true,
       },
       selected: {
         boolean: true,
@@ -1638,26 +1094,12 @@ export const html: MetaDataTable = {
       'ul',
     ],
     permittedContent: ['@phrasing'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   param: {
     void: true,
-    attributes: {
-      datafld: {
-        deprecated: true,
-      },
-      type: {
-        deprecated: true,
-      },
-      valuetype: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   picture: {
@@ -1668,22 +1110,10 @@ export const html: MetaDataTable = {
     permittedOrder: ['source', 'img'],
   },
 
-  plaintext: {
-    deprecated: {
-      message: 'use <pre> or CSS instead',
-      documentation: 'Use the `<pre>` element or use CSS to set a monospace font.',
-      source: 'html2',
-    },
-  },
-
   pre: {
     flow: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      width: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   progress: {
@@ -1691,7 +1121,7 @@ export const html: MetaDataTable = {
     phrasing: true,
     labelable: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: [{ exclude: 'progress' }],
+    permittedDescendants: { exclude: ['progress'] },
   },
 
   q: {
@@ -1754,18 +1184,9 @@ export const html: MetaDataTable = {
       defer: {
         boolean: true,
       },
-      event: {
-        deprecated: true,
-      },
-      for: {
-        deprecated: true,
-      },
       integrity: {
         allowed: allowedIfAttributeIsPresent('src'),
         enum: ['/.+/'],
-      },
-      language: {
-        deprecated: true,
       },
       nomodule: {
         boolean: true,
@@ -1826,37 +1247,11 @@ export const html: MetaDataTable = {
     void: true,
   },
 
-  spacer: {
-    deprecated: {
-      message: 'use CSS instead',
-      documentation: 'Use CSS margin or padding instead.',
-      source: 'non-standard',
-    },
-  },
-
   span: {
     flow: true,
     phrasing: true,
     permittedContent: ['@phrasing'],
-    attributes: {
-      datafld: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-    },
-  },
-
-  strike: {
-    deprecated: {
-      message: 'use <del> or <s> instead',
-      documentation: 'Use the `<del>` or `<s>` element instead.',
-      source: 'html5',
-    },
+    attributes: {},
   },
 
   strong: {
@@ -1902,113 +1297,24 @@ export const html: MetaDataTable = {
     flow: true,
     permittedContent: ['@script', 'caption?', 'colgroup', 'tbody', 'tfoot?', 'thead?', 'tr'],
     permittedOrder: ['caption', 'colgroup', 'thead', 'tbody', 'tr', 'tfoot'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      bgcolor: {
-        deprecated: true,
-      },
-      bordercolor: {
-        deprecated: true,
-      },
-      cellpadding: {
-        deprecated: true,
-      },
-      cellspacing: {
-        deprecated: true,
-      },
-      dataformatas: {
-        deprecated: true,
-      },
-      datapagesize: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
-      },
-      frame: {
-        deprecated: true,
-      },
-      rules: {
-        deprecated: true,
-      },
-      summary: {
-        deprecated: true,
-      },
-      width: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   tbody: {
     implicitClosed: ['tbody', 'tfoot'],
     permittedContent: ['@script', 'tr'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      char: {
-        deprecated: true,
-      },
-      charoff: {
-        deprecated: true,
-      },
-      valign: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   td: {
     flow: true,
     implicitClosed: ['td', 'th'],
     attributes: {
-      align: {
-        deprecated: true,
-      },
-      axis: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      bgcolor: {
-        deprecated: true,
-      },
-      char: {
-        deprecated: true,
-      },
-      charoff: {
-        deprecated: true,
-      },
       colspan: {
         enum: ['/\\d+/'],
       },
-      height: {
-        deprecated: true,
-      },
-      nowrap: {
-        deprecated: true,
-      },
       rowspan: {
         enum: ['/\\d+/'],
-      },
-      scope: {
-        deprecated: true,
-      },
-      valign: {
-        deprecated: true,
-      },
-      width: {
-        deprecated: true,
       },
     },
     permittedContent: ['@flow'],
@@ -2038,12 +1344,6 @@ export const html: MetaDataTable = {
       },
       cols: {
         enum: ['/\\d+/'],
-      },
-      datafld: {
-        deprecated: true,
-      },
-      datasrc: {
-        deprecated: true,
       },
       disabled: {
         boolean: true,
@@ -2076,55 +1376,15 @@ export const html: MetaDataTable = {
   tfoot: {
     implicitClosed: ['tbody'],
     permittedContent: ['@script', 'tr'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      char: {
-        deprecated: true,
-      },
-      charoff: {
-        deprecated: true,
-      },
-      valign: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   th: {
     flow: true,
     implicitClosed: ['td', 'th'],
     attributes: {
-      align: {
-        deprecated: true,
-      },
-      axis: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      bgcolor: {
-        deprecated: true,
-      },
-      char: {
-        deprecated: true,
-      },
-      charoff: {
-        deprecated: true,
-      },
       colspan: {
         enum: ['/\\d+/'],
-      },
-      height: {
-        deprecated: true,
-      },
-      nowrap: {
-        deprecated: true,
       },
       rowspan: {
         enum: ['/\\d+/'],
@@ -2132,37 +1392,15 @@ export const html: MetaDataTable = {
       scope: {
         enum: ['row', 'col', 'rowgroup', 'colgroup'],
       },
-      valign: {
-        deprecated: true,
-      },
-      width: {
-        deprecated: true,
-      },
     },
     permittedContent: ['@flow'],
-    permittedDescendants: [{ exclude: ['header', 'footer', '@sectioning', '@heading'] }],
+    permittedDescendants: { exclude: ['header', 'footer', '@sectioning', '@heading'] },
   },
 
   thead: {
     implicitClosed: ['tbody', 'tfoot'],
     permittedContent: ['@script', 'tr'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      char: {
-        deprecated: true,
-      },
-      charoff: {
-        deprecated: true,
-      },
-      valign: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   time: {
@@ -2180,38 +1418,11 @@ export const html: MetaDataTable = {
   tr: {
     implicitClosed: ['tr'],
     permittedContent: ['@script', 'td', 'th'],
-    attributes: {
-      align: {
-        deprecated: true,
-      },
-      background: {
-        deprecated: true,
-      },
-      bgcolor: {
-        deprecated: true,
-      },
-      char: {
-        deprecated: true,
-      },
-      charoff: {
-        deprecated: true,
-      },
-      valign: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   track: {
     void: true,
-  },
-
-  tt: {
-    deprecated: {
-      documentation:
-        'Use a more semantically correct element such as `<code>`, `<var>` or `<pre>`.',
-      source: 'html4',
-    },
   },
 
   u: {
@@ -2223,14 +1434,7 @@ export const html: MetaDataTable = {
   ul: {
     flow: true,
     permittedContent: ['@script', 'li'],
-    attributes: {
-      compact: {
-        deprecated: true,
-      },
-      type: {
-        deprecated: true,
-      },
-    },
+    attributes: {},
   },
 
   var: {
@@ -2259,7 +1463,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@flow', 'track', 'source'],
-    permittedDescendants: [{ exclude: ['audio', 'video'] }],
+    permittedDescendants: { exclude: ['audio', 'video'] },
     permittedOrder: ['source', 'track', '@flow'],
   },
 
@@ -2267,12 +1471,5 @@ export const html: MetaDataTable = {
     flow: true,
     phrasing: true,
     void: true,
-  },
-
-  xmp: {
-    deprecated: {
-      documentation: 'Use `<pre>` or `<code>` and escape content using HTML entities instead.',
-      source: 'html32',
-    },
   },
 };
