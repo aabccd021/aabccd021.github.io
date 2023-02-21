@@ -15,26 +15,8 @@ import {
 import { flow, pipe } from 'fp-ts/function';
 import { match } from 'ts-pattern';
 
-import type { MetaAttribute, MetaData } from './html5';
-import { html } from './html5';
-
-const globalAttributes = `
-type globalAttributes = {
-  readonly accesskey?: string;
-  readonly class?: string;
-  readonly contenteditable?: string;
-  readonly dir?: string;
-  readonly draggable?: string;
-  readonly hidden?: string;
-  readonly id?: string;
-  readonly lang?: string;
-  readonly spellcheck?: string;
-  readonly style?: string;
-  readonly tabindex?: string;
-  readonly title?: string;
-  readonly translate?: string;
-};
-`;
+import type { MetaAttribute, MetaData, PermittedAttribute } from './html5';
+import { globalAttributes, html } from './html5';
 
 const attrValueStr = ({ type }: MetaAttribute): string =>
   match(type)
@@ -62,9 +44,9 @@ const attrStr = (attrName: string, attr: MetaAttribute): string =>
   `${attr.required === true ? '' : '?'}: ` +
   `${attrValueStr(attr)};`;
 
-const attrsStr = (_data: MetaData): readonly string[] =>
+const attrsStr = (attr: PermittedAttribute | undefined): readonly string[] =>
   pipe(
-    _data.attributes,
+    attr,
     option.fromNullable,
     option.map(
       flow(
@@ -76,19 +58,16 @@ const attrsStr = (_data: MetaData): readonly string[] =>
     option.getOrElseW(() => [])
   );
 
-const toTs = (name: string, _data: MetaData): string =>
-  pipe(
-    [
-      `export type ${name} = {`,
-      `  readonly type: '${name}';`,
-      `  readonly attributes: globalAttributes & {`,
-      ...attrsStr(_data),
-      `  };`,
-      `};\n`,
-    ],
-    readonlyNonEmptyArray.map((s) => `${s}\n`),
-    readonlyNonEmptyArray.concatAll(string.Semigroup)
-  );
+const toTs = (name: string, _data: MetaData): readonly string[] =>
+  pipe([
+    `export type ${name} = {`,
+    `  readonly type: '${name}';`,
+    `  readonly attributes: globalAttributes & {`,
+    ...attrsStr(_data.attributes),
+    `  };`,
+    `};`,
+    '',
+  ]);
 
 const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
 
@@ -96,8 +75,11 @@ const res: string = pipe(
   html,
   readonlyRecord.filterWithIndex((name) => !name.includes(':')),
   readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
-  readonlyRecord.foldMapWithIndex(string.Ord)(string.Monoid)((_, val) => val),
-  (x) => `/* eslint-disable */\n${globalAttributes}\n${x}`
+  readonlyRecord.toReadonlyArray,
+  readonlyArray.chain(readonlyTuple.snd),
+  (arr) => [`export type globalAttributes = {`, ...attrsStr(globalAttributes), '};', '', ...arr],
+  readonlyArray.prepend(`/* eslint-disable */`),
+  readonlyArray.intercalate(string.Monoid)('\n')
 );
 
 const main = () => fs.writeFile(`${__dirname}/html.ts`, res);

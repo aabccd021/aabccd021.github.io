@@ -1,19 +1,18 @@
 /* eslint-disable */
-
-type globalAttributes = {
-  readonly accesskey?: string;
-  readonly class?: string;
-  readonly contenteditable?: string;
-  readonly dir?: string;
-  readonly draggable?: string;
-  readonly hidden?: string;
-  readonly id?: string;
-  readonly lang?: string;
-  readonly spellcheck?: string;
-  readonly style?: string;
-  readonly tabindex?: string;
-  readonly title?: string;
-  readonly translate?: string;
+export type globalAttributes = {
+    readonly 'accesskey' ?: string;
+    readonly 'class' ?: string;
+    readonly 'contenteditable' ?: 'true'|'false';
+    readonly 'dir' ?: 'ltr'|'rtl'|'auto';
+    readonly 'draggable' ?: 'true'|'false';
+    readonly 'hidden' ?: true;
+    readonly 'id' ?: string;
+    readonly 'lang' ?: string;
+    readonly 'spellcheck' ?: string;
+    readonly 'style' ?: string;
+    readonly 'tabindex' ?: number;
+    readonly 'title' ?: string;
+    readonly 'translate' ?: string;
 };
 
 export type a = {
@@ -827,4 +826,3 @@ export type wbr = {
   readonly attributes: globalAttributes & {
   };
 };
-
