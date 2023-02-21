@@ -338,14 +338,12 @@ export const html: MetaDataTable = {
   body: {
     permittedContent: ['@flow'],
     permittedParent: ['html'],
-    attributes: {},
   },
 
   br: {
     flow: true,
     phrasing: true,
     void: true,
-    attributes: {},
   },
 
   button: {
@@ -401,7 +399,6 @@ export const html: MetaDataTable = {
   caption: {
     permittedContent: ['@flow'],
     permittedDescendants: { exclude: ['table'] },
-    attributes: {},
   },
 
   cite: {
@@ -493,13 +490,11 @@ export const html: MetaDataTable = {
   div: {
     flow: true,
     permittedContent: ['@flow', 'dt', 'dd'],
-    attributes: {},
   },
 
   dl: {
     flow: true,
     permittedContent: ['@script', 'dt', 'dd', 'div'],
-    attributes: {},
   },
 
   dt: {
@@ -590,49 +585,42 @@ export const html: MetaDataTable = {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   h2: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   h3: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   h4: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   h5: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   h6: {
     flow: true,
     heading: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   head: {
     permittedContent: ['base?', 'title?', '@meta'],
     permittedParent: ['html'],
     requiredContent: ['title'],
-    attributes: {},
   },
 
   header: {
@@ -652,7 +640,6 @@ export const html: MetaDataTable = {
   hr: {
     flow: true,
     void: true,
-    attributes: {},
   },
 
   html: {
@@ -829,19 +816,16 @@ export const html: MetaDataTable = {
     interactive: true,
     permittedContent: ['@phrasing'],
     permittedDescendants: { exclude: ['label'] },
-    attributes: {},
   },
 
   legend: {
     permittedContent: ['@phrasing', '@heading'],
-    attributes: {},
   },
 
   li: {
     implicitClosed: ['li'],
     permittedContent: ['@flow'],
     permittedParent: ['ul', 'ol', 'menu', 'template'],
-    attributes: {},
   },
 
   link: {
@@ -1094,12 +1078,10 @@ export const html: MetaDataTable = {
       'ul',
     ],
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   param: {
     void: true,
-    attributes: {},
   },
 
   picture: {
@@ -1113,7 +1095,6 @@ export const html: MetaDataTable = {
   pre: {
     flow: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   progress: {
@@ -1251,7 +1232,6 @@ export const html: MetaDataTable = {
     flow: true,
     phrasing: true,
     permittedContent: ['@phrasing'],
-    attributes: {},
   },
 
   strong: {
@@ -1297,13 +1277,11 @@ export const html: MetaDataTable = {
     flow: true,
     permittedContent: ['@script', 'caption?', 'colgroup', 'tbody', 'tfoot?', 'thead?', 'tr'],
     permittedOrder: ['caption', 'colgroup', 'thead', 'tbody', 'tr', 'tfoot'],
-    attributes: {},
   },
 
   tbody: {
     implicitClosed: ['tbody', 'tfoot'],
     permittedContent: ['@script', 'tr'],
-    attributes: {},
   },
 
   td: {
@@ -1376,7 +1354,6 @@ export const html: MetaDataTable = {
   tfoot: {
     implicitClosed: ['tbody'],
     permittedContent: ['@script', 'tr'],
-    attributes: {},
   },
 
   th: {
@@ -1400,7 +1377,6 @@ export const html: MetaDataTable = {
   thead: {
     implicitClosed: ['tbody', 'tfoot'],
     permittedContent: ['@script', 'tr'],
-    attributes: {},
   },
 
   time: {
@@ -1418,7 +1394,6 @@ export const html: MetaDataTable = {
   tr: {
     implicitClosed: ['tr'],
     permittedContent: ['@script', 'td', 'th'],
-    attributes: {},
   },
 
   track: {
@@ -1434,7 +1409,6 @@ export const html: MetaDataTable = {
   ul: {
     flow: true,
     permittedContent: ['@script', 'li'],
-    attributes: {},
   },
 
   var: {
