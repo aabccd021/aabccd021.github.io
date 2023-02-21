@@ -6,31 +6,9 @@ import satori from 'satori';
 import sharp from 'sharp';
 import { match as convert } from 'ts-pattern';
 
-const el =
-  (type: string) =>
-  (props: object, ...children: readonly unknown[]) => ({
-    key: '',
-    type,
-    props: {
-      ...props,
-      children,
-    },
-  });
-
-export const div = el('div');
-
-export const pre = el('pre');
-
-export const img = el('img');
-
 export const png = async (path: string) => {
   const data = await fs.readFile(`${path}.png`, { encoding: 'base64' });
   return `data:image/png;base64,${data}`;
-};
-
-export const svg = async (path: string) => {
-  const data = await fs.readFile(`${path}.svg`, { encoding: 'base64' });
-  return `data:image/svg+xml;base64,${data}`;
 };
 
 const conv = (ext: 'avif' | 'png' | 'webp', s: sharp.Sharp) =>
