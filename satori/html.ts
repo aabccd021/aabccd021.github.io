@@ -1,7 +1,24 @@
 /* eslint-disable */
+
+type globalAttributes = {
+  readonly accesskey?: string;
+  readonly class?: string;
+  readonly contenteditable?: string;
+  readonly dir?: string;
+  readonly draggable?: string;
+  readonly hidden?: string;
+  readonly id?: string;
+  readonly lang?: string;
+  readonly spellcheck?: string;
+  readonly style?: string;
+  readonly tabindex?: string;
+  readonly title?: string;
+  readonly translate?: string;
+};
+
 export type a = {
   readonly type: 'a';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'charset'?: string;
     readonly 'coords'?: string;
     readonly 'datafld'?: string;
@@ -22,24 +39,21 @@ export type a = {
   };
 };
 
-/* eslint-disable */
 export type abbr = {
   readonly type: 'abbr';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type address = {
   readonly type: 'address';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type area = {
   readonly type: 'area';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'alt'?: string;
     readonly 'coords'?: string;
     readonly 'download'?: string;
@@ -53,69 +67,60 @@ export type area = {
   };
 };
 
-/* eslint-disable */
 export type article = {
   readonly type: 'article';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type aside = {
   readonly type: 'aside';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type audio = {
   readonly type: 'audio';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
     readonly 'itemprop'?: string;
     readonly 'preload'?: 'none'|'metadata'|'auto';
   };
 };
 
-/* eslint-disable */
 export type b = {
   readonly type: 'b';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type base = {
   readonly type: 'base';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type bdi = {
   readonly type: 'bdi';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type bdo = {
   readonly type: 'bdo';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type blockquote = {
   readonly type: 'blockquote';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type body = {
   readonly type: 'body';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'alink'?: string;
     readonly 'background'?: string;
     readonly 'bgcolor'?: string;
@@ -131,18 +136,16 @@ export type body = {
   };
 };
 
-/* eslint-disable */
 export type br = {
   readonly type: 'br';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'clear'?: string;
   };
 };
 
-/* eslint-disable */
 export type button = {
   readonly type: 'button';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'autofocus'?: boolean;
     readonly 'datafld'?: string;
     readonly 'dataformatas'?: string;
@@ -157,39 +160,34 @@ export type button = {
   };
 };
 
-/* eslint-disable */
 export type canvas = {
   readonly type: 'canvas';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type caption = {
   readonly type: 'caption';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type cite = {
   readonly type: 'cite';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type code = {
   readonly type: 'code';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type col = {
   readonly type: 'col';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'char'?: string;
     readonly 'charoff'?: string;
@@ -199,69 +197,60 @@ export type col = {
   };
 };
 
-/* eslint-disable */
 export type colgroup = {
   readonly type: 'colgroup';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'span'?: string;
   };
 };
 
-/* eslint-disable */
 export type data = {
   readonly type: 'data';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type datalist = {
   readonly type: 'datalist';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type dd = {
   readonly type: 'dd';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type del = {
   readonly type: 'del';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type details = {
   readonly type: 'details';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'open'?: boolean;
   };
 };
 
-/* eslint-disable */
 export type dfn = {
   readonly type: 'dfn';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type dialog = {
   readonly type: 'dialog';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'open'?: boolean;
   };
 };
 
-/* eslint-disable */
 export type div = {
   readonly type: 'div';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'datafld'?: string;
     readonly 'dataformatas'?: string;
@@ -269,71 +258,62 @@ export type div = {
   };
 };
 
-/* eslint-disable */
 export type dl = {
   readonly type: 'dl';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'compact'?: string;
   };
 };
 
-/* eslint-disable */
 export type dt = {
   readonly type: 'dt';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type em = {
   readonly type: 'em';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type embed = {
   readonly type: 'embed';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'src': string;
     readonly 'title': string;
   };
 };
 
-/* eslint-disable */
 export type fieldset = {
   readonly type: 'fieldset';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'datafld'?: string;
     readonly 'disabled'?: boolean;
   };
 };
 
-/* eslint-disable */
 export type figcaption = {
   readonly type: 'figcaption';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type figure = {
   readonly type: 'figure';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type footer = {
   readonly type: 'footer';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type form = {
   readonly type: 'form';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'accept'?: string;
     readonly 'action'?: string;
     readonly 'autocomplete'?: 'on'|'off';
@@ -343,80 +323,70 @@ export type form = {
   };
 };
 
-/* eslint-disable */
 export type h1 = {
   readonly type: 'h1';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type h2 = {
   readonly type: 'h2';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type h3 = {
   readonly type: 'h3';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type h4 = {
   readonly type: 'h4';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type h5 = {
   readonly type: 'h5';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type h6 = {
   readonly type: 'h6';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type head = {
   readonly type: 'head';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'profile'?: string;
   };
 };
 
-/* eslint-disable */
 export type header = {
   readonly type: 'header';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type hgroup = {
   readonly type: 'hgroup';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type hr = {
   readonly type: 'hr';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'color'?: string;
     readonly 'noshade'?: string;
@@ -425,26 +395,23 @@ export type hr = {
   };
 };
 
-/* eslint-disable */
 export type html = {
   readonly type: 'html';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'lang': string;
     readonly 'version'?: string;
   };
 };
 
-/* eslint-disable */
 export type i = {
   readonly type: 'i';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type iframe = {
   readonly type: 'iframe';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'allowtransparency'?: string;
     readonly 'datafld'?: string;
@@ -460,10 +427,9 @@ export type iframe = {
   };
 };
 
-/* eslint-disable */
 export type img = {
   readonly type: 'img';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'border'?: string;
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
@@ -480,10 +446,9 @@ export type img = {
   };
 };
 
-/* eslint-disable */
 export type input = {
   readonly type: 'input';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'autofocus'?: boolean;
     readonly 'capture'?: 'environment'|'user';
@@ -510,34 +475,30 @@ export type input = {
   };
 };
 
-/* eslint-disable */
 export type ins = {
   readonly type: 'ins';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type kbd = {
   readonly type: 'kbd';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type label = {
   readonly type: 'label';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'datafld'?: string;
     readonly 'dataformatas'?: string;
     readonly 'datasrc'?: string;
   };
 };
 
-/* eslint-disable */
 export type legend = {
   readonly type: 'legend';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'datafld'?: string;
     readonly 'dataformatas'?: string;
@@ -545,18 +506,16 @@ export type legend = {
   };
 };
 
-/* eslint-disable */
 export type li = {
   readonly type: 'li';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'type'?: string;
   };
 };
 
-/* eslint-disable */
 export type link = {
   readonly type: 'link';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'as'?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
     readonly 'blocking'?: 'render';
     readonly 'charset'?: string;
@@ -570,32 +529,28 @@ export type link = {
   };
 };
 
-/* eslint-disable */
 export type main = {
   readonly type: 'main';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type map = {
   readonly type: 'map';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'name': string;
   };
 };
 
-/* eslint-disable */
 export type mark = {
   readonly type: 'mark';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type math = {
   readonly type: 'math';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'dir'?: 'ltr'|'rtl';
     readonly 'display'?: 'block'|'inline';
@@ -606,17 +561,15 @@ export type math = {
   };
 };
 
-/* eslint-disable */
 export type menu = {
   readonly type: 'menu';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type meta = {
   readonly type: 'meta';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'charset'?: 'utf-8';
     readonly 'content'?: string;
     readonly 'http-equiv'?: string;
@@ -626,31 +579,27 @@ export type meta = {
   };
 };
 
-/* eslint-disable */
 export type meter = {
   readonly type: 'meter';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type nav = {
   readonly type: 'nav';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type noscript = {
   readonly type: 'noscript';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type object_ = {
   readonly type: 'object_';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'archive'?: string;
     readonly 'blocking'?: 'render';
@@ -671,28 +620,25 @@ export type object_ = {
   };
 };
 
-/* eslint-disable */
 export type ol = {
   readonly type: 'ol';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'compact'?: string;
     readonly 'reversed'?: boolean;
     readonly 'type'?: 'a'|'A'|'i'|'I'|'1';
   };
 };
 
-/* eslint-disable */
 export type optgroup = {
   readonly type: 'optgroup';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'disabled'?: boolean;
   };
 };
 
-/* eslint-disable */
 export type option = {
   readonly type: 'option';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'dataformatas'?: string;
     readonly 'datasrc'?: string;
     readonly 'disabled'?: boolean;
@@ -701,113 +647,98 @@ export type option = {
   };
 };
 
-/* eslint-disable */
 export type output = {
   readonly type: 'output';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type p = {
   readonly type: 'p';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
   };
 };
 
-/* eslint-disable */
 export type param = {
   readonly type: 'param';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'datafld'?: string;
     readonly 'type'?: string;
     readonly 'valuetype'?: string;
   };
 };
 
-/* eslint-disable */
 export type picture = {
   readonly type: 'picture';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type pre = {
   readonly type: 'pre';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'width'?: string;
   };
 };
 
-/* eslint-disable */
 export type progress = {
   readonly type: 'progress';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type q = {
   readonly type: 'q';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type rb = {
   readonly type: 'rb';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type rp = {
   readonly type: 'rp';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type rt = {
   readonly type: 'rt';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type rtc = {
   readonly type: 'rtc';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type ruby = {
   readonly type: 'ruby';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type s = {
   readonly type: 's';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type samp = {
   readonly type: 'samp';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type script = {
   readonly type: 'script';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'async'?: boolean;
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
     readonly 'defer'?: boolean;
@@ -820,17 +751,15 @@ export type script = {
   };
 };
 
-/* eslint-disable */
 export type section = {
   readonly type: 'section';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type select = {
   readonly type: 'select';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'autofocus'?: boolean;
     readonly 'disabled'?: boolean;
     readonly 'multiple'?: boolean;
@@ -839,83 +768,72 @@ export type select = {
   };
 };
 
-/* eslint-disable */
 export type slot = {
   readonly type: 'slot';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type small = {
   readonly type: 'small';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type source = {
   readonly type: 'source';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type span = {
   readonly type: 'span';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'datafld'?: string;
     readonly 'dataformatas'?: string;
     readonly 'datasrc'?: string;
   };
 };
 
-/* eslint-disable */
 export type strong = {
   readonly type: 'strong';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type style = {
   readonly type: 'style';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type sub = {
   readonly type: 'sub';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type summary = {
   readonly type: 'summary';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type sup = {
   readonly type: 'sup';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type svg = {
   readonly type: 'svg';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type table = {
   readonly type: 'table';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'background'?: string;
     readonly 'bgcolor'?: string;
@@ -932,10 +850,9 @@ export type table = {
   };
 };
 
-/* eslint-disable */
 export type tbody = {
   readonly type: 'tbody';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'background'?: string;
     readonly 'char'?: string;
@@ -944,10 +861,9 @@ export type tbody = {
   };
 };
 
-/* eslint-disable */
 export type td = {
   readonly type: 'td';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'axis'?: string;
     readonly 'background'?: string;
@@ -964,17 +880,15 @@ export type td = {
   };
 };
 
-/* eslint-disable */
 export type template = {
   readonly type: 'template';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type textarea = {
   readonly type: 'textarea';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'autocomplete'?: 'on'|'off';
     readonly 'autofocus'?: boolean;
     readonly 'cols'?: string;
@@ -991,10 +905,9 @@ export type textarea = {
   };
 };
 
-/* eslint-disable */
 export type tfoot = {
   readonly type: 'tfoot';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'background'?: string;
     readonly 'char'?: string;
@@ -1003,10 +916,9 @@ export type tfoot = {
   };
 };
 
-/* eslint-disable */
 export type th = {
   readonly type: 'th';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'axis'?: string;
     readonly 'background'?: string;
@@ -1023,10 +935,9 @@ export type th = {
   };
 };
 
-/* eslint-disable */
 export type thead = {
   readonly type: 'thead';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'background'?: string;
     readonly 'char'?: string;
@@ -1035,24 +946,21 @@ export type thead = {
   };
 };
 
-/* eslint-disable */
 export type time = {
   readonly type: 'time';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type title = {
   readonly type: 'title';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type tr = {
   readonly type: 'tr';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'align'?: string;
     readonly 'background'?: string;
     readonly 'bgcolor'?: string;
@@ -1062,50 +970,44 @@ export type tr = {
   };
 };
 
-/* eslint-disable */
 export type track = {
   readonly type: 'track';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type u = {
   readonly type: 'u';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type ul = {
   readonly type: 'ul';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'compact'?: string;
     readonly 'type'?: string;
   };
 };
 
-/* eslint-disable */
 export type var_ = {
   readonly type: 'var_';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 
-/* eslint-disable */
 export type video = {
   readonly type: 'video';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
     readonly 'crossorigin'?: 'anonymous'|'use-credentials';
     readonly 'itemprop'?: string;
     readonly 'preload'?: 'none'|'metadata'|'auto';
   };
 };
 
-/* eslint-disable */
 export type wbr = {
   readonly type: 'wbr';
-  readonly attributes: {
+  readonly attributes: globalAttributes & {
   };
 };
 

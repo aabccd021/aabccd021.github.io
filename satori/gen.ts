@@ -18,6 +18,24 @@ import type { Option } from 'fp-ts/Option';
 import type { Attribute, MetaAttribute, MetaData } from './html5';
 import { html } from './html5';
 
+const globalAttributes = `
+type globalAttributes = {
+  readonly accesskey?: string;
+  readonly class?: string;
+  readonly contenteditable?: string;
+  readonly dir?: string;
+  readonly draggable?: string;
+  readonly hidden?: string;
+  readonly id?: string;
+  readonly lang?: string;
+  readonly spellcheck?: string;
+  readonly style?: string;
+  readonly tabindex?: string;
+  readonly title?: string;
+  readonly translate?: string;
+};
+`;
+
 const attrValueStr = ({ boolean, enum: enum_ }: MetaAttribute): string =>
   boolean === true
     ? 'boolean'
@@ -68,14 +86,13 @@ const toTs = (name: string, _data: MetaData): string =>
     [
       `export type ${name} = {`,
       `  readonly type: '${name}';`,
-      `  readonly attributes: {`,
+      `  readonly attributes: globalAttributes & {`,
       ...attrsStr(_data),
       `  };`,
       `};\n`,
     ],
     readonlyNonEmptyArray.map((s) => `${s}\n`),
-    readonlyNonEmptyArray.concatAll(string.Semigroup),
-    (x) => `/* eslint-disable */\n${x}`
+    readonlyNonEmptyArray.concatAll(string.Semigroup)
   );
 
 const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
@@ -86,7 +103,8 @@ const res: string = pipe(
     (name, data) => name !== '*' && !name.includes(':') && data.deprecated === undefined
   ),
   readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
-  readonlyRecord.foldMapWithIndex(string.Ord)(string.Monoid)((_, val) => val)
+  readonlyRecord.foldMapWithIndex(string.Ord)(string.Monoid)((_, val) => val),
+  (x) => `/* eslint-disable */\n${globalAttributes}\n${x}`
 );
 
 const main = () => fs.writeFile(`${__dirname}/html.ts`, res);
