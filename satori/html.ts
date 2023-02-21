@@ -1,694 +1,706 @@
-const GeneralAttributes = {
-  accesskey: 'string',
-  autocapitalize: 'string',
-  autofocus: 'string',
-  class: 'string',
-  contenteditable: 'string',
-  dir: 'string',
-  draggable: 'string',
-  enterkeyhint: 'string',
-  hidden: 'string',
-  id: 'string',
-  inputmode: 'string',
-  is: 'string',
-  itemid: 'string',
-  itemprop: 'string',
-  itemref: 'string',
-  itemscope: 'string',
-  itemtype: 'string',
-  lang: 'string',
-  nonce: 'string',
-  slot: 'string',
-  spellcheck: 'string',
-  style: 'string',
-  tabindex: 'string',
-  title: 'string',
-  translate: 'string',
+export type a = {
+  readonly type: 'a';
+  readonly attributes: {
+  };
 };
 
-export const a = {
-  attributes: {
-    ...GeneralAttributes,
-    charset: 'string',
-    coords: 'string',
-    download: 'string',
-    href: 'string',
-    hreflang: 'string',
-    name: 'string',
-    ping: 'string',
-    referrerpolicy: 'string',
-    rel: 'string',
-    rev: 'string',
-    shape: 'string',
-    target: 'string',
-    type: 'string',
-  },
+export type abbr = {
+  readonly type: 'abbr';
+  readonly attributes: {
+  };
 };
 
-export const abbr = { attributes: { ...GeneralAttributes, title: 'string' } };
-
-export const applet = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    alt: 'string',
-    archive: 'string',
-    code: 'string',
-    codebase: 'string',
-    height: 'string',
-    hspace: 'string',
-    name: 'string',
-    object: 'string',
-    vspace: 'string',
-    width: 'string',
-  },
+export type address = {
+  readonly type: 'address';
+  readonly attributes: {
+  };
 };
 
-export const area = {
-  attributes: {
-    ...GeneralAttributes,
-
-    alt: 'string',
-    coords: 'string',
-    download: 'string',
-    href: 'string',
-    hreflang: 'string',
-    nohref: 'string',
-    ping: 'string',
-    referrerpolicy: 'string',
-    rel: 'string',
-    shape: 'string',
-
-    target: 'string',
-    type: 'string',
-  },
+export type area = {
+  readonly type: 'area';
+  readonly attributes: {
+  };
 };
 
-export const audio = {
-  attributes: {
-    ...GeneralAttributes,
-    autoplay: 'string',
-    controls: 'string',
-    crossorigin: 'string',
-    loop: 'string',
-    muted: 'string',
-    preload: 'string',
-    src: 'string',
-  },
+export type article = {
+  readonly type: 'article';
+  readonly attributes: {
+  };
 };
 
-export const base = { attributes: { ...GeneralAttributes, href: 'string', target: 'string' } };
-
-export const basefont = {
-  attributes: { ...GeneralAttributes, color: 'string', face: 'string', size: 'string' },
+export type aside = {
+  readonly type: 'aside';
+  readonly attributes: {
+  };
 };
 
-export const bdo = { attributes: { ...GeneralAttributes, dir: 'string' } };
-
-export const blockquote = { attributes: { ...GeneralAttributes, cite: 'string' } };
-
-export const body = {
-  attributes: {
-    ...GeneralAttributes,
-    alink: 'string',
-    background: 'string',
-    bgcolor: 'string',
-    link: 'string',
-    text: 'string',
-    vlink: 'string',
-  },
+export type audio = {
+  readonly type: 'audio';
+  readonly attributes: {
+  };
 };
 
-export const br = { attributes: { ...GeneralAttributes, clear: 'string' } };
-
-export const button = {
-  attributes: {
-    ...GeneralAttributes,
-
-    disabled: 'string',
-    form: 'string',
-    formaction: 'string',
-    formenctype: 'string',
-    formmethod: 'string',
-    formnovalidate: 'string',
-    formtarget: 'string',
-    name: 'string',
-
-    type: 'string',
-    value: 'string',
-  },
+export type b = {
+  readonly type: 'b';
+  readonly attributes: {
+  };
 };
 
-export const canvas = { attributes: { ...GeneralAttributes, height: 'string', width: 'string' } };
-
-export const caption = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const col = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    char: 'string',
-    charoff: 'string',
-    span: 'string',
-    valign: 'string',
-    width: 'string',
-  },
+export type base = {
+  readonly type: 'base';
+  readonly attributes: {
+  };
 };
 
-export const colgroup = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    char: 'string',
-    charoff: 'string',
-    span: 'string',
-    valign: 'string',
-    width: 'string',
-  },
+export type bdi = {
+  readonly type: 'bdi';
+  readonly attributes: {
+  };
 };
 
-export const data = { attributes: { ...GeneralAttributes, value: 'string' } };
-
-export const del = { attributes: { ...GeneralAttributes, cite: 'string', datetime: 'string' } };
-
-export const details = { attributes: { ...GeneralAttributes, open: 'string' } };
-
-export const dfn = { attributes: { ...GeneralAttributes, title: 'string' } };
-
-export const dialog = { attributes: { ...GeneralAttributes, open: 'string' } };
-
-export const dir = { attributes: { ...GeneralAttributes, compact: 'string' } };
-
-export const div = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const dl = { attributes: { ...GeneralAttributes, compact: 'string' } };
-
-export const embed = {
-  attributes: {
-    ...GeneralAttributes,
-    height: 'string',
-    src: 'string',
-    type: 'string',
-    width: 'string',
-  },
+export type bdo = {
+  readonly type: 'bdo';
+  readonly attributes: {
+  };
 };
 
-export const fieldset = {
-  attributes: {
-    ...GeneralAttributes,
-    disabled: 'string',
-    form: 'string',
-    name: 'string',
-  },
+export type blockquote = {
+  readonly type: 'blockquote';
+  readonly attributes: {
+  };
 };
 
-export const font = {
-  attributes: { ...GeneralAttributes, color: 'string', face: 'string', size: 'string' },
+export type body = {
+  readonly type: 'body';
+  readonly attributes: {
+  };
 };
 
-export const form = {
-  attributes: {
-    ...GeneralAttributes,
-    accept: 'string',
-    string: 'string',
-    action: 'string',
-    autocomplete: 'string',
-    enctype: 'string',
-    method: 'string',
-    name: 'string',
-    novalidate: 'string',
-    target: 'string',
-  },
+export type br = {
+  readonly type: 'br';
+  readonly attributes: {
+  };
 };
 
-export const frame = {
-  attributes: {
-    ...GeneralAttributes,
-    frameborder: 'string',
-    longdesc: 'string',
-    marginheight: 'string',
-    marginwidth: 'string',
-    name: 'string',
-    noresize: 'string',
-    scrolling: 'string',
-    src: 'string',
-  },
+export type button = {
+  readonly type: 'button';
+  readonly attributes: {
+    readonly type: string;
+  };
 };
 
-export const frameset = { attributes: { ...GeneralAttributes, cols: 'string', rows: 'string' } };
-
-export const h1 = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const h2 = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const h3 = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const h4 = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const h5 = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const h6 = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const head = { attributes: { ...GeneralAttributes, profile: 'string' } };
-
-export const hr = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    noshade: 'string',
-    size: 'string',
-    width: 'string',
-  },
+export type canvas = {
+  readonly type: 'canvas';
+  readonly attributes: {
+  };
 };
 
-export const html = { attributes: { ...GeneralAttributes, manifest: 'string', version: 'string' } };
-
-export const iframe = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    allow: 'string',
-    allowfullscreen: 'string',
-    allowpaymentrequest: 'string',
-    allowusermedia: 'string',
-    frameborder: 'string',
-    height: 'string',
-    loading: 'string',
-    longdesc: 'string',
-    marginheight: 'string',
-    marginwidth: 'string',
-    name: 'string',
-    referrerpolicy: 'string',
-    sandbox: 'string',
-    scrolling: 'string',
-    src: 'string',
-    srcdoc: 'string',
-    width: 'string',
-  },
+export type caption = {
+  readonly type: 'caption';
+  readonly attributes: {
+  };
 };
 
-export const img = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    alt: 'string',
-    border: 'string',
-    crossorigin: 'string',
-    decoding: 'string',
-    height: 'string',
-    hspace: 'string',
-    ismap: 'string',
-    loading: 'string',
-    longdesc: 'string',
-    name: 'string',
-    referrerpolicy: 'string',
-    sizes: 'string',
-    src: 'string',
-    srcset: 'string',
-    usemap: 'string',
-    vspace: 'string',
-    width: 'string',
-  },
+export type cite = {
+  readonly type: 'cite';
+  readonly attributes: {
+  };
 };
 
-export const input = {
-  attributes: {
-    ...GeneralAttributes,
-    accept: 'string',
-
-    align: 'string',
-    alt: 'string',
-    autocomplete: 'string',
-
-    checked: 'string',
-    dirname: 'string',
-    disabled: 'string',
-    form: 'string',
-    formaction: 'string',
-    formenctype: 'string',
-    formmethod: 'string',
-    formnovalidate: 'string',
-    formtarget: 'string',
-    height: 'string',
-    ismap: 'string',
-    list: 'string',
-    max: 'string',
-    maxlength: 'string',
-    min: 'string',
-    minlength: 'string',
-    multiple: 'string',
-    name: 'string',
-    pattern: 'string',
-    placeholder: 'string',
-    readonly: 'string',
-    required: 'string',
-    size: 'string',
-    src: 'string',
-    step: 'string',
-
-    type: 'string',
-    usemap: 'string',
-    value: 'string',
-    width: 'string',
-  },
+export type code = {
+  readonly type: 'code';
+  readonly attributes: {
+  };
 };
 
-export const ins = { attributes: { ...GeneralAttributes, cite: 'string', datetime: 'string' } };
-
-export const isindex = { attributes: { ...GeneralAttributes, prompt: 'string' } };
-
-export const label = {
-  attributes: { ...GeneralAttributes, accesskey: 'string', for: 'string', form: 'string' },
+export type col = {
+  readonly type: 'col';
+  readonly attributes: {
+  };
 };
 
-export const legend = {
-  attributes: { ...GeneralAttributes, accesskey: 'string', align: 'string' },
+export type colgroup = {
+  readonly type: 'colgroup';
+  readonly attributes: {
+  };
 };
 
-export const li = { attributes: { ...GeneralAttributes, type: 'string', value: 'string' } };
-
-export const link = {
-  attributes: {
-    ...GeneralAttributes,
-    as: 'string',
-    charset: 'string',
-    color: 'string',
-    crossorigin: 'string',
-    disabled: 'string',
-    href: 'string',
-    hreflang: 'string',
-    imagesizes: 'string',
-    imagesrcset: 'string',
-    integrity: 'string',
-    media: 'string',
-
-    referrerpolicy: 'string',
-    rel: 'string',
-    rev: 'string',
-    sizes: 'string',
-    target: 'string',
-
-    type: 'string',
-  },
+export type data = {
+  readonly type: 'data';
+  readonly attributes: {
+  };
 };
 
-export const map = { attributes: { ...GeneralAttributes, name: 'string' } };
-
-export const menu = { attributes: { ...GeneralAttributes, compact: 'string' } };
-
-export const meta = {
-  attributes: {
-    ...GeneralAttributes,
-    charset: 'string',
-    content: 'string',
-    string: 'string',
-    name: 'string',
-    scheme: 'string',
-  },
+export type datalist = {
+  readonly type: 'datalist';
+  readonly attributes: {
+  };
 };
 
-export const meter = {
-  attributes: {
-    ...GeneralAttributes,
-    high: 'string',
-    low: 'string',
-    max: 'string',
-    min: 'string',
-    optimum: 'string',
-    value: 'string',
-  },
+export type dd = {
+  readonly type: 'dd';
+  readonly attributes: {
+  };
 };
 
-export const object_ = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    archive: 'string',
-    border: 'string',
-    classid: 'string',
-    codebase: 'string',
-    codetype: 'string',
-    data: 'string',
-    declare: 'string',
-    form: 'string',
-    height: 'string',
-    hspace: 'string',
-    name: 'string',
-    standby: 'string',
-
-    type: 'string',
-    typemustmatch: 'string',
-    usemap: 'string',
-    vspace: 'string',
-    width: 'string',
-  },
+export type del = {
+  readonly type: 'del';
+  readonly attributes: {
+  };
 };
 
-export const ol = {
-  attributes: {
-    ...GeneralAttributes,
-    compact: 'string',
-    reversed: 'string',
-    start: 'string',
-    type: 'string',
-  },
+export type details = {
+  readonly type: 'details';
+  readonly attributes: {
+  };
 };
 
-export const optgroup = {
-  attributes: { ...GeneralAttributes, disabled: 'string', label: 'string' },
+export type dfn = {
+  readonly type: 'dfn';
+  readonly attributes: {
+  };
 };
 
-export const option = {
-  attributes: {
-    ...GeneralAttributes,
-    disabled: 'string',
-    label: 'string',
-    selected: 'string',
-    value: 'string',
-  },
+export type dialog = {
+  readonly type: 'dialog';
+  readonly attributes: {
+  };
 };
 
-export const output = {
-  attributes: { ...GeneralAttributes, for: 'string', form: 'string', name: 'string' },
+export type div = {
+  readonly type: 'div';
+  readonly attributes: {
+  };
 };
 
-export const p = { attributes: { ...GeneralAttributes, align: 'string' } };
-
-export const param = {
-  attributes: {
-    ...GeneralAttributes,
-    name: 'string',
-    type: 'string',
-    value: 'string',
-    valuetype: 'string',
-  },
+export type dl = {
+  readonly type: 'dl';
+  readonly attributes: {
+  };
 };
 
-export const pre = { attributes: { ...GeneralAttributes, width: 'string' } };
-
-export const progress = { attributes: { ...GeneralAttributes, max: 'string', value: 'string' } };
-
-export const q = { attributes: { ...GeneralAttributes, cite: 'string' } };
-
-export const script = {
-  attributes: {
-    ...GeneralAttributes,
-    async: 'string',
-    charset: 'string',
-    crossorigin: 'string',
-    defer: 'string',
-    integrity: 'string',
-    language: 'string',
-    nomodule: 'string',
-
-    referrerpolicy: 'string',
-    src: 'string',
-    type: 'string',
-  },
+export type dt = {
+  readonly type: 'dt';
+  readonly attributes: {
+  };
 };
 
-export const select = {
-  attributes: {
-    ...GeneralAttributes,
-    autocomplete: 'string',
-
-    disabled: 'string',
-    form: 'string',
-    multiple: 'string',
-    name: 'string',
-    required: 'string',
-    size: 'string',
-  },
+export type em = {
+  readonly type: 'em';
+  readonly attributes: {
+  };
 };
 
-export const slot = { attributes: { ...GeneralAttributes, name: 'string' } };
-
-export const source = {
-  attributes: {
-    ...GeneralAttributes,
-    media: 'string',
-    sizes: 'string',
-    src: 'string',
-    srcset: 'string',
-    type: 'string',
-  },
+export type embed = {
+  readonly type: 'embed';
+  readonly attributes: {
+    readonly src: string;
+    readonly title: string;
+  };
 };
 
-export const style = {
-  attributes: {
-    ...GeneralAttributes,
-    media: 'string',
-
-    type: 'string',
-  },
+export type fieldset = {
+  readonly type: 'fieldset';
+  readonly attributes: {
+  };
 };
 
-export const table = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    bgcolor: 'string',
-    border: 'string',
-    cellpadding: 'string',
-    cellspacing: 'string',
-    frame: 'string',
-    rules: 'string',
-    summary: 'string',
-    width: 'string',
-  },
+export type figcaption = {
+  readonly type: 'figcaption';
+  readonly attributes: {
+  };
 };
 
-export const tbody = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    char: 'string',
-    charoff: 'string',
-    valign: 'string',
-  },
+export type figure = {
+  readonly type: 'figure';
+  readonly attributes: {
+  };
 };
 
-export const td = {
-  attributes: {
-    ...GeneralAttributes,
-    abbr: 'string',
-    align: 'string',
-    axis: 'string',
-    bgcolor: 'string',
-    char: 'string',
-    charoff: 'string',
-    colspan: 'string',
-    headers: 'string',
-    height: 'string',
-    nowrap: 'string',
-    rowspan: 'string',
-    scope: 'string',
-    valign: 'string',
-    width: 'string',
-  },
+export type footer = {
+  readonly type: 'footer';
+  readonly attributes: {
+  };
 };
 
-export const textarea = {
-  attributes: {
-    ...GeneralAttributes,
-
-    autocomplete: 'string',
-
-    cols: 'string',
-    dirname: 'string',
-    disabled: 'string',
-    form: 'string',
-    maxlength: 'string',
-    minlength: 'string',
-    name: 'string',
-    placeholder: 'string',
-    readonly: 'string',
-    required: 'string',
-    rows: 'string',
-
-    wrap: 'string',
-  },
+export type form = {
+  readonly type: 'form';
+  readonly attributes: {
+  };
 };
 
-export const tfoot = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    char: 'string',
-    charoff: 'string',
-    valign: 'string',
-  },
+export type h1 = {
+  readonly type: 'h1';
+  readonly attributes: {
+  };
 };
 
-export const th = {
-  attributes: {
-    ...GeneralAttributes,
-    abbr: 'string',
-    align: 'string',
-    axis: 'string',
-    bgcolor: 'string',
-    char: 'string',
-    charoff: 'string',
-    colspan: 'string',
-    headers: 'string',
-    height: 'string',
-    nowrap: 'string',
-    rowspan: 'string',
-    scope: 'string',
-    valign: 'string',
-    width: 'string',
-  },
+export type h2 = {
+  readonly type: 'h2';
+  readonly attributes: {
+  };
 };
 
-export const thead = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    char: 'string',
-    charoff: 'string',
-    valign: 'string',
-  },
+export type h3 = {
+  readonly type: 'h3';
+  readonly attributes: {
+  };
 };
 
-export const time = { attributes: { ...GeneralAttributes, datetime: 'string' } };
-
-export const tr = {
-  attributes: {
-    ...GeneralAttributes,
-    align: 'string',
-    bgcolor: 'string',
-    char: 'string',
-    charoff: 'string',
-    valign: 'string',
-  },
+export type h4 = {
+  readonly type: 'h4';
+  readonly attributes: {
+  };
 };
 
-export const track = {
-  attributes: {
-    ...GeneralAttributes,
-    default: 'string',
-    kind: 'string',
-    label: 'string',
-    src: 'string',
-    srclang: 'string',
-  },
+export type h5 = {
+  readonly type: 'h5';
+  readonly attributes: {
+  };
 };
 
-export const ul = { attributes: { ...GeneralAttributes, compact: 'string', type: 'string' } };
-
-export const video = {
-  attributes: {
-    ...GeneralAttributes,
-    autoplay: 'string',
-    controls: 'string',
-    crossorigin: 'string',
-    height: 'string',
-    loop: 'string',
-    muted: 'string',
-    playsinline: 'string',
-    poster: 'string',
-    preload: 'string',
-    src: 'string',
-    width: 'string',
-  },
+export type h6 = {
+  readonly type: 'h6';
+  readonly attributes: {
+  };
 };
+
+export type head = {
+  readonly type: 'head';
+  readonly attributes: {
+  };
+};
+
+export type header = {
+  readonly type: 'header';
+  readonly attributes: {
+  };
+};
+
+export type hgroup = {
+  readonly type: 'hgroup';
+  readonly attributes: {
+  };
+};
+
+export type hr = {
+  readonly type: 'hr';
+  readonly attributes: {
+  };
+};
+
+export type html = {
+  readonly type: 'html';
+  readonly attributes: {
+    readonly lang: string;
+  };
+};
+
+export type i = {
+  readonly type: 'i';
+  readonly attributes: {
+  };
+};
+
+export type iframe = {
+  readonly type: 'iframe';
+  readonly attributes: {
+    readonly title: string;
+  };
+};
+
+export type img = {
+  readonly type: 'img';
+  readonly attributes: {
+    readonly src: string;
+  };
+};
+
+export type input = {
+  readonly type: 'input';
+  readonly attributes: {
+    readonly type: string;
+  };
+};
+
+export type ins = {
+  readonly type: 'ins';
+  readonly attributes: {
+  };
+};
+
+export type kbd = {
+  readonly type: 'kbd';
+  readonly attributes: {
+  };
+};
+
+export type label = {
+  readonly type: 'label';
+  readonly attributes: {
+  };
+};
+
+export type legend = {
+  readonly type: 'legend';
+  readonly attributes: {
+  };
+};
+
+export type li = {
+  readonly type: 'li';
+  readonly attributes: {
+  };
+};
+
+export type link = {
+  readonly type: 'link';
+  readonly attributes: {
+    readonly href: string;
+  };
+};
+
+export type main = {
+  readonly type: 'main';
+  readonly attributes: {
+  };
+};
+
+export type map = {
+  readonly type: 'map';
+  readonly attributes: {
+    readonly name: string;
+  };
+};
+
+export type mark = {
+  readonly type: 'mark';
+  readonly attributes: {
+  };
+};
+
+export type math = {
+  readonly type: 'math';
+  readonly attributes: {
+  };
+};
+
+export type menu = {
+  readonly type: 'menu';
+  readonly attributes: {
+  };
+};
+
+export type meta = {
+  readonly type: 'meta';
+  readonly attributes: {
+  };
+};
+
+export type meter = {
+  readonly type: 'meter';
+  readonly attributes: {
+  };
+};
+
+export type nav = {
+  readonly type: 'nav';
+  readonly attributes: {
+  };
+};
+
+export type noscript = {
+  readonly type: 'noscript';
+  readonly attributes: {
+  };
+};
+
+export type object_ = {
+  readonly type: 'object_';
+  readonly attributes: {
+    readonly data: string;
+  };
+};
+
+export type ol = {
+  readonly type: 'ol';
+  readonly attributes: {
+  };
+};
+
+export type optgroup = {
+  readonly type: 'optgroup';
+  readonly attributes: {
+  };
+};
+
+export type option = {
+  readonly type: 'option';
+  readonly attributes: {
+  };
+};
+
+export type output = {
+  readonly type: 'output';
+  readonly attributes: {
+  };
+};
+
+export type p = {
+  readonly type: 'p';
+  readonly attributes: {
+  };
+};
+
+export type param = {
+  readonly type: 'param';
+  readonly attributes: {
+  };
+};
+
+export type picture = {
+  readonly type: 'picture';
+  readonly attributes: {
+  };
+};
+
+export type pre = {
+  readonly type: 'pre';
+  readonly attributes: {
+  };
+};
+
+export type progress = {
+  readonly type: 'progress';
+  readonly attributes: {
+  };
+};
+
+export type q = {
+  readonly type: 'q';
+  readonly attributes: {
+  };
+};
+
+export type rb = {
+  readonly type: 'rb';
+  readonly attributes: {
+  };
+};
+
+export type rp = {
+  readonly type: 'rp';
+  readonly attributes: {
+  };
+};
+
+export type rt = {
+  readonly type: 'rt';
+  readonly attributes: {
+  };
+};
+
+export type rtc = {
+  readonly type: 'rtc';
+  readonly attributes: {
+  };
+};
+
+export type ruby = {
+  readonly type: 'ruby';
+  readonly attributes: {
+  };
+};
+
+export type s = {
+  readonly type: 's';
+  readonly attributes: {
+  };
+};
+
+export type samp = {
+  readonly type: 'samp';
+  readonly attributes: {
+  };
+};
+
+export type script = {
+  readonly type: 'script';
+  readonly attributes: {
+  };
+};
+
+export type section = {
+  readonly type: 'section';
+  readonly attributes: {
+  };
+};
+
+export type select = {
+  readonly type: 'select';
+  readonly attributes: {
+  };
+};
+
+export type slot = {
+  readonly type: 'slot';
+  readonly attributes: {
+  };
+};
+
+export type small = {
+  readonly type: 'small';
+  readonly attributes: {
+  };
+};
+
+export type source = {
+  readonly type: 'source';
+  readonly attributes: {
+  };
+};
+
+export type span = {
+  readonly type: 'span';
+  readonly attributes: {
+  };
+};
+
+export type strong = {
+  readonly type: 'strong';
+  readonly attributes: {
+  };
+};
+
+export type style = {
+  readonly type: 'style';
+  readonly attributes: {
+  };
+};
+
+export type sub = {
+  readonly type: 'sub';
+  readonly attributes: {
+  };
+};
+
+export type summary = {
+  readonly type: 'summary';
+  readonly attributes: {
+  };
+};
+
+export type sup = {
+  readonly type: 'sup';
+  readonly attributes: {
+  };
+};
+
+export type svg = {
+  readonly type: 'svg';
+  readonly attributes: {
+  };
+};
+
+export type table = {
+  readonly type: 'table';
+  readonly attributes: {
+  };
+};
+
+export type tbody = {
+  readonly type: 'tbody';
+  readonly attributes: {
+  };
+};
+
+export type td = {
+  readonly type: 'td';
+  readonly attributes: {
+  };
+};
+
+export type template = {
+  readonly type: 'template';
+  readonly attributes: {
+  };
+};
+
+export type textarea = {
+  readonly type: 'textarea';
+  readonly attributes: {
+  };
+};
+
+export type tfoot = {
+  readonly type: 'tfoot';
+  readonly attributes: {
+  };
+};
+
+export type th = {
+  readonly type: 'th';
+  readonly attributes: {
+  };
+};
+
+export type thead = {
+  readonly type: 'thead';
+  readonly attributes: {
+  };
+};
+
+export type time = {
+  readonly type: 'time';
+  readonly attributes: {
+  };
+};
+
+export type title = {
+  readonly type: 'title';
+  readonly attributes: {
+  };
+};
+
+export type tr = {
+  readonly type: 'tr';
+  readonly attributes: {
+  };
+};
+
+export type track = {
+  readonly type: 'track';
+  readonly attributes: {
+  };
+};
+
+export type u = {
+  readonly type: 'u';
+  readonly attributes: {
+  };
+};
+
+export type ul = {
+  readonly type: 'ul';
+  readonly attributes: {
+  };
+};
+
+export type var_ = {
+  readonly type: 'var_';
+  readonly attributes: {
+  };
+};
+
+export type video = {
+  readonly type: 'video';
+  readonly attributes: {
+  };
+};
+
+export type wbr = {
+  readonly type: 'wbr';
+  readonly attributes: {
+  };
+};
+
