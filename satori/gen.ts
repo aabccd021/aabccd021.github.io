@@ -61,13 +61,9 @@ const attrStr = (attrName: string, attr: Attribute): Option<string> =>
   Array.isArray(attr)
     ? option.none
     : pipe(
-        attr,
-        option.fromNullable,
-        option.chain((metaAttr) =>
-          metaAttr.required === true
-            ? option.some(`    readonly '${attrName}': ${attrValueStr(metaAttr)};`)
-            : option.some(`    readonly '${attrName}'?: ${attrValueStr(metaAttr)};`)
-        )
+        attr.required === true
+          ? option.some(`    readonly '${attrName}': ${attrValueStr(attr)};`)
+          : option.some(`    readonly '${attrName}'?: ${attrValueStr(attr)};`)
       );
 
 const attrsStr = (_data: MetaData): readonly string[] =>

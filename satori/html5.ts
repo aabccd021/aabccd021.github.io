@@ -82,7 +82,7 @@ export type MetaAttribute = {
 };
 
 // eslint-disable-next-line functional/prefer-readonly-type
-export type Attribute = (RegExp | string)[] | MetaAttribute | null;
+export type Attribute = (RegExp | string)[] | MetaAttribute;
 
 export type PermittedAttribute = Record<string, Attribute>;
 
