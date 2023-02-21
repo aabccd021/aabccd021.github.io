@@ -11,7 +11,8 @@
     "check": "pnpm check:text && pnpm check:markup && pnpm check:link",
     "check:text": "textlint --debug './_site/**/*.html'",
     "check:markup": "markuplint './_site/**/*.html'",
-    "check:link": "lychee ./_site/**/*.html --verbose --cache"
+    "check:link": "lychee ./_site/**/*.html --verbose --cache",
+    "check:html": "html-validate ./_site/**/*.html"
   },
   "devDependencies": {
     "@11ty/eleventy": "2.0.0-beta.2",

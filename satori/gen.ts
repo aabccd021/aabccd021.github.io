@@ -14,6 +14,7 @@ import {
 } from 'fp-ts';
 import { flow, pipe } from 'fp-ts/function';
 import type { Option } from 'fp-ts/Option';
+import { match } from 'ts-pattern';
 
 import type { Attribute, MetaAttribute, MetaData } from './html5';
 import { html } from './html5';
@@ -36,12 +37,13 @@ type globalAttributes = {
 };
 `;
 
-const attrValueStr = ({ boolean, enum: enum_ }: MetaAttribute): string =>
-  boolean === true
-    ? 'true'
-    : enum_ !== undefined
-    ? pipe(
-        enum_,
+const attrValueStr = ({ type }: MetaAttribute): string =>
+  match(type)
+    .with(undefined, () => 'string')
+    .with({ type: 'boolean' }, () => 'true')
+    .with({ type: 'enum' }, (enumType) =>
+      pipe(
+        enumType.value,
         readonlyArray.filter((s) => !s.startsWith('/')),
         readonlyNonEmptyArray.fromReadonlyArray,
         option.map(
@@ -52,7 +54,8 @@ const attrValueStr = ({ boolean, enum: enum_ }: MetaAttribute): string =>
         ),
         option.getOrElseW(() => 'string')
       )
-    : 'string';
+    )
+    .exhaustive();
 
 const attrStr = (attrName: string, attr: Attribute): Option<string> =>
   Array.isArray(attr)
