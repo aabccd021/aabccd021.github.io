@@ -19,15 +19,15 @@ type globalAttributes = {
 export type a = {
   readonly type: 'a';
   readonly attributes: globalAttributes & {
-    readonly 'download'?: string;
-    readonly 'href'?: string;
-    readonly 'hreflang'?: string;
-    readonly 'itemprop'?: string;
-    readonly 'ping'?: string;
-    readonly 'referrerpolicy'?: string;
-    readonly 'rel'?: string;
-    readonly 'target'?: '_blank'|'_self'|'_parent'|'_top';
-    readonly 'type'?: string;
+    readonly 'download' ?: string;
+    readonly 'href' ?: string;
+    readonly 'hreflang' ?: string;
+    readonly 'itemprop' ?: string;
+    readonly 'ping' ?: string;
+    readonly 'referrerpolicy' ?: string;
+    readonly 'rel' ?: string;
+    readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
+    readonly 'type' ?: string;
   };
 };
 
@@ -46,15 +46,14 @@ export type address = {
 export type area = {
   readonly type: 'area';
   readonly attributes: globalAttributes & {
-    readonly 'alt'?: string;
-    readonly 'coords'?: string;
-    readonly 'download'?: string;
-    readonly 'itemprop'?: string;
-    readonly 'ping'?: string;
-    readonly 'referrerpolicy'?: string;
-    readonly 'rel'?: string;
-    readonly 'shape'?: 'rect'|'circle'|'poly'|'default';
-    readonly 'target'?: '_blank'|'_self'|'_parent'|'_top';
+    readonly 'coords' ?: string;
+    readonly 'download' ?: string;
+    readonly 'itemprop' ?: string;
+    readonly 'ping' ?: string;
+    readonly 'referrerpolicy' ?: string;
+    readonly 'rel' ?: string;
+    readonly 'shape' ?: 'rect'|'circle'|'poly'|'default';
+    readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   };
 };
 
@@ -73,9 +72,9 @@ export type aside = {
 export type audio = {
   readonly type: 'audio';
   readonly attributes: globalAttributes & {
-    readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'itemprop'?: string;
-    readonly 'preload'?: 'none'|'metadata'|'auto';
+    readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
+    readonly 'itemprop' ?: string;
+    readonly 'preload' ?: 'none'|'metadata'|'auto';
   };
 };
 
@@ -124,14 +123,14 @@ export type br = {
 export type button = {
   readonly type: 'button';
   readonly attributes: globalAttributes & {
-    readonly 'autofocus'?: true;
-    readonly 'disabled'?: true;
-    readonly 'formaction'?: string;
-    readonly 'formenctype'?: string;
-    readonly 'formmethod'?: 'get'|'post'|'dialog';
-    readonly 'formnovalidate'?: true;
-    readonly 'formtarget'?: '_blank'|'_self'|'_parent'|'_top';
-    readonly 'type': 'submit'|'reset'|'button';
+    readonly 'autofocus' ?: true;
+    readonly 'disabled' ?: true;
+    readonly 'formaction' ?: string;
+    readonly 'formenctype' ?: string;
+    readonly 'formmethod' ?: 'get'|'post'|'dialog';
+    readonly 'formnovalidate' ?: true;
+    readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
+    readonly 'type' : 'submit'|'reset'|'button';
   };
 };
 
@@ -162,14 +161,14 @@ export type code = {
 export type col = {
   readonly type: 'col';
   readonly attributes: globalAttributes & {
-    readonly 'span'?: string;
+    readonly 'span' ?: string;
   };
 };
 
 export type colgroup = {
   readonly type: 'colgroup';
   readonly attributes: globalAttributes & {
-    readonly 'span'?: string;
+    readonly 'span' ?: string;
   };
 };
 
@@ -200,7 +199,7 @@ export type del = {
 export type details = {
   readonly type: 'details';
   readonly attributes: globalAttributes & {
-    readonly 'open'?: true;
+    readonly 'open' ?: true;
   };
 };
 
@@ -213,7 +212,7 @@ export type dfn = {
 export type dialog = {
   readonly type: 'dialog';
   readonly attributes: globalAttributes & {
-    readonly 'open'?: true;
+    readonly 'open' ?: true;
   };
 };
 
@@ -244,15 +243,15 @@ export type em = {
 export type embed = {
   readonly type: 'embed';
   readonly attributes: globalAttributes & {
-    readonly 'src': string;
-    readonly 'title': string;
+    readonly 'src' : string;
+    readonly 'title' : string;
   };
 };
 
 export type fieldset = {
   readonly type: 'fieldset';
   readonly attributes: globalAttributes & {
-    readonly 'disabled'?: true;
+    readonly 'disabled' ?: true;
   };
 };
 
@@ -277,11 +276,11 @@ export type footer = {
 export type form = {
   readonly type: 'form';
   readonly attributes: globalAttributes & {
-    readonly 'action'?: string;
-    readonly 'autocomplete'?: 'on'|'off';
-    readonly 'method'?: 'get'|'post'|'dialog';
-    readonly 'novalidate'?: true;
-    readonly 'target'?: '_blank'|'_self'|'_parent'|'_top';
+    readonly 'action' ?: string;
+    readonly 'autocomplete' ?: 'on'|'off';
+    readonly 'method' ?: 'get'|'post'|'dialog';
+    readonly 'novalidate' ?: true;
+    readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   };
 };
 
@@ -348,7 +347,7 @@ export type hr = {
 export type html = {
   readonly type: 'html';
   readonly attributes: globalAttributes & {
-    readonly 'lang': string;
+    readonly 'lang' : string;
   };
 };
 
@@ -361,40 +360,40 @@ export type i = {
 export type iframe = {
   readonly type: 'iframe';
   readonly attributes: globalAttributes & {
-    readonly 'src'?: string;
-    readonly 'title': string;
+    readonly 'src' ?: string;
+    readonly 'title' : string;
   };
 };
 
 export type img = {
   readonly type: 'img';
   readonly attributes: globalAttributes & {
-    readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'decoding'?: 'sync'|'async'|'auto';
-    readonly 'ismap'?: true;
-    readonly 'src': string;
-    readonly 'srcset'?: string;
+    readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
+    readonly 'decoding' ?: 'sync'|'async'|'auto';
+    readonly 'ismap' ?: true;
+    readonly 'src' : string;
+    readonly 'srcset' ?: string;
   };
 };
 
 export type input = {
   readonly type: 'input';
   readonly attributes: globalAttributes & {
-    readonly 'autofocus'?: true;
-    readonly 'capture'?: 'environment'|'user';
-    readonly 'checked'?: true;
-    readonly 'disabled'?: true;
-    readonly 'formaction'?: string;
-    readonly 'formenctype'?: string;
-    readonly 'formmethod'?: 'get'|'post'|'dialog';
-    readonly 'formnovalidate'?: true;
-    readonly 'formtarget'?: '_blank'|'_self'|'_parent'|'_top';
-    readonly 'inputmode'?: 'none'|'text'|'decimal'|'numeric'|'tel'|'search'|'email'|'url';
-    readonly 'multiple'?: true;
-    readonly 'readonly'?: true;
-    readonly 'required'?: true;
-    readonly 'spellcheck'?: 'default'|'false'|'true';
-    readonly 'type': 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
+    readonly 'autofocus' ?: true;
+    readonly 'capture' ?: 'environment'|'user';
+    readonly 'checked' ?: true;
+    readonly 'disabled' ?: true;
+    readonly 'formaction' ?: string;
+    readonly 'formenctype' ?: string;
+    readonly 'formmethod' ?: 'get'|'post'|'dialog';
+    readonly 'formnovalidate' ?: true;
+    readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
+    readonly 'inputmode' ?: 'none'|'text'|'decimal'|'numeric'|'tel'|'search'|'email'|'url';
+    readonly 'multiple' ?: true;
+    readonly 'readonly' ?: true;
+    readonly 'required' ?: true;
+    readonly 'spellcheck' ?: 'default'|'false'|'true';
+    readonly 'type' : 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
   };
 };
 
@@ -431,12 +430,12 @@ export type li = {
 export type link = {
   readonly type: 'link';
   readonly attributes: globalAttributes & {
-    readonly 'as'?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
-    readonly 'blocking'?: 'render';
-    readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'disabled'?: true;
-    readonly 'href': string;
-    readonly 'integrity'?: string;
+    readonly 'as' ?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
+    readonly 'blocking' ?: 'render';
+    readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
+    readonly 'disabled' ?: true;
+    readonly 'href' : string;
+    readonly 'integrity' ?: string;
   };
 };
 
@@ -449,7 +448,7 @@ export type main = {
 export type map = {
   readonly type: 'map';
   readonly attributes: globalAttributes & {
-    readonly 'name': string;
+    readonly 'name' : string;
   };
 };
 
@@ -462,9 +461,9 @@ export type mark = {
 export type math = {
   readonly type: 'math';
   readonly attributes: globalAttributes & {
-    readonly 'dir'?: 'ltr'|'rtl';
-    readonly 'display'?: 'block'|'inline';
-    readonly 'overflow'?: 'linebreak'|'scroll'|'elide'|'truncate'|'scale';
+    readonly 'dir' ?: 'ltr'|'rtl';
+    readonly 'display' ?: 'block'|'inline';
+    readonly 'overflow' ?: 'linebreak'|'scroll'|'elide'|'truncate'|'scale';
   };
 };
 
@@ -477,11 +476,11 @@ export type menu = {
 export type meta = {
   readonly type: 'meta';
   readonly attributes: globalAttributes & {
-    readonly 'charset'?: 'utf-8';
-    readonly 'content'?: string;
-    readonly 'http-equiv'?: string;
-    readonly 'itemprop'?: string;
-    readonly 'name'?: string;
+    readonly 'charset' ?: 'utf-8';
+    readonly 'content' ?: string;
+    readonly 'http-equiv' ?: string;
+    readonly 'itemprop' ?: string;
+    readonly 'name' ?: string;
   };
 };
 
@@ -506,32 +505,32 @@ export type noscript = {
 export type object_ = {
   readonly type: 'object_';
   readonly attributes: globalAttributes & {
-    readonly 'blocking'?: 'render';
-    readonly 'data': string;
-    readonly 'name'?: string;
+    readonly 'blocking' ?: 'render';
+    readonly 'data' : string;
+    readonly 'name' ?: string;
   };
 };
 
 export type ol = {
   readonly type: 'ol';
   readonly attributes: globalAttributes & {
-    readonly 'reversed'?: true;
-    readonly 'type'?: 'a'|'A'|'i'|'I'|'1';
+    readonly 'reversed' ?: true;
+    readonly 'type' ?: 'a'|'A'|'i'|'I'|'1';
   };
 };
 
 export type optgroup = {
   readonly type: 'optgroup';
   readonly attributes: globalAttributes & {
-    readonly 'disabled'?: true;
+    readonly 'disabled' ?: true;
   };
 };
 
 export type option = {
   readonly type: 'option';
   readonly attributes: globalAttributes & {
-    readonly 'disabled'?: true;
-    readonly 'selected'?: true;
+    readonly 'disabled' ?: true;
+    readonly 'selected' ?: true;
   };
 };
 
@@ -622,12 +621,12 @@ export type samp = {
 export type script = {
   readonly type: 'script';
   readonly attributes: globalAttributes & {
-    readonly 'async'?: true;
-    readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'defer'?: true;
-    readonly 'integrity'?: string;
-    readonly 'nomodule'?: true;
-    readonly 'src'?: string;
+    readonly 'async' ?: true;
+    readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
+    readonly 'defer' ?: true;
+    readonly 'integrity' ?: string;
+    readonly 'nomodule' ?: true;
+    readonly 'src' ?: string;
   };
 };
 
@@ -640,11 +639,11 @@ export type section = {
 export type select = {
   readonly type: 'select';
   readonly attributes: globalAttributes & {
-    readonly 'autofocus'?: true;
-    readonly 'disabled'?: true;
-    readonly 'multiple'?: true;
-    readonly 'required'?: true;
-    readonly 'size'?: string;
+    readonly 'autofocus' ?: true;
+    readonly 'disabled' ?: true;
+    readonly 'multiple' ?: true;
+    readonly 'required' ?: true;
+    readonly 'size' ?: string;
   };
 };
 
@@ -723,8 +722,8 @@ export type tbody = {
 export type td = {
   readonly type: 'td';
   readonly attributes: globalAttributes & {
-    readonly 'colspan'?: string;
-    readonly 'rowspan'?: string;
+    readonly 'colspan' ?: string;
+    readonly 'rowspan' ?: string;
   };
 };
 
@@ -737,17 +736,17 @@ export type template = {
 export type textarea = {
   readonly type: 'textarea';
   readonly attributes: globalAttributes & {
-    readonly 'autocomplete'?: 'on'|'off';
-    readonly 'autofocus'?: true;
-    readonly 'cols'?: string;
-    readonly 'disabled'?: true;
-    readonly 'maxlength'?: string;
-    readonly 'minlength'?: string;
-    readonly 'readonly'?: true;
-    readonly 'required'?: true;
-    readonly 'rows'?: string;
-    readonly 'spellcheck'?: 'true'|'default'|'false';
-    readonly 'wrap'?: 'hard'|'soft';
+    readonly 'autocomplete' ?: 'on'|'off';
+    readonly 'autofocus' ?: true;
+    readonly 'cols' ?: string;
+    readonly 'disabled' ?: true;
+    readonly 'maxlength' ?: string;
+    readonly 'minlength' ?: string;
+    readonly 'readonly' ?: true;
+    readonly 'required' ?: true;
+    readonly 'rows' ?: string;
+    readonly 'spellcheck' ?: 'true'|'default'|'false';
+    readonly 'wrap' ?: 'hard'|'soft';
   };
 };
 
@@ -760,9 +759,9 @@ export type tfoot = {
 export type th = {
   readonly type: 'th';
   readonly attributes: globalAttributes & {
-    readonly 'colspan'?: string;
-    readonly 'rowspan'?: string;
-    readonly 'scope'?: 'row'|'col'|'rowgroup'|'colgroup';
+    readonly 'colspan' ?: string;
+    readonly 'rowspan' ?: string;
+    readonly 'scope' ?: 'row'|'col'|'rowgroup'|'colgroup';
   };
 };
 
@@ -817,9 +816,9 @@ export type var_ = {
 export type video = {
   readonly type: 'video';
   readonly attributes: globalAttributes & {
-    readonly 'crossorigin'?: 'anonymous'|'use-credentials';
-    readonly 'itemprop'?: string;
-    readonly 'preload'?: 'none'|'metadata'|'auto';
+    readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
+    readonly 'itemprop' ?: string;
+    readonly 'preload' ?: 'none'|'metadata'|'auto';
   };
 };
 

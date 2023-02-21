@@ -13,10 +13,9 @@ import {
   string,
 } from 'fp-ts';
 import { flow, pipe } from 'fp-ts/function';
-import type { Option } from 'fp-ts/Option';
 import { match } from 'ts-pattern';
 
-import type { Attribute, MetaAttribute, MetaData } from './html5';
+import type { MetaAttribute, MetaData } from './html5';
 import { html } from './html5';
 
 const globalAttributes = `
@@ -41,6 +40,7 @@ const attrValueStr = ({ type }: MetaAttribute): string =>
   match(type)
     .with(undefined, () => 'string')
     .with({ type: 'boolean' }, () => 'true')
+    .with({ type: 'number' }, () => 'number')
     .with({ type: 'enum' }, (enumType) =>
       pipe(
         enumType.value,
@@ -57,14 +57,10 @@ const attrValueStr = ({ type }: MetaAttribute): string =>
     )
     .exhaustive();
 
-const attrStr = (attrName: string, attr: Attribute): Option<string> =>
-  Array.isArray(attr)
-    ? option.none
-    : pipe(
-        attr.required === true
-          ? option.some(`    readonly '${attrName}': ${attrValueStr(attr)};`)
-          : option.some(`    readonly '${attrName}'?: ${attrValueStr(attr)};`)
-      );
+const attrStr = (attrName: string, attr: MetaAttribute): string =>
+  `    readonly '${attrName}' ` +
+  `${attr.required === true ? '' : '?'}: ` +
+  `${attrValueStr(attr)};`;
 
 const attrsStr = (_data: MetaData): readonly string[] =>
   pipe(
@@ -72,7 +68,7 @@ const attrsStr = (_data: MetaData): readonly string[] =>
     option.fromNullable,
     option.map(
       flow(
-        readonlyRecord.filterMapWithIndex(attrStr),
+        readonlyRecord.mapWithIndex(attrStr),
         readonlyRecord.toReadonlyArray,
         readonlyArray.map(readonlyTuple.snd)
       )
@@ -98,7 +94,7 @@ const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `
 
 const res: string = pipe(
   html,
-  readonlyRecord.filterWithIndex((name) => name !== '*' && !name.includes(':')),
+  readonlyRecord.filterWithIndex((name) => !name.includes(':')),
   readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
   readonlyRecord.foldMapWithIndex(string.Ord)(string.Monoid)((_, val) => val),
   (x) => `/* eslint-disable */\n${globalAttributes}\n${x}`

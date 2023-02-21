@@ -72,6 +72,9 @@ export type MetaAttribute = {
     | {
         readonly type: 'enum';
         readonly value: readonly string[];
+      }
+    | {
+        readonly type: 'number';
       };
 
   /* if true this attribute can omit the value */
@@ -81,10 +84,7 @@ export type MetaAttribute = {
   readonly required?: boolean;
 };
 
-// eslint-disable-next-line functional/prefer-readonly-type
-export type Attribute = (RegExp | string)[] | MetaAttribute;
-
-export type PermittedAttribute = Record<string, Attribute>;
+export type PermittedAttribute = Record<string, MetaAttribute>;
 
 export type FormAssociated = {
   /** Listed elements have a name attribute and is listed in the form and fieldset elements property. */
@@ -133,31 +133,36 @@ export type MetaData = {
 
 export type MetaDataTable = Record<string, MetaData>;
 
-export const html: MetaDataTable = {
-  '*': {
-    attributes: {
-      contenteditable: {
-        omit: true,
-        type: { type: 'enum', value: ['true', 'false'] },
-      },
-      dir: {
-        type: { type: 'enum', value: ['ltr', 'rtl', 'auto'] },
-      },
-      draggable: {
-        type: { type: 'enum', value: ['true', 'false'] },
-      },
-      hidden: {
-        type: { type: 'boolean' },
-      },
-      id: {
-        type: { type: 'enum', value: ['/\\S+/'] },
-      },
-      tabindex: {
-        type: { type: 'enum', value: ['/-?\\d+/'] },
-      },
-    },
+export const globalAttributes: PermittedAttribute = {
+  contenteditable: {
+    omit: true,
+    type: { type: 'enum', value: ['true', 'false'] },
   },
+  dir: {
+    type: { type: 'enum', value: ['ltr', 'rtl', 'auto'] },
+  },
+  draggable: {
+    type: { type: 'enum', value: ['true', 'false'] },
+  },
+  hidden: {
+    type: { type: 'boolean' },
+  },
+  id: {
+    type: { type: 'enum', value: ['/\\S+/'] },
+  },
+  tabindex: {
+    type: { type: 'number' },
+  },
+  accesskey: {},
+  class: {},
+  lang: {},
+  spellcheck: {},
+  style: {},
+  title: {},
+  translate: {},
+};
 
+export const html: MetaDataTable = {
   a: {
     flow: true,
     phrasing: true,
@@ -215,7 +220,6 @@ export const html: MetaDataTable = {
     phrasing: ['isDescendant', 'map'],
     void: true,
     attributes: {
-      alt: {},
       coords: {
         // allowed: (node: string) {
         // const attr = node.getAttribute("shape");
