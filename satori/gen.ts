@@ -18,8 +18,23 @@ import type { Option } from 'fp-ts/Option';
 import type { Attribute, MetaAttribute, MetaData } from './html5';
 import { html } from './html5';
 
-const attrValueStr = (attr: MetaAttribute): string =>
-  attr.boolean === true ? 'boolean' : 'string';
+const attrValueStr = ({ boolean, enum: enum_ }: MetaAttribute): string =>
+  boolean === true
+    ? 'boolean'
+    : enum_ !== undefined
+    ? pipe(
+        enum_,
+        readonlyArray.filter((s) => !s.startsWith('/')),
+        readonlyNonEmptyArray.fromReadonlyArray,
+        option.map(
+          flow(
+            readonlyArray.map((s) => `'${s}'`),
+            readonlyArray.intercalate(string.Monoid)('|')
+          )
+        ),
+        option.getOrElseW(() => 'string')
+      )
+    : 'string';
 
 const attrStr = (attrName: string, attr: Attribute): Option<string> =>
   Array.isArray(attr)
@@ -29,8 +44,8 @@ const attrStr = (attrName: string, attr: Attribute): Option<string> =>
         option.fromNullable,
         option.chain((metaAttr) =>
           metaAttr.required === true
-            ? option.some(`    readonly ${attrName}: ${attrValueStr(metaAttr)};`)
-            : option.none
+            ? option.some(`    readonly '${attrName}': ${attrValueStr(metaAttr)};`)
+            : option.some(`    readonly '${attrName}'?: ${attrValueStr(metaAttr)};`)
         )
       );
 
@@ -59,7 +74,8 @@ const toTs = (name: string, _data: MetaData): string =>
       `};\n`,
     ],
     readonlyNonEmptyArray.map((s) => `${s}\n`),
-    readonlyNonEmptyArray.concatAll(string.Semigroup)
+    readonlyNonEmptyArray.concatAll(string.Semigroup),
+    (x) => `/* eslint-disable */\n${x}`
   );
 
 const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);

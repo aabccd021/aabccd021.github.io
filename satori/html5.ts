@@ -71,7 +71,7 @@ export type MetaAttribute = {
 
   /* if set it is an exhaustive list of all possible values (as string or regex)
    * this attribute can have (each token if list is set) */
-  readonly enum?: readonly (RegExp | string)[];
+  readonly enum?: readonly string[];
 
   /* if true this attribute contains space-separated tokens and each token must
    * be valid by itself */
@@ -774,7 +774,7 @@ export const html: MetaDataTable = {
     form: true,
     attributes: {
       action: {
-        enum: [/^\s*\S+\s*$/],
+        // enum: [/^\s*\S+\s*$/],
       },
       accept: {
         deprecated: true,

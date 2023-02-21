@@ -6,6 +6,7 @@
     "lib": [
       "esnext"
     ],
+    "skipLibCheck": true,
     "module": "commonjs",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
@@ -19,5 +20,8 @@
   },
   "include": [
     "./**/*.ts"
+  ],
+  "exclude": [
+    "./**/node_modules"
   ]
 }
