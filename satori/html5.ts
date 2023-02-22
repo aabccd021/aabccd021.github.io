@@ -53,7 +53,7 @@ export type MetaAttribute = {
     | ReturnType<typeof allowedIfAttributeIsPresent>;
 
   /* if true this attribute can only take boolean values: my-attr, my-attr="" or my-attr="my-attr" */
-  readonly type?:
+  readonly data?:
     | {
         readonly type: 'boolean';
       }
@@ -129,22 +129,22 @@ export type MetaDataTable = Record<string, MetaData>;
 export const globalAttributes: PermittedAttribute = {
   contenteditable: {
     omit: true,
-    type: { type: 'enum', value: ['true', 'false'] },
+    data: { type: 'enum', value: ['true', 'false'] },
   },
   dir: {
-    type: { type: 'enum', value: ['ltr', 'rtl', 'auto'] },
+    data: { type: 'enum', value: ['ltr', 'rtl', 'auto'] },
   },
   draggable: {
-    type: { type: 'enum', value: ['true', 'false'] },
+    data: { type: 'enum', value: ['true', 'false'] },
   },
   hidden: {
-    type: { type: 'boolean' },
+    data: { type: 'boolean' },
   },
   id: {
     validation: '/\\S+/',
   },
   tabindex: {
-    type: { type: 'number' },
+    data: { type: 'number' },
   },
   accesskey: {},
   class: {},
@@ -187,7 +187,7 @@ export const html: MetaDataTable = {
       },
       target: {
         allowed: allowedIfAttributeIsPresent('href'),
-        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
       type: {
@@ -254,12 +254,12 @@ export const html: MetaDataTable = {
         //       return null;
         //   }
         // },
-        type: { type: 'enum', value: ['rect', 'circle', 'poly', 'default'] },
+        data: { type: 'enum', value: ['rect', 'circle', 'poly', 'default'] },
       },
       target: {
         allowed: allowedIfAttributeIsPresent('href'),
 
-        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
     },
@@ -289,14 +289,14 @@ export const html: MetaDataTable = {
     attributes: {
       crossorigin: {
         omit: true,
-        type: { type: 'enum', value: ['anonymous', 'use-credentials'] },
+        data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       itemprop: {
         allowed: allowedIfAttributeIsPresent('src'),
       },
       preload: {
         omit: true,
-        type: { type: 'enum', value: ['none', 'metadata', 'auto'] },
+        data: { type: 'enum', value: ['none', 'metadata', 'auto'] },
       },
     },
     permittedContent: ['@flow', 'track', 'source'],
@@ -355,10 +355,10 @@ export const html: MetaDataTable = {
     labelable: true,
     attributes: {
       autofocus: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       disabled: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       formaction: {
         allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
@@ -368,20 +368,20 @@ export const html: MetaDataTable = {
       },
       formmethod: {
         allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
-        type: { type: 'enum', value: ['get', 'post', 'dialog'] },
+        data: { type: 'enum', value: ['get', 'post', 'dialog'] },
       },
       formnovalidate: {
         allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       formtarget: {
         allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
-        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
       type: {
         required: true,
-        type: { type: 'enum', value: ['submit', 'reset', 'button'] },
+        data: { type: 'enum', value: ['submit', 'reset', 'button'] },
       },
     },
     permittedContent: ['@phrasing'],
@@ -416,7 +416,7 @@ export const html: MetaDataTable = {
   col: {
     attributes: {
       span: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
     },
     void: true,
@@ -426,7 +426,7 @@ export const html: MetaDataTable = {
     implicitClosed: ['colgroup'],
     attributes: {
       span: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
     },
     permittedContent: ['col', 'template'],
@@ -462,7 +462,7 @@ export const html: MetaDataTable = {
     interactive: true,
     attributes: {
       open: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
     },
     permittedContent: ['summary', '@flow'],
@@ -482,7 +482,7 @@ export const html: MetaDataTable = {
     permittedContent: ['@flow'],
     attributes: {
       open: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
     },
   },
@@ -534,7 +534,7 @@ export const html: MetaDataTable = {
     },
     attributes: {
       disabled: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
     },
     permittedContent: ['@flow', 'legend?'],
@@ -565,16 +565,16 @@ export const html: MetaDataTable = {
         validation: /^\s*\S+\s*$/,
       },
       autocomplete: {
-        type: { type: 'enum', value: ['on', 'off'] },
+        data: { type: 'enum', value: ['on', 'off'] },
       },
       method: {
-        type: { type: 'enum', value: ['get', 'post', 'dialog'] },
+        data: { type: 'enum', value: ['get', 'post', 'dialog'] },
       },
       novalidate: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       target: {
-        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
     },
@@ -685,13 +685,13 @@ export const html: MetaDataTable = {
     attributes: {
       crossorigin: {
         omit: true,
-        type: { type: 'enum', value: ['anonymous', 'use-credentials'] },
+        data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       decoding: {
-        type: { type: 'enum', value: ['sync', 'async', 'auto'] },
+        data: { type: 'enum', value: ['sync', 'async', 'auto'] },
       },
       ismap: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       src: {
         required: true,
@@ -714,17 +714,17 @@ export const html: MetaDataTable = {
     labelable: ['matchAttribute', ['type', '!=', 'hidden']],
     attributes: {
       autofocus: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       capture: {
         omit: true,
-        type: { type: 'enum', value: ['environment', 'user'] },
+        data: { type: 'enum', value: ['environment', 'user'] },
       },
       checked: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       disabled: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       formaction: {
         allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
@@ -740,42 +740,42 @@ export const html: MetaDataTable = {
         allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
           defaultValue: 'submit',
         }),
-        type: { type: 'enum', value: ['get', 'post', 'dialog'] },
+        data: { type: 'enum', value: ['get', 'post', 'dialog'] },
       },
       formnovalidate: {
         allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
           defaultValue: 'submit',
         }),
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       formtarget: {
         allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
           defaultValue: 'submit',
         }),
-        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
       inputmode: {
-        type: {
+        data: {
           type: 'enum',
           value: ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'],
         },
       },
       multiple: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       readonly: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       required: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       spellcheck: {
-        type: { type: 'enum', value: ['default', 'false', 'true'] },
+        data: { type: 'enum', value: ['default', 'false', 'true'] },
       },
       type: {
         required: true,
-        type: {
+        data: {
           type: 'enum',
           value: [
             'button',
@@ -842,7 +842,7 @@ export const html: MetaDataTable = {
     attributes: {
       as: {
         allowed: allowedIfAttributeHasValue('rel', ['prefetch', 'preload', 'modulepreload']),
-        type: {
+        data: {
           type: 'enum',
           value: [
             'audio',
@@ -872,15 +872,15 @@ export const html: MetaDataTable = {
       },
       blocking: {
         allowed: allowedIfAttributeHasValue('rel', ['stylesheet', 'preload', 'modulepreload']),
-        type: { type: 'enum', value: ['render'] },
+        data: { type: 'enum', value: ['render'] },
       },
       crossorigin: {
         omit: true,
-        type: { type: 'enum', value: ['anonymous', 'use-credentials'] },
+        data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       disabled: {
         allowed: allowedIfAttributeHasValue('rel', ['stylesheet']),
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       href: {
         required: true,
@@ -922,13 +922,13 @@ export const html: MetaDataTable = {
     embedded: true,
     attributes: {
       dir: {
-        type: { type: 'enum', value: ['ltr', 'rtl'] },
+        data: { type: 'enum', value: ['ltr', 'rtl'] },
       },
       display: {
-        type: { type: 'enum', value: ['block', 'inline'] },
+        data: { type: 'enum', value: ['block', 'inline'] },
       },
       overflow: {
-        type: { type: 'enum', value: ['linebreak', 'scroll', 'elide', 'truncate', 'scale'] },
+        data: { type: 'enum', value: ['linebreak', 'scroll', 'elide', 'truncate', 'scale'] },
       },
     },
   },
@@ -945,7 +945,7 @@ export const html: MetaDataTable = {
     void: true,
     attributes: {
       charset: {
-        type: { type: 'enum', value: ['utf-8'] },
+        data: { type: 'enum', value: ['utf-8'] },
       },
       content: {
         allowed: allowedIfAttributeIsPresent('name', 'http-equiv', 'itemprop', 'property'),
@@ -996,7 +996,7 @@ export const html: MetaDataTable = {
     },
     attributes: {
       blocking: {
-        type: { type: 'enum', value: ['render'] },
+        data: { type: 'enum', value: ['render'] },
       },
       data: {
         validation: '/.+/',
@@ -1014,10 +1014,10 @@ export const html: MetaDataTable = {
     flow: true,
     attributes: {
       reversed: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       type: {
-        type: { type: 'enum', value: ['a', 'A', 'i', 'I', '1'] },
+        data: { type: 'enum', value: ['a', 'A', 'i', 'I', '1'] },
       },
     },
     permittedContent: ['@script', 'li'],
@@ -1027,7 +1027,7 @@ export const html: MetaDataTable = {
     implicitClosed: ['optgroup'],
     attributes: {
       disabled: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
     },
     permittedContent: ['@script', 'option'],
@@ -1037,10 +1037,10 @@ export const html: MetaDataTable = {
     implicitClosed: ['option'],
     attributes: {
       disabled: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       selected: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
     },
     permittedContent: [],
@@ -1165,21 +1165,21 @@ export const html: MetaDataTable = {
     scriptSupporting: true,
     attributes: {
       async: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       crossorigin: {
         omit: true,
-        type: { type: 'enum', value: ['anonymous', 'use-credentials'] },
+        data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       defer: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       integrity: {
         allowed: allowedIfAttributeIsPresent('src'),
         validation: '/.+/',
       },
       nomodule: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       src: {
         validation: '/.+/',
@@ -1203,19 +1203,19 @@ export const html: MetaDataTable = {
     labelable: true,
     attributes: {
       autofocus: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       disabled: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       multiple: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       required: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       size: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
     },
     permittedContent: ['@script', 'datasrc', 'datafld', 'dataformatas', 'option', 'optgroup'],
@@ -1298,10 +1298,10 @@ export const html: MetaDataTable = {
     implicitClosed: ['td', 'th'],
     attributes: {
       colspan: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
       rowspan: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
     },
     permittedContent: ['@flow'],
@@ -1324,37 +1324,37 @@ export const html: MetaDataTable = {
     labelable: true,
     attributes: {
       autocomplete: {
-        type: { type: 'enum', value: ['on', 'off'] },
+        data: { type: 'enum', value: ['on', 'off'] },
       },
       autofocus: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       cols: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
       disabled: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       maxlength: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
       minlength: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
       readonly: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       required: {
-        type: { type: 'boolean' },
+        data: { type: 'boolean' },
       },
       rows: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
       spellcheck: {
-        type: { type: 'enum', value: ['true', 'default', 'false'] },
+        data: { type: 'enum', value: ['true', 'default', 'false'] },
       },
       wrap: {
-        type: { type: 'enum', value: ['hard', 'soft'] },
+        data: { type: 'enum', value: ['hard', 'soft'] },
       },
     },
     permittedContent: [],
@@ -1370,13 +1370,13 @@ export const html: MetaDataTable = {
     implicitClosed: ['td', 'th'],
     attributes: {
       colspan: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
       rowspan: {
-        type: { type: 'number' },
+        data: { type: 'number' },
       },
       scope: {
-        type: { type: 'enum', value: ['row', 'col', 'rowgroup', 'colgroup'] },
+        data: { type: 'enum', value: ['row', 'col', 'rowgroup', 'colgroup'] },
       },
     },
     permittedContent: ['@flow'],
@@ -1435,14 +1435,14 @@ export const html: MetaDataTable = {
     attributes: {
       crossorigin: {
         omit: true,
-        type: { type: 'enum', value: ['anonymous', 'use-credentials'] },
+        data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       itemprop: {
         allowed: allowedIfAttributeIsPresent('src'),
       },
       preload: {
         omit: true,
-        type: { type: 'enum', value: ['none', 'metadata', 'auto'] },
+        data: { type: 'enum', value: ['none', 'metadata', 'auto'] },
       },
     },
     permittedContent: ['@flow', 'track', 'source'],
