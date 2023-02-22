@@ -20,27 +20,6 @@ enum TextContent {
   ACCESSIBLE = 'accessible',
 }
 
-const allowedIfAttributeIsPresent = (...attrs: readonly string[]) => ({
-  type: 'allowedIfAttributeIsPresent',
-  attrs,
-});
-
-const allowedIfAttributeHasValue = (
-  key: string,
-  expectedValue: readonly string[],
-  { defaultValue }: { readonly defaultValue?: string | null } = {}
-) => ({
-  type: 'allowedIfAttributeHasValue ',
-  key,
-  expectedValue,
-  defaultValue,
-});
-
-const allowedIfAttributeIsAbsent = (...attrs: readonly string[]) => ({
-  type: 'allowedIfAttributeIsAbsent ',
-  attrs,
-});
-
 /**
  * @public
  */
@@ -48,9 +27,20 @@ export type MetaAttribute = {
   /* If set it should be a function evaluating to an error message or null if
    * the attribute is allowed */
   readonly allowed?:
-    | ReturnType<typeof allowedIfAttributeHasValue>
-    | ReturnType<typeof allowedIfAttributeIsAbsent>
-    | ReturnType<typeof allowedIfAttributeIsPresent>;
+    | {
+        readonly type: 'allowedIfAttributeHasValue';
+        readonly key: string;
+        readonly expectedValue: readonly string[];
+        readonly options?: { readonly defaultValue?: string | null };
+      }
+    | {
+        readonly type: 'allowedIfAttributeIsAbsent';
+        readonly attrs: readonly string[];
+      }
+    | {
+        readonly type: 'allowedIfAttributeIsPresent';
+        readonly attrs: readonly string[];
+      };
 
   /* if true this attribute can only take boolean values: my-attr, my-attr="" or my-attr="my-attr" */
   readonly data?:
@@ -163,7 +153,7 @@ export const html: MetaDataTable = {
     transparent: true,
     attributes: {
       download: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
         omit: true,
         validation: '/.+/',
       },
@@ -171,27 +161,27 @@ export const html: MetaDataTable = {
         validation: '/.*/',
       },
       hreflang: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       itemprop: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       ping: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       referrerpolicy: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       rel: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       target: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
         data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
       type: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
     },
     permittedDescendants: { exclude: ['@interactive'] },
@@ -225,19 +215,19 @@ export const html: MetaDataTable = {
         // },
       },
       download: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       itemprop: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       ping: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       referrerpolicy: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       rel: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
       shape: {
         // allowed(node, attr) {
@@ -257,7 +247,7 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['rect', 'circle', 'poly', 'default'] },
       },
       target: {
-        allowed: allowedIfAttributeIsPresent('href'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
 
         data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
@@ -292,7 +282,7 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       itemprop: {
-        allowed: allowedIfAttributeIsPresent('src'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['src'] },
       },
       preload: {
         omit: true,
@@ -361,21 +351,46 @@ export const html: MetaDataTable = {
         data: { type: 'boolean' },
       },
       formaction: {
-        allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit'],
+          options: { defaultValue: 'submit' },
+        },
       },
       formenctype: {
-        allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit'],
+          options: { defaultValue: 'submit' },
+        },
       },
       formmethod: {
-        allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit'],
+          options: { defaultValue: 'submit' },
+        },
         data: { type: 'enum', value: ['get', 'post', 'dialog'] },
       },
       formnovalidate: {
-        allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit'],
+          options: { defaultValue: 'submit' },
+        },
         data: { type: 'boolean' },
       },
       formtarget: {
-        allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit'],
+          options: { defaultValue: 'submit' },
+        },
         data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
@@ -727,31 +742,46 @@ export const html: MetaDataTable = {
         data: { type: 'boolean' },
       },
       formaction: {
-        allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
-          defaultValue: 'submit',
-        }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit', 'image'],
+          options: { defaultValue: 'submit' },
+        },
       },
       formenctype: {
-        allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
-          defaultValue: 'submit',
-        }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit', 'image'],
+          options: { defaultValue: 'submit' },
+        },
       },
       formmethod: {
-        allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
-          defaultValue: 'submit',
-        }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit', 'image'],
+          options: { defaultValue: 'submit' },
+        },
         data: { type: 'enum', value: ['get', 'post', 'dialog'] },
       },
       formnovalidate: {
-        allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
-          defaultValue: 'submit',
-        }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit', 'image'],
+          options: { defaultValue: 'submit' },
+        },
         data: { type: 'boolean' },
       },
       formtarget: {
-        allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
-          defaultValue: 'submit',
-        }),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'type',
+          expectedValue: ['submit', 'image'],
+          options: { defaultValue: 'submit' },
+        },
         data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
@@ -841,7 +871,12 @@ export const html: MetaDataTable = {
     void: true,
     attributes: {
       as: {
-        allowed: allowedIfAttributeHasValue('rel', ['prefetch', 'preload', 'modulepreload']),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'rel',
+          expectedValue: ['prefetch', 'preload', 'modulepreload'],
+        },
+
         data: {
           type: 'enum',
           value: [
@@ -871,7 +906,11 @@ export const html: MetaDataTable = {
         },
       },
       blocking: {
-        allowed: allowedIfAttributeHasValue('rel', ['stylesheet', 'preload', 'modulepreload']),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'rel',
+          expectedValue: ['stylesheet', 'preload', 'modulepreload'],
+        },
         data: { type: 'enum', value: ['render'] },
       },
       crossorigin: {
@@ -879,7 +918,12 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       disabled: {
-        allowed: allowedIfAttributeHasValue('rel', ['stylesheet']),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'rel',
+          expectedValue: ['stylesheet'],
+        },
+
         data: { type: 'boolean' },
       },
       href: {
@@ -887,7 +931,12 @@ export const html: MetaDataTable = {
         validation: '/.+/',
       },
       integrity: {
-        allowed: allowedIfAttributeHasValue('rel', ['stylesheet', 'preload', 'modulepreload']),
+        allowed: {
+          type: 'allowedIfAttributeHasValue',
+          key: 'rel',
+          expectedValue: ['stylesheet', 'preload', 'modulepreload'],
+        },
+
         validation: '/.+/',
       },
     },
@@ -948,16 +997,16 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['utf-8'] },
       },
       content: {
-        allowed: allowedIfAttributeIsPresent('name', 'http-equiv', 'itemprop', 'property'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['src'] },
       },
       itemprop: {
-        allowed: allowedIfAttributeIsAbsent('http-equiv', 'name'),
+        allowed: { type: 'allowedIfAttributeIsAbsent', attrs: ['http-equiv', 'name'] },
       },
       name: {
-        allowed: allowedIfAttributeIsAbsent('http-equiv', 'itemprop'),
+        allowed: { type: 'allowedIfAttributeIsAbsent', attrs: ['http-equiv', 'itemprop'] },
       },
       'http-equiv': {
-        allowed: allowedIfAttributeIsAbsent('name', 'itemprop'),
+        allowed: { type: 'allowedIfAttributeIsAbsent', attrs: ['name', 'itemprop'] },
       },
     },
   },
@@ -1175,7 +1224,7 @@ export const html: MetaDataTable = {
         data: { type: 'boolean' },
       },
       integrity: {
-        allowed: allowedIfAttributeIsPresent('src'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['src'] },
         validation: '/.+/',
       },
       nomodule: {
@@ -1438,7 +1487,7 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
       },
       itemprop: {
-        allowed: allowedIfAttributeIsPresent('src'),
+        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['src'] },
       },
       preload: {
         omit: true,
