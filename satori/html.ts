@@ -30,47 +30,6 @@ export type a = {
   };
 };
 
-export const a = (attributes: {
-    readonly 'hreflang' ?: string;
-    readonly 'itemprop' ?: string;
-    readonly 'ping' ?: string;
-    readonly 'referrerpolicy' ?: string;
-    readonly 'rel' ?: string;
-    readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
-    readonly 'type' ?: string;
-  } & ({
-   readonly    href: string;
-   readonly    download?: string
-  } | {}
-  )) : a => ({
-    type: 'a',
-    attributes
-  })
-
-export const aab: a = a({
-  href: 'a',
-  download: 'a',
-})
-
-// @ts-expect-error
-export const aab2: a = a({
-  // href: 'a',
-  download: 'a',
-})
-
-export const aab3: a = a({
-  href: 'a',
-  // download: 'a',
-})
-
-export const aab4: a = a({
-  // href: 'a',
-  // download: 'a',
-})
-
-
-
-
 export type abbr = {
   readonly type: 'abbr';
   readonly attributes: globalAttributes & {

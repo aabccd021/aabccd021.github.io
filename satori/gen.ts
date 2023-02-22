@@ -90,20 +90,6 @@ export type a = {
   readonly type: 'a';
   readonly attributes: // globalAttributes &
   {
-    readonly download?: string;
-    readonly href?: string;
-    readonly hreflang?: string;
-    readonly itemprop?: string;
-    readonly ping?: string;
-    readonly referrerpolicy?: string;
-    readonly rel?: string;
-    readonly target?: '_blank' | '_parent' | '_self' | '_top';
-    readonly type?: string;
-  };
-};
-
-export const a = (
-  attributes: {
     readonly hreflang?: string;
     readonly itemprop?: string;
     readonly ping?: string;
@@ -117,8 +103,10 @@ export const a = (
         readonly href: string;
         readonly download?: string;
       }
-  )
-): a => ({
+  );
+};
+
+export const a = (attributes: a['attributes']): a => ({
   type: 'a',
   attributes,
 });
@@ -143,3 +131,15 @@ export const aab4: a = a({
   // href: 'a',
   // download: 'a',
 });
+
+export type meta = {
+  readonly type: 'meta';
+  readonly attributes: //globalAttributes &
+  {
+    readonly charset?: 'utf-8';
+    readonly content?: string;
+    readonly 'http-equiv'?: string;
+    readonly itemprop?: string;
+    readonly name?: string;
+  };
+};
