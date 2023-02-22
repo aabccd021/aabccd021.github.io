@@ -57,12 +57,12 @@ const attrsStr = (attr: PermittedAttribute | undefined): readonly string[] =>
     option.getOrElseW(() => [])
   );
 
-const toTs = (name: string, _data: MetaData): readonly string[] =>
+const toTs = (name: string, data: MetaData): readonly string[] =>
   pipe([
     `export type ${name} = {`,
     `  readonly type: '${name}';`,
     `  readonly attributes: globalAttributes & {`,
-    ...attrsStr(_data.attributes),
+    ...attrsStr(data.attributes),
     `  };`,
     `};`,
     '',
