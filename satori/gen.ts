@@ -18,14 +18,14 @@ import { match } from 'ts-pattern';
 import type { MetaAttribute, MetaData, PermittedAttribute } from './html5';
 import { globalAttributes, html } from './html5';
 
-const attrValueStr = ({ type }: MetaAttribute): string =>
-  match(type)
+const attrValueStr = ({ data }: MetaAttribute): string =>
+  match(data)
     .with(undefined, () => 'string')
     .with({ type: 'boolean' }, () => 'true')
     .with({ type: 'number' }, () => 'number')
-    .with({ type: 'enum' }, (enumType) =>
+    .with({ type: 'enum' }, (enumData) =>
       pipe(
-        enumType.value,
+        enumData.value,
         readonlyArray.filter((s) => !s.startsWith('/')),
         readonlyNonEmptyArray.fromReadonlyArray,
         option.map(
