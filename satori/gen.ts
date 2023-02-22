@@ -143,6 +143,7 @@ export type meta = {
     readonly content?: string;
     readonly 'http-equiv'?: string;
     readonly itemprop?: string;
+    readonly property?: string;
     readonly name?: string;
   } & (
     | Record<string, never>
@@ -162,7 +163,13 @@ export type meta = {
         readonly property: string;
         readonly content?: string;
       }
-  );
+  ) &
+    (
+      | Record<string, never>
+      | { readonly 'http-equiv': string; readonly name?: undefined; readonly itemprop?: undefined }
+      | { readonly 'http-equiv'?: undefined; readonly name: string; readonly itemprop?: undefined }
+      | { readonly 'http-equiv'?: undefined; readonly name?: undefined; readonly itemprop: string }
+    );
 };
 
 export const metaAttrImpl: meta['attributes'] = {
@@ -186,6 +193,24 @@ export const metaAttrImpl7: meta['attributes'] = {
 // @ts-expect-error haha
 export const metaAttrImpl2: meta['attributes'] = {
   content: '',
+};
+
+// @ts-expect-error haha
+export const metaAttrImpl8: meta['attributes'] = {
+  'http-equiv': '',
+  name: '',
+};
+
+// @ts-expect-error haha
+export const metaAttrImpl10: meta['attributes'] = {
+  'http-equiv': '',
+  itemprop: '',
+};
+
+// @ts-expect-error haha
+export const metaAttrImpl9: meta['attributes'] = {
+  name: '',
+  itemprop: '',
 };
 
 export const metaAttrImpl4: meta['attributes'] = {};
