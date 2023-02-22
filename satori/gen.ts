@@ -90,6 +90,8 @@ export type a = {
   readonly type: 'a';
   readonly attributes: // globalAttributes &
   {
+    readonly href?: string;
+    readonly download?: string;
     readonly hreflang?: string;
     readonly itemprop?: string;
     readonly ping?: string;
@@ -135,11 +137,55 @@ export const aab4: a = a({
 export type meta = {
   readonly type: 'meta';
   readonly attributes: //globalAttributes &
+  // eslint-disable-next-line @typescript-eslint/sort-type-constituents
   {
     readonly charset?: 'utf-8';
     readonly content?: string;
     readonly 'http-equiv'?: string;
     readonly itemprop?: string;
     readonly name?: string;
-  };
+  } & (
+    | Record<string, never>
+    | {
+        readonly 'http-equiv': string;
+        readonly content?: string;
+      }
+    | {
+        readonly itemprop: string;
+        readonly content?: string;
+      }
+    | {
+        readonly name: string;
+        readonly content?: string;
+      }
+    | {
+        readonly property: string;
+        readonly content?: string;
+      }
+  );
 };
+
+export const metaAttrImpl: meta['attributes'] = {
+  name: '',
+  content: '',
+};
+
+export const metaAttrImpl3: meta['attributes'] = {
+  name: '',
+};
+
+export const metaAttrImpl5: meta['attributes'] = {
+  itemprop: '',
+  content: '',
+};
+
+export const metaAttrImpl7: meta['attributes'] = {
+  itemprop: '',
+};
+
+// @ts-expect-error haha
+export const metaAttrImpl2: meta['attributes'] = {
+  content: '',
+};
+
+export const metaAttrImpl4: meta['attributes'] = {};
