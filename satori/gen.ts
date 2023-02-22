@@ -85,3 +85,61 @@ const res: string = pipe(
 const main = () => fs.writeFile(`${__dirname}/html.ts`, res);
 
 void main();
+
+export type a = {
+  readonly type: 'a';
+  readonly attributes: // globalAttributes &
+  {
+    readonly download?: string;
+    readonly href?: string;
+    readonly hreflang?: string;
+    readonly itemprop?: string;
+    readonly ping?: string;
+    readonly referrerpolicy?: string;
+    readonly rel?: string;
+    readonly target?: '_blank' | '_parent' | '_self' | '_top';
+    readonly type?: string;
+  };
+};
+
+export const a = (
+  attributes: {
+    readonly hreflang?: string;
+    readonly itemprop?: string;
+    readonly ping?: string;
+    readonly referrerpolicy?: string;
+    readonly rel?: string;
+    readonly target?: '_blank' | '_parent' | '_self' | '_top';
+    readonly type?: string;
+  } & (
+    | Record<string, never>
+    | {
+        readonly href: string;
+        readonly download?: string;
+      }
+  )
+): a => ({
+  type: 'a',
+  attributes,
+});
+
+export const aab: a = a({
+  href: 'a',
+  download: 'a',
+});
+
+// @ts-expect-error haha
+export const aab2: a = a({
+  // href: 'a',
+  download: 'a',
+});
+
+export const aab3: a = a({
+  href: 'a',
+  // download: 'a',
+});
+
+export const aab4: a = a({
+  // href: 'a',
+  // download: 'a',
+});

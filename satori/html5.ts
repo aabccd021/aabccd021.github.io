@@ -2,18 +2,6 @@ import type { ReadonlyNonEmptyArray } from 'fp-ts/ReadonlyNonEmptyArray';
 /* eslint-disable max-len */
 // Copied from https://gitlab.com/html-validate/html-validate/-/blob/d19def8fc92bdd5e586f231eb16cef7dcfd0a02b/src/elements/html5.ts
 
-export type PermittedGroup = {
-  readonly exclude?: ReadonlyNonEmptyArray<string>;
-};
-
-export type CategoryOrTag = string;
-export type PropertyExpression = string | readonly [string, unknown];
-export type PermittedEntry =
-  | CategoryOrTag
-  | PermittedGroup
-  | readonly (CategoryOrTag | PermittedGroup)[];
-export type Permitted = readonly PermittedEntry[];
-
 export type PermittedOrder = readonly string[];
 export type RequiredAncestors = readonly string[];
 export type RequiredContent = readonly string[];
@@ -77,6 +65,8 @@ export type MetaAttribute = {
         readonly type: 'number';
       };
 
+  readonly validation?: RegExp | string;
+
   /* if true this attribute can omit the value */
   readonly omit?: boolean;
 
@@ -91,20 +81,23 @@ export type FormAssociated = {
   readonly listed: boolean;
 };
 
+export type PermittedGroup = {
+  readonly exclude?: ReadonlyNonEmptyArray<string>;
+};
+
+export type PropertyExpression = string | readonly [string, unknown];
+
 /**
  * @public
  */
 export type MetaData = {
-  /* special keyword to extend metadata from another entry */
-  readonly inherit?: string;
-
   /* content categories */
-  readonly metadata?: PropertyExpression | boolean;
+  readonly metadata?: boolean;
   readonly flow?: PropertyExpression | boolean;
-  readonly sectioning?: PropertyExpression | boolean;
-  readonly heading?: PropertyExpression | boolean;
+  readonly sectioning?: boolean;
+  readonly heading?: boolean;
   readonly phrasing?: PropertyExpression | boolean;
-  readonly embedded?: PropertyExpression | boolean;
+  readonly embedded?: boolean;
   readonly interactive?: PropertyExpression | boolean;
 
   /* element properties */
@@ -122,11 +115,11 @@ export type MetaData = {
   readonly attributes?: PermittedAttribute;
 
   /* permitted data */
-  readonly permittedContent?: Permitted;
+  readonly permittedContent?: readonly string[];
   readonly permittedDescendants?: PermittedGroup;
   readonly permittedOrder?: PermittedOrder;
-  readonly permittedParent?: Permitted;
-  readonly requiredAncestors?: RequiredAncestors;
+  readonly permittedParent?: readonly string[];
+  readonly requiredAncestors?: readonly (string | readonly PermittedGroup[])[];
   readonly requiredContent?: RequiredContent;
   readonly textContent?: TextContent | `${TextContent}`;
 };
@@ -148,7 +141,7 @@ export const globalAttributes: PermittedAttribute = {
     type: { type: 'boolean' },
   },
   id: {
-    type: { type: 'enum', value: ['/\\S+/'] },
+    validation: '/\\S+/',
   },
   tabindex: {
     type: { type: 'number' },
@@ -172,10 +165,10 @@ export const html: MetaDataTable = {
       download: {
         allowed: allowedIfAttributeIsPresent('href'),
         omit: true,
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
       href: {
-        type: { type: 'enum', value: ['/.*/'] },
+        validation: '/.*/',
       },
       hreflang: {
         allowed: allowedIfAttributeIsPresent('href'),
@@ -194,7 +187,8 @@ export const html: MetaDataTable = {
       },
       target: {
         allowed: allowedIfAttributeIsPresent('href'),
-        type: { type: 'enum', value: ['/[^_].*/', '_blank', '_self', '_parent', '_top'] },
+        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        validation: '/[^_].*/',
       },
       type: {
         allowed: allowedIfAttributeIsPresent('href'),
@@ -264,7 +258,9 @@ export const html: MetaDataTable = {
       },
       target: {
         allowed: allowedIfAttributeIsPresent('href'),
-        type: { type: 'enum', value: ['/[^_].*/', '_blank', '_self', '_parent', '_top'] },
+
+        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        validation: '/[^_].*/',
       },
     },
     requiredAncestors: ['map'],
@@ -380,7 +376,8 @@ export const html: MetaDataTable = {
       },
       formtarget: {
         allowed: allowedIfAttributeHasValue('type', ['submit'], { defaultValue: 'submit' }),
-        type: { type: 'enum', value: ['/[^_].*/', '_blank', '_self', '_parent', '_top'] },
+        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        validation: '/[^_].*/',
       },
       type: {
         required: true,
@@ -522,7 +519,7 @@ export const html: MetaDataTable = {
     attributes: {
       src: {
         required: true,
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
       title: {
         required: true,
@@ -565,7 +562,7 @@ export const html: MetaDataTable = {
     form: true,
     attributes: {
       action: {
-        // type: {type: 'enum', value: [/^\s*\S+\s*$/]},
+        validation: /^\s*\S+\s*$/,
       },
       autocomplete: {
         type: { type: 'enum', value: ['on', 'off'] },
@@ -577,7 +574,8 @@ export const html: MetaDataTable = {
         type: { type: 'boolean' },
       },
       target: {
-        type: { type: 'enum', value: ['/[^_].*/', '_blank', '_self', '_parent', '_top'] },
+        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        validation: '/[^_].*/',
       },
     },
     permittedContent: ['@flow'],
@@ -669,7 +667,7 @@ export const html: MetaDataTable = {
     interactive: true,
     attributes: {
       src: {
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
       title: {
         required: true,
@@ -697,10 +695,10 @@ export const html: MetaDataTable = {
       },
       src: {
         required: true,
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
       srcset: {
-        type: { type: 'enum', value: ['/[^]+/'] },
+        validation: '/[^]+/',
       },
     },
   },
@@ -754,7 +752,8 @@ export const html: MetaDataTable = {
         allowed: allowedIfAttributeHasValue('type', ['submit', 'image'], {
           defaultValue: 'submit',
         }),
-        type: { type: 'enum', value: ['/[^_].*/', '_blank', '_self', '_parent', '_top'] },
+        type: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
+        validation: '/[^_].*/',
       },
       inputmode: {
         type: {
@@ -885,11 +884,11 @@ export const html: MetaDataTable = {
       },
       href: {
         required: true,
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
       integrity: {
         allowed: allowedIfAttributeHasValue('rel', ['stylesheet', 'preload', 'modulepreload']),
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
     },
   },
@@ -905,7 +904,7 @@ export const html: MetaDataTable = {
     attributes: {
       name: {
         required: true,
-        type: { type: 'enum', value: ['/\\S+/'] },
+        validation: '/\\S+/',
       },
     },
   },
@@ -1000,11 +999,11 @@ export const html: MetaDataTable = {
         type: { type: 'enum', value: ['render'] },
       },
       data: {
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
         required: true,
       },
       name: {
-        type: { type: 'enum', value: ['/[^_].*/'] },
+        validation: '/[^_].*/',
       },
     },
     permittedContent: ['param', '@flow'],
@@ -1177,13 +1176,13 @@ export const html: MetaDataTable = {
       },
       integrity: {
         allowed: allowedIfAttributeIsPresent('src'),
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
       nomodule: {
         type: { type: 'boolean' },
       },
       src: {
-        type: { type: 'enum', value: ['/.+/'] },
+        validation: '/.+/',
       },
     },
   },
