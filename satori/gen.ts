@@ -26,7 +26,6 @@ const attrValueStr = ({ data }: MetaAttribute): string =>
     .with({ type: 'enum' }, (enumData) =>
       pipe(
         enumData.value,
-        readonlyArray.filter((s) => !s.startsWith('/')),
         readonlyNonEmptyArray.fromReadonlyArray,
         option.map(
           flow(
