@@ -1,10 +1,7 @@
-import type { ReadonlyNonEmptyArray } from 'fp-ts/ReadonlyNonEmptyArray';
 /* eslint-disable max-len */
 // Copied from https://gitlab.com/html-validate/html-validate/-/blob/d19def8fc92bdd5e586f231eb16cef7dcfd0a02b/src/elements/html5.ts
 
-export type PermittedOrder = readonly string[];
-export type RequiredAncestors = readonly string[];
-export type RequiredContent = readonly string[];
+import type { ReadonlyNonEmptyArray } from 'fp-ts/ReadonlyNonEmptyArray';
 
 enum TextContent {
   /* forbid node to have text content, inter-element whitespace is ignored */
@@ -30,15 +27,15 @@ export type MetaAttribute = {
     | {
         readonly type: 'allowedIfAttributeHasValue';
         readonly key: string;
-        readonly expectedValue: readonly string[];
+        readonly expectedValue: ReadonlyNonEmptyArray<string>;
       }
     | {
         readonly type: 'allowedIfAttributeIsAbsent';
-        readonly attrs: readonly string[];
+        readonly attrs: ReadonlyNonEmptyArray<string>;
       }
     | {
         readonly type: 'allowedIfAttributeIsPresent';
-        readonly attrs: readonly string[];
+        readonly attrs: ReadonlyNonEmptyArray<string>;
       };
 
   /* if true this attribute can only take boolean values: my-attr, my-attr="" or my-attr="my-attr" */
@@ -48,7 +45,7 @@ export type MetaAttribute = {
       }
     | {
         readonly type: 'enum';
-        readonly value: readonly string[];
+        readonly value: ReadonlyNonEmptyArray<string>;
         readonly defaultValue?: string;
       }
     | {
@@ -71,10 +68,6 @@ export type FormAssociated = {
   readonly listed: boolean;
 };
 
-export type PermittedGroup = {
-  readonly exclude?: ReadonlyNonEmptyArray<string>;
-};
-
 export type PropertyExpression = string | readonly [string, unknown];
 
 /**
@@ -93,8 +86,8 @@ export type MetaData = {
   /* element properties */
   readonly foreign?: boolean;
   readonly void?: boolean;
-  readonly transparent?: boolean | readonly string[];
-  readonly implicitClosed?: readonly string[];
+  readonly transparent?: ReadonlyNonEmptyArray<string> | boolean;
+  readonly implicitClosed?: ReadonlyNonEmptyArray<string>;
   readonly scriptSupporting?: boolean;
   readonly form?: boolean;
   /** Mark element as a form-associated element */
@@ -105,12 +98,12 @@ export type MetaData = {
   readonly attributes?: PermittedAttribute;
 
   /* permitted data */
-  readonly permittedContent?: readonly string[];
-  readonly permittedDescendants?: PermittedGroup;
-  readonly permittedOrder?: PermittedOrder;
-  readonly permittedParent?: readonly string[];
-  readonly requiredAncestors?: readonly (string | readonly PermittedGroup[])[];
-  readonly requiredContent?: RequiredContent;
+  readonly permittedContent?: ReadonlyNonEmptyArray<string>;
+  readonly forbiddenDescendant?: ReadonlyNonEmptyArray<string>;
+  readonly permittedOrder?: ReadonlyNonEmptyArray<string>;
+  readonly permittedParent?: ReadonlyNonEmptyArray<string>;
+  readonly requiredAncestors?: ReadonlyNonEmptyArray<string>;
+  readonly requiredContent?: ReadonlyNonEmptyArray<string>;
   readonly textContent?: TextContent | `${TextContent}`;
 };
 
@@ -184,7 +177,7 @@ export const html: MetaDataTable = {
         allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['href'] },
       },
     },
-    permittedDescendants: { exclude: ['@interactive'] },
+    forbiddenDescendant: ['@interactive'],
   },
 
   abbr: {
@@ -196,7 +189,7 @@ export const html: MetaDataTable = {
   address: {
     flow: true,
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['address', 'header', 'footer', '@heading', '@sectioning'] },
+    forbiddenDescendant: ['address', 'header', 'footer', '@heading', '@sectioning'],
   },
 
   area: {
@@ -263,14 +256,14 @@ export const html: MetaDataTable = {
     flow: true,
     sectioning: true,
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['main'] },
+    forbiddenDescendant: ['main'],
   },
 
   aside: {
     flow: true,
     sectioning: true,
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['main'] },
+    forbiddenDescendant: ['main'],
   },
 
   audio: {
@@ -296,7 +289,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@flow', 'track', 'source'],
-    permittedDescendants: { exclude: ['audio', 'video'] },
+    forbiddenDescendant: ['audio', 'video'],
     permittedOrder: ['source', 'track', '@flow'],
   },
 
@@ -404,7 +397,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@phrasing'],
-    permittedDescendants: { exclude: ['@interactive'] },
+    forbiddenDescendant: ['@interactive'],
     textContent: 'accessible',
   },
 
@@ -417,7 +410,7 @@ export const html: MetaDataTable = {
 
   caption: {
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['table'] },
+    forbiddenDescendant: ['table'],
   },
 
   cite: {
@@ -493,7 +486,7 @@ export const html: MetaDataTable = {
     flow: true,
     phrasing: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: { exclude: ['dfn'] },
+    forbiddenDescendant: ['dfn'],
   },
 
   dialog: {
@@ -520,7 +513,7 @@ export const html: MetaDataTable = {
   dt: {
     implicitClosed: ['dd', 'dt'],
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['header', 'footer', '@sectioning', '@heading'] },
+    forbiddenDescendant: ['header', 'footer', '@sectioning', '@heading'],
     requiredAncestors: ['dl > dt', 'dl > div > dt'],
   },
 
@@ -576,7 +569,7 @@ export const html: MetaDataTable = {
   footer: {
     flow: true,
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['header', 'footer', 'main'] },
+    forbiddenDescendant: ['header', 'footer', 'main'],
   },
 
   form: {
@@ -601,7 +594,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['@form'] },
+    forbiddenDescendant: ['@form'],
   },
 
   h1: {
@@ -650,7 +643,7 @@ export const html: MetaDataTable = {
   header: {
     flow: true,
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['header', 'footer', 'main'] },
+    forbiddenDescendant: ['header', 'footer', 'main'],
   },
 
   hgroup: {
@@ -658,7 +651,7 @@ export const html: MetaDataTable = {
     heading: true,
     // permittedContent: ['p', '@heading?'],
     permittedContent: ['p', '@heading'],
-    permittedDescendants: { exclude: ['hgroup'] },
+    forbiddenDescendant: ['hgroup'],
     requiredContent: ['@heading'],
   },
 
@@ -857,7 +850,7 @@ export const html: MetaDataTable = {
     phrasing: true,
     interactive: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: { exclude: ['label'] },
+    forbiddenDescendant: ['label'],
   },
 
   legend: {
@@ -1048,14 +1041,14 @@ export const html: MetaDataTable = {
     phrasing: true,
     labelable: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: { exclude: ['meter'] },
+    forbiddenDescendant: ['meter'],
   },
 
   nav: {
     flow: true,
     sectioning: true,
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['main'] },
+    forbiddenDescendant: ['main'],
   },
 
   noscript: {
@@ -1063,7 +1056,7 @@ export const html: MetaDataTable = {
     flow: true,
     phrasing: true,
     transparent: true,
-    permittedDescendants: { exclude: ['noscript'] },
+    forbiddenDescendant: ['noscript'],
   },
 
   object: {
@@ -1193,7 +1186,7 @@ export const html: MetaDataTable = {
     phrasing: true,
     labelable: true,
     permittedContent: ['@phrasing'],
-    permittedDescendants: { exclude: ['progress'] },
+    forbiddenDescendant: ['progress'],
   },
 
   q: {
@@ -1464,7 +1457,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@flow'],
-    permittedDescendants: { exclude: ['header', 'footer', '@sectioning', '@heading'] },
+    forbiddenDescendant: ['header', 'footer', '@sectioning', '@heading'],
   },
 
   thead: {
@@ -1535,7 +1528,7 @@ export const html: MetaDataTable = {
       },
     },
     permittedContent: ['@flow', 'track', 'source'],
-    permittedDescendants: { exclude: ['audio', 'video'] },
+    forbiddenDescendant: ['audio', 'video'],
     permittedOrder: ['source', 'track', '@flow'],
   },
 

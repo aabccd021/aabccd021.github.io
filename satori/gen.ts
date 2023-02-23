@@ -290,17 +290,64 @@ const strictAttributeStr = (
     either.map(readonlyArray.flatten)
   );
 
-const childrenStr = (data: MetaData): string =>
+const normalizeCategory = string.replace('@', '_');
+
+const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
+
+const validAttributes = pipe(
+  html,
+  readonlyRecord.filterWithIndex((name) => !name.includes(':')),
+  readonlyRecord.toReadonlyArray,
+  readonlyArray.map(([k, v]) => [normalizeName(k), v] as const),
+  readonlyRecord.fromEntries
+);
+
+const fss: Record<string, (at: MetaData) => boolean> = {
+  _meta: (at) => at.meta === true,
+  _flow: (at) => at.flow === true,
+  _sectioning: (at) => at.sectioning === true,
+  _heading: (at) => at.heading === true,
+  _phrasing: (at) => at.phrasing === true,
+  _embedded: (at) => at.embedded === true,
+  _interactive: (at) => at.interactive === true,
+};
+
+const getCategoryTags = (cat: string) =>
+  cat.startsWith('@')
+    ? pipe(
+        fss,
+        readonlyRecord.map((fsss) =>
+          pipe(validAttributes, readonlyRecord.filter(fsss), readonlyRecord.keys)
+        ),
+        readonlyRecord.lookup(normalizeCategory(cat)),
+        option.getOrElseW(() => [])
+      )
+    : [cat];
+
+const getPermittedContent = (data: MetaData): readonly string[] =>
   pipe(
     data.permittedContent,
     option.fromNullable,
-    option.map(
-      flow(
-        readonlyArray.map(string.replace('@', '_')),
-        readonlyArray.intercalate(string.Monoid)('|')
-      )
-    ),
-    option.getOrElse(() => '_all'),
+    option.map(readonlyArray.chain(getCategoryTags)),
+    option.getOrElseW(() => readonlyRecord.keys(validAttributes))
+  );
+
+const getForbiddenDescendant = (data: MetaData): readonly string[] =>
+  pipe(
+    data.forbiddenDescendant,
+    option.fromNullable,
+    option.map(readonlyArray.chain(getCategoryTags)),
+    option.getOrElseW(() => [])
+  );
+
+// TODO: category doesn't exists error
+const childrenStr = (data: MetaData): string =>
+  pipe(
+    getPermittedContent(data),
+    readonlyArray.difference(string.Eq)(getForbiddenDescendant(data)),
+    readonlyArray.map((x) => `${x}`),
+    readonlyArray.uniq(string.Eq),
+    readonlyArray.intercalate(string.Monoid)('|')
   );
 
 const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly string[]> =>
@@ -328,48 +375,6 @@ const liftElementErr =
       either.mapLeft((err) => ({ type: 'ElementErr', name, err }))
     );
 
-const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
-
-const validAttributes = pipe(
-  html,
-  readonlyRecord.filterWithIndex((name) => !name.includes(':')),
-  readonlyRecord.toReadonlyArray,
-  readonlyArray.map(([k, v]) => [normalizeName(k), v] as const),
-  readonlyRecord.fromEntries
-);
-
-const all = pipe(
-  validAttributes,
-  readonlyRecord.keys,
-  readonlyArray.map((key) => `| ${key}`),
-  (ra) => ['type _all = ', ...ra, ';']
-);
-
-const fss: Record<string, (at: MetaData) => boolean> = {
-  meta: (at) => at.meta === true,
-  flow: (at) => at.flow === true,
-  sectioning: (at) => at.sectioning === true,
-  heading: (at) => at.heading === true,
-  phrasing: (at) => at.phrasing === true,
-  embedded: (at) => at.embedded === true,
-  interactive: (at) => at.interactive === true,
-};
-
-const categories = pipe(
-  fss,
-  readonlyRecord.map((fsss) =>
-    pipe(validAttributes, readonlyRecord.filter(fsss), readonlyRecord.keys)
-  ),
-  readonlyRecord.toReadonlyArray,
-  readonlyArray.chain(([catName, catTags]) =>
-    pipe(
-      catTags,
-      readonlyArray.map((ct) => `| ${ct}`),
-      (cts) => [`type _${catName} = `, ...cts, ';', '']
-    )
-  )
-);
-
 const res: Either<ElementErr, string> = pipe(
   validAttributes,
   readonlyRecord.mapWithIndex(liftElementErr((name, data) => toTs(normalizeName(name), data))),
@@ -380,10 +385,6 @@ const res: Either<ElementErr, string> = pipe(
       readonlyArray.flatten,
       (arr) => [
         `/* eslint-disable */`,
-        '',
-        ...all,
-        '',
-        ...categories,
         '',
         `export type globalAttributes = {`,
         ...attrsStr(globalAttributes),

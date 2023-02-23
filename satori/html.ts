@@ -1,323 +1,5 @@
 /* eslint-disable */
 
-type _all = 
-| a
-| abbr
-| address
-| area
-| article
-| aside
-| audio
-| b
-| base
-| bdi
-| bdo
-| blockquote
-| body
-| br
-| button
-| canvas
-| caption
-| cite
-| code
-| col
-| colgroup
-| data
-| datalist
-| dd
-| del
-| details
-| dfn
-| dialog
-| div
-| dl
-| dt
-| em
-| embed
-| fieldset
-| figcaption
-| figure
-| footer
-| form
-| h1
-| h2
-| h3
-| h4
-| h5
-| h6
-| head
-| header
-| hgroup
-| hr
-| html
-| i
-| iframe
-| img
-| input
-| ins
-| kbd
-| label
-| legend
-| li
-| link
-| main
-| map
-| mark
-| math
-| menu
-| meta
-| meter
-| nav
-| noscript
-| object_
-| ol
-| optgroup
-| option
-| output
-| p
-| param
-| picture
-| pre
-| progress
-| q
-| rb
-| rp
-| rt
-| rtc
-| ruby
-| s
-| samp
-| script
-| section
-| select
-| slot
-| small
-| source
-| span
-| strong
-| style
-| sub
-| summary
-| sup
-| svg
-| table
-| tbody
-| td
-| template
-| textarea
-| tfoot
-| th
-| thead
-| time
-| title
-| tr
-| track
-| u
-| ul
-| var_
-| video
-| wbr
-;
-
-type _embedded = 
-| audio
-| canvas
-| embed
-| iframe
-| img
-| math
-| object_
-| picture
-| svg
-| video
-;
-
-type _flow = 
-| a
-| abbr
-| address
-| article
-| aside
-| audio
-| b
-| bdi
-| bdo
-| blockquote
-| br
-| button
-| canvas
-| cite
-| code
-| data
-| datalist
-| del
-| details
-| dfn
-| dialog
-| div
-| dl
-| em
-| embed
-| fieldset
-| figure
-| footer
-| form
-| h1
-| h2
-| h3
-| h4
-| h5
-| h6
-| header
-| hgroup
-| hr
-| i
-| iframe
-| img
-| input
-| ins
-| kbd
-| label
-| main
-| map
-| mark
-| math
-| menu
-| meter
-| nav
-| noscript
-| object_
-| ol
-| output
-| p
-| picture
-| pre
-| progress
-| q
-| ruby
-| s
-| samp
-| script
-| section
-| select
-| slot
-| small
-| span
-| strong
-| sub
-| sup
-| svg
-| table
-| td
-| template
-| textarea
-| th
-| time
-| u
-| ul
-| var_
-| video
-| wbr
-;
-
-type _heading = 
-| h1
-| h2
-| h3
-| h4
-| h5
-| h6
-| hgroup
-;
-
-type _interactive = 
-| a
-| button
-| details
-| embed
-| iframe
-| label
-| select
-| textarea
-;
-
-type _meta = 
-| base
-| link
-| meta
-| noscript
-| script
-| style
-| template
-| title
-;
-
-type _phrasing = 
-| a
-| abbr
-| audio
-| b
-| bdi
-| bdo
-| br
-| button
-| canvas
-| cite
-| code
-| data
-| datalist
-| del
-| dfn
-| em
-| embed
-| i
-| iframe
-| img
-| input
-| ins
-| kbd
-| label
-| map
-| mark
-| math
-| meter
-| noscript
-| object_
-| output
-| picture
-| progress
-| q
-| ruby
-| s
-| samp
-| script
-| select
-| slot
-| small
-| span
-| strong
-| sub
-| sup
-| svg
-| template
-| textarea
-| time
-| u
-| var_
-| video
-| wbr
-;
-
-type _sectioning = 
-| article
-| aside
-| blockquote
-| details
-| nav
-| section
-;
-
-
 export type globalAttributes = {
     readonly 'accesskey' ?: string;
     readonly 'class' ?: string;
@@ -404,7 +86,7 @@ export type a = {
   }
   )
   ;
-  readonly children?: _all;
+  readonly children?: abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|dfn|dialog|div|dl|dt|em|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|img|input|ins|kbd|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type abbr = {
@@ -412,7 +94,7 @@ export type abbr = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type address = {
@@ -420,7 +102,7 @@ export type address = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type area = {
@@ -479,7 +161,7 @@ export type area = {
   }
   )
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type article = {
@@ -487,7 +169,7 @@ export type article = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type aside = {
@@ -495,7 +177,7 @@ export type aside = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type audio = {
@@ -514,7 +196,7 @@ export type audio = {
   }
   )
   ;
-  readonly children?: _flow|track|source;
+  readonly children?: a|abbr|address|article|aside|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|wbr|track|source;
 };
 
 export type b = {
@@ -522,7 +204,7 @@ export type b = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type base = {
@@ -530,7 +212,7 @@ export type base = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type bdi = {
@@ -538,7 +220,7 @@ export type bdi = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type bdo = {
@@ -546,7 +228,7 @@ export type bdo = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type blockquote = {
@@ -554,7 +236,7 @@ export type blockquote = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type body = {
@@ -562,7 +244,7 @@ export type body = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type br = {
@@ -570,7 +252,7 @@ export type br = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type button = {
@@ -641,7 +323,7 @@ export type button = {
 }
   )
   ;
-  readonly children?: _phrasing;
+  readonly children?: abbr|audio|b|bdi|bdo|br|canvas|cite|code|data|datalist|del|dfn|em|i|img|input|ins|kbd|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|slot|small|span|strong|sub|sup|svg|template|time|u|var_|video|wbr;
 };
 
 export type canvas = {
@@ -649,7 +331,7 @@ export type canvas = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type caption = {
@@ -657,7 +339,7 @@ export type caption = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type cite = {
@@ -665,7 +347,7 @@ export type cite = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type code = {
@@ -673,7 +355,7 @@ export type code = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type col = {
@@ -682,7 +364,7 @@ export type col = {
     readonly 'span' ?: number;
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type colgroup = {
@@ -699,7 +381,7 @@ export type data = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type datalist = {
@@ -707,7 +389,7 @@ export type datalist = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing|option;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|option;
 };
 
 export type dd = {
@@ -715,7 +397,7 @@ export type dd = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type del = {
@@ -723,7 +405,7 @@ export type del = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type details = {
@@ -732,7 +414,7 @@ export type details = {
     readonly 'open' ?: true;
   }
   ;
-  readonly children?: summary|_flow;
+  readonly children?: summary|a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type dfn = {
@@ -740,7 +422,7 @@ export type dfn = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type dialog = {
@@ -749,7 +431,7 @@ export type dialog = {
     readonly 'open' ?: true;
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type div = {
@@ -757,7 +439,7 @@ export type div = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow|dt|dd;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|dt|dd;
 };
 
 export type dl = {
@@ -773,7 +455,7 @@ export type dt = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type em = {
@@ -781,7 +463,7 @@ export type em = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type embed = {
@@ -791,7 +473,7 @@ export type embed = {
     readonly 'title' : string;
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type fieldset = {
@@ -800,7 +482,7 @@ export type fieldset = {
     readonly 'disabled' ?: true;
   }
   ;
-  readonly children?: _flow|legend;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|legend;
 };
 
 export type figcaption = {
@@ -808,7 +490,7 @@ export type figcaption = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type figure = {
@@ -816,7 +498,7 @@ export type figure = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow|figcaption;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|figcaption;
 };
 
 export type footer = {
@@ -824,7 +506,7 @@ export type footer = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type form = {
@@ -837,7 +519,7 @@ export type form = {
     readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type h1 = {
@@ -845,7 +527,7 @@ export type h1 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type h2 = {
@@ -853,7 +535,7 @@ export type h2 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type h3 = {
@@ -861,7 +543,7 @@ export type h3 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type h4 = {
@@ -869,7 +551,7 @@ export type h4 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type h5 = {
@@ -877,7 +559,7 @@ export type h5 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type h6 = {
@@ -885,7 +567,7 @@ export type h6 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type head = {
@@ -893,7 +575,7 @@ export type head = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: base|title|_meta;
+  readonly children?: base|title|link|meta|noscript|script|style|template;
 };
 
 export type header = {
@@ -901,7 +583,7 @@ export type header = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type hgroup = {
@@ -909,7 +591,7 @@ export type hgroup = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: p|_heading;
+  readonly children?: p|h1|h2|h3|h4|h5|h6;
 };
 
 export type hr = {
@@ -917,7 +599,7 @@ export type hr = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type html = {
@@ -934,7 +616,7 @@ export type i = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type iframe = {
@@ -944,7 +626,7 @@ export type iframe = {
     readonly 'title' : string;
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type img = {
@@ -957,7 +639,7 @@ export type img = {
     readonly 'srcset' ?: string;
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type input = {
@@ -1035,7 +717,7 @@ export type input = {
 }
   )
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type ins = {
@@ -1043,7 +725,7 @@ export type ins = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type kbd = {
@@ -1051,7 +733,7 @@ export type kbd = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type label = {
@@ -1059,7 +741,7 @@ export type label = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type legend = {
@@ -1067,7 +749,7 @@ export type legend = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing|_heading;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup;
 };
 
 export type li = {
@@ -1075,7 +757,7 @@ export type li = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type link = {
@@ -1134,7 +816,7 @@ export type link = {
 }
   )
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type main = {
@@ -1142,7 +824,7 @@ export type main = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type map = {
@@ -1151,7 +833,7 @@ export type map = {
     readonly 'name' : string;
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type mark = {
@@ -1159,7 +841,7 @@ export type mark = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type math = {
@@ -1170,7 +852,7 @@ export type math = {
     readonly 'overflow' ?: 'linebreak'|'scroll'|'elide'|'truncate'|'scale';
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type menu = {
@@ -1224,7 +906,7 @@ export type meta = {
 }
   )
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type meter = {
@@ -1232,7 +914,7 @@ export type meter = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type nav = {
@@ -1240,7 +922,7 @@ export type nav = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type noscript = {
@@ -1248,7 +930,7 @@ export type noscript = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type object_ = {
@@ -1259,7 +941,7 @@ export type object_ = {
     readonly 'name' ?: string;
   }
   ;
-  readonly children?: param|_flow;
+  readonly children?: param|a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type ol = {
@@ -1288,7 +970,7 @@ export type option = {
     readonly 'selected' ?: true;
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type output = {
@@ -1296,7 +978,7 @@ export type output = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type p = {
@@ -1304,7 +986,7 @@ export type p = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type param = {
@@ -1312,7 +994,7 @@ export type param = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type picture = {
@@ -1328,7 +1010,7 @@ export type pre = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type progress = {
@@ -1336,7 +1018,7 @@ export type progress = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type q = {
@@ -1344,7 +1026,7 @@ export type q = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type rb = {
@@ -1352,7 +1034,7 @@ export type rb = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type rp = {
@@ -1360,7 +1042,7 @@ export type rp = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type rt = {
@@ -1368,7 +1050,7 @@ export type rt = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type rtc = {
@@ -1376,7 +1058,7 @@ export type rtc = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing|rt;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|rt;
 };
 
 export type ruby = {
@@ -1384,7 +1066,7 @@ export type ruby = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing|rb|rp|rt|rtc;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|rb|rp|rt|rtc;
 };
 
 export type s = {
@@ -1392,7 +1074,7 @@ export type s = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type samp = {
@@ -1400,7 +1082,7 @@ export type samp = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type script = {
@@ -1421,7 +1103,7 @@ export type script = {
   }
   )
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type section = {
@@ -1429,7 +1111,7 @@ export type section = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type select = {
@@ -1450,7 +1132,7 @@ export type slot = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type small = {
@@ -1458,7 +1140,7 @@ export type small = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type source = {
@@ -1466,7 +1148,7 @@ export type source = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type span = {
@@ -1474,7 +1156,7 @@ export type span = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type strong = {
@@ -1482,7 +1164,7 @@ export type strong = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type style = {
@@ -1490,7 +1172,7 @@ export type style = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type sub = {
@@ -1498,7 +1180,7 @@ export type sub = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type summary = {
@@ -1506,7 +1188,7 @@ export type summary = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing|_heading;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup;
 };
 
 export type sup = {
@@ -1514,7 +1196,7 @@ export type sup = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type svg = {
@@ -1522,7 +1204,7 @@ export type svg = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type table = {
@@ -1530,7 +1212,7 @@ export type table = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type tbody = {
@@ -1548,7 +1230,7 @@ export type td = {
     readonly 'rowspan' ?: number;
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type template = {
@@ -1556,7 +1238,7 @@ export type template = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type textarea = {
@@ -1575,7 +1257,7 @@ export type textarea = {
     readonly 'wrap' ?: 'hard'|'soft';
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type tfoot = {
@@ -1594,7 +1276,7 @@ export type th = {
     readonly 'scope' ?: 'row'|'col'|'rowgroup'|'colgroup';
   }
   ;
-  readonly children?: _flow;
+  readonly children?: a|abbr|address|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr;
 };
 
 export type thead = {
@@ -1610,7 +1292,7 @@ export type time = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type title = {
@@ -1618,7 +1300,7 @@ export type title = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type tr = {
@@ -1634,7 +1316,7 @@ export type track = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
 
 export type u = {
@@ -1642,7 +1324,7 @@ export type u = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type ul = {
@@ -1658,7 +1340,7 @@ export type var_ = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _phrasing;
+  readonly children?: a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr;
 };
 
 export type video = {
@@ -1677,7 +1359,7 @@ export type video = {
   }
   )
   ;
-  readonly children?: _flow|track|source;
+  readonly children?: a|abbr|address|article|aside|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|wbr|track|source;
 };
 
 export type wbr = {
@@ -1685,5 +1367,5 @@ export type wbr = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children?: _all;
+  readonly children?: a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
 };
