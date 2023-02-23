@@ -16,27 +16,35 @@ export const aab3: a['attributes'] = {
 
 export const aab4: a['attributes'] = {};
 
+export const metaAttrImpl3: meta['attributes'] = {
+  name: '',
+};
+
+// content allowedIfAttributeIsPresent
 export const metaAttrImpl: meta['attributes'] = {
   name: '',
   content: '',
 };
 
-export const metaAttrImpl3: meta['attributes'] = {
-  name: '',
-};
-
+// content allowedIfAttributeIsPresent
 export const metaAttrImpl5: meta['attributes'] = {
   itemprop: '',
   content: '',
 };
 
-export const metaAttrImpl7: meta['attributes'] = {
-  itemprop: '',
+// content allowedIfAttributeIsPresent
+export const metaAttrImpl99: meta['attributes'] = {
+  'http-equiv': '',
+  content: '',
 };
 
-// @ts-expect-error haha
+// @ts-expect-error don't content allowedIfAttributeIsPresent
 export const metaAttrImpl2: meta['attributes'] = {
   content: '',
+};
+
+export const metaAttrImpl7: meta['attributes'] = {
+  itemprop: '',
 };
 
 // @ts-expect-error haha
