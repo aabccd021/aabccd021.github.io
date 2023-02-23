@@ -11,6 +11,7 @@ import {
   readonlyNonEmptyArray,
   readonlyRecord,
   readonlyTuple,
+  separated,
   string,
   taskEither,
 } from 'fp-ts';
@@ -188,24 +189,39 @@ const allowedIfAttrHasValueStr = (
     allAttrs,
     readonlyRecord.lookup(targetAttrName),
     either.fromOption(() => ({ type: 'AttrNotPresent' as const })),
-    either.chainW((targetAttr) =>
-      targetAttr.data?.type === 'enum'
-        ? pipe(
-            targetAttr.data.value,
-            readonlyArray.chain((v) => [
-              `| {`,
-              `  ${typeAttrStr({ key: targetAttrName, value: `'${v}'`, optional: true })}`,
-              `  ${
-                readonlyArray.elem(string.Eq)(v, expectedValue)
-                  ? attrStr(attrName, attr)
-                  : typeAttrStr({ key: attrName, value: 'undefined' })
-              }`,
-              `}`,
-            ]),
-            wrapRecord,
-            either.right
-          )
-        : either.left({ type: 'ExpectedAttributeIsNotEnum' as const })
+    either.chainW(
+      (targetAttr): Either<ExpectedAttributeIsNotEnum, readonly string[]> =>
+        targetAttr.data?.type === 'enum'
+          ? pipe(
+              targetAttr.data.value,
+              readonlyArray.partition((v) => readonlyArray.elem(string.Eq)(v, expectedValue)),
+              separated.bimap(
+                flow(
+                  readonlyArray.map((x) => `'${x}'`),
+                  readonlyArray.intercalate(string.Monoid)('|'),
+                  (v) => [
+                    `| {`,
+                    `  ${typeAttrStr({ key: targetAttrName, value: `${v}`, optional: true })}`,
+                    `  ${typeAttrStr({ key: attrName, value: 'undefined' })}`,
+                    `}`,
+                  ]
+                ),
+                flow(
+                  readonlyArray.map((x) => `'${x}'`),
+                  readonlyArray.intercalate(string.Monoid)('|'),
+                  (v) => [
+                    `| {`,
+                    `  ${typeAttrStr({ key: targetAttrName, value: `${v}`, optional: true })}`,
+                    `  ${attrStr(attrName, attr)}`,
+                    `}`,
+                  ]
+                )
+              ),
+              ({ left, right }) => [...left, ...right],
+              wrapRecord,
+              either.right
+            )
+          : either.left({ type: 'ExpectedAttributeIsNotEnum' as const })
     ),
     either.mapLeft((err) => ({ type: 'AllowedIfAttrHasValueErr', err }))
   );
@@ -455,11 +471,7 @@ export type button = {
       } & (
         | Record<string, never>
         | {
-            readonly type?: 'button';
-            readonly formaction: undefined;
-          }
-        | {
-            readonly type?: 'reset';
+            readonly type?: 'button' | 'reset';
             readonly formaction: undefined;
           }
         | {
@@ -541,19 +553,11 @@ export type input = {
   } & (
     | Record<string, never>
     | {
-        readonly type?: 'button';
+        readonly type?: 'button' | 'reset';
         readonly formaction: undefined;
       }
     | {
-        readonly type?: 'image';
-        readonly formaction?: string;
-      }
-    | {
-        readonly type?: 'reset';
-        readonly formaction: undefined;
-      }
-    | {
-        readonly type?: 'submit';
+        readonly type?: 'image' | 'submit';
         readonly formaction?: string;
       }
   );
