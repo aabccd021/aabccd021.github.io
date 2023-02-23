@@ -375,7 +375,7 @@ const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly s
       `  readonly children: (${childrenStr(name, data)})[];`,
       `};`,
       '',
-`export const ${name} = builder<${name}>('${name}')`,
+      `export const ${name} = builder<${name}>('${name}')`,
       '',
     ])
   );
@@ -396,8 +396,7 @@ export const builder = <T extends {type: string, attributes: any, children: any[
   attributes,
   children
 })
-`
-
+`;
 
 const res: Either<ElementErr, string> = pipe(
   validAttributes,
