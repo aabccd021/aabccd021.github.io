@@ -1,21 +1,24 @@
 #!/usr/bin/env tsx
-/* eslint-disable functional/no-return-void */
-/* eslint-disable functional/no-expression-statement */
 /* eslint-disable import/no-nodejs-modules */
 import * as fs from 'node:fs/promises';
 
 import {
+  console,
+  either,
   option,
   readonlyArray,
   readonlyNonEmptyArray,
   readonlyRecord,
   readonlyTuple,
   string,
+  taskEither,
 } from 'fp-ts';
-import { flow, pipe } from 'fp-ts/function';
+import type { Either } from 'fp-ts/Either';
+import { flow, identity, pipe } from 'fp-ts/function';
+import type { Option } from 'fp-ts/Option';
 import { match } from 'ts-pattern';
 
-import type { MetaAttribute, MetaData, PermittedAttribute } from './html5';
+import type { MetaAttribute, MetaData } from './html5';
 import { globalAttributes, html } from './html5';
 
 const attrValueStr = ({ data }: MetaAttribute): string =>
@@ -38,51 +41,170 @@ const attrValueStr = ({ data }: MetaAttribute): string =>
     )
     .exhaustive();
 
-const attrStr = (attrName: string, attr: MetaAttribute): string =>
-  `    readonly '${attrName}' ` +
-  `${attr.required === true ? '' : '?'}: ` +
-  `${attrValueStr(attr)};`;
+const typeAttrStr = ({
+  key,
+  value,
+  optional,
+}: {
+  readonly key: string;
+  readonly value: string;
+  readonly optional?: boolean;
+}) => `    readonly '${key}' ` + `${optional === true ? '' : '?'}: ` + `${value};`;
 
-const attrsStr = (attr: PermittedAttribute | undefined): readonly string[] =>
+const attrStr = (attrName: string, attr: MetaAttribute) =>
+  typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: attr.required });
+
+const attrsStr = (attrs: Record<string, MetaAttribute>): readonly string[] =>
   pipe(
-    attr,
-    option.fromNullable,
-    option.map(
-      flow(
-        readonlyRecord.mapWithIndex(attrStr),
-        readonlyRecord.toReadonlyArray,
-        readonlyArray.map(readonlyTuple.snd)
-      )
-    ),
-    option.getOrElseW(() => [])
+    attrs,
+    readonlyRecord.mapWithIndex(attrStr),
+    readonlyRecord.toReadonlyArray,
+    readonlyArray.map(readonlyTuple.snd)
   );
 
-const toTs = (name: string, data: MetaData): readonly string[] =>
-  pipe([
-    `export type ${name} = {`,
-    `  readonly type: '${name}';`,
-    `  readonly attributes: globalAttributes & {`,
-    ...attrsStr(data.attributes),
-    `  };`,
-    `};`,
-    '',
-  ]);
+type AttrNotExist = {
+  readonly type: 'AttrNotExist';
+};
+
+type AllowedAttrErr = {
+  readonly type: 'AllowedAttrErr';
+  readonly name: string;
+  readonly err: AttrNotExist;
+};
+
+const liftAllowedAttrErr =
+  <T>(fn: (name: string) => Either<AttrNotExist, T>) =>
+  (name: string): Either<AllowedAttrErr, T> =>
+    pipe(
+      fn(name),
+      either.mapLeft((err) => ({ type: 'AllowedAttrErr', name, err }))
+    );
+
+const zz = (
+  attrName: string,
+  attr: MetaAttribute,
+  allowedAttrs: readonly string[],
+  allAttrs: Record<string, MetaAttribute>
+): Either<AllowedAttrErr, readonly string[]> =>
+  pipe(
+    allowedAttrs,
+    readonlyArray.traverse(either.Applicative)(
+      liftAllowedAttrErr((allowedAttributeName) =>
+        pipe(
+          allAttrs,
+          readonlyRecord.lookup(allowedAttributeName),
+          either.fromOption(() => ({ type: 'AttrNotExist' as const })),
+          either.map((allowedAttr) => [
+            `  | {`,
+            `  ${attrStr(allowedAttributeName, allowedAttr)}`,
+            `  ${typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: true })}`,
+            `  }`,
+          ])
+        )
+      )
+    ),
+    either.map(readonlyArray.flatten)
+  );
+
+type IfAttrPresentErr = {
+  readonly type: 'IfAttrPresentErr';
+  readonly attrName: string;
+  readonly err: AllowedAttrErr;
+};
+
+const liftIfAttrPresentErr =
+  <T>(fn: (attrName: string, attr: MetaAttribute) => Option<Either<AllowedAttrErr, T>>) =>
+  (attrName: string, attr: MetaAttribute): Option<Either<IfAttrPresentErr, T>> =>
+    pipe(
+      fn(attrName, attr),
+      option.map(either.mapLeft((err) => ({ type: 'IfAttrPresentErr', attrName, err })))
+    );
+
+const allowedIfAttrPresent = (
+  attrs: Record<string, MetaAttribute>
+): Either<IfAttrPresentErr, readonly string[]> =>
+  pipe(
+    attrs,
+    readonlyRecord.filterMapWithIndex(
+      liftIfAttrPresentErr((attrName, attr) =>
+        attr.allowed?.type === 'allowedIfAttributeIsPresent'
+          ? option.some(zz(attrName, attr, attr.allowed.attrs, attrs))
+          : option.none
+      )
+    ),
+    readonlyRecord.toReadonlyArray,
+    readonlyArray.traverse(either.Applicative)(readonlyTuple.snd),
+    either.map(readonlyArray.flatten),
+    either.map((ra) =>
+      readonlyArray.isEmpty(ra) ? [] : [`  & (`, `    | Record<string, never>`, ...ra, `  )`]
+    )
+  );
+
+const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly string[]> =>
+  pipe(
+    allowedIfAttrPresent({ ...globalAttributes, ...data.attributes }),
+    either.map((alloweds) => [
+      `export type ${name} = {`,
+      `  readonly type: '${name}';`,
+      `  readonly attributes: globalAttributes & {`,
+      ...attrsStr({ ...data.attributes }),
+      `  }`,
+      ...alloweds,
+      `  ;`,
+      `};`,
+      '',
+    ])
+  );
 
 const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
 
-const res: string = pipe(
+type ElementErr = {
+  readonly type: 'ElementErr';
+  readonly name: string;
+  readonly err: IfAttrPresentErr;
+};
+
+const liftElementErr =
+  <T>(fn: (name: string, data: MetaData) => Either<IfAttrPresentErr, T>) =>
+  (name: string, data: MetaData): Either<ElementErr, T> =>
+    pipe(
+      fn(name, data),
+      either.mapLeft((err) => ({ type: 'ElementErr', name, err }))
+    );
+
+const res: Either<ElementErr, string> = pipe(
   html,
   readonlyRecord.filterWithIndex((name) => !name.includes(':')),
-  readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
+  readonlyRecord.mapWithIndex(liftElementErr((name, data) => toTs(normalizeName(name), data))),
   readonlyRecord.toReadonlyArray,
-  readonlyArray.chain(readonlyTuple.snd),
-  (arr) => [`export type globalAttributes = {`, ...attrsStr(globalAttributes), '};', '', ...arr],
-  readonlyArray.prepend(`/* eslint-disable */`),
-  readonlyArray.intercalate(string.Monoid)('\n')
+  readonlyArray.traverse(either.Applicative)(readonlyTuple.snd),
+  either.map(
+    flow(
+      readonlyArray.flatten,
+      (arr) => [
+        `export type globalAttributes = {`,
+        ...attrsStr(globalAttributes),
+        '};',
+        '',
+        ...arr,
+      ],
+      readonlyArray.prepend(`/* eslint-disable */`),
+      readonlyArray.intercalate(string.Monoid)('\n')
+    )
+  )
 );
 
-const main = () => fs.writeFile(`${__dirname}/html.ts`, res);
+const write = (content: string) =>
+  taskEither.tryCatch(() => fs.writeFile(`${__dirname}/html.ts`, content), identity);
 
+const main = pipe(
+  res,
+  taskEither.fromEither,
+  taskEither.chainFirstW(write),
+  taskEither.orElseFirstIOK(flow((x) => JSON.stringify(x, undefined, 2), console.error))
+);
+
+// eslint-disable-next-line functional/no-expression-statement
 void main();
 
 export type a = {

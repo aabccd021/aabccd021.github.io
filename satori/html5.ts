@@ -204,6 +204,9 @@ export const html: MetaDataTable = {
     phrasing: ['isDescendant', 'map'],
     void: true,
     attributes: {
+      href: {
+        validation: '/.*/',
+      },
       coords: {
         // allowed: (node: string) {
         // const attr = node.getAttribute("shape");
@@ -277,6 +280,9 @@ export const html: MetaDataTable = {
     interactive: ['hasAttribute', 'controls'],
     transparent: ['@flow'],
     attributes: {
+      src: {
+        validation: '/.+/',
+      },
       crossorigin: {
         omit: true,
         data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
@@ -993,6 +999,9 @@ export const html: MetaDataTable = {
     metadata: true,
     void: true,
     attributes: {
+      src: {
+        validation: '/.+/',
+      },
       charset: {
         data: { type: 'enum', value: ['utf-8'] },
       },
@@ -1482,6 +1491,9 @@ export const html: MetaDataTable = {
     interactive: ['hasAttribute', 'controls'],
     transparent: ['@flow'],
     attributes: {
+      src: {
+        validation: '/.+/',
+      },
       crossorigin: {
         omit: true,
         data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
