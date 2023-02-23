@@ -869,6 +869,29 @@ export const html: MetaDataTable = {
     metadata: true,
     void: true,
     attributes: {
+      rel: {
+        data: {
+          type: 'enum',
+          value: [
+            'alternate',
+            'author',
+            'dns',
+            'help',
+            'icon',
+            'license',
+            'next',
+            'pingback',
+            'preconnect',
+            'prefetch',
+            'preload',
+            'prerender',
+            'prev',
+            'search',
+            'stylesheet',
+          ],
+        },
+      },
+
       as: {
         allowed: {
           type: 'allowedIfAttributeHasValue',

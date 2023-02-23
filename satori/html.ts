@@ -34,30 +34,51 @@ export type a = {
       readonly 'href' ?: string;
       readonly 'download' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'hreflang' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'itemprop' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'ping' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'referrerpolicy' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'rel' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'target' : '_blank'|'_self'|'_parent'|'_top';
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'type' : string;
@@ -99,22 +120,37 @@ export type area = {
       readonly 'href' ?: string;
       readonly 'download' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'itemprop' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'ping' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'referrerpolicy' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'rel' : string;
   }
+  )
+  & (
+    | Record<string, never>
   | {
       readonly 'href' ?: string;
       readonly 'target' : '_blank'|'_self'|'_parent'|'_top';
@@ -216,6 +252,81 @@ export type button = {
     readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
     readonly 'type' ?: 'submit'|'reset'|'button';
   }
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'submit';
+      readonly 'formaction' ?: string;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'button';
+      readonly 'formaction' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'submit';
+      readonly 'formenctype' ?: string;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'button';
+      readonly 'formenctype' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'submit';
+      readonly 'formmethod' ?: 'get'|'post'|'dialog';
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'button';
+      readonly 'formmethod' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'submit';
+      readonly 'formnovalidate' ?: true;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'button';
+      readonly 'formnovalidate' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'submit';
+      readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'button';
+      readonly 'formtarget' ?: undefined;
+}
+  )
   ;
 };
 
@@ -517,6 +628,461 @@ export type input = {
     readonly 'spellcheck' ?: 'default'|'false'|'true';
     readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
   }
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'button';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'checkbox';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'color';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'date';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'datetime-local';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'email';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'file';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'hidden';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'image';
+      readonly 'formaction' ?: string;
+}
+| {
+      readonly 'type' : 'month';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'number';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'password';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'radio';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'range';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'search';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'submit';
+      readonly 'formaction' ?: string;
+}
+| {
+      readonly 'type' : 'tel';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'text';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'time';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'url';
+      readonly 'formaction' ?: undefined;
+}
+| {
+      readonly 'type' : 'week';
+      readonly 'formaction' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'button';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'checkbox';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'color';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'date';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'datetime-local';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'email';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'file';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'hidden';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'image';
+      readonly 'formenctype' ?: string;
+}
+| {
+      readonly 'type' : 'month';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'number';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'password';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'radio';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'range';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'search';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'submit';
+      readonly 'formenctype' ?: string;
+}
+| {
+      readonly 'type' : 'tel';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'text';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'time';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'url';
+      readonly 'formenctype' ?: undefined;
+}
+| {
+      readonly 'type' : 'week';
+      readonly 'formenctype' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'button';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'checkbox';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'color';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'date';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'datetime-local';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'email';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'file';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'hidden';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'image';
+      readonly 'formmethod' ?: 'get'|'post'|'dialog';
+}
+| {
+      readonly 'type' : 'month';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'number';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'password';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'radio';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'range';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'search';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'submit';
+      readonly 'formmethod' ?: 'get'|'post'|'dialog';
+}
+| {
+      readonly 'type' : 'tel';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'text';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'time';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'url';
+      readonly 'formmethod' ?: undefined;
+}
+| {
+      readonly 'type' : 'week';
+      readonly 'formmethod' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'button';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'checkbox';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'color';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'date';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'datetime-local';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'email';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'file';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'hidden';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'image';
+      readonly 'formnovalidate' ?: true;
+}
+| {
+      readonly 'type' : 'month';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'number';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'password';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'radio';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'range';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'search';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'submit';
+      readonly 'formnovalidate' ?: true;
+}
+| {
+      readonly 'type' : 'tel';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'text';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'time';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'url';
+      readonly 'formnovalidate' ?: undefined;
+}
+| {
+      readonly 'type' : 'week';
+      readonly 'formnovalidate' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'type' : 'button';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'checkbox';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'color';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'date';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'datetime-local';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'email';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'file';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'hidden';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'image';
+      readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
+}
+| {
+      readonly 'type' : 'month';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'number';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'password';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'radio';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'range';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'reset';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'search';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'submit';
+      readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
+}
+| {
+      readonly 'type' : 'tel';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'text';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'time';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'url';
+      readonly 'formtarget' ?: undefined;
+}
+| {
+      readonly 'type' : 'week';
+      readonly 'formtarget' ?: undefined;
+}
+  )
   ;
 };
 
@@ -564,7 +1130,260 @@ export type link = {
     readonly 'disabled' ?: true;
     readonly 'href' : string;
     readonly 'integrity' ?: string;
+    readonly 'rel' ?: 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'preload'|'prerender'|'prev'|'search'|'stylesheet';
   }
+  & (
+    | Record<string, never>
+| {
+      readonly 'rel' : 'alternate';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'author';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'dns';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'help';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'icon';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'license';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'next';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'pingback';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'preconnect';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prefetch';
+      readonly 'as' ?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
+}
+| {
+      readonly 'rel' : 'preload';
+      readonly 'as' ?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
+}
+| {
+      readonly 'rel' : 'prerender';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prev';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'search';
+      readonly 'as' ?: undefined;
+}
+| {
+      readonly 'rel' : 'stylesheet';
+      readonly 'as' ?: undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'rel' : 'alternate';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'author';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'dns';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'help';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'icon';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'license';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'next';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'pingback';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'preconnect';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prefetch';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'preload';
+      readonly 'blocking' ?: 'render';
+}
+| {
+      readonly 'rel' : 'prerender';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prev';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'search';
+      readonly 'blocking' ?: undefined;
+}
+| {
+      readonly 'rel' : 'stylesheet';
+      readonly 'blocking' ?: 'render';
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'rel' : 'alternate';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'author';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'dns';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'help';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'icon';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'license';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'next';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'pingback';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'preconnect';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prefetch';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'preload';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prerender';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prev';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'search';
+      readonly 'disabled' ?: undefined;
+}
+| {
+      readonly 'rel' : 'stylesheet';
+      readonly 'disabled' ?: true;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'rel' : 'alternate';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'author';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'dns';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'help';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'icon';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'license';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'next';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'pingback';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'preconnect';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prefetch';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'preload';
+      readonly 'integrity' ?: string;
+}
+| {
+      readonly 'rel' : 'prerender';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'prev';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'search';
+      readonly 'integrity' ?: undefined;
+}
+| {
+      readonly 'rel' : 'stylesheet';
+      readonly 'integrity' ?: string;
+}
+  )
   ;
 };
 
@@ -623,6 +1442,30 @@ export type meta = {
       readonly 'src' ?: string;
       readonly 'content' : string;
   }
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'http-equiv' : string;
+    readonly 'name' : undefined;
+    readonly 'itemprop' : undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'itemprop' : string;
+    readonly 'http-equiv' : undefined;
+    readonly 'name' : undefined;
+}
+  )
+  & (
+    | Record<string, never>
+| {
+      readonly 'name' : string;
+    readonly 'http-equiv' : undefined;
+    readonly 'itemprop' : undefined;
+}
   )
   ;
 };
