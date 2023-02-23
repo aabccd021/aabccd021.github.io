@@ -1015,14 +1015,15 @@ export const html: MetaDataTable = {
     metadata: true,
     void: true,
     attributes: {
-      src: {
-        validation: '/.+/',
-      },
       charset: {
         data: { type: 'enum', value: ['utf-8'] },
       },
+
       content: {
-        allowed: { type: 'allowedIfAttributeIsPresent', attrs: ['src'] },
+        allowed: {
+          type: 'allowedIfAttributeIsPresent',
+          attrs: ['name', 'http-equiv', 'itemprop'],
+        },
       },
       itemprop: {
         allowed: { type: 'allowedIfAttributeIsAbsent', attrs: ['http-equiv', 'name'] },

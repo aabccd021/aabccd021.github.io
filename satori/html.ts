@@ -31,57 +31,57 @@ export type a = {
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'download' : string;
+      readonly 'href' : string;
+      readonly 'download' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'hreflang' : string;
+      readonly 'href' : string;
+      readonly 'hreflang' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'itemprop' : string;
+      readonly 'href' : string;
+      readonly 'itemprop' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'ping' : string;
+      readonly 'href' : string;
+      readonly 'ping' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'referrerpolicy' : string;
+      readonly 'href' : string;
+      readonly 'referrerpolicy' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'rel' : string;
+      readonly 'href' : string;
+      readonly 'rel' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'target' : '_blank'|'_self'|'_parent'|'_top';
+      readonly 'href' : string;
+      readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'type' : string;
+      readonly 'href' : string;
+      readonly 'type' ?: string;
   }
   )
   ;
@@ -117,43 +117,43 @@ export type area = {
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'download' : string;
+      readonly 'href' : string;
+      readonly 'download' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'itemprop' : string;
+      readonly 'href' : string;
+      readonly 'itemprop' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'ping' : string;
+      readonly 'href' : string;
+      readonly 'ping' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'referrerpolicy' : string;
+      readonly 'href' : string;
+      readonly 'referrerpolicy' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'rel' : string;
+      readonly 'href' : string;
+      readonly 'rel' ?: string;
   }
   )
   & (
     | Record<string, never>
   | {
-      readonly 'href' ?: string;
-      readonly 'target' : '_blank'|'_self'|'_parent'|'_top';
+      readonly 'href' : string;
+      readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   }
   )
   ;
@@ -184,8 +184,8 @@ export type audio = {
   & (
     | Record<string, never>
   | {
-      readonly 'src' ?: string;
-      readonly 'itemprop' : string;
+      readonly 'src' : string;
+      readonly 'itemprop' ?: string;
   }
   )
   ;
@@ -255,55 +255,55 @@ export type button = {
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'reset'|'button';
-      readonly 'formaction' ?: undefined;
+      readonly 'type' ?: 'reset'|'button';
+      readonly 'formaction' : undefined;
 }
 | {
-      readonly 'type' : 'submit';
+      readonly 'type' ?: 'submit';
       readonly 'formaction' ?: string;
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'reset'|'button';
-      readonly 'formenctype' ?: undefined;
+      readonly 'type' ?: 'reset'|'button';
+      readonly 'formenctype' : undefined;
 }
 | {
-      readonly 'type' : 'submit';
+      readonly 'type' ?: 'submit';
       readonly 'formenctype' ?: string;
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'reset'|'button';
-      readonly 'formmethod' ?: undefined;
+      readonly 'type' ?: 'reset'|'button';
+      readonly 'formmethod' : undefined;
 }
 | {
-      readonly 'type' : 'submit';
+      readonly 'type' ?: 'submit';
       readonly 'formmethod' ?: 'get'|'post'|'dialog';
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'reset'|'button';
-      readonly 'formnovalidate' ?: undefined;
+      readonly 'type' ?: 'reset'|'button';
+      readonly 'formnovalidate' : undefined;
 }
 | {
-      readonly 'type' : 'submit';
+      readonly 'type' ?: 'submit';
       readonly 'formnovalidate' ?: true;
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'reset'|'button';
-      readonly 'formtarget' ?: undefined;
+      readonly 'type' ?: 'reset'|'button';
+      readonly 'formtarget' : undefined;
 }
 | {
-      readonly 'type' : 'submit';
+      readonly 'type' ?: 'submit';
       readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
 }
   )
@@ -611,55 +611,55 @@ export type input = {
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
-      readonly 'formaction' ?: undefined;
+      readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
+      readonly 'formaction' : undefined;
 }
 | {
-      readonly 'type' : 'image'|'submit';
+      readonly 'type' ?: 'image'|'submit';
       readonly 'formaction' ?: string;
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
-      readonly 'formenctype' ?: undefined;
+      readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
+      readonly 'formenctype' : undefined;
 }
 | {
-      readonly 'type' : 'image'|'submit';
+      readonly 'type' ?: 'image'|'submit';
       readonly 'formenctype' ?: string;
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
-      readonly 'formmethod' ?: undefined;
+      readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
+      readonly 'formmethod' : undefined;
 }
 | {
-      readonly 'type' : 'image'|'submit';
+      readonly 'type' ?: 'image'|'submit';
       readonly 'formmethod' ?: 'get'|'post'|'dialog';
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
-      readonly 'formnovalidate' ?: undefined;
+      readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
+      readonly 'formnovalidate' : undefined;
 }
 | {
-      readonly 'type' : 'image'|'submit';
+      readonly 'type' ?: 'image'|'submit';
       readonly 'formnovalidate' ?: true;
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'type' : 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
-      readonly 'formtarget' ?: undefined;
+      readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'tel'|'text'|'time'|'url'|'week';
+      readonly 'formtarget' : undefined;
 }
 | {
-      readonly 'type' : 'image'|'submit';
+      readonly 'type' ?: 'image'|'submit';
       readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
 }
   )
@@ -715,44 +715,44 @@ export type link = {
   & (
     | Record<string, never>
 | {
-      readonly 'rel' : 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prerender'|'prev'|'search'|'stylesheet';
-      readonly 'as' ?: undefined;
+      readonly 'rel' ?: 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prerender'|'prev'|'search'|'stylesheet';
+      readonly 'as' : undefined;
 }
 | {
-      readonly 'rel' : 'prefetch'|'preload';
+      readonly 'rel' ?: 'prefetch'|'preload';
       readonly 'as' ?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'rel' : 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'prerender'|'prev'|'search';
-      readonly 'blocking' ?: undefined;
+      readonly 'rel' ?: 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'prerender'|'prev'|'search';
+      readonly 'blocking' : undefined;
 }
 | {
-      readonly 'rel' : 'preload'|'stylesheet';
+      readonly 'rel' ?: 'preload'|'stylesheet';
       readonly 'blocking' ?: 'render';
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'rel' : 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'preload'|'prerender'|'prev'|'search';
-      readonly 'disabled' ?: undefined;
+      readonly 'rel' ?: 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'preload'|'prerender'|'prev'|'search';
+      readonly 'disabled' : undefined;
 }
 | {
-      readonly 'rel' : 'stylesheet';
+      readonly 'rel' ?: 'stylesheet';
       readonly 'disabled' ?: true;
 }
   )
   & (
     | Record<string, never>
 | {
-      readonly 'rel' : 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'prerender'|'prev'|'search';
-      readonly 'integrity' ?: undefined;
+      readonly 'rel' ?: 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'prerender'|'prev'|'search';
+      readonly 'integrity' : undefined;
 }
 | {
-      readonly 'rel' : 'preload'|'stylesheet';
+      readonly 'rel' ?: 'preload'|'stylesheet';
       readonly 'integrity' ?: string;
 }
   )
@@ -806,37 +806,38 @@ export type meta = {
     readonly 'http-equiv' ?: string;
     readonly 'itemprop' ?: string;
     readonly 'name' ?: string;
-    readonly 'src' ?: string;
   }
   & (
     | Record<string, never>
   | {
-      readonly 'src' ?: string;
-      readonly 'content' : string;
+      readonly 'name' : string;
+      readonly 'content' ?: string;
+  }
+  | {
+      readonly 'http-equiv' : string;
+      readonly 'content' ?: string;
+  }
+  | {
+      readonly 'itemprop' : string;
+      readonly 'content' ?: string;
   }
   )
   & (
     | Record<string, never>
 | {
       readonly 'http-equiv' : string;
-    readonly 'name' : undefined;
-    readonly 'itemprop' : undefined;
+    readonly 'name' ?: undefined;
+    readonly 'itemprop' ?: undefined;
 }
-  )
-  & (
-    | Record<string, never>
 | {
       readonly 'itemprop' : string;
-    readonly 'http-equiv' : undefined;
-    readonly 'name' : undefined;
+    readonly 'http-equiv' ?: undefined;
+    readonly 'name' ?: undefined;
 }
-  )
-  & (
-    | Record<string, never>
 | {
       readonly 'name' : string;
-    readonly 'http-equiv' : undefined;
-    readonly 'itemprop' : undefined;
+    readonly 'http-equiv' ?: undefined;
+    readonly 'itemprop' ?: undefined;
 }
   )
   ;
@@ -1010,8 +1011,8 @@ export type script = {
   & (
     | Record<string, never>
   | {
-      readonly 'src' ?: string;
-      readonly 'integrity' : string;
+      readonly 'src' : string;
+      readonly 'integrity' ?: string;
   }
   )
   ;
@@ -1238,8 +1239,8 @@ export type video = {
   & (
     | Record<string, never>
   | {
-      readonly 'src' ?: string;
-      readonly 'itemprop' : string;
+      readonly 'src' : string;
+      readonly 'itemprop' ?: string;
   }
   )
   ;

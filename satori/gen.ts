@@ -51,10 +51,10 @@ const typeAttrStr = ({
   readonly key: string;
   readonly value: string;
   readonly optional?: boolean;
-}) => `    readonly '${key}' ` + `${optional === true ? '' : '?'}: ` + `${value};`;
+}) => `    readonly '${key}' ` + `${optional === true ? '?' : ''}: ` + `${value};`;
 
 const attrStr = (attrName: string, attr: MetaAttribute) =>
-  typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: attr.required });
+  typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: attr.required !== true });
 
 const attrsStr = (attrs: Record<string, MetaAttribute>): readonly string[] =>
   pipe(
@@ -128,7 +128,10 @@ const allowedIfAttrPresentStr = (
           either.fromOption(() => ({ type: 'AttrNotPresent' as const })),
           either.map((allowedAttr) => [
             `  | {`,
-            `  ${attrStr(allowedAttributeName, allowedAttr)}`,
+            `  ${typeAttrStr({
+              key: allowedAttributeName,
+              value: attrValueStr(allowedAttr),
+            })}`,
             `  ${typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: true })}`,
             `  }`,
           ])
@@ -169,11 +172,10 @@ const allowedIfAttrAbsentStr = (
         ),
         (alloweds) => [
           `| {`,
-          `  ${typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: true })}`,
+          `  ${typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: false })}`,
           ...alloweds,
           `}`,
-        ],
-        wrapRecord
+        ]
       )
     )
   );
@@ -234,9 +236,7 @@ const liftIfAttrPresentErr =
       option.map(either.mapLeft((err) => ({ type: 'IfAttrPresentErr', attrName, err })))
     );
 
-const handleAllowedIfAttrPresent = (
-  attrs: Record<string, MetaAttribute>
-): Either<IfAttrPresentErr, readonly string[]> =>
+const lift1 = (attrs: Record<string, MetaAttribute>): Either<IfAttrPresentErr, readonly string[]> =>
   pipe(
     attrs,
     readonlyRecord.filterMapWithIndex(
@@ -255,7 +255,23 @@ const handleAllowedIfAttrPresent = (
                     attrs
                   )
                 )
-              : attr.allowed?.type === 'allowedIfAttributeIsAbsent'
+              : option.none
+          )
+      )
+    ),
+    readonlyRecord.toReadonlyArray,
+    expectedValues.traverse(either.Applicative)(readonlyTuple.snd),
+    either.map(expectedValues.flatten)
+  );
+
+const lift2 = (attrs: Record<string, MetaAttribute>): Either<IfAttrPresentErr, readonly string[]> =>
+  pipe(
+    attrs,
+    readonlyRecord.filterMapWithIndex(
+      liftIfAttrPresentErr(
+        (attrName, attr): Option<Either<IfAttrPresentErr['err'], readonly string[]>> =>
+          pipe(
+            attr.allowed?.type === 'allowedIfAttributeIsAbsent'
               ? option.some(allowedIfAttrAbsentStr(attrName, attr, attr.allowed.attrs, attrs))
               : option.none
           )
@@ -263,6 +279,15 @@ const handleAllowedIfAttrPresent = (
     ),
     readonlyRecord.toReadonlyArray,
     expectedValues.traverse(either.Applicative)(readonlyTuple.snd),
+    either.map(flow(expectedValues.flatten, wrapRecord))
+  );
+
+const handleAllowedIfAttrPresent = (
+  attrs: Record<string, MetaAttribute>
+): Either<IfAttrPresentErr, readonly string[]> =>
+  pipe(
+    [lift1(attrs), lift2(attrs)],
+    readonlyArray.sequence(either.Applicative),
     either.map(expectedValues.flatten)
   );
 
@@ -349,31 +374,23 @@ export type a = {
   );
 };
 
-export const a = (attributes: a['attributes']): a => ({
-  type: 'a',
-  attributes,
-});
-
-export const aab: a = a({
+export const aab: a['attributes'] = {
   href: 'a',
   download: 'a',
-});
+};
 
 // @ts-expect-error haha
-export const aab2: a = a({
-  // href: 'a',
+export const aab2: a['attributes'] = {
   download: 'a',
-});
+};
 
-export const aab3: a = a({
+export const aab3: a['attributes'] = {
   href: 'a',
-  // download: 'a',
-});
+};
 
-export const aab4: a = a({
+export const aab4: a['attributes'] = {
   // href: 'a',
-  // download: 'a',
-});
+};
 
 export type meta = {
   readonly type: 'meta';
@@ -384,7 +401,6 @@ export type meta = {
     readonly content?: string;
     readonly 'http-equiv'?: string;
     readonly itemprop?: string;
-    readonly property?: string;
     readonly name?: string;
   } & (
     | Record<string, never>
@@ -398,10 +414,6 @@ export type meta = {
       }
     | {
         readonly name: string;
-        readonly content?: string;
-      }
-    | {
-        readonly property: string;
         readonly content?: string;
       }
   ) &
