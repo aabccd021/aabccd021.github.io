@@ -335,3 +335,54 @@ export const metaAttrImpl9: meta['attributes'] = {
 };
 
 export const metaAttrImpl4: meta['attributes'] = {};
+
+export type button = {
+  readonly type: 'button';
+  readonly attributes:
+    | {
+        readonly autofocus?: true;
+        readonly disabled?: true;
+        readonly formaction?: string;
+        readonly formenctype?: string;
+        readonly formmethod?: 'dialog' | 'get' | 'post';
+        readonly formnovalidate?: true;
+        readonly formtarget?: '_blank' | '_parent' | '_self' | '_top';
+        readonly type?: 'button' | 'reset' | 'submit';
+      } & (
+        | Record<string, never>
+        | {
+            readonly type: 'button';
+            readonly formaction: undefined;
+          }
+        | {
+            readonly type: 'reset';
+            readonly formaction: undefined;
+          }
+        | {
+            readonly type: 'submit';
+            readonly formaction?: string;
+          }
+      );
+};
+
+export const buttonImplA: button['attributes'] = {};
+
+export const buttonImpl0: button['attributes'] = {
+  type: 'submit',
+};
+
+export const buttonImpl1: button['attributes'] = {
+  type: 'submit',
+  formaction: '',
+};
+
+// @ts-expect-error haha
+export const buttonImpl2: button['attributes'] = {
+  type: 'reset',
+  formaction: '',
+};
+
+// @ts-expect-error haha
+export const buttonImpl3: button['attributes'] = {
+  formaction: '',
+};

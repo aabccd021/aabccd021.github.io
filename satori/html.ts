@@ -214,7 +214,7 @@ export type button = {
     readonly 'formmethod' ?: 'get'|'post'|'dialog';
     readonly 'formnovalidate' ?: true;
     readonly 'formtarget' ?: '_blank'|'_self'|'_parent'|'_top';
-    readonly 'type' : 'submit'|'reset'|'button';
+    readonly 'type' ?: 'submit'|'reset'|'button';
   }
   ;
 };
@@ -515,7 +515,7 @@ export type input = {
     readonly 'readonly' ?: true;
     readonly 'required' ?: true;
     readonly 'spellcheck' ?: 'default'|'false'|'true';
-    readonly 'type' : 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
+    readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
   }
   ;
 };

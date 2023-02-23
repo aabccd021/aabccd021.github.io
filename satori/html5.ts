@@ -31,7 +31,6 @@ export type MetaAttribute = {
         readonly type: 'allowedIfAttributeHasValue';
         readonly key: string;
         readonly expectedValue: readonly string[];
-        readonly options?: { readonly defaultValue?: string | null };
       }
     | {
         readonly type: 'allowedIfAttributeIsAbsent';
@@ -50,6 +49,7 @@ export type MetaAttribute = {
     | {
         readonly type: 'enum';
         readonly value: readonly string[];
+        readonly defaultValue?: string;
       }
     | {
         readonly type: 'number';
@@ -361,7 +361,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit'],
-          options: { defaultValue: 'submit' },
         },
       },
       formenctype: {
@@ -369,7 +368,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit'],
-          options: { defaultValue: 'submit' },
         },
       },
       formmethod: {
@@ -377,7 +375,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit'],
-          options: { defaultValue: 'submit' },
         },
         data: { type: 'enum', value: ['get', 'post', 'dialog'] },
       },
@@ -386,7 +383,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit'],
-          options: { defaultValue: 'submit' },
         },
         data: { type: 'boolean' },
       },
@@ -395,14 +391,16 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit'],
-          options: { defaultValue: 'submit' },
         },
         data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
       },
       type: {
-        required: true,
-        data: { type: 'enum', value: ['submit', 'reset', 'button'] },
+        data: {
+          type: 'enum',
+          value: ['submit', 'reset', 'button'],
+          defaultValue: 'submit',
+        },
       },
     },
     permittedContent: ['@phrasing'],
@@ -752,7 +750,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit', 'image'],
-          options: { defaultValue: 'submit' },
         },
       },
       formenctype: {
@@ -760,7 +757,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit', 'image'],
-          options: { defaultValue: 'submit' },
         },
       },
       formmethod: {
@@ -768,7 +764,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit', 'image'],
-          options: { defaultValue: 'submit' },
         },
         data: { type: 'enum', value: ['get', 'post', 'dialog'] },
       },
@@ -777,7 +772,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit', 'image'],
-          options: { defaultValue: 'submit' },
         },
         data: { type: 'boolean' },
       },
@@ -786,7 +780,6 @@ export const html: MetaDataTable = {
           type: 'allowedIfAttributeHasValue',
           key: 'type',
           expectedValue: ['submit', 'image'],
-          options: { defaultValue: 'submit' },
         },
         data: { type: 'enum', value: ['_blank', '_self', '_parent', '_top'] },
         validation: '/[^_].*/',
@@ -810,9 +803,9 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['default', 'false', 'true'] },
       },
       type: {
-        required: true,
         data: {
           type: 'enum',
+          defaultValue: 'submit',
           value: [
             'button',
             'checkbox',
