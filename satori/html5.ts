@@ -513,7 +513,8 @@ export const html: MetaDataTable = {
 
   dl: {
     flow: true,
-    permittedContent: ['@script', 'dt', 'dd', 'div'],
+    // permittedContent: ['@script', 'dt', 'dd', 'div'],
+    permittedContent: ['dt', 'dd', 'div'],
   },
 
   dt: {
@@ -1010,7 +1011,8 @@ export const html: MetaDataTable = {
 
   menu: {
     flow: true,
-    permittedContent: ['@script', 'li'],
+    // permittedContent: ['@script', 'li'],
+    permittedContent: ['script', 'li'],
   },
 
   meta: {
@@ -1099,7 +1101,8 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['a', 'A', 'i', 'I', '1'] },
       },
     },
-    permittedContent: ['@script', 'li'],
+    // permittedContent: ['@script', 'li'],
+    permittedContent: ['li'],
   },
 
   optgroup: {
@@ -1109,7 +1112,7 @@ export const html: MetaDataTable = {
         data: { type: 'boolean' },
       },
     },
-    permittedContent: ['@script', 'option'],
+    permittedContent: ['option'],
   },
 
   option: {
@@ -1175,7 +1178,8 @@ export const html: MetaDataTable = {
     flow: true,
     phrasing: true,
     embedded: true,
-    permittedContent: ['@script', 'source', 'img'],
+    // permittedContent: ['@script', 'source', 'img'],
+    permittedContent: ['source', 'img'],
     permittedOrder: ['source', 'img'],
   },
 
@@ -1296,7 +1300,8 @@ export const html: MetaDataTable = {
         data: { type: 'number' },
       },
     },
-    permittedContent: ['@script', 'datasrc', 'datafld', 'dataformatas', 'option', 'optgroup'],
+    // permittedContent: ['@script', 'datasrc', 'datafld', 'dataformatas', 'option', 'optgroup'],
+    permittedContent: ['option', 'optgroup'],
   },
 
   slot: {
@@ -1363,13 +1368,13 @@ export const html: MetaDataTable = {
   table: {
     flow: true,
     // permittedContent: ['@script', 'caption?', 'colgroup', 'tbody', 'tfoot?', 'thead?', 'tr'],
-    // permittedContent: ['@script', 'caption', 'colgroup', 'tbody', 'tfoot', 'thead', 'tr'],
     permittedOrder: ['caption', 'colgroup', 'thead', 'tbody', 'tr', 'tfoot'],
   },
 
   tbody: {
     implicitClosed: ['tbody', 'tfoot'],
-    permittedContent: ['@script', 'tr'],
+    // permittedContent: ['@script', 'tr'],
+    permittedContent: ['script', 'tr'],
   },
 
   td: {
@@ -1440,7 +1445,8 @@ export const html: MetaDataTable = {
 
   tfoot: {
     implicitClosed: ['tbody'],
-    permittedContent: ['@script', 'tr'],
+    // permittedContent: ['@script', 'tr'],
+    permittedContent: ['tr'],
   },
 
   th: {
@@ -1463,7 +1469,8 @@ export const html: MetaDataTable = {
 
   thead: {
     implicitClosed: ['tbody', 'tfoot'],
-    permittedContent: ['@script', 'tr'],
+    // permittedContent: ['@script', 'tr'],
+    permittedContent: ['tr'],
   },
 
   time: {
@@ -1479,7 +1486,8 @@ export const html: MetaDataTable = {
 
   tr: {
     implicitClosed: ['tr'],
-    permittedContent: ['@script', 'td', 'th'],
+    // permittedContent: ['@script', 'td', 'th'],
+    permittedContent: ['td', 'th'],
   },
 
   track: {
@@ -1494,7 +1502,8 @@ export const html: MetaDataTable = {
 
   ul: {
     flow: true,
-    permittedContent: ['@script', 'li'],
+    // permittedContent: ['@script', 'li'],
+    permittedContent: ['li'],
   },
 
   var: {

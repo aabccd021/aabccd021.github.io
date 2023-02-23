@@ -290,6 +290,19 @@ const strictAttributeStr = (
     either.map(readonlyArray.flatten)
   );
 
+const childrenStr = (data: MetaData): string =>
+  pipe(
+    data.permittedContent,
+    option.fromNullable,
+    option.map(
+      flow(
+        readonlyArray.map(string.replace('@', '_')),
+        readonlyArray.intercalate(string.Monoid)('|')
+      )
+    ),
+    option.getOrElse(() => '_all'),
+  );
+
 const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly string[]> =>
   pipe(
     strictAttributeStr({ ...globalAttributes, ...data.attributes }),
@@ -301,12 +314,11 @@ const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly s
       `  }`,
       ...strictAttributes,
       `  ;`,
+      `  readonly children?: ${childrenStr(data)};`,
       `};`,
       '',
     ])
   );
-
-const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
 
 const liftElementErr =
   <T>(fn: (name: string, data: MetaData) => Either<IfAttrPresentErr, T>) =>
@@ -316,15 +328,20 @@ const liftElementErr =
       either.mapLeft((err) => ({ type: 'ElementErr', name, err }))
     );
 
+const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
+
 const validAttributes = pipe(
   html,
-  readonlyRecord.filterWithIndex((name) => !name.includes(':'))
+  readonlyRecord.filterWithIndex((name) => !name.includes(':')),
+  readonlyRecord.toReadonlyArray,
+  readonlyArray.map(([k, v]) => [normalizeName(k), v] as const),
+  readonlyRecord.fromEntries
 );
 
 const all = pipe(
   validAttributes,
   readonlyRecord.keys,
-  readonlyArray.map((key) => `| '${key}'`),
+  readonlyArray.map((key) => `| ${key}`),
   (ra) => ['type _all = ', ...ra, ';']
 );
 
@@ -347,7 +364,7 @@ const categories = pipe(
   readonlyArray.chain(([catName, catTags]) =>
     pipe(
       catTags,
-      readonlyArray.map((ct) => `| '${ct}'`),
+      readonlyArray.map((ct) => `| ${ct}`),
       (cts) => [`type _${catName} = `, ...cts, ';', '']
     )
   )

@@ -1,321 +1,322 @@
 /* eslint-disable */
 
 type _all = 
-| 'a'
-| 'abbr'
-| 'address'
-| 'area'
-| 'article'
-| 'aside'
-| 'audio'
-| 'b'
-| 'base'
-| 'bdi'
-| 'bdo'
-| 'blockquote'
-| 'body'
-| 'br'
-| 'button'
-| 'canvas'
-| 'caption'
-| 'cite'
-| 'code'
-| 'col'
-| 'colgroup'
-| 'data'
-| 'datalist'
-| 'dd'
-| 'del'
-| 'details'
-| 'dfn'
-| 'dialog'
-| 'div'
-| 'dl'
-| 'dt'
-| 'em'
-| 'embed'
-| 'fieldset'
-| 'figcaption'
-| 'figure'
-| 'footer'
-| 'form'
-| 'h1'
-| 'h2'
-| 'h3'
-| 'h4'
-| 'h5'
-| 'h6'
-| 'head'
-| 'header'
-| 'hgroup'
-| 'hr'
-| 'html'
-| 'i'
-| 'iframe'
-| 'img'
-| 'input'
-| 'ins'
-| 'kbd'
-| 'label'
-| 'legend'
-| 'li'
-| 'link'
-| 'main'
-| 'map'
-| 'mark'
-| 'math'
-| 'menu'
-| 'meta'
-| 'meter'
-| 'nav'
-| 'noscript'
-| 'object'
-| 'ol'
-| 'optgroup'
-| 'option'
-| 'output'
-| 'p'
-| 'param'
-| 'picture'
-| 'pre'
-| 'progress'
-| 'q'
-| 'rb'
-| 'rp'
-| 'rt'
-| 'rtc'
-| 'ruby'
-| 's'
-| 'samp'
-| 'script'
-| 'section'
-| 'select'
-| 'slot'
-| 'small'
-| 'source'
-| 'span'
-| 'strong'
-| 'style'
-| 'sub'
-| 'summary'
-| 'sup'
-| 'svg'
-| 'table'
-| 'tbody'
-| 'td'
-| 'template'
-| 'textarea'
-| 'tfoot'
-| 'th'
-| 'thead'
-| 'time'
-| 'title'
-| 'tr'
-| 'track'
-| 'u'
-| 'ul'
-| 'var'
-| 'video'
-| 'wbr'
+| a
+| abbr
+| address
+| area
+| article
+| aside
+| audio
+| b
+| base
+| bdi
+| bdo
+| blockquote
+| body
+| br
+| button
+| canvas
+| caption
+| cite
+| code
+| col
+| colgroup
+| data
+| datalist
+| dd
+| del
+| details
+| dfn
+| dialog
+| div
+| dl
+| dt
+| em
+| embed
+| fieldset
+| figcaption
+| figure
+| footer
+| form
+| h1
+| h2
+| h3
+| h4
+| h5
+| h6
+| head
+| header
+| hgroup
+| hr
+| html
+| i
+| iframe
+| img
+| input
+| ins
+| kbd
+| label
+| legend
+| li
+| link
+| main
+| map
+| mark
+| math
+| menu
+| meta
+| meter
+| nav
+| noscript
+| object_
+| ol
+| optgroup
+| option
+| output
+| p
+| param
+| picture
+| pre
+| progress
+| q
+| rb
+| rp
+| rt
+| rtc
+| ruby
+| s
+| samp
+| script
+| section
+| select
+| slot
+| small
+| source
+| span
+| strong
+| style
+| sub
+| summary
+| sup
+| svg
+| table
+| tbody
+| td
+| template
+| textarea
+| tfoot
+| th
+| thead
+| time
+| title
+| tr
+| track
+| u
+| ul
+| var_
+| video
+| wbr
 ;
 
 type _embedded = 
-| 'audio'
-| 'canvas'
-| 'embed'
-| 'iframe'
-| 'img'
-| 'math'
-| 'object'
-| 'picture'
-| 'svg'
-| 'video'
+| audio
+| canvas
+| embed
+| iframe
+| img
+| math
+| object_
+| picture
+| svg
+| video
 ;
 
 type _flow = 
-| 'a'
-| 'abbr'
-| 'address'
-| 'article'
-| 'aside'
-| 'audio'
-| 'b'
-| 'bdi'
-| 'bdo'
-| 'blockquote'
-| 'br'
-| 'button'
-| 'canvas'
-| 'cite'
-| 'code'
-| 'data'
-| 'datalist'
-| 'del'
-| 'details'
-| 'dfn'
-| 'dialog'
-| 'div'
-| 'dl'
-| 'em'
-| 'embed'
-| 'fieldset'
-| 'figure'
-| 'footer'
-| 'form'
-| 'h1'
-| 'h2'
-| 'h3'
-| 'h4'
-| 'h5'
-| 'h6'
-| 'header'
-| 'hgroup'
-| 'hr'
-| 'i'
-| 'iframe'
-| 'img'
-| 'input'
-| 'ins'
-| 'kbd'
-| 'label'
-| 'main'
-| 'map'
-| 'mark'
-| 'math'
-| 'menu'
-| 'meter'
-| 'nav'
-| 'noscript'
-| 'object'
-| 'ol'
-| 'output'
-| 'p'
-| 'picture'
-| 'pre'
-| 'progress'
-| 'q'
-| 'ruby'
-| 's'
-| 'samp'
-| 'script'
-| 'section'
-| 'select'
-| 'slot'
-| 'small'
-| 'span'
-| 'strong'
-| 'sub'
-| 'sup'
-| 'svg'
-| 'table'
-| 'td'
-| 'template'
-| 'textarea'
-| 'th'
-| 'time'
-| 'u'
-| 'ul'
-| 'var'
-| 'video'
-| 'wbr'
+| a
+| abbr
+| address
+| article
+| aside
+| audio
+| b
+| bdi
+| bdo
+| blockquote
+| br
+| button
+| canvas
+| cite
+| code
+| data
+| datalist
+| del
+| details
+| dfn
+| dialog
+| div
+| dl
+| em
+| embed
+| fieldset
+| figure
+| footer
+| form
+| h1
+| h2
+| h3
+| h4
+| h5
+| h6
+| header
+| hgroup
+| hr
+| i
+| iframe
+| img
+| input
+| ins
+| kbd
+| label
+| main
+| map
+| mark
+| math
+| menu
+| meter
+| nav
+| noscript
+| object_
+| ol
+| output
+| p
+| picture
+| pre
+| progress
+| q
+| ruby
+| s
+| samp
+| script
+| section
+| select
+| slot
+| small
+| span
+| strong
+| sub
+| sup
+| svg
+| table
+| td
+| template
+| textarea
+| th
+| time
+| u
+| ul
+| var_
+| video
+| wbr
 ;
 
 type _heading = 
-| 'h1'
-| 'h2'
-| 'h3'
-| 'h4'
-| 'h5'
-| 'h6'
-| 'hgroup'
+| h1
+| h2
+| h3
+| h4
+| h5
+| h6
+| hgroup
 ;
 
 type _interactive = 
-| 'a'
-| 'button'
-| 'details'
-| 'embed'
-| 'iframe'
-| 'label'
-| 'select'
-| 'textarea'
+| a
+| button
+| details
+| embed
+| iframe
+| label
+| select
+| textarea
 ;
 
 type _meta = 
-| 'base'
-| 'link'
-| 'meta'
-| 'noscript'
-| 'script'
-| 'style'
-| 'template'
-| 'title'
+| base
+| link
+| meta
+| noscript
+| script
+| style
+| template
+| title
 ;
 
 type _phrasing = 
-| 'a'
-| 'abbr'
-| 'audio'
-| 'b'
-| 'bdi'
-| 'bdo'
-| 'br'
-| 'button'
-| 'canvas'
-| 'cite'
-| 'code'
-| 'data'
-| 'datalist'
-| 'del'
-| 'dfn'
-| 'em'
-| 'embed'
-| 'i'
-| 'iframe'
-| 'img'
-| 'input'
-| 'ins'
-| 'kbd'
-| 'label'
-| 'map'
-| 'mark'
-| 'math'
-| 'meter'
-| 'noscript'
-| 'object'
-| 'output'
-| 'picture'
-| 'progress'
-| 'q'
-| 'ruby'
-| 's'
-| 'samp'
-| 'script'
-| 'select'
-| 'slot'
-| 'small'
-| 'span'
-| 'strong'
-| 'sub'
-| 'sup'
-| 'svg'
-| 'template'
-| 'textarea'
-| 'time'
-| 'u'
-| 'var'
-| 'video'
-| 'wbr'
+| a
+| abbr
+| audio
+| b
+| bdi
+| bdo
+| br
+| button
+| canvas
+| cite
+| code
+| data
+| datalist
+| del
+| dfn
+| em
+| embed
+| i
+| iframe
+| img
+| input
+| ins
+| kbd
+| label
+| map
+| mark
+| math
+| meter
+| noscript
+| object_
+| output
+| picture
+| progress
+| q
+| ruby
+| s
+| samp
+| script
+| select
+| slot
+| small
+| span
+| strong
+| sub
+| sup
+| svg
+| template
+| textarea
+| time
+| u
+| var_
+| video
+| wbr
 ;
 
 type _sectioning = 
-| 'article'
-| 'aside'
-| 'blockquote'
-| 'details'
-| 'nav'
-| 'section'
+| article
+| aside
+| blockquote
+| details
+| nav
+| section
 ;
+
 
 export type globalAttributes = {
     readonly 'accesskey' ?: string;
@@ -403,6 +404,7 @@ export type a = {
   }
   )
   ;
+  readonly children?: _all;
 };
 
 export type abbr = {
@@ -410,6 +412,7 @@ export type abbr = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type address = {
@@ -417,6 +420,7 @@ export type address = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type area = {
@@ -475,6 +479,7 @@ export type area = {
   }
   )
   ;
+  readonly children?: _all;
 };
 
 export type article = {
@@ -482,6 +487,7 @@ export type article = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type aside = {
@@ -489,6 +495,7 @@ export type aside = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type audio = {
@@ -507,6 +514,7 @@ export type audio = {
   }
   )
   ;
+  readonly children?: _flow|track|source;
 };
 
 export type b = {
@@ -514,6 +522,7 @@ export type b = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type base = {
@@ -521,6 +530,7 @@ export type base = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type bdi = {
@@ -528,6 +538,7 @@ export type bdi = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type bdo = {
@@ -535,6 +546,7 @@ export type bdo = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type blockquote = {
@@ -542,6 +554,7 @@ export type blockquote = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type body = {
@@ -549,6 +562,7 @@ export type body = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type br = {
@@ -556,6 +570,7 @@ export type br = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type button = {
@@ -626,6 +641,7 @@ export type button = {
 }
   )
   ;
+  readonly children?: _phrasing;
 };
 
 export type canvas = {
@@ -633,6 +649,7 @@ export type canvas = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type caption = {
@@ -640,6 +657,7 @@ export type caption = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type cite = {
@@ -647,6 +665,7 @@ export type cite = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type code = {
@@ -654,6 +673,7 @@ export type code = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type col = {
@@ -662,6 +682,7 @@ export type col = {
     readonly 'span' ?: number;
   }
   ;
+  readonly children?: _all;
 };
 
 export type colgroup = {
@@ -670,6 +691,7 @@ export type colgroup = {
     readonly 'span' ?: number;
   }
   ;
+  readonly children?: col|template;
 };
 
 export type data = {
@@ -677,6 +699,7 @@ export type data = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type datalist = {
@@ -684,6 +707,7 @@ export type datalist = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing|option;
 };
 
 export type dd = {
@@ -691,6 +715,7 @@ export type dd = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type del = {
@@ -698,6 +723,7 @@ export type del = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type details = {
@@ -706,6 +732,7 @@ export type details = {
     readonly 'open' ?: true;
   }
   ;
+  readonly children?: summary|_flow;
 };
 
 export type dfn = {
@@ -713,6 +740,7 @@ export type dfn = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type dialog = {
@@ -721,6 +749,7 @@ export type dialog = {
     readonly 'open' ?: true;
   }
   ;
+  readonly children?: _flow;
 };
 
 export type div = {
@@ -728,6 +757,7 @@ export type div = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow|dt|dd;
 };
 
 export type dl = {
@@ -735,6 +765,7 @@ export type dl = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: dt|dd|div;
 };
 
 export type dt = {
@@ -742,6 +773,7 @@ export type dt = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type em = {
@@ -749,6 +781,7 @@ export type em = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type embed = {
@@ -758,6 +791,7 @@ export type embed = {
     readonly 'title' : string;
   }
   ;
+  readonly children?: _all;
 };
 
 export type fieldset = {
@@ -766,6 +800,7 @@ export type fieldset = {
     readonly 'disabled' ?: true;
   }
   ;
+  readonly children?: _flow|legend;
 };
 
 export type figcaption = {
@@ -773,6 +808,7 @@ export type figcaption = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type figure = {
@@ -780,6 +816,7 @@ export type figure = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow|figcaption;
 };
 
 export type footer = {
@@ -787,6 +824,7 @@ export type footer = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type form = {
@@ -799,6 +837,7 @@ export type form = {
     readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   }
   ;
+  readonly children?: _flow;
 };
 
 export type h1 = {
@@ -806,6 +845,7 @@ export type h1 = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type h2 = {
@@ -813,6 +853,7 @@ export type h2 = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type h3 = {
@@ -820,6 +861,7 @@ export type h3 = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type h4 = {
@@ -827,6 +869,7 @@ export type h4 = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type h5 = {
@@ -834,6 +877,7 @@ export type h5 = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type h6 = {
@@ -841,6 +885,7 @@ export type h6 = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type head = {
@@ -848,6 +893,7 @@ export type head = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: base|title|_meta;
 };
 
 export type header = {
@@ -855,6 +901,7 @@ export type header = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type hgroup = {
@@ -862,6 +909,7 @@ export type hgroup = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: p|_heading;
 };
 
 export type hr = {
@@ -869,6 +917,7 @@ export type hr = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type html = {
@@ -877,6 +926,7 @@ export type html = {
     readonly 'lang' : string;
   }
   ;
+  readonly children?: head|body;
 };
 
 export type i = {
@@ -884,6 +934,7 @@ export type i = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type iframe = {
@@ -893,6 +944,7 @@ export type iframe = {
     readonly 'title' : string;
   }
   ;
+  readonly children?: _all;
 };
 
 export type img = {
@@ -905,6 +957,7 @@ export type img = {
     readonly 'srcset' ?: string;
   }
   ;
+  readonly children?: _all;
 };
 
 export type input = {
@@ -982,6 +1035,7 @@ export type input = {
 }
   )
   ;
+  readonly children?: _all;
 };
 
 export type ins = {
@@ -989,6 +1043,7 @@ export type ins = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type kbd = {
@@ -996,6 +1051,7 @@ export type kbd = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type label = {
@@ -1003,6 +1059,7 @@ export type label = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type legend = {
@@ -1010,6 +1067,7 @@ export type legend = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing|_heading;
 };
 
 export type li = {
@@ -1017,6 +1075,7 @@ export type li = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type link = {
@@ -1075,6 +1134,7 @@ export type link = {
 }
   )
   ;
+  readonly children?: _all;
 };
 
 export type main = {
@@ -1082,6 +1142,7 @@ export type main = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type map = {
@@ -1090,6 +1151,7 @@ export type map = {
     readonly 'name' : string;
   }
   ;
+  readonly children?: _all;
 };
 
 export type mark = {
@@ -1097,6 +1159,7 @@ export type mark = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type math = {
@@ -1107,6 +1170,7 @@ export type math = {
     readonly 'overflow' ?: 'linebreak'|'scroll'|'elide'|'truncate'|'scale';
   }
   ;
+  readonly children?: _all;
 };
 
 export type menu = {
@@ -1114,6 +1178,7 @@ export type menu = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: script|li;
 };
 
 export type meta = {
@@ -1159,6 +1224,7 @@ export type meta = {
 }
   )
   ;
+  readonly children?: _all;
 };
 
 export type meter = {
@@ -1166,6 +1232,7 @@ export type meter = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type nav = {
@@ -1173,6 +1240,7 @@ export type nav = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type noscript = {
@@ -1180,6 +1248,7 @@ export type noscript = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type object_ = {
@@ -1190,6 +1259,7 @@ export type object_ = {
     readonly 'name' ?: string;
   }
   ;
+  readonly children?: param|_flow;
 };
 
 export type ol = {
@@ -1199,6 +1269,7 @@ export type ol = {
     readonly 'type' ?: 'a'|'A'|'i'|'I'|'1';
   }
   ;
+  readonly children?: li;
 };
 
 export type optgroup = {
@@ -1207,6 +1278,7 @@ export type optgroup = {
     readonly 'disabled' ?: true;
   }
   ;
+  readonly children?: option;
 };
 
 export type option = {
@@ -1216,6 +1288,7 @@ export type option = {
     readonly 'selected' ?: true;
   }
   ;
+  readonly children?: _all;
 };
 
 export type output = {
@@ -1223,6 +1296,7 @@ export type output = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type p = {
@@ -1230,6 +1304,7 @@ export type p = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type param = {
@@ -1237,6 +1312,7 @@ export type param = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type picture = {
@@ -1244,6 +1320,7 @@ export type picture = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: source|img;
 };
 
 export type pre = {
@@ -1251,6 +1328,7 @@ export type pre = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type progress = {
@@ -1258,6 +1336,7 @@ export type progress = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type q = {
@@ -1265,6 +1344,7 @@ export type q = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type rb = {
@@ -1272,6 +1352,7 @@ export type rb = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type rp = {
@@ -1279,6 +1360,7 @@ export type rp = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type rt = {
@@ -1286,6 +1368,7 @@ export type rt = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type rtc = {
@@ -1293,6 +1376,7 @@ export type rtc = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing|rt;
 };
 
 export type ruby = {
@@ -1300,6 +1384,7 @@ export type ruby = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing|rb|rp|rt|rtc;
 };
 
 export type s = {
@@ -1307,6 +1392,7 @@ export type s = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type samp = {
@@ -1314,6 +1400,7 @@ export type samp = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type script = {
@@ -1334,6 +1421,7 @@ export type script = {
   }
   )
   ;
+  readonly children?: _all;
 };
 
 export type section = {
@@ -1341,6 +1429,7 @@ export type section = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _flow;
 };
 
 export type select = {
@@ -1353,6 +1442,7 @@ export type select = {
     readonly 'size' ?: number;
   }
   ;
+  readonly children?: option|optgroup;
 };
 
 export type slot = {
@@ -1360,6 +1450,7 @@ export type slot = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type small = {
@@ -1367,6 +1458,7 @@ export type small = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type source = {
@@ -1374,6 +1466,7 @@ export type source = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type span = {
@@ -1381,6 +1474,7 @@ export type span = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type strong = {
@@ -1388,6 +1482,7 @@ export type strong = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type style = {
@@ -1395,6 +1490,7 @@ export type style = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type sub = {
@@ -1402,6 +1498,7 @@ export type sub = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type summary = {
@@ -1409,6 +1506,7 @@ export type summary = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing|_heading;
 };
 
 export type sup = {
@@ -1416,6 +1514,7 @@ export type sup = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type svg = {
@@ -1423,6 +1522,7 @@ export type svg = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type table = {
@@ -1430,6 +1530,7 @@ export type table = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type tbody = {
@@ -1437,6 +1538,7 @@ export type tbody = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: script|tr;
 };
 
 export type td = {
@@ -1446,6 +1548,7 @@ export type td = {
     readonly 'rowspan' ?: number;
   }
   ;
+  readonly children?: _flow;
 };
 
 export type template = {
@@ -1453,6 +1556,7 @@ export type template = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type textarea = {
@@ -1471,6 +1575,7 @@ export type textarea = {
     readonly 'wrap' ?: 'hard'|'soft';
   }
   ;
+  readonly children?: _all;
 };
 
 export type tfoot = {
@@ -1478,6 +1583,7 @@ export type tfoot = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: tr;
 };
 
 export type th = {
@@ -1488,6 +1594,7 @@ export type th = {
     readonly 'scope' ?: 'row'|'col'|'rowgroup'|'colgroup';
   }
   ;
+  readonly children?: _flow;
 };
 
 export type thead = {
@@ -1495,6 +1602,7 @@ export type thead = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: tr;
 };
 
 export type time = {
@@ -1502,6 +1610,7 @@ export type time = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type title = {
@@ -1509,6 +1618,7 @@ export type title = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type tr = {
@@ -1516,6 +1626,7 @@ export type tr = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: td|th;
 };
 
 export type track = {
@@ -1523,6 +1634,7 @@ export type track = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
 
 export type u = {
@@ -1530,6 +1642,7 @@ export type u = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type ul = {
@@ -1537,6 +1650,7 @@ export type ul = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: li;
 };
 
 export type var_ = {
@@ -1544,6 +1658,7 @@ export type var_ = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _phrasing;
 };
 
 export type video = {
@@ -1562,6 +1677,7 @@ export type video = {
   }
   )
   ;
+  readonly children?: _flow|track|source;
 };
 
 export type wbr = {
@@ -1569,4 +1685,5 @@ export type wbr = {
   readonly attributes: globalAttributes & {
   }
   ;
+  readonly children?: _all;
 };
