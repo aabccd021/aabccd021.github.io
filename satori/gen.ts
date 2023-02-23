@@ -372,7 +372,7 @@ const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly s
       `  }`,
       ...strictAttributes,
       `  ;`,
-      `  readonly children?: ${childrenStr(name, data)};`,
+      `  readonly children?: ${childrenStr(name, data)}[];`,
       `};`,
       '',
     ])
