@@ -340,11 +340,22 @@ const getForbiddenDescendant = (data: MetaData): readonly string[] =>
     option.getOrElseW(() => [])
   );
 
+const getForbiddenChildFromPermittedParent = (name: string): readonly string[] =>
+  pipe(
+    validAttributes,
+    readonlyRecord.filterMap((el) =>
+      pipe(el.permittedParent, option.fromNullable, option.map(readonlyArray.elem(string.Eq)(name)))
+    ),
+    readonlyRecord.filter((x) => !x),
+    readonlyRecord.keys
+  );
+
 // TODO: category doesn't exists error
-const childrenStr = (data: MetaData): string =>
+const childrenStr = (name: string, data: MetaData): string =>
   pipe(
     getPermittedContent(data),
     readonlyArray.difference(string.Eq)(getForbiddenDescendant(data)),
+    readonlyArray.difference(string.Eq)(getForbiddenChildFromPermittedParent(name)),
     readonlyArray.map((x) => `${x}`),
     readonlyArray.uniq(string.Eq),
     readonlyArray.intercalate(string.Monoid)('|')
@@ -361,7 +372,7 @@ const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly s
       `  }`,
       ...strictAttributes,
       `  ;`,
-      `  readonly children?: ${childrenStr(data)};`,
+      `  readonly children?: ${childrenStr(name, data)};`,
       `};`,
       '',
     ])
