@@ -6,7 +6,6 @@ import {
   console,
   either,
   option,
-  readonlyArray as expectedValues,
   readonlyArray,
   readonlyNonEmptyArray,
   readonlyRecord,
@@ -34,8 +33,8 @@ const attrValueStr = ({ data }: MetaAttribute): string =>
         readonlyNonEmptyArray.fromReadonlyArray,
         option.map(
           flow(
-            expectedValues.map((s) => `'${s}'`),
-            expectedValues.intercalate(string.Monoid)('|')
+            readonlyArray.map((s) => `'${s}'`),
+            readonlyArray.intercalate(string.Monoid)('|')
           )
         ),
         option.getOrElseW(() => 'string')
@@ -61,7 +60,7 @@ const attrsStr = (attrs: Record<string, MetaAttribute>): readonly string[] =>
     attrs,
     readonlyRecord.mapWithIndex(attrStr),
     readonlyRecord.toReadonlyArray,
-    expectedValues.map(readonlyTuple.snd)
+    readonlyArray.map(readonlyTuple.snd)
   );
 
 type AttrNotPresent = {
@@ -110,7 +109,7 @@ const liftAllowedAttrErr =
     );
 
 const wrapRecord = (ra: readonly string[]) =>
-  expectedValues.isEmpty(ra) ? [] : [`  & (`, `    | Record<string, never>`, ...ra, `  )`];
+  readonlyArray.isEmpty(ra) ? [] : [`  & (`, `    | Record<string, never>`, ...ra, `  )`];
 
 const allowedIfAttrPresentStr = (
   attrName: string,
@@ -120,7 +119,7 @@ const allowedIfAttrPresentStr = (
 ): Either<AllowedIfAttrPresentErr, readonly string[]> =>
   pipe(
     allowedAttrs,
-    expectedValues.traverse(either.Applicative)(
+    readonlyArray.traverse(either.Applicative)(
       liftAllowedAttrErr((allowedAttributeName) =>
         pipe(
           allAttrs,
@@ -138,7 +137,7 @@ const allowedIfAttrPresentStr = (
         )
       )
     ),
-    either.map(flow(expectedValues.flatten, wrapRecord))
+    either.map(flow(readonlyArray.flatten, wrapRecord))
   );
 
 const liftAllowedAttrAbsentErr =
@@ -157,7 +156,7 @@ const allowedIfAttrAbsentStr = (
 ): Either<AllowedIfAttrAbsentErr, readonly string[]> =>
   pipe(
     allowedAttrs,
-    expectedValues.traverse(either.Applicative)(
+    readonlyArray.traverse(either.Applicative)(
       liftAllowedAttrAbsentErr(
         either.fromPredicate(
           (name) => readonlyRecord.has(name, allAttrs),
@@ -167,7 +166,7 @@ const allowedIfAttrAbsentStr = (
     ),
     either.map(
       flow(
-        expectedValues.map((allowedName) =>
+        readonlyArray.map((allowedName) =>
           typeAttrStr({ key: allowedName, value: 'undefined', optional: true })
         ),
         (alloweds) => [
@@ -260,8 +259,8 @@ const lift1 = (attrs: Record<string, MetaAttribute>): Either<IfAttrPresentErr, r
       )
     ),
     readonlyRecord.toReadonlyArray,
-    expectedValues.traverse(either.Applicative)(readonlyTuple.snd),
-    either.map(expectedValues.flatten)
+    readonlyArray.traverse(either.Applicative)(readonlyTuple.snd),
+    either.map(readonlyArray.flatten)
   );
 
 const lift2 = (attrs: Record<string, MetaAttribute>): Either<IfAttrPresentErr, readonly string[]> =>
@@ -278,8 +277,8 @@ const lift2 = (attrs: Record<string, MetaAttribute>): Either<IfAttrPresentErr, r
       )
     ),
     readonlyRecord.toReadonlyArray,
-    expectedValues.traverse(either.Applicative)(readonlyTuple.snd),
-    either.map(flow(expectedValues.flatten, wrapRecord))
+    readonlyArray.traverse(either.Applicative)(readonlyTuple.snd),
+    either.map(flow(readonlyArray.flatten, wrapRecord))
   );
 
 const handleAllowedIfAttrPresent = (
@@ -288,7 +287,7 @@ const handleAllowedIfAttrPresent = (
   pipe(
     [lift1(attrs), lift2(attrs)],
     readonlyArray.sequence(either.Applicative),
-    either.map(expectedValues.flatten)
+    either.map(readonlyArray.flatten)
   );
 
 const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly string[]> =>
@@ -317,24 +316,65 @@ const liftElementErr =
       either.mapLeft((err) => ({ type: 'ElementErr', name, err }))
     );
 
-const res: Either<ElementErr, string> = pipe(
+const validAttributes = pipe(
   html,
-  readonlyRecord.filterWithIndex((name) => !name.includes(':')),
+  readonlyRecord.filterWithIndex((name) => !name.includes(':'))
+);
+
+const all = pipe(
+  validAttributes,
+  readonlyRecord.keys,
+  readonlyArray.map((key) => `| '${key}'`),
+  (ra) => ['type _all = ', ...ra, ';']
+);
+
+const fss: Record<string, (at: MetaData) => boolean> = {
+  meta: (at) => at.meta === true,
+  flow: (at) => at.flow === true,
+  sectioning: (at) => at.sectioning === true,
+  heading: (at) => at.heading === true,
+  phrasing: (at) => at.phrasing === true,
+  embedded: (at) => at.embedded === true,
+  interactive: (at) => at.interactive === true,
+};
+
+const categories = pipe(
+  fss,
+  readonlyRecord.map((fsss) =>
+    pipe(validAttributes, readonlyRecord.filter(fsss), readonlyRecord.keys)
+  ),
+  readonlyRecord.toReadonlyArray,
+  readonlyArray.chain(([catName, catTags]) =>
+    pipe(
+      catTags,
+      readonlyArray.map((ct) => `| '${ct}'`),
+      (cts) => [`type _${catName} = `, ...cts, ';', '']
+    )
+  )
+);
+
+const res: Either<ElementErr, string> = pipe(
+  validAttributes,
   readonlyRecord.mapWithIndex(liftElementErr((name, data) => toTs(normalizeName(name), data))),
   readonlyRecord.toReadonlyArray,
-  expectedValues.traverse(either.Applicative)(readonlyTuple.snd),
+  readonlyArray.traverse(either.Applicative)(readonlyTuple.snd),
   either.map(
     flow(
-      expectedValues.flatten,
+      readonlyArray.flatten,
       (arr) => [
+        `/* eslint-disable */`,
+        '',
+        ...all,
+        '',
+        ...categories,
+        '',
         `export type globalAttributes = {`,
         ...attrsStr(globalAttributes),
         '};',
         '',
         ...arr,
       ],
-      expectedValues.prepend(`/* eslint-disable */`),
-      expectedValues.intercalate(string.Monoid)('\n')
+      readonlyArray.intercalate(string.Monoid)('\n')
     )
   )
 );
@@ -351,256 +391,3 @@ const main = pipe(
 
 // eslint-disable-next-line functional/no-expression-statement
 void main();
-
-export type a = {
-  readonly type: 'a';
-  readonly attributes: // globalAttributes &
-  {
-    readonly href?: string;
-    readonly download?: string;
-    readonly hreflang?: string;
-    readonly itemprop?: string;
-    readonly ping?: string;
-    readonly referrerpolicy?: string;
-    readonly rel?: string;
-    readonly target?: '_blank' | '_parent' | '_self' | '_top';
-    readonly type?: string;
-  } & (
-    | Record<string, never>
-    | {
-        readonly href: string;
-        readonly download?: string;
-      }
-  );
-};
-
-export const aab: a['attributes'] = {
-  href: 'a',
-  download: 'a',
-};
-
-// @ts-expect-error haha
-export const aab2: a['attributes'] = {
-  download: 'a',
-};
-
-export const aab3: a['attributes'] = {
-  href: 'a',
-};
-
-export const aab4: a['attributes'] = {
-  // href: 'a',
-};
-
-export type meta = {
-  readonly type: 'meta';
-  readonly attributes: //globalAttributes &
-  // eslint-disable-next-line @typescript-eslint/sort-type-constituents
-  {
-    readonly charset?: 'utf-8';
-    readonly content?: string;
-    readonly 'http-equiv'?: string;
-    readonly itemprop?: string;
-    readonly name?: string;
-  } & (
-    | Record<string, never>
-    | {
-        readonly 'http-equiv': string;
-        readonly content?: string;
-      }
-    | {
-        readonly itemprop: string;
-        readonly content?: string;
-      }
-    | {
-        readonly name: string;
-        readonly content?: string;
-      }
-  ) &
-    (
-      | Record<string, never>
-      | { readonly 'http-equiv': string; readonly name?: undefined; readonly itemprop?: undefined }
-      | { readonly 'http-equiv'?: undefined; readonly name: string; readonly itemprop?: undefined }
-      | { readonly 'http-equiv'?: undefined; readonly name?: undefined; readonly itemprop: string }
-    );
-};
-
-export const metaAttrImpl: meta['attributes'] = {
-  name: '',
-  content: '',
-};
-
-export const metaAttrImpl3: meta['attributes'] = {
-  name: '',
-};
-
-export const metaAttrImpl5: meta['attributes'] = {
-  itemprop: '',
-  content: '',
-};
-
-export const metaAttrImpl7: meta['attributes'] = {
-  itemprop: '',
-};
-
-// @ts-expect-error haha
-export const metaAttrImpl2: meta['attributes'] = {
-  content: '',
-};
-
-// @ts-expect-error haha
-export const metaAttrImpl8: meta['attributes'] = {
-  'http-equiv': '',
-  name: '',
-};
-
-// @ts-expect-error haha
-export const metaAttrImpl10: meta['attributes'] = {
-  'http-equiv': '',
-  itemprop: '',
-};
-
-// @ts-expect-error haha
-export const metaAttrImpl9: meta['attributes'] = {
-  name: '',
-  itemprop: '',
-};
-
-export const metaAttrImpl4: meta['attributes'] = {};
-
-export type button = {
-  readonly type: 'button';
-  readonly attributes:
-    | {
-        readonly autofocus?: true;
-        readonly disabled?: true;
-        readonly formaction?: string;
-        readonly formenctype?: string;
-        readonly formmethod?: 'dialog' | 'get' | 'post';
-        readonly formnovalidate?: true;
-        readonly formtarget?: '_blank' | '_parent' | '_self' | '_top';
-        readonly type?: 'button' | 'reset' | 'submit';
-      } & (
-        | Record<string, never>
-        | {
-            readonly type?: 'button' | 'reset';
-            readonly formaction: undefined;
-          }
-        | {
-            readonly type?: 'submit';
-            readonly formaction?: string;
-          }
-      );
-};
-
-export const buttonImplA: button['attributes'] = {};
-
-export const buttonImpl0: button['attributes'] = {
-  type: 'submit',
-};
-
-export const buttonImpl1: button['attributes'] = {
-  type: 'submit',
-  formaction: '',
-};
-
-// @ts-expect-error haha
-export const buttonImpl2: button['attributes'] = {
-  type: 'reset',
-  formaction: '',
-};
-
-export const buttonImpl3: button['attributes'] = {
-  formaction: '',
-};
-
-export type input = {
-  readonly type: 'input';
-  readonly attributes: {
-    readonly autofocus?: true;
-    readonly capture?: 'environment' | 'user';
-    readonly checked?: true;
-    readonly disabled?: true;
-    readonly formaction?: string;
-    readonly formenctype?: string;
-    readonly formmethod?: 'dialog' | 'get' | 'post';
-    readonly formnovalidate?: true;
-    readonly formtarget?: '_blank' | '_parent' | '_self' | '_top';
-    readonly inputmode?:
-      | 'decimal'
-      | 'email'
-      | 'none'
-      | 'numeric'
-      | 'search'
-      | 'tel'
-      | 'text'
-      | 'url';
-    readonly multiple?: true;
-    readonly readonly?: true;
-    readonly required?: true;
-    readonly spellcheck?: 'default' | 'false' | 'true';
-    readonly type?:
-      | 'button'
-      | 'checkbox'
-      | 'color'
-      | 'date'
-      | 'datetime-local'
-      | 'email'
-      | 'file'
-      | 'hidden'
-      | 'image'
-      | 'month'
-      | 'number'
-      | 'password'
-      | 'radio'
-      | 'range'
-      | 'reset'
-      | 'search'
-      | 'submit'
-      | 'tel'
-      | 'text'
-      | 'time'
-      | 'url'
-      | 'week';
-  } & (
-    | Record<string, never>
-    | {
-        readonly type?: 'button' | 'reset';
-        readonly formaction: undefined;
-      }
-    | {
-        readonly type?: 'image' | 'submit';
-        readonly formaction?: string;
-      }
-  );
-};
-
-export const inputImplA: input['attributes'] = {};
-
-export const inputImpl0: input['attributes'] = {
-  type: 'submit',
-};
-
-export const inputImpl1: input['attributes'] = {
-  type: 'submit',
-  formaction: '',
-};
-
-// @ts-expect-error haha
-export const inputImpl2: input['attributes'] = {
-  type: 'reset',
-  formaction: '',
-};
-
-export const inputImpl3: input['attributes'] = {
-  formaction: '',
-};
-
-export const inputImpl8: input['attributes'] = {
-  type: 'image',
-};
-
-export const inputImpl9: input['attributes'] = {
-  type: 'image',
-  formaction: '',
-};

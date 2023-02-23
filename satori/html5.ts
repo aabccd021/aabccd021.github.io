@@ -82,7 +82,7 @@ export type PropertyExpression = string | readonly [string, unknown];
  */
 export type MetaData = {
   /* content categories */
-  readonly metadata?: boolean;
+  readonly meta?: boolean;
   readonly flow?: PropertyExpression | boolean;
   readonly sectioning?: boolean;
   readonly heading?: boolean;
@@ -307,7 +307,7 @@ export const html: MetaDataTable = {
   },
 
   base: {
-    metadata: true,
+    meta: true,
     void: true,
     permittedParent: ['head'],
   },
@@ -556,7 +556,8 @@ export const html: MetaDataTable = {
         data: { type: 'boolean' },
       },
     },
-    permittedContent: ['@flow', 'legend?'],
+    // permittedContent: ['@flow', 'legend?'],
+    permittedContent: ['@flow', 'legend'],
     permittedOrder: ['legend', '@flow'],
   },
 
@@ -566,7 +567,8 @@ export const html: MetaDataTable = {
 
   figure: {
     flow: true,
-    permittedContent: ['@flow', 'figcaption?'],
+    // permittedContent: ['@flow', 'figcaption?'],
+    permittedContent: ['@flow', 'figcaption'],
     permittedOrder: ['figcaption', '@flow', 'figcaption'],
   },
 
@@ -638,7 +640,8 @@ export const html: MetaDataTable = {
   },
 
   head: {
-    permittedContent: ['base?', 'title?', '@meta'],
+    // permittedContent: ['base?', 'title?', '@meta'],
+    permittedContent: ['base', 'title', '@meta'],
     permittedParent: ['html'],
     requiredContent: ['title'],
   },
@@ -652,7 +655,8 @@ export const html: MetaDataTable = {
   hgroup: {
     flow: true,
     heading: true,
-    permittedContent: ['p', '@heading?'],
+    // permittedContent: ['p', '@heading?'],
+    permittedContent: ['p', '@heading'],
     permittedDescendants: { exclude: ['hgroup'] },
     requiredContent: ['@heading'],
   },
@@ -663,7 +667,8 @@ export const html: MetaDataTable = {
   },
 
   html: {
-    permittedContent: ['head?', 'body?'],
+    // permittedContent: ['head?', 'body?'],
+    permittedContent: ['head', 'body'],
     permittedOrder: ['head', 'body'],
     requiredContent: ['head', 'body'],
     attributes: {
@@ -692,7 +697,6 @@ export const html: MetaDataTable = {
         required: true,
       },
     },
-    permittedContent: [],
   },
 
   img: {
@@ -866,7 +870,7 @@ export const html: MetaDataTable = {
   },
 
   link: {
-    metadata: true,
+    meta: true,
     void: true,
     attributes: {
       rel: {
@@ -1012,7 +1016,7 @@ export const html: MetaDataTable = {
   meta: {
     flow: ['hasAttribute', 'itemprop'],
     phrasing: ['hasAttribute', 'itemprop'],
-    metadata: true,
+    meta: true,
     void: true,
     attributes: {
       charset: {
@@ -1053,7 +1057,7 @@ export const html: MetaDataTable = {
   },
 
   noscript: {
-    metadata: true,
+    meta: true,
     flow: true,
     phrasing: true,
     transparent: true,
@@ -1118,7 +1122,6 @@ export const html: MetaDataTable = {
         data: { type: 'boolean' },
       },
     },
-    permittedContent: [],
   },
 
   output: {
@@ -1234,7 +1237,7 @@ export const html: MetaDataTable = {
   },
 
   script: {
-    metadata: true,
+    meta: true,
     flow: true,
     phrasing: true,
     scriptSupporting: true,
@@ -1325,7 +1328,7 @@ export const html: MetaDataTable = {
   },
 
   style: {
-    metadata: true,
+    meta: true,
   },
 
   sub: {
@@ -1359,7 +1362,8 @@ export const html: MetaDataTable = {
 
   table: {
     flow: true,
-    permittedContent: ['@script', 'caption?', 'colgroup', 'tbody', 'tfoot?', 'thead?', 'tr'],
+    // permittedContent: ['@script', 'caption?', 'colgroup', 'tbody', 'tfoot?', 'thead?', 'tr'],
+    // permittedContent: ['@script', 'caption', 'colgroup', 'tbody', 'tfoot', 'thead', 'tr'],
     permittedOrder: ['caption', 'colgroup', 'thead', 'tbody', 'tr', 'tfoot'],
   },
 
@@ -1383,7 +1387,7 @@ export const html: MetaDataTable = {
   },
 
   template: {
-    metadata: true,
+    meta: true,
     flow: true,
     phrasing: true,
     scriptSupporting: true,
@@ -1432,7 +1436,6 @@ export const html: MetaDataTable = {
         data: { type: 'enum', value: ['hard', 'soft'] },
       },
     },
-    permittedContent: [],
   },
 
   tfoot: {
@@ -1470,8 +1473,7 @@ export const html: MetaDataTable = {
   },
 
   title: {
-    metadata: true,
-    permittedContent: [],
+    meta: true,
     permittedParent: ['head'],
   },
 
