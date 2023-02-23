@@ -281,7 +281,7 @@ const lift2 = (attrs: Record<string, MetaAttribute>): Either<IfAttrPresentErr, r
     either.map(flow(readonlyArray.flatten, wrapRecord))
   );
 
-const handleAllowedIfAttrPresent = (
+const strictAttributeStr = (
   attrs: Record<string, MetaAttribute>
 ): Either<IfAttrPresentErr, readonly string[]> =>
   pipe(
@@ -292,14 +292,14 @@ const handleAllowedIfAttrPresent = (
 
 const toTs = (name: string, data: MetaData): Either<IfAttrPresentErr, readonly string[]> =>
   pipe(
-    handleAllowedIfAttrPresent({ ...globalAttributes, ...data.attributes }),
-    either.map((alloweds) => [
+    strictAttributeStr({ ...globalAttributes, ...data.attributes }),
+    either.map((strictAttributes) => [
       `export type ${name} = {`,
       `  readonly type: '${name}';`,
       `  readonly attributes: globalAttributes & {`,
       ...attrsStr({ ...data.attributes }),
       `  }`,
-      ...alloweds,
+      ...strictAttributes,
       `  ;`,
       `};`,
       '',
