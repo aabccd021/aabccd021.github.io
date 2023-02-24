@@ -141,7 +141,7 @@ const toTs = (name: string, data: MetaData): readonly string[] => [
   `  readonly attributes: globalAttributes & {`,
   ...attrsStr({ ...data.attributes }),
   `  };`,
-  `  readonly children: (${childrenStr(name, data)})[];`,
+  `  readonly children: (${data.void === true ? 'never' : childrenStr(name, data)})[];`,
   `};`,
   '',
   `export const ${name} = builder<${name}>('${name}')`,

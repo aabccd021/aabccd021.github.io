@@ -6,7 +6,8 @@ export const hlink2 = h.link({ href: '/favicon.svg', rel: 'icon', type: 'image/s
 
 export const htmeta = h.meta({ charset: 'utf-8' });
 
-export const htmeta2 = h.meta({ content: 'a' });
+// @ts-expect-error can't assign child to meta
+export const htmeta2 = h.meta({ content: 'a' }, h.text('a'));
 
 export const tagtest = h.html(
   { lang: 'en' },
