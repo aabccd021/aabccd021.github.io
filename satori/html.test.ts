@@ -52,7 +52,7 @@ type Z = {
   readonly attr: Loose<'bar' | 'foo'>;
 };
 
-const z: Z = {
+export const z: Z = {
   attr: 'bar',
 };
 
@@ -61,8 +61,15 @@ type A = Loose2<{
   readonly bar: string;
 }>;
 
-const aa: A = {
-  foo: 'bar',
+export const a1: A = {
+  foo: 'foo',
+  // @ts-expect-error haha
   bar: 10,
+  baz: '',
+};
+
+export const a2: A = {
+  foo: 'foo',
+  bar: 'bar',
   baz: '',
 };

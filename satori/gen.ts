@@ -26,14 +26,8 @@ export const attrValueStr = ({ data }: MetaAttribute): string =>
     .with({ type: 'enum' }, (enumData) =>
       pipe(
         enumData.value,
-        readonlyNonEmptyArray.fromReadonlyArray,
-        option.map(
-          flow(
-            readonlyArray.map((s) => `'${s}'`),
-            readonlyArray.intercalate(string.Monoid)('|')
-          )
-        ),
-        option.getOrElseW(() => 'string')
+        readonlyNonEmptyArray.map((s) => `'${s}'`),
+        readonlyNonEmptyArray.intercalate(string.Monoid)('|')
       )
     )
     .exhaustive();
