@@ -43,3 +43,26 @@ export const tagtest = html(
     )
   )
 );
+
+type Loose<T extends number | string | symbol> = Omit<number | string | symbol, T> | T;
+
+type Loose2<T extends object> = Omit<Record<string, unknown>, keyof T> & T;
+
+type Z = {
+  readonly attr: Loose<'bar' | 'foo'>;
+};
+
+const z: Z = {
+  attr: 'bar',
+};
+
+type A = Loose2<{
+  readonly foo: string;
+  readonly bar: string;
+}>;
+
+const aa: A = {
+  foo: 'bar',
+  bar: 10,
+  baz: '',
+};
