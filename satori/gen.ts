@@ -434,26 +434,3 @@ const main = pipe(
 
 // eslint-disable-next-line functional/no-expression-statement
 void main();
-
-//
-// export type abbr = {
-//   readonly type: 'abbr';
-//   readonly attributes: globalAttributes & {
-//   }
-//   ;
-//   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
-// };
-//
-// export const abbr = builder<abbr>('abbr');
-//
-// export const address = builder<address>('address');
-//
-// export const aabccd = address({}, abbr({}))
-//
-// export type address = {
-//   readonly type: 'address';
-//   readonly attributes: globalAttributes & {
-//   }
-//   ;
-//   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
-// };
