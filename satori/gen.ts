@@ -174,8 +174,7 @@ const res: string = pipe(
   validAttributes,
   readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
   readonlyRecord.toReadonlyArray,
-  readonlyArray.map(readonlyTuple.snd),
-  readonlyArray.flatten,
+  readonlyArray.chain(readonlyTuple.snd),
   (arr) => [
     `/* eslint-disable */`,
     '',
