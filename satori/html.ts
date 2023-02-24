@@ -10,6 +10,18 @@ export const builder = <T extends {type: string, attributes: any, children: any[
 })
 
 
+
+export type text = {
+  readonly type: 'text';
+  readonly children: string;
+}
+
+export const text = (children: string): text => ({
+  type: 'text',
+  children
+})
+
+
 export type globalAttributes = {
     readonly 'accesskey' ?: string;
     readonly 'class' ?: string;
@@ -96,7 +108,7 @@ export type a = {
   }
   )
   ;
-  readonly children: (abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|dfn|dialog|div|dl|dt|em|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|img|input|ins|kbd|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|dfn|dialog|div|dl|dt|em|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|img|input|ins|kbd|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const a = builder<a>('a')
@@ -106,7 +118,7 @@ export type abbr = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const abbr = builder<abbr>('abbr')
@@ -116,7 +128,7 @@ export type address = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const address = builder<address>('address')
@@ -177,7 +189,7 @@ export type area = {
   }
   )
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const area = builder<area>('area')
@@ -187,7 +199,7 @@ export type article = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const article = builder<article>('article')
@@ -197,7 +209,7 @@ export type aside = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const aside = builder<aside>('aside')
@@ -218,7 +230,7 @@ export type audio = {
   }
   )
   ;
-  readonly children: (a|abbr|address|article|aside|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|wbr|track|source)[];
+  readonly children: (a|abbr|address|article|aside|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|wbr|track|source)[];
 };
 
 export const audio = builder<audio>('audio')
@@ -228,7 +240,7 @@ export type b = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const b = builder<b>('b')
@@ -238,7 +250,7 @@ export type base = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const base = builder<base>('base')
@@ -248,7 +260,7 @@ export type bdi = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const bdi = builder<bdi>('bdi')
@@ -258,7 +270,7 @@ export type bdo = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const bdo = builder<bdo>('bdo')
@@ -268,7 +280,7 @@ export type blockquote = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const blockquote = builder<blockquote>('blockquote')
@@ -278,7 +290,7 @@ export type body = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const body = builder<body>('body')
@@ -288,7 +300,7 @@ export type br = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const br = builder<br>('br')
@@ -361,7 +373,7 @@ export type button = {
 }
   )
   ;
-  readonly children: (abbr|audio|b|bdi|bdo|br|canvas|cite|code|data|datalist|del|dfn|em|i|img|input|ins|kbd|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|slot|small|span|strong|sub|sup|svg|template|time|u|var_|video|wbr)[];
+  readonly children: (abbr|audio|b|bdi|bdo|br|canvas|cite|code|data|datalist|del|dfn|em|i|img|input|ins|kbd|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|slot|small|span|strong|sub|sup|svg|template|text|time|u|var_|video|wbr)[];
 };
 
 export const button = builder<button>('button')
@@ -371,7 +383,7 @@ export type canvas = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const canvas = builder<canvas>('canvas')
@@ -381,7 +393,7 @@ export type caption = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const caption = builder<caption>('caption')
@@ -391,7 +403,7 @@ export type cite = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const cite = builder<cite>('cite')
@@ -401,7 +413,7 @@ export type code = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const code = builder<code>('code')
@@ -412,7 +424,7 @@ export type col = {
     readonly 'span' ?: number;
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const col = builder<col>('col')
@@ -433,7 +445,7 @@ export type data = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const data = builder<data>('data')
@@ -443,7 +455,7 @@ export type datalist = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|option)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr|option)[];
 };
 
 export const datalist = builder<datalist>('datalist')
@@ -453,7 +465,7 @@ export type dd = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const dd = builder<dd>('dd')
@@ -463,7 +475,7 @@ export type del = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const del = builder<del>('del')
@@ -474,7 +486,7 @@ export type details = {
     readonly 'open' ?: true;
   }
   ;
-  readonly children: (summary|a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (summary|a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const details = builder<details>('details')
@@ -484,7 +496,7 @@ export type dfn = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const dfn = builder<dfn>('dfn')
@@ -495,7 +507,7 @@ export type dialog = {
     readonly 'open' ?: true;
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const dialog = builder<dialog>('dialog')
@@ -505,7 +517,7 @@ export type div = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|dt|dd)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr|dt|dd)[];
 };
 
 export const div = builder<div>('div')
@@ -525,7 +537,7 @@ export type dt = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const dt = builder<dt>('dt')
@@ -535,7 +547,7 @@ export type em = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const em = builder<em>('em')
@@ -547,7 +559,7 @@ export type embed = {
     readonly 'title' : string;
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const embed = builder<embed>('embed')
@@ -558,7 +570,7 @@ export type fieldset = {
     readonly 'disabled' ?: true;
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|legend)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr|legend)[];
 };
 
 export const fieldset = builder<fieldset>('fieldset')
@@ -568,7 +580,7 @@ export type figcaption = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const figcaption = builder<figcaption>('figcaption')
@@ -578,7 +590,7 @@ export type figure = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|figcaption)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr|figcaption)[];
 };
 
 export const figure = builder<figure>('figure')
@@ -588,7 +600,7 @@ export type footer = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const footer = builder<footer>('footer')
@@ -603,7 +615,7 @@ export type form = {
     readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const form = builder<form>('form')
@@ -613,7 +625,7 @@ export type h1 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const h1 = builder<h1>('h1')
@@ -623,7 +635,7 @@ export type h2 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const h2 = builder<h2>('h2')
@@ -633,7 +645,7 @@ export type h3 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const h3 = builder<h3>('h3')
@@ -643,7 +655,7 @@ export type h4 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const h4 = builder<h4>('h4')
@@ -653,7 +665,7 @@ export type h5 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const h5 = builder<h5>('h5')
@@ -663,7 +675,7 @@ export type h6 = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const h6 = builder<h6>('h6')
@@ -683,7 +695,7 @@ export type header = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const header = builder<header>('header')
@@ -703,7 +715,7 @@ export type hr = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const hr = builder<hr>('hr')
@@ -724,7 +736,7 @@ export type i = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const i = builder<i>('i')
@@ -736,7 +748,7 @@ export type iframe = {
     readonly 'title' : string;
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const iframe = builder<iframe>('iframe')
@@ -751,7 +763,7 @@ export type img = {
     readonly 'srcset' ?: string;
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const img = builder<img>('img')
@@ -831,7 +843,7 @@ export type input = {
 }
   )
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const input = builder<input>('input')
@@ -841,7 +853,7 @@ export type ins = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const ins = builder<ins>('ins')
@@ -851,7 +863,7 @@ export type kbd = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const kbd = builder<kbd>('kbd')
@@ -861,7 +873,7 @@ export type label = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const label = builder<label>('label')
@@ -871,7 +883,7 @@ export type legend = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup)[];
 };
 
 export const legend = builder<legend>('legend')
@@ -881,7 +893,7 @@ export type li = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const li = builder<li>('li')
@@ -896,6 +908,7 @@ export type link = {
     readonly 'href' : string;
     readonly 'integrity' ?: string;
     readonly 'rel' ?: 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'preload'|'prerender'|'prev'|'search'|'stylesheet';
+    readonly 'type' ?: string;
   }
   & (
     | Record<string, never>
@@ -942,7 +955,7 @@ export type link = {
 }
   )
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const link = builder<link>('link')
@@ -952,7 +965,7 @@ export type main = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const main = builder<main>('main')
@@ -963,7 +976,7 @@ export type map = {
     readonly 'name' : string;
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const map = builder<map>('map')
@@ -973,7 +986,7 @@ export type mark = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const mark = builder<mark>('mark')
@@ -986,7 +999,7 @@ export type math = {
     readonly 'overflow' ?: 'linebreak'|'scroll'|'elide'|'truncate'|'scale';
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const math = builder<math>('math')
@@ -1044,7 +1057,7 @@ export type meta = {
 }
   )
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const meta = builder<meta>('meta')
@@ -1054,7 +1067,7 @@ export type meter = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const meter = builder<meter>('meter')
@@ -1064,7 +1077,7 @@ export type nav = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const nav = builder<nav>('nav')
@@ -1074,7 +1087,7 @@ export type noscript = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const noscript = builder<noscript>('noscript')
@@ -1087,7 +1100,7 @@ export type object_ = {
     readonly 'name' ?: string;
   }
   ;
-  readonly children: (param|a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (param|a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const object_ = builder<object_>('object_')
@@ -1122,7 +1135,7 @@ export type option = {
     readonly 'selected' ?: true;
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const option = builder<option>('option')
@@ -1132,7 +1145,7 @@ export type output = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const output = builder<output>('output')
@@ -1142,7 +1155,7 @@ export type p = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const p = builder<p>('p')
@@ -1152,7 +1165,7 @@ export type param = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const param = builder<param>('param')
@@ -1172,7 +1185,7 @@ export type pre = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const pre = builder<pre>('pre')
@@ -1182,7 +1195,7 @@ export type progress = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const progress = builder<progress>('progress')
@@ -1192,7 +1205,7 @@ export type q = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const q = builder<q>('q')
@@ -1202,7 +1215,7 @@ export type rb = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const rb = builder<rb>('rb')
@@ -1212,7 +1225,7 @@ export type rp = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const rp = builder<rp>('rp')
@@ -1222,7 +1235,7 @@ export type rt = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const rt = builder<rt>('rt')
@@ -1232,7 +1245,7 @@ export type rtc = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|rt)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr|rt)[];
 };
 
 export const rtc = builder<rtc>('rtc')
@@ -1242,7 +1255,7 @@ export type ruby = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|rb|rp|rt|rtc)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr|rb|rp|rt|rtc)[];
 };
 
 export const ruby = builder<ruby>('ruby')
@@ -1252,7 +1265,7 @@ export type s = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const s = builder<s>('s')
@@ -1262,7 +1275,7 @@ export type samp = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const samp = builder<samp>('samp')
@@ -1285,7 +1298,7 @@ export type script = {
   }
   )
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const script = builder<script>('script')
@@ -1295,7 +1308,7 @@ export type section = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const section = builder<section>('section')
@@ -1320,7 +1333,7 @@ export type slot = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const slot = builder<slot>('slot')
@@ -1330,7 +1343,7 @@ export type small = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const small = builder<small>('small')
@@ -1340,7 +1353,7 @@ export type source = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const source = builder<source>('source')
@@ -1350,7 +1363,7 @@ export type span = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const span = builder<span>('span')
@@ -1360,7 +1373,7 @@ export type strong = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const strong = builder<strong>('strong')
@@ -1370,7 +1383,7 @@ export type style = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const style = builder<style>('style')
@@ -1380,7 +1393,7 @@ export type sub = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const sub = builder<sub>('sub')
@@ -1390,7 +1403,7 @@ export type summary = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup)[];
 };
 
 export const summary = builder<summary>('summary')
@@ -1400,7 +1413,7 @@ export type sup = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const sup = builder<sup>('sup')
@@ -1410,7 +1423,7 @@ export type svg = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const svg = builder<svg>('svg')
@@ -1420,7 +1433,7 @@ export type table = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const table = builder<table>('table')
@@ -1442,7 +1455,7 @@ export type td = {
     readonly 'rowspan' ?: number;
   }
   ;
-  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const td = builder<td>('td')
@@ -1452,7 +1465,7 @@ export type template = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const template = builder<template>('template')
@@ -1473,7 +1486,7 @@ export type textarea = {
     readonly 'wrap' ?: 'hard'|'soft';
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const textarea = builder<textarea>('textarea')
@@ -1496,7 +1509,7 @@ export type th = {
     readonly 'scope' ?: 'row'|'col'|'rowgroup'|'colgroup';
   }
   ;
-  readonly children: (a|abbr|address|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|video|wbr)[];
 };
 
 export const th = builder<th>('th')
@@ -1516,7 +1529,7 @@ export type time = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const time = builder<time>('time')
@@ -1526,7 +1539,7 @@ export type title = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const title = builder<title>('title')
@@ -1546,7 +1559,7 @@ export type track = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const track = builder<track>('track')
@@ -1556,7 +1569,7 @@ export type u = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const u = builder<u>('u')
@@ -1576,7 +1589,7 @@ export type var_ = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
+  readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|strong|sub|sup|svg|template|text|textarea|time|u|var_|video|wbr)[];
 };
 
 export const var_ = builder<var_>('var_')
@@ -1597,7 +1610,7 @@ export type video = {
   }
   )
   ;
-  readonly children: (a|abbr|address|article|aside|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|wbr|track|source)[];
+  readonly children: (a|abbr|address|article|aside|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|strong|sub|sup|svg|table|td|template|text|textarea|th|time|u|ul|var_|wbr|track|source)[];
 };
 
 export const video = builder<video>('video')
@@ -1607,7 +1620,7 @@ export type wbr = {
   readonly attributes: globalAttributes & {
   }
   ;
-  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
+  readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
 };
 
 export const wbr = builder<wbr>('wbr')

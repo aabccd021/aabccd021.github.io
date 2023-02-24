@@ -867,6 +867,7 @@ export const html: MetaDataTable = {
     meta: true,
     void: true,
     attributes: {
+      type: {},
       rel: {
         data: {
           type: 'enum',

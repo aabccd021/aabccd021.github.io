@@ -302,6 +302,13 @@ const validAttributes = pipe(
   readonlyRecord.fromEntries
 );
 
+const textMetaData: MetaData = {
+  flow: true,
+  phrasing: true,
+};
+
+const vv = pipe(validAttributes, readonlyRecord.upsertAt('text', textMetaData));
+
 const fss: Record<string, (at: MetaData) => boolean> = {
   _meta: (at) => at.meta === true,
   _flow: (at) => at.flow === true,
@@ -316,9 +323,7 @@ const getCategoryTags = (cat: string) =>
   cat.startsWith('@')
     ? pipe(
         fss,
-        readonlyRecord.map((fsss) =>
-          pipe(validAttributes, readonlyRecord.filter(fsss), readonlyRecord.keys)
-        ),
+        readonlyRecord.map((fsss) => pipe(vv, readonlyRecord.filter(fsss), readonlyRecord.keys)),
         readonlyRecord.lookup(normalizeCategory(cat)),
         option.getOrElseW(() => [])
       )
@@ -329,7 +334,7 @@ const getPermittedContent = (data: MetaData): readonly string[] =>
     data.permittedContent,
     option.fromNullable,
     option.map(readonlyArray.chain(getCategoryTags)),
-    option.getOrElseW(() => readonlyRecord.keys(validAttributes))
+    option.getOrElseW(() => readonlyRecord.keys(vv))
   );
 
 const getForbiddenDescendant = (data: MetaData): readonly string[] =>
@@ -342,7 +347,7 @@ const getForbiddenDescendant = (data: MetaData): readonly string[] =>
 
 const getForbiddenChildFromPermittedParent = (name: string): readonly string[] =>
   pipe(
-    validAttributes,
+    vv,
     readonlyRecord.filterMap((el) =>
       pipe(el.permittedParent, option.fromNullable, option.map(readonlyArray.elem(string.Eq)(name)))
     ),
@@ -398,6 +403,18 @@ export const builder = <T extends {type: string, attributes: any, children: any[
 })
 `;
 
+const textEl = `
+export type text = {
+  readonly type: 'text';
+  readonly children: string;
+}
+
+export const text = (children: string): text => ({
+  type: 'text',
+  children
+})
+`;
+
 const res: Either<ElementErr, string> = pipe(
   validAttributes,
   readonlyRecord.mapWithIndex(liftElementErr((name, data) => toTs(normalizeName(name), data))),
@@ -410,6 +427,8 @@ const res: Either<ElementErr, string> = pipe(
         `/* eslint-disable */`,
         '',
         builder,
+        '',
+        textEl,
         '',
         `export type globalAttributes = {`,
         ...attrsStr(globalAttributes),
