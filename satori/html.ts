@@ -547,9 +547,11 @@ export type img = {
   readonly attributes: globalAttributes & {
     readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
     readonly 'decoding' ?: 'sync'|'async'|'auto';
+    readonly 'height' ?: number;
     readonly 'ismap' ?: true;
     readonly 'src' : string;
     readonly 'srcset' ?: string;
+    readonly 'width' ?: number;
   };
   readonly children: (never)[];
 };

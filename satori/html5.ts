@@ -700,6 +700,14 @@ export const html: MetaDataTable = {
     interactive: ['hasAttribute', 'usemap'],
     void: true,
     attributes: {
+      height: {
+        data: { type: 'number' },
+      },
+
+      width: {
+        data: { type: 'number' },
+      },
+
       crossorigin: {
         omit: true,
         data: { type: 'enum', value: ['anonymous', 'use-credentials'] },
@@ -1352,12 +1360,6 @@ export const html: MetaDataTable = {
     phrasing: true,
     embedded: true,
   },
-
-  /* while not part of HTML 5 specification these two elements are handled as
-   * special cases to allow them as accessible text and to avoid issues with
-   * "no-unknown-elements" they are added here */
-  'svg:desc': {},
-  'svg:title': {},
 
   table: {
     flow: true,
