@@ -28,7 +28,6 @@ specifiers:
   markdownlint-cli: ^0.33.0
   markuplint: ^3.2.0
   pa11y-ci: ^3.0.1
-  react: ^18.2.0
   satori: ^0.2.3
   sharp: ^0.31.3
   svgo: ^3.0.2
@@ -71,7 +70,6 @@ devDependencies:
   markdownlint-cli: 0.33.0
   markuplint: 3.2.0
   pa11y-ci: 3.0.1
-  react: 18.2.0
   satori: 0.2.3
   sharp: 0.31.3
   svgo: 3.0.2
@@ -8104,13 +8102,6 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: true
-
-  /react/18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
     dev: true
 
   /read-chunk/1.0.1:

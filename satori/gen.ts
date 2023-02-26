@@ -2,6 +2,8 @@
 /* eslint-disable import/no-nodejs-modules */
 import * as fs from 'node:fs/promises';
 
+import type {ReactElement} from 'react';
+
 import {
   console,
   option,

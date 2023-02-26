@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 
-import { div,  img, pre } from '../../../satori/html';
-import {generate} from '../../../satori/generate';
+import { generate } from '../../../satori/generate';
+import { div, img, pre, text } from '../../../satori/html';
 
 export const main = async () =>
   generate({
@@ -18,7 +18,7 @@ export const main = async () =>
             // await png(`${__dirname}/../../../gruvbox/pnpm`)
           })
         ),
-        pre({ class: 'text-[100px] m-4 flex flex-col items-center' }, 'Install\nRecursively')
+        pre({ class: 'text-[100px] m-4 flex flex-col items-center' }, text('Install\nRecursively'))
       )
     ),
   });
