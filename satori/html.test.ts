@@ -1,44 +1,44 @@
-import { a, body, h1, head, header, html, li, link, main, meta, nav, p, text, ul } from './html';
+import { c, h } from './dom';
 
-export const hlink = link({ href: '/favicon.ico', rel: 'icon' });
+export const hlink = h('link', { href: c('/favicon.ico'), rel: c('icon') });
 
-export const hlink2 = link({ href: '/favicon.svg', rel: 'icon', type: 'image/svg+xml' });
+export const hlink2 = h('link', {
+  href: c('/favicon.svg'),
+  rel: c('icon'),
+  type: c('image/svg+xml'),
+});
 
-export const htmeta = meta({ charset: 'utf-8' });
+export const htmeta = h('meta', { charSet: c('utf-8') });
 
-// @ts-expect-error can't assign child to meta
-export const htmeta2 = meta({ content: 'a' }, text('a'));
-
-export const tagtest = html(
-  { lang: 'en' },
-  head({}),
-  body(
+export const tagtest = h(
+  'html',
+  { lang: c('en') },
+  h('head', {}),
+  h(
+    'body',
     {},
-    header(
+    h('header', {}, h('nav', {}, h('a', { href: c('/'), className: c('nav-item') }, c('Home')))),
+    h(
+      'main',
       {},
-      nav(
-        {},
-        a({ href: '/', class: 'nav-item' }, text('Home')),
-        a({ href: '/', class: 'nav-item' }, text('Home'))
-      )
-    ),
-    main(
-      {},
-      h1(
-        { id: 'about-me' },
-        text('About Me'),
-        a({ href: '#about-me', class: 'header-anchor' }, text('#'))
+      h(
+        'h1',
+        { id: c('about-me') },
+        c('About Me'),
+        h('a', { href: c('#about-me'), hidden: c(true), className: c('header-anchor') }, c('#'))
       ),
-      p({}, text('aab')),
-      h1(
-        { id: 'contacts' },
-        text('Contacts'),
-        a({ href: '#contacs', class: 'header-anchor' }, text('#'))
+      h('p', {}, c('Aab')),
+      h(
+        'h1',
+        { id: c('contacts') },
+        c('Contacts'),
+        h('a', { href: c('#contacs'), className: c('header-anchor') }, c('#'))
       ),
-      ul(
+      h(
+        'ul',
         {},
-        li({}, a({ href: 'aabccd021@gmail.com' }, text('Email'))),
-        li({}, a({ href: 'https://github.com/aabccd021' }, text('GitHub')))
+        h('li', {}, h('a', { href: c('aabccd021@gmail.com') }, c('Email'))),
+        h('li', {}, h('a', { href: c('https://github.com/aabccd021') }, c('GitHub')))
       )
     )
   )
