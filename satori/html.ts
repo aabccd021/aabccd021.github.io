@@ -1,12 +1,16 @@
 /* eslint-disable */
 
 
-export type NonVoidElement = {type: string, attributes: any, children: any[]};
+type NonVoidElement = {
+  readonly type: string, 
+  readonly attributes: any, 
+  readonly children: any[]
+};
 
-export type VoidElement = {type: string, attributes: any};
-
-export type AnyElement = NonVoidElement | VoidElement | string;
-
+type VoidElement = {
+  readonly type: string, 
+  readonly attributes: any
+};
 
 export const builder = <T extends NonVoidElement>(type: T['type']) => 
 (attributes: T['attributes'], ...children: T['children']) => 
@@ -1195,4 +1199,4 @@ export type wbr = {
 export const wbr = voidBuilder<wbr>('wbr')
 
 
-export type _all = a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;
+export type All = a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;

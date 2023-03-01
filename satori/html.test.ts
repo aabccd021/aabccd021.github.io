@@ -46,7 +46,7 @@ const def = h.html(
   )
 );
 
-const tagToLines = (el: h._all): readonly string[] => {
+const tagToLines = (el: h.All): readonly string[] => {
   if (typeof el === 'string') {
     return [el];
   }

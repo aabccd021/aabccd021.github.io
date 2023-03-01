@@ -147,12 +147,16 @@ const toTs = (name: string, data: MetaData): readonly string[] => [
 ];
 
 const prefix = `
-export type NonVoidElement = {type: string, attributes: any, children: any[]};
+type NonVoidElement = {
+  readonly type: string, 
+  readonly attributes: any, 
+  readonly children: any[]
+};
 
-export type VoidElement = {type: string, attributes: any};
-
-export type AnyElement = NonVoidElement | VoidElement | string;
-
+type VoidElement = {
+  readonly type: string, 
+  readonly attributes: any
+};
 
 export const builder = <T extends NonVoidElement>(type: T['type']) => 
 (attributes: T['attributes'], ...children: T['children']) => 
@@ -193,7 +197,7 @@ const res: string = pipe(
     '',
     ...arr,
     '',
-    `export type _all = ${allTypeStr};`,
+    `export type All = ${allTypeStr};`,
   ],
   readonlyArray.intercalate(string.Monoid)('\n')
 );
