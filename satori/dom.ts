@@ -27,7 +27,7 @@ export type HTMLTag = keyof React.ReactHTML;
 
 export type SVGTag = keyof React.ReactSVG;
 
-export type HTMLAttributes<T extends HTMLTag> = OmitReactAttribues<
+export type HTMLAttributes<T extends HTMLTag = HTMLTag> = OmitReactAttribues<
   NonNullableFirstParam<React.ReactHTML[T]>
 >;
 
@@ -51,38 +51,51 @@ export type SVGElement<T extends SVGTag> = {
   readonly children: readonly SVGElement<T>[];
 };
 
+export type HTMLElementChildren = readonly (HTMLElement<HTMLTag> | SVGElement<'svg'> | string)[];
+
 export type HTMLElement<T extends HTMLTag> = {
   readonly tag: T;
-  readonly attributes: HTMLAttributes<T>;
-  readonly children: readonly (HTMLElement<HTMLTag> | SVGElement<'svg'> | string)[];
+  readonly attributes: HTMLAttributes;
+  readonly children: HTMLElementChildren;
 };
-
-type Nen<T> = ReaderTaskEither<never, never, T>;
-
-type MapNen<T> = {
-  readonly [P in keyof T]: Nen<T[P]>;
-};
-
-const demap = <T>(m: MapNen<T>) => readonlyRecord.sequence(nen.ApplicativePar)(m) as Nen<T>;
 
 type EnforceNonEmptyRecord<R> = keyof R extends never ? never : R;
 
+type Nen<T> = ReaderTaskEither<number, number, T>;
+
+type MapNen<T> = EnforceNonEmptyRecord<{
+  readonly [P in keyof T]: Nen<T[P]>;
+}>;
+
+const demap = (m: MapNen<HTMLAttributes>): Nen<HTMLAttributes> =>
+  readonlyRecord.sequence(nen.ApplicativePar)(m);
+
+const demap2 = (m: MapNen<HTMLAttributes>): Nen<HTMLAttributes> =>
+  apply.sequenceS(nen.ApplicativePar)(m);
+
+const demap3 = demap2;
+
 export const h = <T extends HTMLTag>(
   tag: HTMLElement<T>['tag'],
-  attributes: EnforceNonEmptyRecord<MapNen<HTMLElement<T>['attributes']>>,
-  ...children: MapNen<HTMLElement<T>['children']>
+  attributes: MapNen<HTMLAttributes<T>>,
+  ...children: MapNen<HTMLElementChildren>
 ): Nen<HTMLElement<T>> => {
-  const attributesNenz = apply.sequenceS(nen.ApplyPar)(attributes);
+  const a = apply.sequenceS(nen.ApplicativePar)(attributes);
+  const b = readonlyRecord.sequence(nen.ApplicativePar)(attributes);
+  const c: Nen<HTMLAttributes<T>> = demap2(attributes);
   return pipe(
-    nen.Do,
-    nen.bind('childrenNen', () => readonlyArray.sequence(nen.ApplicativePar)(children)),
-    nen.bind('attributesNen', () => attributesNenz),
-    nen.map(({ childrenNen, attributesNen }) => ({
+    apply.sequenceS(nen.ApplicativePar)({
+      children: readonlyArray.sequence(nen.ApplicativePar)(children),
+      attributes: apply.sequenceS(nen.ApplicativePar),
+    }),
+    nen.map((resolved) => ({
       tag,
-      attributes: attributesNen,
-      children: childrenNen,
+      attributes: resolved.attributes,
+      children: resolved.children,
     }))
   );
 };
-
 export const c = nen.of;
+
+// eslint-disable-next-line import/no-self-import
+export const b = import('./dom').then((k) => k.c);

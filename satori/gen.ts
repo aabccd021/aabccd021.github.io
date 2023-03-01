@@ -2,8 +2,6 @@
 /* eslint-disable import/no-nodejs-modules */
 import * as fs from 'node:fs/promises';
 
-import type {ReactElement} from 'react';
-
 import {
   console,
   option,
@@ -94,12 +92,14 @@ const getCategoryTags = (cat: string) =>
       )
     : [cat];
 
+const allTags = readonlyRecord.keys(vv);
+
 const getPermittedContent = (data: MetaData): readonly string[] =>
   pipe(
     data.permittedContent,
     option.fromNullable,
     option.map(readonlyArray.chain(getCategoryTags)),
-    option.getOrElseW(() => readonlyRecord.keys(vv))
+    option.getOrElseW(() => allTags)
   );
 
 const getForbiddenDescendant = (data: MetaData): readonly string[] =>
@@ -166,6 +166,8 @@ export const text = (children: string): text => ({
 })
 `;
 
+const allTagsStr = pipe(allTags, readonlyArray.intercalate(string.Monoid)('|'));
+
 const res: string = pipe(
   validAttributes,
   readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
@@ -183,6 +185,8 @@ const res: string = pipe(
     '};',
     '',
     ...arr,
+    '',
+    `export type _all = ${allTagsStr};`,
   ],
   readonlyArray.intercalate(string.Monoid)('\n')
 );
