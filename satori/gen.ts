@@ -128,9 +128,11 @@ const childrenStr = (name: string, data: MetaData): string =>
     getPermittedContent(data),
     readonlyArray.difference(string.Eq)(getForbiddenDescendant(data)),
     readonlyArray.difference(string.Eq)(getForbiddenChildFromPermittedParent(name)),
-    readonlyArray.map((x) => `${x}`),
     readonlyArray.uniq(string.Eq),
-    readonlyArray.intercalate(string.Monoid)('|')
+    readonlyArray.chunksOf(8),
+    readonlyArray.map(readonlyArray.intercalate(string.Monoid)(' | ')),
+    readonlyArray.map((x) => `    ${x}`),
+    readonlyArray.intercalate(string.Monoid)(' |\n')
   );
 
 const toTs = (name: string, data: MetaData): readonly string[] => [
@@ -139,7 +141,7 @@ const toTs = (name: string, data: MetaData): readonly string[] => [
   `  readonly attributes: globalAttributes & {`,
   ...attrsStr({ ...data.attributes }),
   `  };`,
-  ...(data.void === true ? [] : [`  readonly children: (${childrenStr(name, data)})[];`]),
+  ...(data.void === true ? [] : [`  readonly children: (`, childrenStr(name, data), `  )[];`]),
   `};`,
   '',
   `export const ${name} = ${data.void === true ? 'voidBuilder' : 'builder'}<${name}>('${name}')`,
@@ -160,19 +162,12 @@ type VoidElement = {
 
 export const builder = <T extends NonVoidElement>(tag: T['tag']) => 
 (attributes: T['attributes'], ...children: T['children']) => 
-({
-  tag,
-  attributes,
-  children
-})
+({ tag, attributes, children })
 
 
 export const voidBuilder = <T extends VoidElement>(tag: T['tag']) => 
 (attributes: T['attributes']) => 
-({
-  tag,
-  attributes,
-})
+({ tag, attributes, })
 `;
 
 const allTypeStr = pipe(
