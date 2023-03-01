@@ -5,6 +5,10 @@
 /* eslint-disable import/no-nodejs-modules */
 import * as fs from 'node:fs';
 
+import { option } from 'fp-ts';
+import { pipe } from 'fp-ts/function';
+import type { Option } from 'fp-ts/Option';
+
 import * as h from './html';
 
 const def = h.html(
@@ -44,15 +48,15 @@ const def = h.html(
   )
 );
 
-const makeAttributesString = (el: Exclude<h.All, string>): string => {
-  if (!('attributes' in el)) {
-    return '';
+const makeAttributesString = (element: Exclude<h.All, string>): Option<string> => {
+  if (!('attributes' in element)) {
+    return option.none;
   }
 
-  const attributeEntries = Object.entries(el.attributes);
+  const attributeEntries = Object.entries(element.attributes);
 
   if (attributeEntries.length <= 0) {
-    return '';
+    return option.none;
   }
 
   const attributesString = attributeEntries
@@ -60,24 +64,30 @@ const makeAttributesString = (el: Exclude<h.All, string>): string => {
       typeof attributeValue === 'boolean' ? attributeName : `${attributeName}="${attributeValue}"`
     )
     .join(' ');
-  return ` ${attributesString}`;
+  return option.some(attributesString);
 };
 
-const makeElementString = (el: h.All): readonly string[] => {
-  if (typeof el === 'string') {
-    return [el];
+const makeElementString = (element: h.All): readonly string[] => {
+  if (typeof element === 'string') {
+    return [element];
   }
-  const attributesString = makeAttributesString(el);
-  const openTag = `<${el.tag}${attributesString}>`;
+  const attributesString = pipe(
+    element,
+    makeAttributesString,
+    option.map((str) => ` ${str}`),
+    option.getOrElse(() => '')
+  );
 
-  if (!('children' in el)) {
+  const openTag = `<${element.tag}${attributesString}>`;
+
+  if (!('children' in element)) {
     return [openTag];
   }
 
-  const children = Object.values(el.children)
+  const children = Object.values(element.children)
     .flatMap(makeElementString)
     .map((x) => `  ${x}`);
-  const closeTag = `</${el.tag}>`;
+  const closeTag = `</${element.tag}>`;
   return [openTag, ...children, closeTag];
 };
 
