@@ -21,12 +21,12 @@ const def = h.html(
     {},
     h.header(
       {},
-      h.div({ class: 'title' }, h.p({}, h.text('aabccd021 blog'))),
+      h.div({ class: 'title' }, h.p({}, 'aabccd021 blog')),
       h.nav(
         {},
-        h.a({ href: '/', class: 'nav-item' }, h.text('Home')),
-        h.a({ href: '/tags/', class: 'nav-item' }, h.text('Tags')),
-        h.a({ href: '/about/', class: 'nav-item' }, h.text('About Me')),
+        h.a({ href: '/', class: 'nav-item' }, 'Home'),
+        h.a({ href: '/tags/', class: 'nav-item' }, 'Tags'),
+        h.a({ href: '/about/', class: 'nav-item' }, 'About Me'),
         h.a(
           {
             href: '/feed/feed.xml',
@@ -34,24 +34,21 @@ const def = h.html(
             rel: 'alternate',
             type: 'application/atom+xml',
           },
-          h.text('RSS Feed')
+          'RSS Feed'
         )
       )
     ),
     h.main(
       { id: 'main' },
-      h.h1({}, h.text('Create new GitHub repository from CLI with gh command')),
-      h.ul(
-        { class: 'post-metadata' },
-        h.li({}, h.text('Posted on'), h.time({}, h.text('05 February 2023')))
-      )
+      h.h1({}, 'Create new GitHub repository from CLI with gh command'),
+      h.ul({ class: 'post-metadata' }, h.li({}, 'Posted on', h.time({}, '05 February 2023')))
     )
   )
 );
 
 const tagToLines = (el: h._all): readonly string[] => {
-  if (el.type === 'text') {
-    return [el.children];
+  if (typeof el === 'string') {
+    return [el];
   }
   const attributes =
     'attributes' in el && Object.keys(el.attributes).length > 0
@@ -75,31 +72,4 @@ const tagToLines = (el: h._all): readonly string[] => {
   return [`<${el.type}${attributes}>`, ...children, `</${el.type}>`];
 };
 
-const tagToLinesAny = (el: h.AnyElement): readonly string[] => {
-  const attributes =
-    'attributes' in el && Object.keys(el.attributes).length > 0
-      ? pipe(
-          Object.entries(el.attributes)
-            .map(([k, v]) => (v === true ? k : `${k}="${v}"`))
-            .join(' '),
-          (x) => ` ${x}`
-        )
-      : '';
-  const children =
-    'children' in el
-      ? typeof el.children === 'string' ? [`  ${el.children}`] : Object.values(el.children)
-            .flatMap(tagToLines)
-          .map((x) => `  ${x}`)
-      : undefined;
-
-  if (children === undefined) {
-    return [`<${el.type}${attributes}>`];
-  }
-  return [`<${el.type}${attributes}>`, ...children, `</${el.type}>`];
-};
-
-
 fs.writeFileSync('output.html', tagToLines(def).join('\n'));
-
-
-fs.writeFileSync('outputAny.html', tagToLinesAny(def).join('\n'));

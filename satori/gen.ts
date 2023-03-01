@@ -65,12 +65,12 @@ const validAttributes = pipe(
   readonlyRecord.fromEntries
 );
 
-const textMetaData: MetaData = {
+const stringMetadata: MetaData = {
   flow: true,
   phrasing: true,
 };
 
-const vv = pipe(validAttributes, readonlyRecord.upsertAt('text', textMetaData));
+const tagAndString = pipe(validAttributes, readonlyRecord.upsertAt('string', stringMetadata));
 
 const fss: Record<string, (at: MetaData) => boolean> = {
   _meta: (at) => at.meta === true,
@@ -86,13 +86,15 @@ const getCategoryTags = (cat: string) =>
   cat.startsWith('@')
     ? pipe(
         fss,
-        readonlyRecord.map((fsss) => pipe(vv, readonlyRecord.filter(fsss), readonlyRecord.keys)),
+        readonlyRecord.map((fsss) =>
+          pipe(tagAndString, readonlyRecord.filter(fsss), readonlyRecord.keys)
+        ),
         readonlyRecord.lookup(normalizeCategory(cat)),
         option.getOrElseW(() => [])
       )
     : [cat];
 
-const allTags = readonlyRecord.keys(vv);
+const allTags = readonlyRecord.keys(tagAndString);
 
 const getPermittedContent = (data: MetaData): readonly string[] =>
   pipe(
@@ -112,7 +114,7 @@ const getForbiddenDescendant = (data: MetaData): readonly string[] =>
 
 const getForbiddenChildFromPermittedParent = (name: string): readonly string[] =>
   pipe(
-    vv,
+    tagAndString,
     readonlyRecord.filterMap((el) =>
       pipe(el.permittedParent, option.fromNullable, option.map(readonlyArray.elem(string.Eq)(name)))
     ),
@@ -149,7 +151,7 @@ export type NonVoidElement = {type: string, attributes: any, children: any[]};
 
 export type VoidElement = {type: string, attributes: any};
 
-export type AnyElement = NonVoidElement | VoidElement;
+export type AnyElement = NonVoidElement | VoidElement | string;
 
 
 export const builder = <T extends NonVoidElement>(type: T['type']) => 
@@ -169,19 +171,11 @@ export const voidBuilder = <T extends VoidElement>(type: T['type']) =>
 })
 `;
 
-const textEl = `
-export type text = {
-  readonly type: 'text';
-  readonly children: string;
-}
-
-export const text = (children: string): text => ({
-  type: 'text',
-  children
-})
-`;
-
-const allTagsStr = pipe(allTags, readonlyArray.intercalate(string.Monoid)('|'));
+const allTypeStr = pipe(
+  tagAndString,
+  readonlyRecord.keys,
+  readonlyArray.intercalate(string.Monoid)('|')
+);
 
 const res: string = pipe(
   validAttributes,
@@ -193,15 +187,13 @@ const res: string = pipe(
     '',
     prefix,
     '',
-    textEl,
-    '',
     `export type globalAttributes = {`,
     ...attrsStr(globalAttributes),
     '};',
     '',
     ...arr,
     '',
-    `export type _all = ${allTagsStr};`,
+    `export type _all = ${allTypeStr};`,
   ],
   readonlyArray.intercalate(string.Monoid)('\n')
 );
