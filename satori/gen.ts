@@ -122,6 +122,14 @@ const getForbiddenChildFromPermittedParent = (name: string): readonly string[] =
     readonlyRecord.keys
   );
 
+const groupByFirstCharacter = readonlyArray.chop((aa: readonly string[]) => {
+  const { init, rest } = pipe(
+    aa,
+    readonlyArray.spanLeft((a) => a.startsWith(aa[0]?.[0] ?? ''))
+  );
+  return [init, rest];
+});
+
 // TODO: category doesn't exists error
 const childrenStr = (name: string, data: MetaData): string =>
   pipe(
@@ -129,7 +137,7 @@ const childrenStr = (name: string, data: MetaData): string =>
     readonlyArray.difference(string.Eq)(getForbiddenDescendant(data)),
     readonlyArray.difference(string.Eq)(getForbiddenChildFromPermittedParent(name)),
     readonlyArray.uniq(string.Eq),
-    readonlyArray.chunksOf(8),
+    groupByFirstCharacter,
     readonlyArray.map(readonlyArray.intercalate(string.Monoid)(' | ')),
     readonlyArray.map((x) => `    ${x}`),
     readonlyArray.intercalate(string.Monoid)(' |\n')

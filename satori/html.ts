@@ -52,19 +52,27 @@ export type a = {
     readonly 'type' ?: string;
   };
   readonly children: (
-    abbr | address | area | article | aside | audio | b | bdi |
-    bdo | blockquote | br | canvas | caption | cite | code | col |
-    colgroup | data | datalist | dd | del | dfn | dialog | div |
-    dl | dt | em | fieldset | figcaption | figure | footer | form |
-    h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup |
-    hr | html | i | img | input | ins | kbd | legend |
-    link | main | map | mark | math | menu | meta | meter |
-    nav | noscript | object_ | ol | optgroup | option | output | p |
-    param | picture | pre | progress | q | rb | rp | rt |
-    rtc | ruby | s | samp | script | section | slot | small |
-    source | span | string | strong | style | sub | summary | sup |
-    svg | table | tbody | td | template | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | dfn | dialog | div | dl | dt
+    | em
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | img | input | ins
+    | kbd
+    | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -75,13 +83,25 @@ export type abbr = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -92,15 +112,27 @@ export type address = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | dialog |
-    div | dl | em | embed | fieldset | figure | form | hr |
-    i | iframe | img | input | ins | kbd | label | main |
-    map | mark | math | menu | meter | noscript | object_ | ol |
-    output | p | picture | pre | progress | q | ruby | s |
-    samp | script | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | form
+    | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -128,17 +160,27 @@ export type article = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | map | mark | math |
-    menu | meter | nav | noscript | object_ | ol | output | p |
-    picture | pre | progress | q | ruby | s | samp | script |
-    section | select | slot | small | span | string | strong | sub |
-    sup | svg | table | td | template | textarea | th | time |
-    u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -149,17 +191,27 @@ export type aside = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | map | mark | math |
-    menu | meter | nav | noscript | object_ | ol | output | p |
-    picture | pre | progress | q | ruby | s | samp | script |
-    section | select | slot | small | span | string | strong | sub |
-    sup | svg | table | td | template | textarea | th | time |
-    u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -174,17 +226,29 @@ export type audio = {
     readonly 'src' ?: string;
   };
   readonly children: (
-    a | abbr | address | article | aside | b | bdi | bdo |
-    blockquote | br | button | canvas | cite | code | data | datalist |
-    del | details | dfn | dialog | div | dl | em | embed |
-    fieldset | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | i | iframe | img |
-    input | ins | kbd | label | main | map | mark | math |
-    menu | meter | nav | noscript | object_ | ol | output | p |
-    picture | pre | progress | q | ruby | s | samp | script |
-    section | select | slot | small | span | string | strong | sub |
-    sup | svg | table | td | template | textarea | th | time |
-    u | ul | var_ | wbr | track | source
+    a | abbr | address | article | aside
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_
+    | wbr
+    | track
+    | source
   )[];
 };
 
@@ -195,13 +259,25 @@ export type b = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -220,13 +296,25 @@ export type bdi = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -237,13 +325,25 @@ export type bdo = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -254,17 +354,27 @@ export type blockquote = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -275,17 +385,27 @@ export type body = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -312,12 +432,24 @@ export type button = {
     readonly 'type' ?: 'submit'|'reset'|'button';
   };
   readonly children: (
-    abbr | audio | b | bdi | bdo | br | canvas | cite |
-    code | data | datalist | del | dfn | em | i | img |
-    input | ins | kbd | map | mark | math | meter | noscript |
-    object_ | output | picture | progress | q | ruby | s | samp |
-    script | slot | small | span | string | strong | sub | sup |
-    svg | template | time | u | var_ | video | wbr
+    abbr | audio
+    | b | bdi | bdo | br
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em
+    | i | img | input | ins
+    | kbd
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | slot | small | span | string | strong | sub | sup | svg
+    | template | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -328,20 +460,27 @@ export type canvas = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -352,17 +491,27 @@ export type caption = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | td | template | textarea | th | time |
-    u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -373,13 +522,25 @@ export type cite = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -390,13 +551,25 @@ export type code = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -417,7 +590,8 @@ export type colgroup = {
     readonly 'span' ?: number;
   };
   readonly children: (
-    col | template
+    col
+    | template
   )[];
 };
 
@@ -428,13 +602,25 @@ export type data = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -445,13 +631,26 @@ export type datalist = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr | option
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
+    | option
   )[];
 };
 
@@ -462,17 +661,27 @@ export type dd = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -483,20 +692,27 @@ export type del = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -508,17 +724,28 @@ export type details = {
     readonly 'open' ?: true;
   };
   readonly children: (
-    summary | a | abbr | address | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | cite | code |
-    data | datalist | del | details | dfn | dialog | div | dl |
-    em | embed | fieldset | figure | footer | form | h1 | h2 |
-    h3 | h4 | h5 | h6 | header | hgroup | hr | i |
-    iframe | img | input | ins | kbd | label | main | map |
-    mark | math | menu | meter | nav | noscript | object_ | ol |
-    output | p | picture | pre | progress | q | ruby | s |
-    samp | script | section | select | slot | small | span | string |
-    strong | sub | sup | svg | table | td | template | textarea |
-    th | time | u | ul | var_ | video | wbr
+    summary
+    | a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -529,13 +756,25 @@ export type dfn = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | em | embed |
-    i | iframe | img | input | ins | kbd | label | map |
-    mark | math | meter | noscript | object_ | output | picture | progress |
-    q | ruby | s | samp | script | select | slot | small |
-    span | string | strong | sub | sup | svg | template | textarea |
-    time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -547,17 +786,27 @@ export type dialog = {
     readonly 'open' ?: true;
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -568,17 +817,28 @@ export type div = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr | dt | dd
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
+    | dt | dd
   )[];
 };
 
@@ -600,15 +860,27 @@ export type dt = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | audio | b | bdi | bdo | br |
-    button | canvas | cite | code | data | datalist | del | dfn |
-    dialog | div | dl | em | embed | fieldset | figure | form |
-    hr | i | iframe | img | input | ins | kbd | label |
-    main | map | mark | math | menu | meter | noscript | object_ |
-    ol | output | p | picture | pre | progress | q | ruby |
-    s | samp | script | select | slot | small | span | string |
-    strong | sub | sup | svg | table | td | template | textarea |
-    th | time | u | ul | var_ | video | wbr
+    a | abbr | address | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | form
+    | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -619,13 +891,25 @@ export type em = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -647,17 +931,28 @@ export type fieldset = {
     readonly 'disabled' ?: true;
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr | legend
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
+    | legend
   )[];
 };
 
@@ -668,17 +963,27 @@ export type figcaption = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -689,17 +994,28 @@ export type figure = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr | figcaption
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
+    | figcaption
   )[];
 };
 
@@ -710,17 +1026,27 @@ export type footer = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | hgroup | hr | i | iframe | img | input |
-    ins | kbd | label | map | mark | math | menu | meter |
-    nav | noscript | object_ | ol | output | p | picture | pre |
-    progress | q | ruby | s | samp | script | section | select |
-    slot | small | span | string | strong | sub | sup | svg |
-    table | td | template | textarea | th | time | u | ul |
-    var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -736,17 +1062,27 @@ export type form = {
     readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -757,13 +1093,25 @@ export type h1 = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -774,13 +1122,25 @@ export type h2 = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -791,13 +1151,25 @@ export type h3 = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -808,13 +1180,25 @@ export type h4 = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -825,13 +1209,25 @@ export type h5 = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -842,13 +1238,25 @@ export type h6 = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -859,7 +1267,13 @@ export type head = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    base | title | link | meta | noscript | script | style | template
+    base
+    | title
+    | link
+    | meta
+    | noscript
+    | script | style
+    | template
   )[];
 };
 
@@ -870,17 +1284,27 @@ export type header = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | hgroup | hr | i | iframe | img | input |
-    ins | kbd | label | map | mark | math | menu | meter |
-    nav | noscript | object_ | ol | output | p | picture | pre |
-    progress | q | ruby | s | samp | script | section | select |
-    slot | small | span | string | strong | sub | sup | svg |
-    table | td | template | textarea | th | time | u | ul |
-    var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -891,7 +1315,8 @@ export type hgroup = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    p | h1 | h2 | h3 | h4 | h5 | h6
+    p
+    | h1 | h2 | h3 | h4 | h5 | h6
   )[];
 };
 
@@ -911,7 +1336,8 @@ export type html = {
     readonly 'lang' : string;
   };
   readonly children: (
-    head | body
+    head
+    | body
   )[];
 };
 
@@ -922,13 +1348,25 @@ export type i = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -941,20 +1379,27 @@ export type iframe = {
     readonly 'title' : string;
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1003,20 +1448,27 @@ export type ins = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1027,13 +1479,25 @@ export type kbd = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1044,13 +1508,24 @@ export type label = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | map |
-    mark | math | meter | noscript | object_ | output | picture | progress |
-    q | ruby | s | samp | script | select | slot | small |
-    span | string | strong | sub | sup | svg | template | textarea |
-    time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1061,14 +1536,26 @@ export type legend = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr | h1 | h2 |
-    h3 | h4 | h5 | h6 | hgroup
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
+    | h1 | h2 | h3 | h4 | h5 | h6 | hgroup
   )[];
 };
 
@@ -1079,17 +1566,27 @@ export type li = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1116,20 +1613,27 @@ export type main = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1141,20 +1645,27 @@ export type map = {
     readonly 'name' : string;
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1165,13 +1676,25 @@ export type mark = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1185,20 +1708,27 @@ export type math = {
     readonly 'overflow' ?: 'linebreak'|'scroll'|'elide'|'truncate'|'scale';
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1209,7 +1739,8 @@ export type menu = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    script | li
+    script
+    | li
   )[];
 };
 
@@ -1233,13 +1764,25 @@ export type meter = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | noscript | object_ | output | picture | progress |
-    q | ruby | s | samp | script | select | slot | small |
-    span | string | strong | sub | sup | svg | template | textarea |
-    time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1250,17 +1793,27 @@ export type nav = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | map | mark | math |
-    menu | meter | nav | noscript | object_ | ol | output | p |
-    picture | pre | progress | q | ruby | s | samp | script |
-    section | select | slot | small | span | string | strong | sub |
-    sup | svg | table | td | template | textarea | th | time |
-    u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1271,20 +1824,27 @@ export type noscript = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | object_ |
-    ol | optgroup | option | output | p | param | picture | pre |
-    progress | q | rb | rp | rt | rtc | ruby | s |
-    samp | script | section | select | slot | small | source | span |
-    string | strong | style | sub | summary | sup | svg | table |
-    tbody | td | template | textarea | tfoot | th | thead | time |
-    tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1298,17 +1858,28 @@ export type object_ = {
     readonly 'name' ?: string;
   };
   readonly children: (
-    param | a | abbr | address | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | cite | code |
-    data | datalist | del | details | dfn | dialog | div | dl |
-    em | embed | fieldset | figure | footer | form | h1 | h2 |
-    h3 | h4 | h5 | h6 | header | hgroup | hr | i |
-    iframe | img | input | ins | kbd | label | main | map |
-    mark | math | menu | meter | nav | noscript | object_ | ol |
-    output | p | picture | pre | progress | q | ruby | s |
-    samp | script | section | select | slot | small | span | string |
-    strong | sub | sup | svg | table | td | template | textarea |
-    th | time | u | ul | var_ | video | wbr
+    param
+    | a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1346,20 +1917,27 @@ export type option = {
     readonly 'selected' ?: true;
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1370,13 +1948,25 @@ export type output = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1387,13 +1977,25 @@ export type p = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1412,7 +2014,8 @@ export type picture = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    source | img
+    source
+    | img
   )[];
 };
 
@@ -1423,13 +2026,25 @@ export type pre = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1440,13 +2055,25 @@ export type progress = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    q | ruby | s | samp | script | select | slot | small |
-    span | string | strong | sub | sup | svg | template | textarea |
-    time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1457,13 +2084,25 @@ export type q = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1474,13 +2113,25 @@ export type rb = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1491,13 +2142,25 @@ export type rp = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1508,13 +2171,25 @@ export type rt = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1525,13 +2200,26 @@ export type rtc = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr | rt
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
+    | rt
   )[];
 };
 
@@ -1542,14 +2230,26 @@ export type ruby = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr | rb | rp |
-    rt | rtc
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
+    | rb | rp | rt | rtc
   )[];
 };
 
@@ -1560,13 +2260,25 @@ export type s = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1577,13 +2289,25 @@ export type samp = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1600,20 +2324,27 @@ export type script = {
     readonly 'src' ?: string;
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1624,17 +2355,27 @@ export type section = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1661,20 +2402,27 @@ export type slot = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1685,13 +2433,25 @@ export type small = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1710,13 +2470,25 @@ export type span = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1727,13 +2499,25 @@ export type strong = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1744,20 +2528,27 @@ export type style = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1768,13 +2559,25 @@ export type sub = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1785,14 +2588,26 @@ export type summary = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr | h1 | h2 |
-    h3 | h4 | h5 | h6 | hgroup
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
+    | h1 | h2 | h3 | h4 | h5 | h6 | hgroup
   )[];
 };
 
@@ -1803,13 +2618,25 @@ export type sup = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1820,20 +2647,27 @@ export type svg = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1844,20 +2678,27 @@ export type table = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1868,7 +2709,8 @@ export type tbody = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    script | tr
+    script
+    | tr
   )[];
 };
 
@@ -1881,17 +2723,27 @@ export type td = {
     readonly 'rowspan' ?: number;
   };
   readonly children: (
-    a | abbr | address | article | aside | audio | b | bdi |
-    bdo | blockquote | br | button | canvas | cite | code | data |
-    datalist | del | details | dfn | dialog | div | dl | em |
-    embed | fieldset | figure | footer | form | h1 | h2 | h3 |
-    h4 | h5 | h6 | header | hgroup | hr | i | iframe |
-    img | input | ins | kbd | label | main | map | mark |
-    math | menu | meter | nav | noscript | object_ | ol | output |
-    p | picture | pre | progress | q | ruby | s | samp |
-    script | section | select | slot | small | span | string | strong |
-    sub | sup | svg | table | td | template | textarea | th |
-    time | u | ul | var_ | video | wbr
+    a | abbr | address | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1902,21 +2754,27 @@ export type template = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | li | link |
-    main | map | mark | math | menu | meta | meter | nav |
-    noscript | object_ | ol | optgroup | option | output | p | param |
-    picture | pre | progress | q | rb | rp | rt | rtc |
-    ruby | s | samp | script | section | select | slot | small |
-    source | span | string | strong | style | sub | summary | sup |
-    svg | table | tbody | td | template | textarea | tfoot | th |
-    thead | time | tr | track | u | ul | var_ | video |
-    wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | li | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1938,20 +2796,27 @@ export type textarea = {
     readonly 'wrap' ?: 'hard'|'soft';
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -1976,15 +2841,27 @@ export type th = {
     readonly 'scope' ?: 'row'|'col'|'rowgroup'|'colgroup';
   };
   readonly children: (
-    a | abbr | address | audio | b | bdi | bdo | br |
-    button | canvas | cite | code | data | datalist | del | dfn |
-    dialog | div | dl | em | embed | fieldset | figure | form |
-    hr | i | iframe | img | input | ins | kbd | label |
-    main | map | mark | math | menu | meter | noscript | object_ |
-    ol | output | p | picture | pre | progress | q | ruby |
-    s | samp | script | select | slot | small | span | string |
-    strong | sub | sup | svg | table | td | template | textarea |
-    th | time | u | ul | var_ | video | wbr
+    a | abbr | address | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | form
+    | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -2006,13 +2883,25 @@ export type time = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -2023,20 +2912,27 @@ export type title = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | address | area | article | aside | audio | b |
-    bdi | bdo | blockquote | br | button | canvas | caption | cite |
-    code | col | colgroup | data | datalist | dd | del | details |
-    dfn | dialog | div | dl | dt | em | embed | fieldset |
-    figcaption | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | html | i | iframe |
-    img | input | ins | kbd | label | legend | link | main |
-    map | mark | math | menu | meta | meter | nav | noscript |
-    object_ | ol | optgroup | option | output | p | param | picture |
-    pre | progress | q | rb | rp | rt | rtc | ruby |
-    s | samp | script | section | select | slot | small | source |
-    span | string | strong | style | sub | summary | sup | svg |
-    table | tbody | td | template | textarea | tfoot | th | thead |
-    time | tr | track | u | ul | var_ | video | wbr
+    a | abbr | address | area | article | aside | audio
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | caption | cite | code | col | colgroup
+    | data | datalist | dd | del | details | dfn | dialog | div | dl | dt
+    | em | embed
+    | fieldset | figcaption | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr | html
+    | i | iframe | img | input | ins
+    | kbd
+    | label | legend | link
+    | main | map | mark | math | menu | meta | meter
+    | nav | noscript
+    | object_ | ol | optgroup | option | output
+    | p | param | picture | pre | progress
+    | q
+    | rb | rp | rt | rtc | ruby
+    | s | samp | script | section | select | slot | small | source | span | string | strong | style | sub | summary | sup | svg
+    | table | tbody | td | template | textarea | tfoot | th | thead | time | tr | track
+    | u | ul
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -2066,13 +2962,25 @@ export type u = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -2094,13 +3002,25 @@ export type var_ = {
   readonly attributes: globalAttributes & {
   };
   readonly children: (
-    a | abbr | audio | b | bdi | bdo | br | button |
-    canvas | cite | code | data | datalist | del | dfn | em |
-    embed | i | iframe | img | input | ins | kbd | label |
-    map | mark | math | meter | noscript | object_ | output | picture |
-    progress | q | ruby | s | samp | script | select | slot |
-    small | span | string | strong | sub | sup | svg | template |
-    textarea | time | u | var_ | video | wbr
+    a | abbr | audio
+    | b | bdi | bdo | br | button
+    | canvas | cite | code
+    | data | datalist | del | dfn
+    | em | embed
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | map | mark | math | meter
+    | noscript
+    | object_ | output
+    | picture | progress
+    | q
+    | ruby
+    | s | samp | script | select | slot | small | span | string | strong | sub | sup | svg
+    | template | textarea | time
+    | u
+    | var_ | video
+    | wbr
   )[];
 };
 
@@ -2115,17 +3035,29 @@ export type video = {
     readonly 'src' ?: string;
   };
   readonly children: (
-    a | abbr | address | article | aside | b | bdi | bdo |
-    blockquote | br | button | canvas | cite | code | data | datalist |
-    del | details | dfn | dialog | div | dl | em | embed |
-    fieldset | figure | footer | form | h1 | h2 | h3 | h4 |
-    h5 | h6 | header | hgroup | hr | i | iframe | img |
-    input | ins | kbd | label | main | map | mark | math |
-    menu | meter | nav | noscript | object_ | ol | output | p |
-    picture | pre | progress | q | ruby | s | samp | script |
-    section | select | slot | small | span | string | strong | sub |
-    sup | svg | table | td | template | textarea | th | time |
-    u | ul | var_ | wbr | track | source
+    a | abbr | address | article | aside
+    | b | bdi | bdo | blockquote | br | button
+    | canvas | cite | code
+    | data | datalist | del | details | dfn | dialog | div | dl
+    | em | embed
+    | fieldset | figure | footer | form
+    | h1 | h2 | h3 | h4 | h5 | h6 | header | hgroup | hr
+    | i | iframe | img | input | ins
+    | kbd
+    | label
+    | main | map | mark | math | menu | meter
+    | nav | noscript
+    | object_ | ol | output
+    | p | picture | pre | progress
+    | q
+    | ruby
+    | s | samp | script | section | select | slot | small | span | string | strong | sub | sup | svg
+    | table | td | template | textarea | th | time
+    | u | ul
+    | var_
+    | wbr
+    | track
+    | source
   )[];
 };
 
