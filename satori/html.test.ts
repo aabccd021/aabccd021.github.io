@@ -1,6 +1,7 @@
 #!/usr/bin/env tsx
 /* eslint-disable node/no-sync */
 /* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/no-conditional-statement */
 /* eslint-disable import/no-nodejs-modules */
 import * as fs from 'node:fs';
 
@@ -49,7 +50,6 @@ const def = h.html(
 );
 
 const tagToLines = (el: h._all): readonly string[] => {
-  // eslint-disable-next-line functional/no-conditional-statement
   if (el.type === 'text') {
     return [el.children];
   }
@@ -62,9 +62,16 @@ const tagToLines = (el: h._all): readonly string[] => {
           (x) => ` ${x}`
         )
       : '';
-  const children = Object.values(el.children)
-    .flatMap(tagToLines)
-    .map((x) => `  ${x}`);
+  const children =
+    'children' in el
+      ? Object.values(el.children)
+          .flatMap(tagToLines)
+          .map((x) => `  ${x}`)
+      : undefined;
+
+  if (children === undefined) {
+    return [`<${el.type}${attributes}>`];
+  }
   return [`<${el.type}${attributes}>`, ...children, `</${el.type}>`];
 };
 

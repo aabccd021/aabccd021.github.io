@@ -11,6 +11,15 @@ export const builder = <T extends {type: string, attributes: any, children: any[
 
 
 
+export const voidBuilder = <T extends {type: string, attributes: any}>(type: T['type']) => 
+(attributes: T['attributes']) => 
+({
+  type,
+  attributes,
+})
+
+
+
 export type text = {
   readonly type: 'text';
   readonly children: string;
@@ -87,10 +96,9 @@ export type area = {
     readonly 'shape' ?: 'rect'|'circle'|'poly'|'default';
     readonly 'target' ?: '_blank'|'_self'|'_parent'|'_top';
   };
-  readonly children: (never)[];
 };
 
-export const area = builder<area>('area')
+export const area = voidBuilder<area>('area')
 
 export type article = {
   readonly type: 'article';
@@ -136,10 +144,9 @@ export type base = {
   readonly type: 'base';
   readonly attributes: globalAttributes & {
   };
-  readonly children: (never)[];
 };
 
-export const base = builder<base>('base')
+export const base = voidBuilder<base>('base')
 
 export type bdi = {
   readonly type: 'bdi';
@@ -181,10 +188,9 @@ export type br = {
   readonly type: 'br';
   readonly attributes: globalAttributes & {
   };
-  readonly children: (never)[];
 };
 
-export const br = builder<br>('br')
+export const br = voidBuilder<br>('br')
 
 export type button = {
   readonly type: 'button';
@@ -244,10 +250,9 @@ export type col = {
   readonly attributes: globalAttributes & {
     readonly 'span' ?: number;
   };
-  readonly children: (never)[];
 };
 
-export const col = builder<col>('col')
+export const col = voidBuilder<col>('col')
 
 export type colgroup = {
   readonly type: 'colgroup';
@@ -366,10 +371,9 @@ export type embed = {
     readonly 'src' : string;
     readonly 'title' : string;
   };
-  readonly children: (never)[];
 };
 
-export const embed = builder<embed>('embed')
+export const embed = voidBuilder<embed>('embed')
 
 export type fieldset = {
   readonly type: 'fieldset';
@@ -507,10 +511,9 @@ export type hr = {
   readonly type: 'hr';
   readonly attributes: globalAttributes & {
   };
-  readonly children: (never)[];
 };
 
-export const hr = builder<hr>('hr')
+export const hr = voidBuilder<hr>('hr')
 
 export type html = {
   readonly type: 'html';
@@ -553,10 +556,9 @@ export type img = {
     readonly 'srcset' ?: string;
     readonly 'width' ?: number;
   };
-  readonly children: (never)[];
 };
 
-export const img = builder<img>('img')
+export const img = voidBuilder<img>('img')
 
 export type input = {
   readonly type: 'input';
@@ -577,10 +579,9 @@ export type input = {
     readonly 'spellcheck' ?: 'default'|'false'|'true';
     readonly 'type' ?: 'button'|'checkbox'|'color'|'date'|'datetime-local'|'email'|'file'|'hidden'|'image'|'month'|'number'|'password'|'radio'|'range'|'reset'|'search'|'submit'|'tel'|'text'|'time'|'url'|'week';
   };
-  readonly children: (never)[];
 };
 
-export const input = builder<input>('input')
+export const input = voidBuilder<input>('input')
 
 export type ins = {
   readonly type: 'ins';
@@ -639,10 +640,9 @@ export type link = {
     readonly 'rel' ?: 'alternate'|'author'|'dns'|'help'|'icon'|'license'|'next'|'pingback'|'preconnect'|'prefetch'|'preload'|'prerender'|'prev'|'search'|'stylesheet';
     readonly 'type' ?: string;
   };
-  readonly children: (never)[];
 };
 
-export const link = builder<link>('link')
+export const link = voidBuilder<link>('link')
 
 export type main = {
   readonly type: 'main';
@@ -702,10 +702,9 @@ export type meta = {
     readonly 'itemprop' ?: string;
     readonly 'name' ?: string;
   };
-  readonly children: (never)[];
 };
 
-export const meta = builder<meta>('meta')
+export const meta = voidBuilder<meta>('meta')
 
 export type meter = {
   readonly type: 'meter';
@@ -800,10 +799,9 @@ export type param = {
   readonly type: 'param';
   readonly attributes: globalAttributes & {
   };
-  readonly children: (never)[];
 };
 
-export const param = builder<param>('param')
+export const param = voidBuilder<param>('param')
 
 export type picture = {
   readonly type: 'picture';
@@ -964,10 +962,9 @@ export type source = {
   readonly type: 'source';
   readonly attributes: globalAttributes & {
   };
-  readonly children: (never)[];
 };
 
-export const source = builder<source>('source')
+export const source = voidBuilder<source>('source')
 
 export type span = {
   readonly type: 'span';
@@ -1151,10 +1148,9 @@ export type track = {
   readonly type: 'track';
   readonly attributes: globalAttributes & {
   };
-  readonly children: (never)[];
 };
 
-export const track = builder<track>('track')
+export const track = voidBuilder<track>('track')
 
 export type u = {
   readonly type: 'u';
@@ -1200,10 +1196,9 @@ export type wbr = {
   readonly type: 'wbr';
   readonly attributes: globalAttributes & {
   };
-  readonly children: (never)[];
 };
 
-export const wbr = builder<wbr>('wbr')
+export const wbr = voidBuilder<wbr>('wbr')
 
 
 export type _all = a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|svg|table|tbody|td|template|text|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var_|video|wbr;

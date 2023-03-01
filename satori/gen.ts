@@ -137,10 +137,10 @@ const toTs = (name: string, data: MetaData): readonly string[] => [
   `  readonly attributes: globalAttributes & {`,
   ...attrsStr({ ...data.attributes }),
   `  };`,
-  `  readonly children: (${data.void === true ? 'never' : childrenStr(name, data)})[];`,
+  ...(data.void === true ? [] : [`  readonly children: (${childrenStr(name, data)})[];`]),
   `};`,
   '',
-  `export const ${name} = builder<${name}>('${name}')`,
+  `export const ${name} = ${data.void === true ? 'voidBuilder' : 'builder'}<${name}>('${name}')`,
   '',
 ];
 
@@ -151,6 +151,15 @@ export const builder = <T extends {type: string, attributes: any, children: any[
   type,
   attributes,
   children
+})
+`;
+
+const voidBuilder = `
+export const voidBuilder = <T extends {type: string, attributes: any}>(type: T['type']) => 
+(attributes: T['attributes']) => 
+({
+  type,
+  attributes,
 })
 `;
 
@@ -177,6 +186,8 @@ const res: string = pipe(
     `/* eslint-disable */`,
     '',
     builder,
+    '',
+    voidBuilder,
     '',
     textEl,
     '',
