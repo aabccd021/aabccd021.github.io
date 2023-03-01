@@ -8,11 +8,53 @@ import { pipe } from 'fp-ts/function';
 
 import * as h from './html';
 
-const def = h.html({ lang: 'en' }, h.head({}, h.link({ href: '/favicon.io', rel: 'icon' })));
+const def = h.html(
+  { lang: 'en' },
+  h.head(
+    {},
+    h.link({ href: '/favicon.io', rel: 'icon' }),
+    h.link({ href: '/favicon.svg', rel: 'icon', type: 'image/svg+xml' }),
+    h.meta({ charset: 'utf-8' })
+  ),
+  h.body(
+    {},
+    h.header(
+      {},
+      h.div({ class: 'title' }, h.p({}, h.text('aabccd021 blog'))),
+      h.nav(
+        {},
+        h.a({ href: '/', class: 'nav-item' }, h.text('Home')),
+        h.a({ href: '/tags/', class: 'nav-item' }, h.text('Tags')),
+        h.a({ href: '/about/', class: 'nav-item' }, h.text('About Me')),
+        h.a(
+          {
+            href: '/feed/feed.xml',
+            class: 'nav-item',
+            rel: 'alternate',
+            type: 'application/atom+xml',
+          },
+          h.text('RSS Feed')
+        )
+      )
+    ),
+    h.main(
+      { id: 'main' },
+      h.h1({}, h.text('Create new GitHub repository from CLI with gh command')),
+      h.ul(
+        { class: 'post-metadata' },
+        h.li({}, h.text('Posted on'), h.time({}, h.text('05 February 2023')))
+      )
+    )
+  )
+);
 
 const tagToLines = (el: h._all): readonly string[] => {
+  // eslint-disable-next-line functional/no-conditional-statement
+  if (el.type === 'text') {
+    return [el.children];
+  }
   const attributes =
-    'attributes' in el
+    'attributes' in el && Object.keys(el.attributes).length > 0
       ? pipe(
           Object.entries(el.attributes)
             .map(([k, v]) => (v === true ? k : `${k}="${v}"`))
