@@ -135,7 +135,7 @@ const childrenStr = (name: string, data: MetaData): string =>
 
 const toTs = (name: string, data: MetaData): readonly string[] => [
   `export type ${name} = {`,
-  `  readonly type: '${name}';`,
+  `  readonly tag: '${name}';`,
   `  readonly attributes: globalAttributes & {`,
   ...attrsStr({ ...data.attributes }),
   `  };`,
@@ -148,29 +148,29 @@ const toTs = (name: string, data: MetaData): readonly string[] => [
 
 const prefix = `
 type NonVoidElement = {
-  readonly type: string, 
+  readonly tag: string, 
   readonly attributes: any, 
   readonly children: any[]
 };
 
 type VoidElement = {
-  readonly type: string, 
+  readonly tag: string, 
   readonly attributes: any
 };
 
-export const builder = <T extends NonVoidElement>(type: T['type']) => 
+export const builder = <T extends NonVoidElement>(tag: T['tag']) => 
 (attributes: T['attributes'], ...children: T['children']) => 
 ({
-  type,
+  tag,
   attributes,
   children
 })
 
 
-export const voidBuilder = <T extends VoidElement>(type: T['type']) => 
+export const voidBuilder = <T extends VoidElement>(tag: T['tag']) => 
 (attributes: T['attributes']) => 
 ({
-  type,
+  tag,
   attributes,
 })
 `;

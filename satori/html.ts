@@ -2,29 +2,29 @@
 
 
 type NonVoidElement = {
-  readonly type: string, 
+  readonly tag: string, 
   readonly attributes: any, 
   readonly children: any[]
 };
 
 type VoidElement = {
-  readonly type: string, 
+  readonly tag: string, 
   readonly attributes: any
 };
 
-export const builder = <T extends NonVoidElement>(type: T['type']) => 
+export const builder = <T extends NonVoidElement>(tag: T['tag']) => 
 (attributes: T['attributes'], ...children: T['children']) => 
 ({
-  type,
+  tag,
   attributes,
   children
 })
 
 
-export const voidBuilder = <T extends VoidElement>(type: T['type']) => 
+export const voidBuilder = <T extends VoidElement>(tag: T['tag']) => 
 (attributes: T['attributes']) => 
 ({
-  type,
+  tag,
   attributes,
 })
 
@@ -46,7 +46,7 @@ export type globalAttributes = {
 };
 
 export type a = {
-  readonly type: 'a';
+  readonly tag: 'a';
   readonly attributes: globalAttributes & {
     readonly 'download' ?: string;
     readonly 'href' ?: string;
@@ -64,7 +64,7 @@ export type a = {
 export const a = builder<a>('a')
 
 export type abbr = {
-  readonly type: 'abbr';
+  readonly tag: 'abbr';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -73,7 +73,7 @@ export type abbr = {
 export const abbr = builder<abbr>('abbr')
 
 export type address = {
-  readonly type: 'address';
+  readonly tag: 'address';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -82,7 +82,7 @@ export type address = {
 export const address = builder<address>('address')
 
 export type area = {
-  readonly type: 'area';
+  readonly tag: 'area';
   readonly attributes: globalAttributes & {
     readonly 'coords' ?: string;
     readonly 'download' ?: string;
@@ -99,7 +99,7 @@ export type area = {
 export const area = voidBuilder<area>('area')
 
 export type article = {
-  readonly type: 'article';
+  readonly tag: 'article';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -108,7 +108,7 @@ export type article = {
 export const article = builder<article>('article')
 
 export type aside = {
-  readonly type: 'aside';
+  readonly tag: 'aside';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -117,7 +117,7 @@ export type aside = {
 export const aside = builder<aside>('aside')
 
 export type audio = {
-  readonly type: 'audio';
+  readonly tag: 'audio';
   readonly attributes: globalAttributes & {
     readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
     readonly 'itemprop' ?: string;
@@ -130,7 +130,7 @@ export type audio = {
 export const audio = builder<audio>('audio')
 
 export type b = {
-  readonly type: 'b';
+  readonly tag: 'b';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -139,7 +139,7 @@ export type b = {
 export const b = builder<b>('b')
 
 export type base = {
-  readonly type: 'base';
+  readonly tag: 'base';
   readonly attributes: globalAttributes & {
   };
 };
@@ -147,7 +147,7 @@ export type base = {
 export const base = voidBuilder<base>('base')
 
 export type bdi = {
-  readonly type: 'bdi';
+  readonly tag: 'bdi';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -156,7 +156,7 @@ export type bdi = {
 export const bdi = builder<bdi>('bdi')
 
 export type bdo = {
-  readonly type: 'bdo';
+  readonly tag: 'bdo';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -165,7 +165,7 @@ export type bdo = {
 export const bdo = builder<bdo>('bdo')
 
 export type blockquote = {
-  readonly type: 'blockquote';
+  readonly tag: 'blockquote';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -174,7 +174,7 @@ export type blockquote = {
 export const blockquote = builder<blockquote>('blockquote')
 
 export type body = {
-  readonly type: 'body';
+  readonly tag: 'body';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -183,7 +183,7 @@ export type body = {
 export const body = builder<body>('body')
 
 export type br = {
-  readonly type: 'br';
+  readonly tag: 'br';
   readonly attributes: globalAttributes & {
   };
 };
@@ -191,7 +191,7 @@ export type br = {
 export const br = voidBuilder<br>('br')
 
 export type button = {
-  readonly type: 'button';
+  readonly tag: 'button';
   readonly attributes: globalAttributes & {
     readonly 'autofocus' ?: true;
     readonly 'disabled' ?: true;
@@ -208,7 +208,7 @@ export type button = {
 export const button = builder<button>('button')
 
 export type canvas = {
-  readonly type: 'canvas';
+  readonly tag: 'canvas';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -217,7 +217,7 @@ export type canvas = {
 export const canvas = builder<canvas>('canvas')
 
 export type caption = {
-  readonly type: 'caption';
+  readonly tag: 'caption';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -226,7 +226,7 @@ export type caption = {
 export const caption = builder<caption>('caption')
 
 export type cite = {
-  readonly type: 'cite';
+  readonly tag: 'cite';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -235,7 +235,7 @@ export type cite = {
 export const cite = builder<cite>('cite')
 
 export type code = {
-  readonly type: 'code';
+  readonly tag: 'code';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -244,7 +244,7 @@ export type code = {
 export const code = builder<code>('code')
 
 export type col = {
-  readonly type: 'col';
+  readonly tag: 'col';
   readonly attributes: globalAttributes & {
     readonly 'span' ?: number;
   };
@@ -253,7 +253,7 @@ export type col = {
 export const col = voidBuilder<col>('col')
 
 export type colgroup = {
-  readonly type: 'colgroup';
+  readonly tag: 'colgroup';
   readonly attributes: globalAttributes & {
     readonly 'span' ?: number;
   };
@@ -263,7 +263,7 @@ export type colgroup = {
 export const colgroup = builder<colgroup>('colgroup')
 
 export type data = {
-  readonly type: 'data';
+  readonly tag: 'data';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -272,7 +272,7 @@ export type data = {
 export const data = builder<data>('data')
 
 export type datalist = {
-  readonly type: 'datalist';
+  readonly tag: 'datalist';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|option)[];
@@ -281,7 +281,7 @@ export type datalist = {
 export const datalist = builder<datalist>('datalist')
 
 export type dd = {
-  readonly type: 'dd';
+  readonly tag: 'dd';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -290,7 +290,7 @@ export type dd = {
 export const dd = builder<dd>('dd')
 
 export type del = {
-  readonly type: 'del';
+  readonly tag: 'del';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -299,7 +299,7 @@ export type del = {
 export const del = builder<del>('del')
 
 export type details = {
-  readonly type: 'details';
+  readonly tag: 'details';
   readonly attributes: globalAttributes & {
     readonly 'open' ?: true;
   };
@@ -309,7 +309,7 @@ export type details = {
 export const details = builder<details>('details')
 
 export type dfn = {
-  readonly type: 'dfn';
+  readonly tag: 'dfn';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -318,7 +318,7 @@ export type dfn = {
 export const dfn = builder<dfn>('dfn')
 
 export type dialog = {
-  readonly type: 'dialog';
+  readonly tag: 'dialog';
   readonly attributes: globalAttributes & {
     readonly 'open' ?: true;
   };
@@ -328,7 +328,7 @@ export type dialog = {
 export const dialog = builder<dialog>('dialog')
 
 export type div = {
-  readonly type: 'div';
+  readonly tag: 'div';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|dt|dd)[];
@@ -337,7 +337,7 @@ export type div = {
 export const div = builder<div>('div')
 
 export type dl = {
-  readonly type: 'dl';
+  readonly tag: 'dl';
   readonly attributes: globalAttributes & {
   };
   readonly children: (dt|dd|div)[];
@@ -346,7 +346,7 @@ export type dl = {
 export const dl = builder<dl>('dl')
 
 export type dt = {
-  readonly type: 'dt';
+  readonly tag: 'dt';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|dialog|div|dl|em|embed|fieldset|figure|form|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -355,7 +355,7 @@ export type dt = {
 export const dt = builder<dt>('dt')
 
 export type em = {
-  readonly type: 'em';
+  readonly tag: 'em';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -364,7 +364,7 @@ export type em = {
 export const em = builder<em>('em')
 
 export type embed = {
-  readonly type: 'embed';
+  readonly tag: 'embed';
   readonly attributes: globalAttributes & {
     readonly 'src' : string;
     readonly 'title' : string;
@@ -374,7 +374,7 @@ export type embed = {
 export const embed = voidBuilder<embed>('embed')
 
 export type fieldset = {
-  readonly type: 'fieldset';
+  readonly tag: 'fieldset';
   readonly attributes: globalAttributes & {
     readonly 'disabled' ?: true;
   };
@@ -384,7 +384,7 @@ export type fieldset = {
 export const fieldset = builder<fieldset>('fieldset')
 
 export type figcaption = {
-  readonly type: 'figcaption';
+  readonly tag: 'figcaption';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -393,7 +393,7 @@ export type figcaption = {
 export const figcaption = builder<figcaption>('figcaption')
 
 export type figure = {
-  readonly type: 'figure';
+  readonly tag: 'figure';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr|figcaption)[];
@@ -402,7 +402,7 @@ export type figure = {
 export const figure = builder<figure>('figure')
 
 export type footer = {
-  readonly type: 'footer';
+  readonly tag: 'footer';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -411,7 +411,7 @@ export type footer = {
 export const footer = builder<footer>('footer')
 
 export type form = {
-  readonly type: 'form';
+  readonly tag: 'form';
   readonly attributes: globalAttributes & {
     readonly 'action' ?: string;
     readonly 'autocomplete' ?: 'on'|'off';
@@ -425,7 +425,7 @@ export type form = {
 export const form = builder<form>('form')
 
 export type h1 = {
-  readonly type: 'h1';
+  readonly tag: 'h1';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -434,7 +434,7 @@ export type h1 = {
 export const h1 = builder<h1>('h1')
 
 export type h2 = {
-  readonly type: 'h2';
+  readonly tag: 'h2';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -443,7 +443,7 @@ export type h2 = {
 export const h2 = builder<h2>('h2')
 
 export type h3 = {
-  readonly type: 'h3';
+  readonly tag: 'h3';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -452,7 +452,7 @@ export type h3 = {
 export const h3 = builder<h3>('h3')
 
 export type h4 = {
-  readonly type: 'h4';
+  readonly tag: 'h4';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -461,7 +461,7 @@ export type h4 = {
 export const h4 = builder<h4>('h4')
 
 export type h5 = {
-  readonly type: 'h5';
+  readonly tag: 'h5';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -470,7 +470,7 @@ export type h5 = {
 export const h5 = builder<h5>('h5')
 
 export type h6 = {
-  readonly type: 'h6';
+  readonly tag: 'h6';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -479,7 +479,7 @@ export type h6 = {
 export const h6 = builder<h6>('h6')
 
 export type head = {
-  readonly type: 'head';
+  readonly tag: 'head';
   readonly attributes: globalAttributes & {
   };
   readonly children: (base|title|link|meta|noscript|script|style|template)[];
@@ -488,7 +488,7 @@ export type head = {
 export const head = builder<head>('head')
 
 export type header = {
-  readonly type: 'header';
+  readonly tag: 'header';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|form|h1|h2|h3|h4|h5|h6|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -497,7 +497,7 @@ export type header = {
 export const header = builder<header>('header')
 
 export type hgroup = {
-  readonly type: 'hgroup';
+  readonly tag: 'hgroup';
   readonly attributes: globalAttributes & {
   };
   readonly children: (p|h1|h2|h3|h4|h5|h6)[];
@@ -506,7 +506,7 @@ export type hgroup = {
 export const hgroup = builder<hgroup>('hgroup')
 
 export type hr = {
-  readonly type: 'hr';
+  readonly tag: 'hr';
   readonly attributes: globalAttributes & {
   };
 };
@@ -514,7 +514,7 @@ export type hr = {
 export const hr = voidBuilder<hr>('hr')
 
 export type html = {
-  readonly type: 'html';
+  readonly tag: 'html';
   readonly attributes: globalAttributes & {
     readonly 'lang' : string;
   };
@@ -524,7 +524,7 @@ export type html = {
 export const html = builder<html>('html')
 
 export type i = {
-  readonly type: 'i';
+  readonly tag: 'i';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -533,7 +533,7 @@ export type i = {
 export const i = builder<i>('i')
 
 export type iframe = {
-  readonly type: 'iframe';
+  readonly tag: 'iframe';
   readonly attributes: globalAttributes & {
     readonly 'src' ?: string;
     readonly 'title' : string;
@@ -544,7 +544,7 @@ export type iframe = {
 export const iframe = builder<iframe>('iframe')
 
 export type img = {
-  readonly type: 'img';
+  readonly tag: 'img';
   readonly attributes: globalAttributes & {
     readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
     readonly 'decoding' ?: 'sync'|'async'|'auto';
@@ -559,7 +559,7 @@ export type img = {
 export const img = voidBuilder<img>('img')
 
 export type input = {
-  readonly type: 'input';
+  readonly tag: 'input';
   readonly attributes: globalAttributes & {
     readonly 'autofocus' ?: true;
     readonly 'capture' ?: 'environment'|'user';
@@ -582,7 +582,7 @@ export type input = {
 export const input = voidBuilder<input>('input')
 
 export type ins = {
-  readonly type: 'ins';
+  readonly tag: 'ins';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -591,7 +591,7 @@ export type ins = {
 export const ins = builder<ins>('ins')
 
 export type kbd = {
-  readonly type: 'kbd';
+  readonly tag: 'kbd';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -600,7 +600,7 @@ export type kbd = {
 export const kbd = builder<kbd>('kbd')
 
 export type label = {
-  readonly type: 'label';
+  readonly tag: 'label';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -609,7 +609,7 @@ export type label = {
 export const label = builder<label>('label')
 
 export type legend = {
-  readonly type: 'legend';
+  readonly tag: 'legend';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup)[];
@@ -618,7 +618,7 @@ export type legend = {
 export const legend = builder<legend>('legend')
 
 export type li = {
-  readonly type: 'li';
+  readonly tag: 'li';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -627,7 +627,7 @@ export type li = {
 export const li = builder<li>('li')
 
 export type link = {
-  readonly type: 'link';
+  readonly tag: 'link';
   readonly attributes: globalAttributes & {
     readonly 'as' ?: 'audio'|'audioworklet'|'document'|'embed'|'fetch'|'font'|'frame'|'iframe'|'image'|'manifest'|'object'|'paintworklet'|'report'|'script'|'serviceworker'|'sharedworker'|'style'|'track'|'video'|'webidentity'|'worker'|'xslt';
     readonly 'blocking' ?: 'render';
@@ -643,7 +643,7 @@ export type link = {
 export const link = voidBuilder<link>('link')
 
 export type main = {
-  readonly type: 'main';
+  readonly tag: 'main';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -652,7 +652,7 @@ export type main = {
 export const main = builder<main>('main')
 
 export type map = {
-  readonly type: 'map';
+  readonly tag: 'map';
   readonly attributes: globalAttributes & {
     readonly 'name' : string;
   };
@@ -662,7 +662,7 @@ export type map = {
 export const map = builder<map>('map')
 
 export type mark = {
-  readonly type: 'mark';
+  readonly tag: 'mark';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -671,7 +671,7 @@ export type mark = {
 export const mark = builder<mark>('mark')
 
 export type math = {
-  readonly type: 'math';
+  readonly tag: 'math';
   readonly attributes: globalAttributes & {
     readonly 'dir' ?: 'ltr'|'rtl';
     readonly 'display' ?: 'block'|'inline';
@@ -683,7 +683,7 @@ export type math = {
 export const math = builder<math>('math')
 
 export type menu = {
-  readonly type: 'menu';
+  readonly tag: 'menu';
   readonly attributes: globalAttributes & {
   };
   readonly children: (script|li)[];
@@ -692,7 +692,7 @@ export type menu = {
 export const menu = builder<menu>('menu')
 
 export type meta = {
-  readonly type: 'meta';
+  readonly tag: 'meta';
   readonly attributes: globalAttributes & {
     readonly 'charset' ?: 'utf-8';
     readonly 'content' ?: string;
@@ -705,7 +705,7 @@ export type meta = {
 export const meta = voidBuilder<meta>('meta')
 
 export type meter = {
-  readonly type: 'meter';
+  readonly tag: 'meter';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -714,7 +714,7 @@ export type meter = {
 export const meter = builder<meter>('meter')
 
 export type nav = {
-  readonly type: 'nav';
+  readonly tag: 'nav';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -723,7 +723,7 @@ export type nav = {
 export const nav = builder<nav>('nav')
 
 export type noscript = {
-  readonly type: 'noscript';
+  readonly tag: 'noscript';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -732,7 +732,7 @@ export type noscript = {
 export const noscript = builder<noscript>('noscript')
 
 export type object_ = {
-  readonly type: 'object_';
+  readonly tag: 'object_';
   readonly attributes: globalAttributes & {
     readonly 'blocking' ?: 'render';
     readonly 'data' : string;
@@ -744,7 +744,7 @@ export type object_ = {
 export const object_ = builder<object_>('object_')
 
 export type ol = {
-  readonly type: 'ol';
+  readonly tag: 'ol';
   readonly attributes: globalAttributes & {
     readonly 'reversed' ?: true;
     readonly 'type' ?: 'a'|'A'|'i'|'I'|'1';
@@ -755,7 +755,7 @@ export type ol = {
 export const ol = builder<ol>('ol')
 
 export type optgroup = {
-  readonly type: 'optgroup';
+  readonly tag: 'optgroup';
   readonly attributes: globalAttributes & {
     readonly 'disabled' ?: true;
   };
@@ -765,7 +765,7 @@ export type optgroup = {
 export const optgroup = builder<optgroup>('optgroup')
 
 export type option = {
-  readonly type: 'option';
+  readonly tag: 'option';
   readonly attributes: globalAttributes & {
     readonly 'disabled' ?: true;
     readonly 'selected' ?: true;
@@ -776,7 +776,7 @@ export type option = {
 export const option = builder<option>('option')
 
 export type output = {
-  readonly type: 'output';
+  readonly tag: 'output';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -785,7 +785,7 @@ export type output = {
 export const output = builder<output>('output')
 
 export type p = {
-  readonly type: 'p';
+  readonly tag: 'p';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -794,7 +794,7 @@ export type p = {
 export const p = builder<p>('p')
 
 export type param = {
-  readonly type: 'param';
+  readonly tag: 'param';
   readonly attributes: globalAttributes & {
   };
 };
@@ -802,7 +802,7 @@ export type param = {
 export const param = voidBuilder<param>('param')
 
 export type picture = {
-  readonly type: 'picture';
+  readonly tag: 'picture';
   readonly attributes: globalAttributes & {
   };
   readonly children: (source|img)[];
@@ -811,7 +811,7 @@ export type picture = {
 export const picture = builder<picture>('picture')
 
 export type pre = {
-  readonly type: 'pre';
+  readonly tag: 'pre';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -820,7 +820,7 @@ export type pre = {
 export const pre = builder<pre>('pre')
 
 export type progress = {
-  readonly type: 'progress';
+  readonly tag: 'progress';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -829,7 +829,7 @@ export type progress = {
 export const progress = builder<progress>('progress')
 
 export type q = {
-  readonly type: 'q';
+  readonly tag: 'q';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -838,7 +838,7 @@ export type q = {
 export const q = builder<q>('q')
 
 export type rb = {
-  readonly type: 'rb';
+  readonly tag: 'rb';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -847,7 +847,7 @@ export type rb = {
 export const rb = builder<rb>('rb')
 
 export type rp = {
-  readonly type: 'rp';
+  readonly tag: 'rp';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -856,7 +856,7 @@ export type rp = {
 export const rp = builder<rp>('rp')
 
 export type rt = {
-  readonly type: 'rt';
+  readonly tag: 'rt';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -865,7 +865,7 @@ export type rt = {
 export const rt = builder<rt>('rt')
 
 export type rtc = {
-  readonly type: 'rtc';
+  readonly tag: 'rtc';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|rt)[];
@@ -874,7 +874,7 @@ export type rtc = {
 export const rtc = builder<rtc>('rtc')
 
 export type ruby = {
-  readonly type: 'ruby';
+  readonly tag: 'ruby';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|rb|rp|rt|rtc)[];
@@ -883,7 +883,7 @@ export type ruby = {
 export const ruby = builder<ruby>('ruby')
 
 export type s = {
-  readonly type: 's';
+  readonly tag: 's';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -892,7 +892,7 @@ export type s = {
 export const s = builder<s>('s')
 
 export type samp = {
-  readonly type: 'samp';
+  readonly tag: 'samp';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -901,7 +901,7 @@ export type samp = {
 export const samp = builder<samp>('samp')
 
 export type script = {
-  readonly type: 'script';
+  readonly tag: 'script';
   readonly attributes: globalAttributes & {
     readonly 'async' ?: true;
     readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
@@ -916,7 +916,7 @@ export type script = {
 export const script = builder<script>('script')
 
 export type section = {
-  readonly type: 'section';
+  readonly tag: 'section';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|cite|code|data|datalist|del|details|dfn|dialog|div|dl|em|embed|fieldset|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|i|iframe|img|input|ins|kbd|label|main|map|mark|math|menu|meter|nav|noscript|object_|ol|output|p|picture|pre|progress|q|ruby|s|samp|script|section|select|slot|small|span|string|strong|sub|sup|svg|table|td|template|textarea|th|time|u|ul|var_|video|wbr)[];
@@ -925,7 +925,7 @@ export type section = {
 export const section = builder<section>('section')
 
 export type select = {
-  readonly type: 'select';
+  readonly tag: 'select';
   readonly attributes: globalAttributes & {
     readonly 'autofocus' ?: true;
     readonly 'disabled' ?: true;
@@ -939,7 +939,7 @@ export type select = {
 export const select = builder<select>('select')
 
 export type slot = {
-  readonly type: 'slot';
+  readonly tag: 'slot';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -948,7 +948,7 @@ export type slot = {
 export const slot = builder<slot>('slot')
 
 export type small = {
-  readonly type: 'small';
+  readonly tag: 'small';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -957,7 +957,7 @@ export type small = {
 export const small = builder<small>('small')
 
 export type source = {
-  readonly type: 'source';
+  readonly tag: 'source';
   readonly attributes: globalAttributes & {
   };
 };
@@ -965,7 +965,7 @@ export type source = {
 export const source = voidBuilder<source>('source')
 
 export type span = {
-  readonly type: 'span';
+  readonly tag: 'span';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -974,7 +974,7 @@ export type span = {
 export const span = builder<span>('span')
 
 export type strong = {
-  readonly type: 'strong';
+  readonly tag: 'strong';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -983,7 +983,7 @@ export type strong = {
 export const strong = builder<strong>('strong')
 
 export type style = {
-  readonly type: 'style';
+  readonly tag: 'style';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -992,7 +992,7 @@ export type style = {
 export const style = builder<style>('style')
 
 export type sub = {
-  readonly type: 'sub';
+  readonly tag: 'sub';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -1001,7 +1001,7 @@ export type sub = {
 export const sub = builder<sub>('sub')
 
 export type summary = {
-  readonly type: 'summary';
+  readonly tag: 'summary';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr|h1|h2|h3|h4|h5|h6|hgroup)[];
@@ -1010,7 +1010,7 @@ export type summary = {
 export const summary = builder<summary>('summary')
 
 export type sup = {
-  readonly type: 'sup';
+  readonly tag: 'sup';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -1019,7 +1019,7 @@ export type sup = {
 export const sup = builder<sup>('sup')
 
 export type svg = {
-  readonly type: 'svg';
+  readonly tag: 'svg';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -1028,7 +1028,7 @@ export type svg = {
 export const svg = builder<svg>('svg')
 
 export type table = {
-  readonly type: 'table';
+  readonly tag: 'table';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -1037,7 +1037,7 @@ export type table = {
 export const table = builder<table>('table')
 
 export type tbody = {
-  readonly type: 'tbody';
+  readonly tag: 'tbody';
   readonly attributes: globalAttributes & {
   };
   readonly children: (script|tr)[];
@@ -1046,7 +1046,7 @@ export type tbody = {
 export const tbody = builder<tbody>('tbody')
 
 export type td = {
-  readonly type: 'td';
+  readonly tag: 'td';
   readonly attributes: globalAttributes & {
     readonly 'colspan' ?: number;
     readonly 'rowspan' ?: number;
@@ -1057,7 +1057,7 @@ export type td = {
 export const td = builder<td>('td')
 
 export type template = {
-  readonly type: 'template';
+  readonly tag: 'template';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -1066,7 +1066,7 @@ export type template = {
 export const template = builder<template>('template')
 
 export type textarea = {
-  readonly type: 'textarea';
+  readonly tag: 'textarea';
   readonly attributes: globalAttributes & {
     readonly 'autocomplete' ?: 'on'|'off';
     readonly 'autofocus' ?: true;
@@ -1086,7 +1086,7 @@ export type textarea = {
 export const textarea = builder<textarea>('textarea')
 
 export type tfoot = {
-  readonly type: 'tfoot';
+  readonly tag: 'tfoot';
   readonly attributes: globalAttributes & {
   };
   readonly children: (tr)[];
@@ -1095,7 +1095,7 @@ export type tfoot = {
 export const tfoot = builder<tfoot>('tfoot')
 
 export type th = {
-  readonly type: 'th';
+  readonly tag: 'th';
   readonly attributes: globalAttributes & {
     readonly 'colspan' ?: number;
     readonly 'rowspan' ?: number;
@@ -1107,7 +1107,7 @@ export type th = {
 export const th = builder<th>('th')
 
 export type thead = {
-  readonly type: 'thead';
+  readonly tag: 'thead';
   readonly attributes: globalAttributes & {
   };
   readonly children: (tr)[];
@@ -1116,7 +1116,7 @@ export type thead = {
 export const thead = builder<thead>('thead')
 
 export type time = {
-  readonly type: 'time';
+  readonly tag: 'time';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -1125,7 +1125,7 @@ export type time = {
 export const time = builder<time>('time')
 
 export type title = {
-  readonly type: 'title';
+  readonly tag: 'title';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|address|area|article|aside|audio|b|bdi|bdo|blockquote|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|link|main|map|mark|math|menu|meta|meter|nav|noscript|object_|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|string|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|tr|track|u|ul|var_|video|wbr)[];
@@ -1134,7 +1134,7 @@ export type title = {
 export const title = builder<title>('title')
 
 export type tr = {
-  readonly type: 'tr';
+  readonly tag: 'tr';
   readonly attributes: globalAttributes & {
   };
   readonly children: (td|th)[];
@@ -1143,7 +1143,7 @@ export type tr = {
 export const tr = builder<tr>('tr')
 
 export type track = {
-  readonly type: 'track';
+  readonly tag: 'track';
   readonly attributes: globalAttributes & {
   };
 };
@@ -1151,7 +1151,7 @@ export type track = {
 export const track = voidBuilder<track>('track')
 
 export type u = {
-  readonly type: 'u';
+  readonly tag: 'u';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -1160,7 +1160,7 @@ export type u = {
 export const u = builder<u>('u')
 
 export type ul = {
-  readonly type: 'ul';
+  readonly tag: 'ul';
   readonly attributes: globalAttributes & {
   };
   readonly children: (li)[];
@@ -1169,7 +1169,7 @@ export type ul = {
 export const ul = builder<ul>('ul')
 
 export type var_ = {
-  readonly type: 'var_';
+  readonly tag: 'var_';
   readonly attributes: globalAttributes & {
   };
   readonly children: (a|abbr|audio|b|bdi|bdo|br|button|canvas|cite|code|data|datalist|del|dfn|em|embed|i|iframe|img|input|ins|kbd|label|map|mark|math|meter|noscript|object_|output|picture|progress|q|ruby|s|samp|script|select|slot|small|span|string|strong|sub|sup|svg|template|textarea|time|u|var_|video|wbr)[];
@@ -1178,7 +1178,7 @@ export type var_ = {
 export const var_ = builder<var_>('var_')
 
 export type video = {
-  readonly type: 'video';
+  readonly tag: 'video';
   readonly attributes: globalAttributes & {
     readonly 'crossorigin' ?: 'anonymous'|'use-credentials';
     readonly 'itemprop' ?: string;
@@ -1191,7 +1191,7 @@ export type video = {
 export const video = builder<video>('video')
 
 export type wbr = {
-  readonly type: 'wbr';
+  readonly tag: 'wbr';
   readonly attributes: globalAttributes & {
   };
 };

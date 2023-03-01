@@ -5,8 +5,6 @@
 /* eslint-disable import/no-nodejs-modules */
 import * as fs from 'node:fs';
 
-import { pipe } from 'fp-ts/function';
-
 import * as h from './html';
 
 const def = h.html(
@@ -46,30 +44,41 @@ const def = h.html(
   )
 );
 
-const tagToLines = (el: h.All): readonly string[] => {
+const makeAttributesString = (el: Exclude<h.All, string>): string => {
+  if (!('attributes' in el)) {
+    return '';
+  }
+
+  const attributeEntries = Object.entries(el.attributes);
+
+  if (attributeEntries.length <= 0) {
+    return '';
+  }
+
+  const attributesString = attributeEntries
+    .map(([attributeName, attributeValue]) =>
+      typeof attributeValue === 'boolean' ? attributeName : `${attributeName}="${attributeValue}"`
+    )
+    .join(' ');
+  return ` ${attributesString}`;
+};
+
+const makeElementString = (el: h.All): readonly string[] => {
   if (typeof el === 'string') {
     return [el];
   }
-  const attributes =
-    'attributes' in el && Object.keys(el.attributes).length > 0
-      ? pipe(
-          Object.entries(el.attributes)
-            .map(([k, v]) => (v === true ? k : `${k}="${v}"`))
-            .join(' '),
-          (x) => ` ${x}`
-        )
-      : '';
-  const children =
-    'children' in el
-      ? Object.values(el.children)
-          .flatMap(tagToLines)
-          .map((x) => `  ${x}`)
-      : undefined;
+  const attributesString = makeAttributesString(el);
+  const openTag = `<${el.tag}${attributesString}>`;
 
-  if (children === undefined) {
-    return [`<${el.type}${attributes}>`];
+  if (!('children' in el)) {
+    return [openTag];
   }
-  return [`<${el.type}${attributes}>`, ...children, `</${el.type}>`];
+
+  const children = Object.values(el.children)
+    .flatMap(makeElementString)
+    .map((x) => `  ${x}`);
+  const closeTag = `</${el.tag}>`;
+  return [openTag, ...children, closeTag];
 };
 
-fs.writeFileSync('output.html', tagToLines(def).join('\n'));
+fs.writeFileSync('output.html', makeElementString(def).join('\n'));
