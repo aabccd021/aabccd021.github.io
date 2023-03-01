@@ -53,17 +53,18 @@ const makeAttributesString = (element: Exclude<h.All, string>): Option<string> =
     return option.none;
   }
 
-  const attributeEntries = Object.entries(element.attributes);
+  const attributesEntries = Object.entries(element.attributes);
 
-  if (attributeEntries.length <= 0) {
+  if (attributesEntries.length <= 0) {
     return option.none;
   }
 
-  const attributesString = attributeEntries
+  const attributesString = attributesEntries
     .map(([attributeName, attributeValue]) =>
       typeof attributeValue === 'boolean' ? attributeName : `${attributeName}="${attributeValue}"`
     )
     .join(' ');
+
   return option.some(attributesString);
 };
 
