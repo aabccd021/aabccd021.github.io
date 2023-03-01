@@ -75,4 +75,31 @@ const tagToLines = (el: h._all): readonly string[] => {
   return [`<${el.type}${attributes}>`, ...children, `</${el.type}>`];
 };
 
+const tagToLinesAny = (el: h.AnyElement): readonly string[] => {
+  const attributes =
+    'attributes' in el && Object.keys(el.attributes).length > 0
+      ? pipe(
+          Object.entries(el.attributes)
+            .map(([k, v]) => (v === true ? k : `${k}="${v}"`))
+            .join(' '),
+          (x) => ` ${x}`
+        )
+      : '';
+  const children =
+    'children' in el
+      ? typeof el.children === 'string' ? [`  ${el.children}`] : Object.values(el.children)
+            .flatMap(tagToLines)
+          .map((x) => `  ${x}`)
+      : undefined;
+
+  if (children === undefined) {
+    return [`<${el.type}${attributes}>`];
+  }
+  return [`<${el.type}${attributes}>`, ...children, `</${el.type}>`];
+};
+
+
 fs.writeFileSync('output.html', tagToLines(def).join('\n'));
+
+
+fs.writeFileSync('outputAny.html', tagToLinesAny(def).join('\n'));

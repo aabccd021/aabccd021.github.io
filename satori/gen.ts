@@ -144,18 +144,24 @@ const toTs = (name: string, data: MetaData): readonly string[] => [
   '',
 ];
 
-const builder = `
-export const builder = <T extends {type: string, attributes: any, children: any[]}>(type: T['type']) => 
+const prefix = `
+export type NonVoidElement = {type: string, attributes: any, children: any[]};
+
+export type VoidElement = {type: string, attributes: any};
+
+export type AnyElement = NonVoidElement | VoidElement;
+
+
+export const builder = <T extends NonVoidElement>(type: T['type']) => 
 (attributes: T['attributes'], ...children: T['children']) => 
 ({
   type,
   attributes,
   children
 })
-`;
 
-const voidBuilder = `
-export const voidBuilder = <T extends {type: string, attributes: any}>(type: T['type']) => 
+
+export const voidBuilder = <T extends VoidElement>(type: T['type']) => 
 (attributes: T['attributes']) => 
 ({
   type,
@@ -185,9 +191,7 @@ const res: string = pipe(
   (arr) => [
     `/* eslint-disable */`,
     '',
-    builder,
-    '',
-    voidBuilder,
+    prefix,
     '',
     textEl,
     '',

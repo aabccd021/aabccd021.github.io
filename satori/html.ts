@@ -1,7 +1,14 @@
 /* eslint-disable */
 
 
-export const builder = <T extends {type: string, attributes: any, children: any[]}>(type: T['type']) => 
+export type NonVoidElement = {type: string, attributes: any, children: any[]};
+
+export type VoidElement = {type: string, attributes: any};
+
+export type AnyElement = NonVoidElement | VoidElement;
+
+
+export const builder = <T extends NonVoidElement>(type: T['type']) => 
 (attributes: T['attributes'], ...children: T['children']) => 
 ({
   type,
@@ -10,8 +17,7 @@ export const builder = <T extends {type: string, attributes: any, children: any[
 })
 
 
-
-export const voidBuilder = <T extends {type: string, attributes: any}>(type: T['type']) => 
+export const voidBuilder = <T extends VoidElement>(type: T['type']) => 
 (attributes: T['attributes']) => 
 ({
   type,
