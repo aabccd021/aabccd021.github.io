@@ -5,9 +5,8 @@ import * as fs from 'node:fs/promises';
 import {
   console,
   option,
-  readonlyArray,
-  readonlyNonEmptyArray,
-  readonlyRecord,
+  readonlyArray as array,
+  readonlyRecord as record,
   readonlyTuple,
   string,
   taskEither,
@@ -15,10 +14,10 @@ import {
 import { flow, identity, pipe } from 'fp-ts/function';
 import { match } from 'ts-pattern';
 
-import type { MetaAttribute, MetaData } from './html5';
+import type { MetaAttribute, MetaData as TagData } from './html5';
 import { globalAttributes, html } from './html5';
 
-export const attrValueStr = ({ data }: MetaAttribute): string =>
+const attrValueStr = ({ data }: MetaAttribute): string =>
   match(data)
     .with(undefined, () => 'string')
     .with({ type: 'boolean' }, () => 'true')
@@ -26,13 +25,13 @@ export const attrValueStr = ({ data }: MetaAttribute): string =>
     .with({ type: 'enum' }, (enumData) =>
       pipe(
         enumData.value,
-        readonlyNonEmptyArray.map((s) => `'${s}'`),
-        readonlyNonEmptyArray.intercalate(string.Monoid)('|')
+        array.map((s) => `'${s}'`),
+        array.intercalate(string.Monoid)('|')
       )
     )
     .exhaustive();
 
-export const typeAttrStr = ({
+const typeAttrStr = ({
   key,
   value,
   optional,
@@ -42,37 +41,35 @@ export const typeAttrStr = ({
   readonly optional?: boolean;
 }) => `    readonly '${key}' ` + `${optional === true ? '?' : ''}: ` + `${value};`;
 
-export const attrStr = (attrName: string, attr: MetaAttribute) =>
+const attrStr = (attrName: string, attr: MetaAttribute) =>
   typeAttrStr({ key: attrName, value: attrValueStr(attr), optional: attr.required !== true });
 
 const attrsStr = (attrs: Record<string, MetaAttribute>): readonly string[] =>
-  pipe(
-    attrs,
-    readonlyRecord.mapWithIndex(attrStr),
-    readonlyRecord.toReadonlyArray,
-    readonlyArray.map(readonlyTuple.snd)
-  );
+  pipe(attrs, record.mapWithIndex(attrStr), record.toReadonlyArray, array.map(readonlyTuple.snd));
 
 const normalizeCategory = string.replace('@', '_');
 
 const normalizeName = (name: string) => (name === 'object' || name === 'var' ? `${name}_` : name);
 
-const validAttributes = pipe(
+const validAttributes: Record<string, TagData> = pipe(
   html,
-  readonlyRecord.filterWithIndex((name) => !name.includes(':')),
-  readonlyRecord.toReadonlyArray,
-  readonlyArray.map(([k, v]) => [normalizeName(k), v] as const),
-  readonlyRecord.fromEntries
+  record.filterWithIndex((name) => !name.includes(':')),
+  record.toReadonlyArray,
+  array.map(([k, v]) => [normalizeName(k), v] as const),
+  record.fromEntries
 );
 
-const stringMetadata: MetaData = {
+const stringMetadata: TagData = {
   flow: true,
   phrasing: true,
 };
 
-const tagAndString = pipe(validAttributes, readonlyRecord.upsertAt('string', stringMetadata));
+const tagAndString: Record<string, TagData> = pipe(
+  validAttributes,
+  record.upsertAt('string', stringMetadata)
+);
 
-const fss: Record<string, (at: MetaData) => boolean> = {
+const fss: Record<string, (at: TagData) => boolean> = {
   _meta: (at) => at.meta === true,
   _flow: (at) => at.flow === true,
   _sectioning: (at) => at.sectioning === true,
@@ -82,68 +79,66 @@ const fss: Record<string, (at: MetaData) => boolean> = {
   _interactive: (at) => at.interactive === true,
 };
 
-const getCategoryTags = (cat: string) =>
+const getCategoryTags = (cat: string): readonly string[] =>
   cat.startsWith('@')
     ? pipe(
         fss,
-        readonlyRecord.map((fsss) =>
-          pipe(tagAndString, readonlyRecord.filter(fsss), readonlyRecord.keys)
-        ),
-        readonlyRecord.lookup(normalizeCategory(cat)),
+        record.map((fsss) => pipe(tagAndString, record.filter(fsss), record.keys)),
+        record.lookup(normalizeCategory(cat)),
         option.getOrElseW(() => [])
       )
     : [cat];
 
-const allTags = readonlyRecord.keys(tagAndString);
+const allTags = record.keys(tagAndString);
 
-const getPermittedContent = (data: MetaData): readonly string[] =>
+const getPermittedContent = (data: TagData): readonly string[] =>
   pipe(
     data.permittedContent,
     option.fromNullable,
-    option.map(readonlyArray.chain(getCategoryTags)),
+    option.map(array.chain(getCategoryTags)),
     option.getOrElseW(() => allTags)
   );
 
-const getForbiddenDescendant = (data: MetaData): readonly string[] =>
+const getForbiddenDescendant = (data: TagData): readonly string[] =>
   pipe(
     data.forbiddenDescendant,
     option.fromNullable,
-    option.map(readonlyArray.chain(getCategoryTags)),
+    option.map(array.chain(getCategoryTags)),
     option.getOrElseW(() => [])
   );
 
 const getForbiddenChildFromPermittedParent = (name: string): readonly string[] =>
   pipe(
     tagAndString,
-    readonlyRecord.filterMap((el) =>
-      pipe(el.permittedParent, option.fromNullable, option.map(readonlyArray.elem(string.Eq)(name)))
+    record.filterMap((el) =>
+      pipe(el.permittedParent, option.fromNullable, option.map(array.elem(string.Eq)(name)))
     ),
-    readonlyRecord.filter((x) => !x),
-    readonlyRecord.keys
+    record.filter((x) => !x),
+    record.keys
   );
 
-const groupByFirstCharacter = readonlyArray.chop((aa: readonly string[]) => {
+const groupByFirstCharacter = array.chop((aa: readonly string[]) => {
   const { init, rest } = pipe(
     aa,
-    readonlyArray.spanLeft((a) => a.startsWith(aa[0]?.[0] ?? ''))
+    array.spanLeft((a) => a.startsWith(aa[0]?.[0] ?? ''))
   );
   return [init, rest];
 });
 
 // TODO: category doesn't exists error
-const childrenStr = (name: string, data: MetaData): string =>
+const childrenStr = (name: string, data: TagData): string =>
   pipe(
     getPermittedContent(data),
-    readonlyArray.difference(string.Eq)(getForbiddenDescendant(data)),
-    readonlyArray.difference(string.Eq)(getForbiddenChildFromPermittedParent(name)),
-    readonlyArray.uniq(string.Eq),
+    array.difference(string.Eq)(getForbiddenDescendant(data)),
+    array.difference(string.Eq)(getForbiddenChildFromPermittedParent(name)),
+    array.uniq(string.Eq),
     groupByFirstCharacter,
-    readonlyArray.map(readonlyArray.intercalate(string.Monoid)(' | ')),
-    readonlyArray.map((x) => `    ${x}`),
-    readonlyArray.intercalate(string.Monoid)(' |\n')
+    array.map(array.intercalate(string.Monoid)(' | ')),
+    array.map((x) => `    ${x}`),
+    array.intercalate(string.Monoid)(' |\n')
   );
 
-const toTs = (name: string, data: MetaData): readonly string[] => [
+const tagToTypeString = (name: string, data: TagData): readonly string[] => [
   `export type ${name} = {`,
   `  readonly tag: '${name}';`,
   `  readonly attributes: globalAttributes & {`,
@@ -157,13 +152,13 @@ const toTs = (name: string, data: MetaData): readonly string[] => [
 ];
 
 const prefix = `
-type NonVoidElement = {
+export type NonVoidElement = {
   readonly tag: string, 
   readonly attributes: any, 
   readonly children: any[]
 };
 
-type VoidElement = {
+export type VoidElement = {
   readonly tag: string, 
   readonly attributes: any
 };
@@ -178,17 +173,13 @@ export const voidBuilder = <T extends VoidElement>(tag: T['tag']) =>
 ({ tag, attributes, })
 `;
 
-const allTypeStr = pipe(
-  tagAndString,
-  readonlyRecord.keys,
-  readonlyArray.intercalate(string.Monoid)('|')
-);
+const allTypeUnionString = pipe(tagAndString, record.keys, array.intercalate(string.Monoid)('|'));
 
 const res: string = pipe(
   validAttributes,
-  readonlyRecord.mapWithIndex((name, data) => toTs(normalizeName(name), data)),
-  readonlyRecord.toReadonlyArray,
-  readonlyArray.chain(readonlyTuple.snd),
+  record.mapWithIndex((name, data) => tagToTypeString(normalizeName(name), data)),
+  record.toReadonlyArray,
+  array.chain(readonlyTuple.snd),
   (arr) => [
     `/* eslint-disable */`,
     '',
@@ -200,9 +191,9 @@ const res: string = pipe(
     '',
     ...arr,
     '',
-    `export type All = ${allTypeStr};`,
+    `export type All = ${allTypeUnionString};`,
   ],
-  readonlyArray.intercalate(string.Monoid)('\n')
+  array.intercalate(string.Monoid)('\n')
 );
 
 const write = (content: string) =>
