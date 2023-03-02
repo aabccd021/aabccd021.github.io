@@ -3,12 +3,13 @@
 /* eslint-disable functional/no-expression-statement */
 /* eslint-disable functional/no-conditional-statement */
 /* eslint-disable import/no-nodejs-modules */
-import * as fs from 'node:fs';
+import * as fs from 'node:fs/promises';
 
 import { option } from 'fp-ts';
 import { pipe } from 'fp-ts/function';
 import type { Option } from 'fp-ts/Option';
 
+import { generate } from './generate';
 import * as h from './html';
 
 const def = h.html(
@@ -23,16 +24,15 @@ const def = h.html(
     {},
     h.header(
       {},
-      h.div({ class: 'title' }, h.p({}, 'aabccd021 blog')),
+      h.div({ class: 'flex' }, h.p({}, 'aabccd021 blog')),
       h.nav(
         {},
-        h.a({ href: '/', class: 'nav-item' }, 'Home'),
-        h.a({ href: '/tags/', class: 'nav-item' }, 'Tags'),
-        h.a({ href: '/about/', class: 'nav-item' }, 'About Me'),
+        h.a({ href: '/' }, 'Home'),
+        h.a({ href: '/tags/' }, 'Tags'),
+        h.a({ href: '/about/' }, 'About Me'),
         h.a(
           {
             href: '/feed/feed.xml',
-            class: 'nav-item',
             rel: 'alternate',
             type: 'application/atom+xml',
           },
@@ -43,16 +43,29 @@ const def = h.html(
     h.main(
       { id: 'main' },
       h.h1({}, 'Create new GitHub repository from CLI with gh command'),
-      h.ul({ class: 'post-metadata' }, h.li({}, 'Posted on', h.time({}, '05 February 2023')))
+      h.ul({}, h.li({}, 'Posted on', h.time({}, '05 February 2023')))
     )
   )
 );
 
-const makeAttributesString = (element: Exclude<h.All, string>): Option<string> => {
-  if (!('attributes' in element)) {
-    return option.none;
+const elementToReactNode = (element: h.All): React.ReactNode => {
+  if (typeof element === 'string') {
+    return element;
   }
+  const childrenElement = 'children' in element ? element.children : [];
+  const children = childrenElement.map(elementToReactNode);
+  return {
+    key: '',
+    type: element.tag,
+    props: {
+      ...element.attributes,
+      tw: element.attributes.class,
+      children,
+    },
+  };
+};
 
+const makeAttributesString = (element: Exclude<h.All, string>): Option<string> => {
   const attributesEntries = Object.entries(element.attributes);
 
   if (attributesEntries.length <= 0) {
@@ -92,4 +105,9 @@ const makeElementString = (element: h.All): readonly string[] => {
   return [openTag, ...children, closeTag];
 };
 
-fs.writeFileSync('output.html', makeElementString(def).join('\n'));
+const main = async () => {
+  await fs.writeFile('output.html', makeElementString(def).join('\n'));
+  await generate({ element: elementToReactNode(def), filename: 'output' });
+};
+
+void main();
