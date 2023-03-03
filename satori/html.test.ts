@@ -48,6 +48,11 @@ const def = h.html(
   )
 );
 
+const def2 = h.div(
+  { class: 'h-full w-full flex bg-[#282828]' },
+  h.pre({ class: 'm-auto text-[#d4be98] text-[140px]' }, '❯ gh repo create')
+);
+
 const elementToReactNode = (element: h.All): React.ReactNode => {
   if (typeof element === 'string') {
     return element;
@@ -107,7 +112,7 @@ const makeElementString = (element: h.All): readonly string[] => {
 
 const main = async () => {
   await fs.writeFile('output.html', makeElementString(def).join('\n'));
-  await generate({ element: elementToReactNode(def), filename: 'output' });
+  await generate({ element: elementToReactNode(def2), filename: 'output' });
 };
 
 void main();
