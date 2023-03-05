@@ -1,13 +1,21 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "baseUrl": ".",
+    "checkJs": true,
+    "downlevelIteration": true,
     "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
     "isolatedModules": true,
-    "lib": [
-      "esnext"
-    ],
-    "skipLibCheck": true,
-    "module": "commonjs",
+    "lib": [ "esnext" ],
+    "module": "esnext",
+    "moduleResolution": "nodenext",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -15,11 +23,12 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
   },
   "include": [
-    "./**/*.ts"
+    "./satori/temp.ts"
   ],
   "exclude": [
     "./**/node_modules"
