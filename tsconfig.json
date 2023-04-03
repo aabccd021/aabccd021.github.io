@@ -6,22 +6,22 @@
     "lib": [
       "esnext"
     ],
-    "module": "commonjs",
     "skipLibCheck": true,
+    "module": "commonjs",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
     "target": "esnext"
   },
   "include": [
-    "./**/*.tsx",
     "./**/*.ts"
   ],
-  "ts-node": {
-    "transpileOnly": true
-  }
+  "exclude": [
+    "./**/node_modules"
+  ]
 }
